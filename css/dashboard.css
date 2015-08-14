@@ -1,3 +1,5 @@
+/*Content*/
+/*Top Account*/
 .topAcount{
 	background-color: #ffffff;
 	height: auto;
@@ -16,6 +18,52 @@
 .topUserName{
 	display:inline-block;
 }
+/*Middle Content for Mentors and Interns*/
+.mentorList{
+	float:left;
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-top: 110px;
+	width: 38%;
+	display:inline-block;
+}
+.internList{
+	float:left;
+	margin-right: 20px;
+	margin-top: 110px;
+	width: 37%;
+	display:inline-block;
+}
+.existingMentor{
+	margin-top: 30px;
+	background-color: #ffffff;
+	border: 1px solid #d2d9d6;
+}
+.existingIntern{
+	margin-top: 30px;
+	background-color: #ffffff;
+	border: 1px solid #d2d9d6;
+}
+.alignment{
+	display: inline-block;
+}
+.buttonAlignment{
+	display: inline-block;
+	float: right;
+}
+/*Headings*/
+h2{
+	color: #323232;
+}
+h3{
+	color: #2b2b2b;
+}
+h4{
+	color: #8a8a8a;
+}
+h5{
+	color: #7e7e7e;
+}
 	/*Icons*/
 .iconSmallProfileUser{
 	width: 25px;
@@ -33,6 +81,46 @@
 	margin-right: 10px;
 	margin-left: 10px;
 	vertical-align: -webkit-baseline-middle;
+}
+.iconPlusButton{
+	width: 14px;
+	height: 14px;
+	background-position: -611px -10px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.iconDelete{
+	width: 14px;
+	height: 14px;
+	background-position: -277px -10px;
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+/*Button*/
+.buttonIntern{
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	background-color: #ffffff;
+	color: #444444;
+	font-size: 12px;
+	text-transform: uppercase;
+	height: 40px;
+	width: 130px;
+}
+.buttonMentor{
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	background-color: #ffffff;
+	color: #444444;
+	font-size: 12px;
+	text-transform: uppercase;
+	height: 40px;
+	width: 130px;
 }
 	/*HoverLog*/
 a.hoverLogin span {
