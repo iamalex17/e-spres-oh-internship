@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 02:57 PM
+-- Generation Time: Aug 14, 2015 at 03:10 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`) VALUES
-(1, 'Ungureanu', 'Alex', '', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, 1),
-(2, 'Csiki', 'Andrei', '', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, 1),
-(3, 'Pfeiffer', 'Andrei', '', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, 1),
-(4, 'Sitov', 'Cristian', '', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, 1),
-(5, 'admin', 'admin', '', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1);
+(1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(2, 'Ungureanu', 'Alex', 'alexu', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, 1),
+(3, 'Csiki', 'Andrei', 'andreic', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, 1),
+(4, 'Pfeiffer', 'Andrei', 'andreip', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, 1),
+(5, 'Sitov', 'Cristian', 'cristis', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, 1);
 
 --
 -- Indexes for dumped tables
