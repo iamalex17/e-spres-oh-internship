@@ -11,8 +11,9 @@ try {
 		$sth->bindValue(':password', $password);
 		$sth->execute();
 		$result = $sth->fetchAll();
-		if(count($result)==1){//Sendgrid test
-			require 'Sendgrid/Autoloader.php';
+		if(count($result)==1){
+		//Sendgrid test
+/*			require 'Sendgrid/Autoloader.php';
 			$sendgrid_username = "internship-espresoh";
 			$sendgrid_password = "internship-project1";
 			$to = "andrei.g.csiki@gmail.com";
@@ -29,8 +30,9 @@ try {
 			addHeader('X-Transport', 'web');
 			$response = $sendgrid->send($email);
 			var_dump($response);
-//			header('Location: dashboard.php');
-//			exit();
+			*/
+			header('Location: dashboard.php');
+			exit();
 		}
 	}
 	$template = loadTemplate('templates','login.tmpl');
