@@ -64,6 +64,7 @@ button{
 	/*Container*/
 .side-navigation{
 	width:20%;
+	float:left;
 	height: 1024px;
 	background-color: #212121;
 	color: #ffffff;

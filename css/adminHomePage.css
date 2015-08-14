@@ -1,7 +1,9 @@
 .topAcount{
 	background-color: #ffffff;
 	height: 50px;
-	border-bottom: 1px solid #eeeeee; 
+	border-bottom: 1px solid #eeeeee;
+	float:left;
+	width:80%;
 }
 .topAccountSection{
 	float:right;
@@ -10,7 +12,7 @@
 	padding-top: 10px;
 	padding-bottom:10px;
 	border-left: 1px solid #eeeeee;
-	width: 10%;
+	width: 15%;
 }
 .topUserName{
 	display:inline-block;
@@ -49,10 +51,10 @@ a.hoverLogin:hover span {
 	background-color: #ffffff;
 	color: black;
 	text-align: left;
-	width:8%;
+	width:10%;
 	height: 3%;
 	font-size: 14px;
 	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */ 
 	top: 0%;
-	left: 90%;
+	left: 88%;
 }
