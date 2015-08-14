@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 12:10 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: 14 Aug 2015 la 12:56
+-- Versiune server: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `internship`
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structura de tabel pentru tabelul `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `privileges` int(1) unsigned NOT NULL,
+  `user_privilege` int(1) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_privileges`
+-- Structura de tabel pentru tabelul `users_privileges`
 --
 
 CREATE TABLE IF NOT EXISTS `users_privileges` (
@@ -55,7 +55,10 @@ CREATE TABLE IF NOT EXISTS `users_privileges` (
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD KEY `email` (`email`), ADD KEY `password` (`password`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`),
+  ADD KEY `password` (`password`),
+  ADD KEY `user_privilege_FK` (`user_privilege`);
 
 --
 -- Indexes for table `users_privileges`
@@ -72,6 +75,16 @@ ALTER TABLE `users_privileges`
 --
 ALTER TABLE `users`
   MODIFY `id` int(3) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- Restrictii pentru tabele sterse
+--
+
+--
+-- Restrictii pentru tabele `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `user_privilege_FK` FOREIGN KEY (`user_privilege`) REFERENCES `users_privileges` (`privilege_no`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
