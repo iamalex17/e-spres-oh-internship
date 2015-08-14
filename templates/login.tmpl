@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		
+		<!--Styles-->
+		<link rel="stylesheet"  href="css/default.css" />
+		<link rel="stylesheet"  href="css/signIn.css" />
+		<!--Scripts-->
+		
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<!--Templates-->
+		<meta charset="UTF-8">
+		
+	</head>
+	
+	<body>
+		
+			
+			<!--SingIn-->
+			<div class="signIn">
+				<h1 class="mainHeader">Sign In</h1>
+				<form>
+					<input type="text" name="username" class="input usernameInput" placeholder="Username">
+					<input type="text" name="password" class="input passwordInput" placeholder="Password">
+				</form>
+				<button class="buttonSignIn noPadding noBorder"> Login <i class="iconParent iconLock"></i> </button>
+				<a href="" class="recoverRequest">Recover Password</a>
+			</div>
+		
+			<!--Footer-->
+			<div class="footer">
+				{% include 'footer.tmpl' %}
+			</div>
+		
+	</body>
+	
+</html>
