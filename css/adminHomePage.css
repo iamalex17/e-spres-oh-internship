@@ -13,21 +13,19 @@
 }
 .topUserName{
 	display:inline-block;
-	margin: 0;
-	padding: 0;
 }
 	/*Icons*/
 .iconSmallProfileUser{
-	width: 50px;
-	height: 50px;
-	background-position: -115px -5px;
+	width: 25px;
+	height: 25px;
+	background-position: -130px -10px;;
 	display: inline-block;
-	margin-top: -10px;
+	margin-left: 10px;
 }
 .iconDownArrow{
 	width: 14px;
 	height: 14px;
-	background-position: -271px -5px;
+	background-position: -311px -10px;
 	display: inline-block;
 	margin-right: 10px;
 }

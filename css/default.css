@@ -35,6 +35,7 @@ li {
 button{
 	margin:0;
 	padding:0;
+	border:0;
 }
 	/*Main Icon*/
 .iconParent{
@@ -98,7 +99,7 @@ button{
 .iconProfileUser{
 	width: 100px;
 	height: 100px;
-	background-position: -5px -5px;
+	background-position: -10px -10px;
 	display: inline-block;
 	margin: 0;
 }
@@ -112,21 +113,21 @@ button{
 .iconDashboard:hover{
 	width: 14px;
 	height: 14px;
-	background-position: -223px -5px;
+	background-position:  -243px -10px;
 	display: inline-block;
 	margin-right: 10px;
 }
 .iconPlus{
 	width: 14px;
 	height: 14px;
-	background-position: -487px -5px;
+	background-position: -611px -10px;
 	display: inline-block;
 	margin-right: 10px;
 }
 .iconPlus:hover{
 	width: 14px;
 	height: 14px;
-	background-position: -511px -5px;
+	background-position: -645px -10px;
 	display: inline-block;
 	margin-right: 10px;
 }
