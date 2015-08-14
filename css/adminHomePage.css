@@ -1,6 +1,6 @@
 .topAcount{
 	background-color: #ffffff;
-	height: 50px;
+	height: auto;
 	border-bottom: 1px solid #eeeeee;
 	float:left;
 	width:80%;
@@ -9,10 +9,9 @@
 	float:right;
 	height: auto;
 	text-align: center;
-	padding-top: 10px;
-	padding-bottom:10px;
+	padding: 10px;
 	border-left: 1px solid #eeeeee;
-	width: 15%;
+	width: 11%;
 }
 .topUserName{
 	display:inline-block;
@@ -24,6 +23,7 @@
 	background-position: -130px -10px;;
 	display: inline-block;
 	margin-right: 10px;
+	vertical-align: middle;
 }
 .iconDownArrow{
 	width: 14px;
@@ -32,6 +32,7 @@
 	display: inline-block;
 	margin-right: 10px;
 	margin-left: 10px;
+	vertical-align: -webkit-baseline-middle;
 }
 	/*HoverLog*/
 a.hoverLogin span {
@@ -57,4 +58,9 @@ a.hoverLogin:hover span {
 	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */ 
 	top: 0%;
 	left: 88%;
+}
+
+.logout:hover {
+	background-color: #f5f7f7;
+	color: #42a5f5;
 }
