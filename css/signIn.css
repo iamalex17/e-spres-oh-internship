@@ -1,0 +1,60 @@
+/*Icons*/
+.iconLock {
+    width: 14px;
+    height: 14px;
+    background-position: -415px -5px;
+    display: inline-block;
+}
+/*Button*/
+.buttonSignIn{
+    width: 100px;
+    height: 40px;
+    background-color: #06a8d7;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: block;
+}
+/*Container*/
+.signIn{
+    width: 20%;
+    margin:10% auto;
+    background-color: #ffffff;
+    border: 1px solid #d2d9d6;
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+    -webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+    -moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+    box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+}
+.mainHeader{
+    font-size: 32px;
+}
+/*Input Design*/
+.input{
+    text-align: center;
+    border: transparent;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 80%;
+    border-bottom: 1px solid #d2d9d6;
+}
+input[type="text"]
+{
+    font-size:20px;
+}
+::-webkit-input-placeholder {
+    color: black;
+    font-size: 16px;
+}
+.recoverRequest{
+    color: #06a8d7;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 700;
+}
