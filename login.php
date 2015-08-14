@@ -1,9 +1,5 @@
 <?php
-	require 'config.php';
-
-// include and register Twig auto-loader
-include 'Twig/Autoloader.php';
-Twig_Autoloader::register();
+require 'config.php';
 
 try {
 	$view = new LoadTemplate('templates', 'login.tmpl');
@@ -13,7 +9,6 @@ try {
 
 try {
 	$username = '';
-
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -22,14 +17,13 @@ try {
 		$sth->bindValue(':password', $password);
 		$sth->execute();
 		$result = $sth->fetchAll();
-
+		print_r($result);
 		if(count($result)==1){
 			header('Location: dashboard.php');
 			exit();
 		}
 	}
 	echo $view->template->render(array('username'=>$username));
-	
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }

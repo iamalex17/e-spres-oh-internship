@@ -1,4 +1,6 @@
 <?php
+include 'Twig/Autoloader.php';
+Twig_Autoloader::register();
 
 class ConnectDB
 {
