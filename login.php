@@ -24,7 +24,7 @@ try {
 		$result = $sth->fetchAll();
 
 		if(count($result)==1){
-			header('Location: dashboard');
+			header('Location: dashboard.php');
 			exit();
 		}
 	}
