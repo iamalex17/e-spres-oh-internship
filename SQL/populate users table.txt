@@ -1,6 +1,6 @@
 INSERT INTO `internship`.`users` (`first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`) 
 VALUES ('admin', 'admin', 'admin', 'admin@admin.com', MD5('admin'), 1, 1),
-('Ungureanu', 'Alex' , 'alexu', 'ungureanualex17@yahoo.com', MD5('intern'), 3, 1),
-('Csiki', 'Andrei', 'andreic', 'andrei.g.csiki@gmail.com', MD5('intern'), 3, 1),
-('Pfeiffer', 'Andrei', 'andreip', 'andrei.pfeiffer@e-spres-oh.com', MD5('mentor'), 2, 1),
-('Sitov', 'Cristian', 'cristis', 'cristian.sitov@e-spres-oh.com', MD5('mentor'), 2, 1)
+('Ungureanu', 'Alex' , 'ualex', 'ungureanualex17@yahoo.com', MD5('intern'), 3, 1),
+('Csiki', 'Andrei', 'candrei', 'andrei.g.csiki@gmail.com', MD5('intern'), 3, 1),
+('Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', MD5('mentor'), 2, 1),
+('Sitov', 'Cristian', 'scristi', 'cristian.sitov@e-spres-oh.com', MD5('mentor'), 2, 1)
