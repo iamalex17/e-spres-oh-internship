@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <!--Styles-->
-        <link rel="stylesheet" type="text/css" href="../Styles/adminHomePage.css" />
-        <link rel="stylesheet" type="text/css" href="../Styles/default.css" />
-        <!--Scripts-->
-        
-        <!--Fonts-->
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <!--Templates-->
-        <meta charset="UTF-8">
-    </head>
-    
-    <body>
-        
-        <!--Sidebar
-        <div class="sidebar">
-            {% include 'sidebar.tmpl' %}
-        </div>-->
-        
-        <div class="topAcount">
-            <div class="topAccountSection"> <i class="iconParent iconSmallProfileUser"></i> Admin <i class="iconParent iconDownArrow"></i> </div>
-        </div>
-        
-        <!--Footer-->
-        <div class="footer">
-            {% include 'footer.tmpl' %}
-        </div>
-    </body>
-    
+
+<head>
+	<!--Styles-->
+	<link rel="stylesheet" href="../css/adminHomePage.css" />
+	<link rel="stylesheet" href="../css/default.css" />
+	<!--Scripts-->
+
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!--Templates-->
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<!--Sidebar
+	<div class="sidebar">
+		{% include 'sidebar.tmpl' %}
+	</div>-->
+
+	<div class="topAcount">
+
+		<div class="topAccountSection">
+			<i class="iconParent iconSmallProfileUser"></i>
+			<a href="#" class="hoverLogin">
+				Admin
+				<i class="iconParent iconDownArrow"></i> 
+				<span>Log Out</span>
+			</a>
+		</div>
+
+	</div>
+
+	<!--Footer-->
+	<div class="footer">
+		{% include 'footer.tmpl' %}
+	</div>
+</body>
+
 </html>
