@@ -59,8 +59,3 @@ a.hoverLogin:hover span {
 	top: 0%;
 	left: 88%;
 }
-
-.logout:hover {
-	background-color: #f5f7f7;
-	color: #42a5f5;
-}
