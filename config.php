@@ -4,7 +4,6 @@
 	$db = 'internship';
 	$user = 'root';
 	$pass = '';
-	
 	try {
 		$dbh = connectDB($host, $db, $user, $pass);
 	} catch (PDOException $e) {
