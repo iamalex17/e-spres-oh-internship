@@ -1,11 +1,11 @@
-	/*Icons*/
+/*Icons*/
 .iconLock {
 	width: 14px;
 	height: 14px;
 	background-position: -509px -10px;
 	display: inline-block;
 }
-	/*Button*/
+/*Button*/
 .buttonSignIn{
 	width: 37%;
 	height: auto;
@@ -19,8 +19,9 @@
 	border-radius: 2px;
 	text-transform: uppercase;
 	display: block;
+	cursor:pointer
 }
-	/*Container*/
+/*Container*/
 .signIn{
 	width: 20%;
 	margin:10% auto;
@@ -34,27 +35,126 @@
 }
 .mainHeader{
 	font-size: 32px;
+	margin-bottom: 20px;
 }
 /*Input Design*/
-.input{
-	text-align: center;
-	border: transparent;
-	margin: 0 auto;
-	padding: 13px 0 10px 0;
-	margin-top: 10px;
-	width: 80%;
-	border-bottom: 1px solid #d2d9d6;
-}
-input[type="text"],input[type="password"],input[type="email"]{
-	font-size:20px;
-}
-::-webkit-input-placeholder {
-	color: black;
-	font-size: 16px;
-}
 .recoverRequest{
 	color: #06a8d7;
 	font-size: 13px;
 	text-decoration: none;
 	font-weight: 700;
+}
+/*Input and Form*/
+
+
+*:focus{
+	outline: 0;
+	outline-offset: 0;
+}
+
+.formInput {
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #efefef;
+	position: relative;
+	box-shadow: none;
+	padding: 16px 0 0;
+	height: 30px;
+	margin-bottom: 10px;
+}
+.formInput label {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	-webkit-transition: all 0.2s ease;
+			transition: all 0.2s ease;
+	font-size: 1.23rem;
+	font-weight: normal;
+	height: 48px;
+	line-height: 48px;
+	margin: 0;
+	display: block;
+}
+.formInput:not(.static) label {
+	pointer-events: none;
+}
+.formInput .formControl {
+	font-size: 1.23rem;
+	border: none;
+	line-height: 16px;
+	background-color: transparent;
+	padding: 3px 0 13px;
+	box-shadow: none;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: auto;
+}
+.formInput .formControl::-moz-placeholder {
+	color: transparent;
+	opacity: 1;
+}
+.formInput .formControl:-ms-input-placeholder {
+	color: transparent;
+}
+.formInput .formControl::-webkit-input-placeholder {
+	color: transparent;
+}
+.formInput .ma-form-bar:before,
+.formInput .ma-form-bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: -1px;
+	position: absolute;
+	background: #42a5f5;
+	-webkit-transition: all 0.2s ease;
+			transition: all 0.2s ease;
+}
+.formInput .ma-form-bar:before {
+	left: 50%;
+}
+.formInput .ma-form-bar:after {
+	right: 50%;
+}
+.formInput .formControl:focus::-moz-placeholder,
+.formInput.static .formControl::-moz-placeholder {
+	color: #cccccc;
+	opacity: 1;
+	font-size: 16px;
+}
+.formInput .formControl:focus:-ms-input-placeholder,
+.formInput.static .formControl:-ms-input-placeholder {
+	color: #cccccc;
+	font-size: 16px;
+}
+.formInput .formControl:focus::-webkit-input-placeholder,
+.formInput.static .formControl::-webkit-input-placeholder {
+	color: #cccccc;
+	font-size: 16px;
+}
+.formInput.static .formControl ~ label {
+	font-size: 1rem;
+	top: -18px;
+	cursor: pointer;
+}
+.formInput .formControl:focus ~ label,
+.formInput .formControl.used ~ label {
+	color: #42a5f5;
+	font-size: 1rem;
+	top: -18px;
+}
+.formInput .formControl:focus ~ .ma-form-bar:before,
+.formInput .formControl:focus ~ .ma-form-bar:after {
+	width: 50%;
+	top: 95%;
+}
+.formInput .input-group {
+	position: initial;
+	width: 100%;
+}
+.formInput .input-group label {
+	left: 36px;
 }

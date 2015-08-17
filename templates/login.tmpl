@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html>
-	
-	<head>
-		
-		<!--Styles-->
-		<link rel="stylesheet"  href="css/default.css" />
-		<link rel="stylesheet"  href="css/signIn.css" />
-		<!--Scripts-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="js/signin.js"></script>
-		
-		<!--Fonts-->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		<!--Templates-->
-		<meta charset="UTF-8">
-		
-	</head>
-	
-	<body>
-		
-			
-			<!--SingIn-->
-			<div class="signIn">
-				<h1 class="mainHeader">Sign In</h1>
-				<form method="POST" action="login.php">
-					<input type="text" name="username" class="input usernameInput" placeholder="Username" value="{{ username }}">
-					<input type="password" name="password" class="input passwordInput" placeholder="Password">
-				<button class="buttonSignIn noPadding noBorder"> Login <i class="iconParent iconLock"></i> </button>
-				<a href="" id ="recoverPassword"class="recoverRequest">Recover Password</a>
-				</form>
+
+<head>
+
+	<!--Styles-->
+	<link rel="stylesheet"  href="../css/default.css" />
+	<link rel="stylesheet"  href="../css/signIn.css" />
+	<!--Scripts-->
+
+	<!--Templates-->
+	<meta charset="UTF-8">
+
+</head>
+
+<body>
+
+
+	<!--SingIn-->
+
+	<div class="signIn">
+		<h1 class="mainHeader">Sign In</h1>
+
+		<form method="POST" action="login.php">
+			<div class="formInput">
+				<input class="formControl" id="username" type="text" placeholder="Username">
+				<span class="ma-form-bar"></span>
+				<label for="username">Username</label>
 			</div>
-		
-			<!--Footer-->
-			<div class="footer">
-				{% include 'footer.tmpl' %}
+			<div class="formInput">
+				<input class="formControl" id="password" type="password" placeholder="Enter Password">
+				<span class="ma-form-bar"></span>
+				<label for="password">Password</label>
 			</div>
-		
-	</body>
-	
+				<button id="buttonSignin" class="buttonSignIn"> Login <i class="iconParent iconLock"></i> </button>
+				<a href="" class="recoverRequest">Recover Password</a>
+			</form>
+
+	</div>
+
+		<!--Footer-->
+		<div class="footer">
+			{% include 'footer.tmpl' %}
+		</div>
+
+</body>
+
 </html>
