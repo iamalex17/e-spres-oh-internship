@@ -1,19 +1,19 @@
 <?php 
-	function generateRandomString($email) {
+	function generateRandomString($dbh, $email) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
 		$randomString = '';
 		for ($i = 0; $i < 64; $i++) {
 			$randomString .= $characters[rand(0, $charactersLength - 1)];
 		}
-		if(!link_exists($randomString)){
-			generateRandomString();
+		if(link_exists($dbh, $randomString)){
+			generateRandomString($dbh, $email);
 		}else{
-			insert_link($randomString, $email);
+			insert_link($dbh, $randomString, $email);
 		}
 	}
 
-	function link_exists($string){
+	function link_exists($dbh, $string){
 		$sth = $dbh->prepare('SELECT reset_password FROM `users` WHERE reset_password = :string');
 		$sth->bindValue(':string', $string);
 		$sth->execute();
@@ -25,11 +25,12 @@
 		}
 	}
 
-	function insert_link($string, $email){
+	function insert_link($dbh, $string, $email){
 		$sth = $dbh->prepare('UPDATE `users` SET reset_password = :string WHERE email = :email');
 		$sth->bindValue(':string', $string);
 		$sth->bindValue(':email', $email);
 		$sth->execute();
+		send_link($string, $email);
 	}
 
 	function send_link($string, $email){
@@ -53,6 +54,7 @@
 		addHeader('X-Transport', 'web');
 		$response = $sendgrid->send($email);
 		var_dump($response);
+		exit();
 	}
 
 	function get_current_url($strip = true) {
