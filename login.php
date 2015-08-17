@@ -3,6 +3,7 @@ require_once 'config.php';
 require_once 'functions/load_template.php';
 session_start();
 session_regenerate_id();
+$errorLogin = '';
 try {
 	$username = '';
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -16,10 +17,12 @@ try {
 		if(count($result)==1){
 			header('Location: dashboard.php');
 			exit();
-		}
+		} else {
+		$errorLogin = 'Username or password incorrect. Please, try again.';
+	}
 	}
 	$template = loadTemplate('templates','login.tmpl');
-	echo $template->render(array('username'=>$username));
+	echo $template->render(array('username' => $username, 'errorLogin' => $errorLogin));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
