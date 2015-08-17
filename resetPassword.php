@@ -1,6 +1,7 @@
 <?php
 require 'config.php';
 require 'functions/load_template.php';
+$errorMessage = '';
 try {
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if($_POST['password'] == $_POST['newPassword']) {
@@ -14,16 +15,11 @@ try {
 			header('Location: login.php');
 			exit();
 		} else {
-			echo $errorMessage = 'Passwords do not match. Check again!';
-			/*try {
-				
-			} catch (Exception $e) {
-				die ('ERROR: ' . $e->getMessage());
+			$errorMessage = 'Passwords do not match. Check again!';
 			}
-			   }*/
 	}
 	$template = loadTemplate('templates','resetPassword.tmpl');
-	echo $template->render(array());
+	echo $template->render(array('errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
