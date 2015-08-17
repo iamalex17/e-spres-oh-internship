@@ -1,7 +1,8 @@
 <?php
 require_once 'config.php';
 require_once 'functions/load_template.php';
-
+session_start();
+session_regenerate_id();
 try {
 	$username = '';
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
