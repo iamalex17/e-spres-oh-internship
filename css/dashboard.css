@@ -97,6 +97,9 @@
 	margin-top: 10px;
 	margin-right: 10px;
 }
+.iconDelete:hover{
+	background-color: #efefef;
+}
 /*Button*/
 .buttonIntern{
 	border: 1px solid #d2d9d6;
@@ -121,6 +124,12 @@
 	text-transform: uppercase;
 	height: 40px;
 	width: 130px;
+}
+.buttonIntern:hover{
+	background-color: #efefef;
+}
+.buttonMentor:hover{
+	background-color: #efefef;
 }
 	/*HoverLog*/
 a.hoverLogin span {
