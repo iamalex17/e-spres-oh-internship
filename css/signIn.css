@@ -102,8 +102,8 @@
 .formInput .formControl::-webkit-input-placeholder {
 	color: transparent;
 }
-.formInput .ma-form-bar:before,
-.formInput .ma-form-bar:after {
+.formInput .formBar:before,
+.formInput .formBar:after {
 	content: '';
 	height: 2px;
 	width: 0;
@@ -113,10 +113,10 @@
 	-webkit-transition: all 0.2s ease;
 			transition: all 0.2s ease;
 }
-.formInput .ma-form-bar:before {
+.formInput .formBar:before {
 	left: 50%;
 }
-.formInput .ma-form-bar:after {
+.formInput .formBar:after {
 	right: 50%;
 }
 .formInput .formControl:focus::-moz-placeholder,
@@ -146,8 +146,8 @@
 	font-size: 1rem;
 	top: -18px;
 }
-.formInput .formControl:focus ~ .ma-form-bar:before,
-.formInput .formControl:focus ~ .ma-form-bar:after {
+.formInput .formControl:focus ~ .formBar:before,
+.formInput .formControl:focus ~ .formBar:after {
 	width: 50%;
 	top: 95%;
 }
