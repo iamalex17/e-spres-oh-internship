@@ -1,5 +1,5 @@
 @font-face{
-	font-family: 'Roboto';
+	font-family: 'Roboto', 'Sans-serif';
 	src: url('../fonts/Roboto/Roboto.ttf')  format('truetype');
 }
 @font-face{
@@ -9,7 +9,7 @@
 }
 body{
 	background-color: #f5f5f5;
-	font-family: 'Roboto-Bold';
+	font-family: 'Roboto';
 	margin: 0 auto;
 }
 	h1, h2, h3, h4, h5, h5, ul, ol, p, section, article, nav, aside {
