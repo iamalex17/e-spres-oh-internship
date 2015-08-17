@@ -3,11 +3,16 @@ require 'config.php';
 require 'functions/load_template.php';
 $errorMessage = '';
 try {
+	$link = '';
+	$errorMessage = '';
+	if($_SERVER['REQUEST_METHOD'] == 'GET'){
+		$link = $_GET["link"];
+	}
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if($_POST['newPassword'] == $_POST['retypeNewPassword']) {
 			$newPassword = $_POST['retypeNewPassword'];
-			$resetPassword = 'abc';
-			$sth = $dbh->prepare('UPDATE `users` SET password = :retypeNewPassword WHERE reset_password = :resetPassword');
+			$resetPassword = $_POST['link'];
+			$sth = $dbh->prepare('UPDATE `users` SET password = MD5(:retypeNewPassword) WHERE reset_password = :resetPassword');
 			$sth->bindValue(':retypeNewPassword', $newPassword);
 			$sth->bindValue(':resetPassword', $resetPassword);
 			$sth->execute();
@@ -19,7 +24,7 @@ try {
 			}
 	}
 	$template = loadTemplate('templates','resetPassword.tmpl');
-	echo $template->render(array('errorMessage' => $errorMessage));
+	echo $template->render(array('link' => $link, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
