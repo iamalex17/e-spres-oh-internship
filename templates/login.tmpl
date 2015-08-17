@@ -7,6 +7,8 @@
 		<link rel="stylesheet"  href="css/default.css" />
 		<link rel="stylesheet"  href="css/signIn.css" />
 		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/signin.js"></script>
 		
 		<!--Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -25,7 +27,7 @@
 					<input type="text" name="username" class="input usernameInput" placeholder="Username" value="{{ username }}">
 					<input type="password" name="password" class="input passwordInput" placeholder="Password">
 				<button class="buttonSignIn noPadding noBorder"> Login <i class="iconParent iconLock"></i> </button>
-				<a href="" class="recoverRequest">Recover Password</a>
+				<a href="" id ="recoverPassword"class="recoverRequest">Recover Password</a>
 				</form>
 			</div>
 		
