@@ -4,11 +4,11 @@ require 'functions/load_template.php';
 $errorMessage = '';
 try {
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
-		if($_POST['password'] == $_POST['newPassword']) {
-			$newPassword = $_POST['newPassword'];
+		if($_POST['newPassword'] == $_POST['retypeNewPassword']) {
+			$newPassword = $_POST['retypeNewPassword'];
 			$resetPassword = 'abc';
-			$sth = $dbh->prepare('UPDATE `users` SET password = :newPassword WHERE reset_password = :resetPassword');
-			$sth->bindValue(':newPassword', $newPassword);
+			$sth = $dbh->prepare('UPDATE `users` SET password = :retypeNewPassword WHERE reset_password = :resetPassword');
+			$sth->bindValue(':retypeNewPassword', $newPassword);
 			$sth->bindValue(':resetPassword', $resetPassword);
 			$sth->execute();
 			$result = $sth->fetchAll();
