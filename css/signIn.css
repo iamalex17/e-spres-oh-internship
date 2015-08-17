@@ -21,6 +21,9 @@
 	display: block;
 	cursor:pointer;
 }
+.buttonSignIn:hover{
+	background-color: #0d89ed;
+}
 /*Container*/
 .signIn{
 	width: 20%;
@@ -121,19 +124,15 @@
 }
 .formInput .formControl:focus::-moz-placeholder,
 .formInput.static .formControl::-moz-placeholder {
-	color: #cccccc;
-	opacity: 1;
-	font-size: 16px;
+	color: transparent;
 }
 .formInput .formControl:focus:-ms-input-placeholder,
 .formInput.static .formControl:-ms-input-placeholder {
-	color: #cccccc;
-	font-size: 16px;
+	color: transparent;
 }
 .formInput .formControl:focus::-webkit-input-placeholder,
 .formInput.static .formControl::-webkit-input-placeholder {
-	color: #cccccc;
-	font-size: 16px;
+	color: transparent;
 }
 .formInput.static .formControl ~ label {
 	font-size: 1rem;
