@@ -25,6 +25,9 @@
 	background-color: #0d89ed;
 }
 /*Container*/
+.errorMessage{
+	color: #FA3E3E;
+}
 .signIn{
 	width: 20%;
 	margin:10% auto;
@@ -97,13 +100,15 @@
 }
 .formInput .formControl::-moz-placeholder {
 	color: transparent;
-	opacity: 1;
+	opacity: 0;
 }
 .formInput .formControl:-ms-input-placeholder {
 	color: transparent;
+	opacity: 0;
 }
 .formInput .formControl::-webkit-input-placeholder {
 	color: transparent;
+	opacity: 0;
 }
 .formInput .formBar:before,
 .formInput .formBar:after {
@@ -125,14 +130,17 @@
 .formInput .formControl:focus::-moz-placeholder,
 .formInput.static .formControl::-moz-placeholder {
 	color: transparent;
+	opacity: 0;
 }
 .formInput .formControl:focus:-ms-input-placeholder,
 .formInput.static .formControl:-ms-input-placeholder {
 	color: transparent;
+	opacity: 0;
 }
 .formInput .formControl:focus::-webkit-input-placeholder,
 .formInput.static .formControl::-webkit-input-placeholder {
 	color: transparent;
+	opacity: 0;
 }
 .formInput.static .formControl ~ label {
 	font-size: 1rem;
@@ -148,7 +156,7 @@
 .formInput .formControl:focus ~ .formBar:before,
 .formInput .formControl:focus ~ .formBar:after {
 	width: 50%;
-	top: 95%;
+	top: 96%;
 }
 .formInput .input-group {
 	position: initial;
