@@ -1,7 +1,6 @@
 <?php
 require_once 'config.php';
 require_once 'functions/load_template.php';
-require_once 'functions/login_functions.php';
 
 try {
 	$username = '';
