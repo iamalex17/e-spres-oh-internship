@@ -22,13 +22,9 @@ try {
 			}	
 		}
 	}
-	echo '<pre>';
-	send_link('abcd', 'andrei.g.csiki@gmail.com');
 	$template = loadTemplate('templates','login.tmpl');
 	echo $template->render(array('username'=>$username));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
-
-
 ?>

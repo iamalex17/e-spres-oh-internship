@@ -39,7 +39,6 @@
 		$url = get_current_url();
 		$string = $url . '/resetPassword.php?link=' . $string;
 		$emailContent = "To recover your sign in creditentials acces the following link: <a href=\"" . $string . "\">" . $string. "</a>";
-		echo $emailContent;
 		$to = $email;
 		$from = 'andrei.g.csiki@gmail.com';
 		$sendgrid = new SendGrid($sendgrid_username, $sendgrid_password, array("turn_off_ssl_verification" => true));
