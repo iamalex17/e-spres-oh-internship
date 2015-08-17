@@ -26,7 +26,7 @@
 	}
 
 	function insert_link($dbh, $string, $email){
-		$sth = $dbh->prepare('UPDATE `users` SET reset_password = :string WHERE email = :email');
+		$sth = $dbh->prepare('UPDATE `users` SET reset_password = :string, deletion_link_time = NOW() WHERE email = :email');
 		$sth->bindValue(':string', $string);
 		$sth->bindValue(':email', $email);
 		$sth->execute();

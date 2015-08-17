@@ -1,7 +1,6 @@
 <?php
 require 'config.php';
 require 'functions/load_template.php';
-$errorMessage = '';
 try {
 	$link = '';
 	$errorMessage = '';
@@ -12,7 +11,7 @@ try {
 		if($_POST['newPassword'] == $_POST['retypeNewPassword']) {
 			$newPassword = $_POST['retypeNewPassword'];
 			$resetPassword = $_POST['link'];
-			$sth = $dbh->prepare('UPDATE `users` SET password = MD5(:retypeNewPassword) WHERE reset_password = :resetPassword');
+			$sth = $dbh->prepare('UPDATE `users` SET password = MD5(:retypeNewPassword), reset_password = NULL, deletion_link_time = NULL WHERE reset_password = :resetPassword');
 			$sth->bindValue(':retypeNewPassword', $newPassword);
 			$sth->bindValue(':resetPassword', $resetPassword);
 			$sth->execute();
