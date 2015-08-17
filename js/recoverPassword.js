@@ -1,12 +1,16 @@
 var RECOVER = (function() {
 
-	var emailAddress = $('#email').val();
 
-	function isValidEmailAddress(emailAddress) {
+	function isValidEmailAddress() {
+
+		var emailAddress = $('#email').val();
+
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
 		var test = pattern.test(emailAddress);
 		if(!test) {
-			alert("Ivalid email address");
+			alert("Invalid email address");
+		} else {
+			console.log("200 OK");
 		}
 	}
 
