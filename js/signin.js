@@ -1,4 +1,6 @@
-var LOGIN = (function() {
+// bad idea
+
+/*var LOGIN = (function() {
 
 	function recoverPasswordRedirect(e) {
 
@@ -29,5 +31,5 @@ var LOGIN = (function() {
 
 $(document).ready(function() {
 	LOGIN.init();
-});
+});*/
 
