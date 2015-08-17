@@ -1,5 +1,5 @@
 <?php
-	include 'functions/config_functions.php';
+	require 'functions/config_functions.php';
 	$host = 'localhost';
 	$db = 'internship';
 	$user = 'root';
