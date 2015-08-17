@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--Styles-->
+	<link rel="stylesheet" href="css/dashboard.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<!--Scripts-->
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!--Templates-->
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<!--Sidebar-->
+	<div class="side-navigation">
+		{% include 'sidebar.tmpl' %}
+	</div>
+
+	<!--Content-->
+	<div class="topAcount">
+		{% include 'topAccountSection.tmpl' %}
+	</div>
+
+
+	<div class="signIn">
+
+		<h1 class="mainHeader">Create Intern</h1>
+
+		<form method="POST" action="">
+			<div class="formInput">
+				<input class="formControl" id="firstName" name="firstName" type="text" placeholder="First Name">
+				<span class="formBar"></span>
+				<label for="firstName">First Name</label>
+			</div>
+
+			<div class="formInput">
+				<input class="formControl" id="lastName" type="text" name="lastName" placeholder="Last Name">
+				<span class="formBar"></span>
+				<label for="lastName">Last Name</label>
+			</div>
+
+			<div class="formInput">
+				<input class="formControl" id="emailAdress" type="email" name="emailAdress" placeholder="Email Adress">
+				<span class="formBar"></span>
+				<label for="emailAdress">Email Adress</label>
+			</div>
+
+			<div class="formInput">
+				<input class="formControl" id="password" type="password" name="password" placeholder="Password">
+				<span class="formBar"></span>
+				<label for="password">Password</label>
+			</div>
+
+			<div class="formInput">
+				<input class="formControl" id="retypePassword" type="password" name="retypePassword" placeholder="Retype Password">
+				<span class="formBar"></span>
+				<label for="retypePassword">Retype Password</label>
+			</div>
+
+		<div class="alignment">
+				<img src="http://placehold.it/100x100">
+			</div>
+			<div class="buttonAlignment">
+				<button type="submit" id="buttonAddImage" class="buttonAddImage">Add image</button>
+			</div>
+			<button type="submit" id="buttonSubmitMentor" class="buttonSubmitMentor" >Submit </button>
+
+		</form>
+
+	</div>
+
+
+	<!--Footer-->
+	<div class="footer">
+		{% include 'footer.tmpl' %}
+	</div>
+</body>
+
+</html>
