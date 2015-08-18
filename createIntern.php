@@ -52,7 +52,7 @@ try {
 			}
 		}
 	}
-	$template = loadTemplate('templates', 'createMentor.tmpl');
+	$template = loadTemplate('templates', 'createIntern.tmpl');
 	echo $template->render(array('errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
