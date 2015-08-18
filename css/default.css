@@ -62,10 +62,28 @@ button{
 	right: 0;
 	margin: 0;
 }
+/*Top Account*/
+.topAccount{
+	background-color: #ffffff;
+	height: 50px;
+	border-bottom: 1px solid #eeeeee;
+	width:100%;
+}
+.topAccountSection{
+	float:right;
+	height: auto;
+	text-align: center;
+	padding: 10px;
+	border-left: 1px solid #eeeeee;
+	width: 12%;
+}
+.topUserName{
+	display:inline-block;
+}
 	/*Sidebar Navigation*/
 	/*Container*/
 .side-navigation{
-	width:17%;
+	width:19%;
 	float:left;
 	height: 1024px;
 	background-color: #212121;
@@ -112,19 +130,62 @@ button{
 	margin-right: 10px;
 	margin-top: 5px;
 }
-nav a:hover .iconDashboard{
-	background-position: -243px -10px;
-}
 .iconPlus{
 	width: 14px;
 	height: 14px;
 	background-position: -611px -10px;
 	margin-right: 10px;
 }
+.iconPlusMore{
+	width: 14px;
+	height: 14px;
+	background-position: -611px -10px;
+	float: right;
+}
+.iconMinus{
+	width: 14px;
+	height: 14px;
+	background-position: -543px -10px;
+	float: right;
+}
+.iconGraduation{
+	width: 14px;
+	height: 14px;
+	background-position: -373px -10px;
+	margin-right: 10px;
+}
+.iconText{
+	width: 14px;
+	height: 14px;
+	background-position: -713px -10px;
+	margin-right: 10px;
+}
+nav a:hover .iconText{
+	background-position: -747px -10px;
+}
+nav a:hover .iconGraduation{
+	background-position: -407px -10px;
+}
+nav a:hover .iconMinus{
+	background-position: -577px -10px;
+}
+nav a:hover .iconDashboard{
+	background-position: -243px -10px;
+}
 nav a:hover .iconPlus{
 	background-position: -645px -10px;
 }
+nav a:hover .iconPlusMore{
+	background-position: -645px -10px;
+}
 	/*Menu*/
+nav ul li ul.subNav {
+	display: none;
+}
+
+nav ul li ul.visible {
+	display: block;
+}
 nav {
 	border-top: 1px solid #2e2e2e;
 	border-bottom: 1px solid #2e2e2e;
@@ -138,7 +199,6 @@ nav li {
 	padding: 10px 10px;
 	margin-top: 20px;
 	vertical-align: top;
-
 }
 nav ul a {
 	color: #88999c;

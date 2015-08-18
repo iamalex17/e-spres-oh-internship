@@ -1,23 +1,4 @@
 /*Content*/
-/*Top Account*/
-.topAccount{
-	background-color: #ffffff;
-	height: 50px;
-	border-bottom: 1px solid #eeeeee;
-	width:100%;
-}
-.topAccountSection{
-	float:right;
-	height: auto;
-	text-align: center;
-	padding: 10px;
-	border-left: 1px solid #eeeeee;
-	width: 12%;
-}
-.topUserName{
-	display:inline-block;
-}
-
 /*Middle Content for Mentors and Interns*/
 .mentorList{
 	float:left;
