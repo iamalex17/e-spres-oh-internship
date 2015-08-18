@@ -5,8 +5,7 @@ try {
 	$link = '';
 	$errorMessage = '';
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
-		$link = $_GET["link"];
-
+		$link = trim($_GET["link"]);
 	}
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$request = verifyRequestURL($_SERVER['REQUEST_URI']);
@@ -14,11 +13,11 @@ try {
 			exit();
 		}
 		if(isset($_POST['newPassword'])){
-			$newPassword = $_POST['newPassword'];
+			$newPassword = trim($_POST['newPassword']);
 			if(isset($_POST['retypeNewPassword'])){
-				$retypeNewPassword = $_POST['retypeNewPassword'];
+				$retypeNewPassword = trim($_POST['retypeNewPassword']);
 				if($newPassword == $retypeNewPassword) {
-					$resetLink = $_POST['link'];
+					$resetLink = trim($_POST['link']);
 					$sth = $dbh->prepare('UPDATE `users` SET password = MD5(:retypeNewPassword), reset_password = NULL, deletion_link_time = NULL WHERE reset_password = :resetPassword');
 					$sth->bindValue(':retypeNewPassword', $newPassword);
 					$sth->bindValue(':resetPassword', $resetLink);

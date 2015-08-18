@@ -132,7 +132,6 @@ nav ul {
 	padding-left: 0;
 	font-size: 16px;
 }
-
 nav li {
 	display: block;
 	padding: 10px 10px;
@@ -144,6 +143,7 @@ nav ul a {
 	color: #88999c;
 	text-decoration: none;
 	vertical-align: top;
+	padding: 10px;
 }
 nav ul li:hover,
 nav ul li:hover a{
