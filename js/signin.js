@@ -21,6 +21,15 @@ var LOGIN = (function() {
 		}
 	}
 
+	function keepInputFocusStyle() {
+
+		$input = $('input').val();
+		var emptyContent = "";
+		if($input != emptyContent) {
+			$('input').addClass('');
+		}
+	}
+
 	return {
 		init: function() {
 			$('form').on('click', '#buttonSubmitRecover', isValidEmailAddress);
