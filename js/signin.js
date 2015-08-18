@@ -79,8 +79,8 @@ var LOGIN = (function() {
 			$('#firstName').on('keyup', checkFirstNameContent);
 			$('#lastName').on('keyup', checkLastNameContent);
 			$('#username').on('keyup', checkUsernameContent);
-			
-			$('.signIn').on('blur', '#email', keepInputFocusStyle);
+
+			$('form').on('blur', 'input', keepInputFocusStyle);
 
 		}
 	}
