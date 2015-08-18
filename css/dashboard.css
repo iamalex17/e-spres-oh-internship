@@ -5,7 +5,7 @@
 	height: 50px;
 	border-bottom: 1px solid #eeeeee;
 	float:left;
-	width:80%;
+	width:83%;
 }
 .topAccountSection{
 	float:right;
@@ -14,7 +14,6 @@
 	padding: 10px;
 	border-left: 1px solid #eeeeee;
 	width: 12%;
-	margin-bottom: 10%;
 }
 .topUserName{
 	display:inline-block;
@@ -49,11 +48,18 @@
 .alignment{
 	display: inline-block;
 }
+.imageAlignment{
+	display: inline-block;
+	vertical-align: middle;
+}
 .buttonAlignment{
 	display: inline-block;
 	float: right;
 }
-
+.buttonAlign{
+	display: inline-block;
+	margin-left: 10%;
+}
 /*Headings*/
 .category{
 	color: #323232;
@@ -131,11 +137,12 @@
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	background-color: #ffffff;
+	display: inline-block;
 	color: #444444;
-	font-size: 12px;
+	font-size: 10px;
 	text-transform: uppercase;
-	height: 40px;
-	width: 130px;
+	height: 30px;
+	width: 100px;
 }
 .buttonSubmitMentor{
 	width: 16%;
@@ -204,15 +211,11 @@ a.hoverLogin:hover span {
 
 /*Container*/
 .containerForm{
-	width: 60%;
-	margin-top: 10%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 10%;
+	width: 75%;
+	margin-left: 20%;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
 	text-align: center;
-	padding: 20px 10px 10px 10px;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
