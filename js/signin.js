@@ -16,8 +16,7 @@ var LOGIN = (function() {
 	function checkIfPasswordsMatch() {
 		if ($('#retypeNewPassword').val() === $('#newPassword').val()) {
 			$(".errorMessage").text("Passwords match");
-		} 
-		else {
+		} else {
 			$(".errorMessage").text("Passwords do not match");
 		}
 	}
