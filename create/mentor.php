@@ -11,7 +11,7 @@ try {
 			$username = $_POST['username'];
 			$emailAdress = $_POST['emailAdress'];
 			$password = $_POST['password'];
-			if(trim($firstName)  = '') {
+			if(trim($firstName) = '') {
 				$errorMessage .= 'First Name field not completed properly';
 				$status = 0;
 			}
@@ -32,7 +32,7 @@ try {
 				$status = 0;
 				}
 			if(!filter_var($emailAdress, FILTER_VALIDATE_EMAIL)) {
-				$errorMessage. = 'Email is not valid<br>';
+				$errorMessage .= 'Email is not valid<br>';
 				$status = 0;
 			}
 			if($status = 1) {
