@@ -15,6 +15,8 @@ try {
 			$email = trim($_POST['emailAdress']);
 			$password = trim($_POST['password']);
 			$retypePassword = trim($_POST['retypePassword']);
+			var_dump($_POST);
+			exit();
 			if($firstName == '') {
 				$errorMessage .= 'First Name field not completed properly'.PHP_EOL;
 				$status = 0;
@@ -48,7 +50,7 @@ try {
 				$status = 0;
 			}
 			if($status == 1) {
-				$sth = $dbh->prepare('INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :firstName, :lastName, :email, :username, MD5(:password), 3, 1, NULL, NULL);');
+				$sth = $dbh->prepare('INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :firstName, :lastName, :username, :email, MD5(:password), 3, 1, NULL, NULL);');
 				$sth->bindValue(':firstName', $firstName);
 				$sth->bindValue(':lastName', $lastName);
 				$sth->bindValue(':username', $username);
