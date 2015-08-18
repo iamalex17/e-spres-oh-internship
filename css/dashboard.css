@@ -117,6 +117,7 @@
 	text-transform: uppercase;
 	height: 40px;
 	width: 130px;
+	cursor:pointer;
 }
 .buttonMentor{
 	border: 1px solid #d2d9d6;
@@ -129,6 +130,7 @@
 	text-transform: uppercase;
 	height: 40px;
 	width: 130px;
+	cursor:pointer;
 }
 .buttonAddImage{
 	border: 1px solid #d2d9d6;
