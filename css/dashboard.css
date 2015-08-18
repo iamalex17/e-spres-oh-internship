@@ -4,8 +4,7 @@
 	background-color: #ffffff;
 	height: 50px;
 	border-bottom: 1px solid #eeeeee;
-	float:left;
-	width:83%;
+	width:100%;
 }
 .topAccountSection{
 	float:right;
@@ -212,6 +211,7 @@ a.hoverLogin:hover span {
 /*Container*/
 .containerForm{
 	width: 75%;
+	margin-top: 3%;
 	margin-left: 20%;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
@@ -221,7 +221,7 @@ a.hoverLogin:hover span {
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 }
 .mainHeaderDashboard{
+	margin-top: 2%;
 	font-size: 32px;
-	margin-bottom: 20px;
-	margin:0;
+	margin-bottom: 2%;
 }
