@@ -34,12 +34,24 @@
 .existingCourse{
 	padding: 10px;
 	margin-top: 30px;
+	margin-bottom: 20px;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 }
 .courseName{
 	border-bottom: 2px dotted #dfdddd;
 	margin-bottom: 10px;
+}
+.courseContent{
+	border-bottom: 2px solid #efefef;
+	margin-bottom: 10px;
+}
+.courseDetail{
+	margin-bottom:10px;
+	color: darkslategrey;
 }
 .alignment{
 	display: inline-block;
