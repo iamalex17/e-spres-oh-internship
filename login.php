@@ -21,6 +21,8 @@ try {
 				$sth->execute();
 				$result = $sth->fetchAll();
 				if(count($result)==1){
+					$row = $result[0];
+					$_SESSION['id'] = $row[0];
 					header('Location: dashboard.php');
 					exit();
 				} else {
