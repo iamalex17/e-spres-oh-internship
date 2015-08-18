@@ -150,6 +150,7 @@
 	text-transform: uppercase;
 	height: 30px;
 	width: 100px;
+	cursor: pointer;
 }
 .buttonSubmitMentor{
 	width: 16%;
