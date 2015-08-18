@@ -156,7 +156,7 @@
 .formInput .formControl:focus ~ .formBar:before,
 .formInput .formControl:focus ~ .formBar:after {
 	width: 50%;
-	top: 96%;
+	top: 97%;
 }
 .formInput .input-group {
 	position: initial;
