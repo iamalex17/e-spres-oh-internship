@@ -23,8 +23,8 @@ try {
 				$errorMessage .= 'Last Name field not completed properly'.PHP_EOL;
 				$status = 0;
 			}
-			if($password < 8) {
-				$errorMessage = 'Password must have at least 8 characters length'.PHP_EOL;
+			if(strlen($password) < 8) {
+				$errorMessage = 'Password must have at least 8 characters length';
 				$status = 0;
 			}
 			if($username == '') {
