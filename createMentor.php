@@ -23,7 +23,7 @@ try {
 				$errorMessage .= 'Last Name field not completed properly';
 				$status = 0;
 			}
-			if($password < 8) {
+			if(strlen($password) < 8) {
 				$errorMessage = 'Password must have at least 8 characters length';
 				$status = 0;
 			}
