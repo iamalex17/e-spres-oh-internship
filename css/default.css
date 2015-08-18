@@ -42,6 +42,7 @@ button{
 	background-image: url("../images/icon-sprites.png");
 	background-repeat: no-repeat;
 	list-style-type: none;
+	display: inline-block;
 }
 	/*Footer*/
 .footer{
@@ -101,36 +102,26 @@ button{
 	width: 100px;
 	height: 100px;
 	background-position: -10px -10px;
-	display: inline-block;
 	margin: 0;
 }
 .iconDashboard{
 	width: 14px;
 	height: 14px;
 	background-position: -209px -10px;
-	display: inline-block;
 	margin-right: 10px;
+	margin-top: 5px;
 }
-.iconDashboard:hover{
-	width: 14px;
-	height: 14px;
-	background-position:  -243px -10px;
-	display: inline-block;
-	margin-right: 10px;
+nav a:hover .iconDashboard{
+	background-position: -243px -10px;
 }
 .iconPlus{
 	width: 14px;
 	height: 14px;
 	background-position: -611px -10px;
-	display: inline-block;
 	margin-right: 10px;
 }
-.iconPlus:hover{
-	width: 14px;
-	height: 14px;
+nav a:hover .iconPlus{
 	background-position: -645px -10px;
-	display: inline-block;
-	margin-right: 10px;
 }
 	/*Menu*/
 nav {

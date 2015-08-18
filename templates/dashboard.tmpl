@@ -8,6 +8,7 @@
 	<!--Scripts-->
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!--Templates-->
 	<meta charset="UTF-8">
 </head>
@@ -32,7 +33,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="buttonNewMentor" class="buttonMentor"><i class="iconParent iconPlusButton"></i>New Mentor</button>
+			<button id="buttonNewMentor" class="buttonMentor" method="POST" action="create/mentor.php"><i class="iconParent iconPlusButton"></i>New Mentor</button>
 		</div>
 
 		<div class="existingMentor">
@@ -43,7 +44,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<i class="iconParent iconDelete"></i>
+			<button class="buttonDelete"><i class="fa fa-times"></i></button>
 		</div>
 
 		</div>
@@ -58,7 +59,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="buttonNewIntern" class="buttonIntern"><i class="iconParent iconPlusButton"></i>New Intern</button>
+			<button id="buttonNewIntern" class="buttonIntern" method="POST" action="create/intern.php"><i class="iconParent iconPlusButton"></i>New Intern</button>
 		</div>
 
 		<div class="existingIntern">
@@ -69,7 +70,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<i class="iconParent iconDelete"></i>
+			<button class="buttonDelete"><i class="fa fa-times"></i></button>
 		</div>
 
 		</div>
