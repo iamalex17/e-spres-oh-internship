@@ -1,8 +1,11 @@
 <?php
 require 'config.php';
 require 'functions/load_template.php';
+session_start();
+session_regenerate_id();
+$errorMessage = '';
+$successMessage = '';
 try {
-	$errorMessage = '';
 	$status = 1;
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if(isset($_POST['firstName']) && isset($_POST['lastName']) &&isset($_POST['username']) && isset($_POST['emailAdress']) && isset($_POST['password']) && isset($_POST['retypePassword'])) {
@@ -44,11 +47,12 @@ try {
 				$sth->bindValue(':password', $password);
 				$sth->execute();
 				$result = $sth->fetchAll();
+				$successMessage = 'Mentor added succesfully.</br>';
 			}
 		}
 	}
-	$template = loadTemplate('templates', 'createMentor.tmpl');
-	echo $template->render(array('errorMessage' => $errorMessage));
+	$template = loadTemplate('../templates', 'createMentor.tmpl');
+	echo $template->render(array('errorMessage' => $errorMessage), 'successMessage' => $successMessage);
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
