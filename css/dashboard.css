@@ -71,7 +71,7 @@
 .list{
 	color: #a2a2a2;
 }
-.emailAdress{
+.emailAddress{
 	color: #a2a2a2;
 	padding: 10px;
 }
@@ -204,7 +204,7 @@ a.hoverLogin:hover span {
 	width:10%;
 	height: 3%;
 	font-size: 14px;
-	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */ 
+	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */
 	top: 0%;
 	left: 88%;
 }
@@ -223,4 +223,5 @@ a.hoverLogin:hover span {
 .mainHeaderDashboard{
 	font-size: 32px;
 	margin-bottom: 20px;
+	margin:0;
 }
