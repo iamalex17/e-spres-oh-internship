@@ -1,27 +1,32 @@
 var LOGIN = (function() {
 
-	function isValidEmailAddress() {
+	function ValidateEmailAddress() {
 
-		var emailAddress = $('#email').val();
+		var emailAddress = $(this).val();
 
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
 		var test = pattern.test(emailAddress);
+
 		if(!test) {
-			alert("Invalid email address");
+			$(".validEmail").text("Invalid email address");
+		} else if (emailAddress === "") {
+			$(".validEmail").text("Please enter an email address");
 		} else {
 			console.log("200 OK");
+			$(".validEmail").text("");
 		}
 	}
 
 	function checkIfPasswordsMatch() {
-		if ($('#retypeNewPassword').val() === $('#newPassword').val()) {
-			$(".passwordsStatus").text("Passwords match");
+		if ($('#retypeNewPassword').val() == $('#newPassword').val()) {
+			console.log('200 OK');
+			$(".passwordsStatus").text("");
 		} else {
 			$(".passwordsStatus").text("Passwords do not match");
 		}
 	}
 
-	function keepInputFocusStyle() {
+	/*function keepInputFocusStyle() {
 
 		$input = $('input').val();
 		var emptyContent = "";
@@ -29,10 +34,10 @@ var LOGIN = (function() {
 			$('input').addClass('');
 		}
 	}
-
+*/
 	return {
 		init: function() {
-			$('form').on('click', '#buttonSubmitRecover', isValidEmailAddress);
+			$('form').on('keyup', '#email', ValidateEmailAddress);
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
