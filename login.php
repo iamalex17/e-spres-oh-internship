@@ -12,9 +12,9 @@ try {
 			exit();
 		}
 		if(isset($_POST['username'])){
-			$username = $_POST['username'];
+			$username = trim($_POST['username']);
 			if(isset($_POST['password'])){
-				$password = $_POST['password'];
+				$password = trim($_POST['password']);
 				$sth = $dbh->prepare('SELECT * FROM `users` WHERE username = :username AND password = MD5(:password)');
 				$sth->bindValue(':username', $username);
 				$sth->bindValue(':password', $password);
