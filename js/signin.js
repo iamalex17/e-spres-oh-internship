@@ -26,21 +26,48 @@ var LOGIN = (function() {
 		}
 	}
 
-	/*function keepInputFocusStyle() {
+	function checkFirstNameContent() {
+		var firstName  = $(this).val();
 
-		$input = $('input').val();
-		var emptyContent = "";
-		if($input != emptyContent) {
-			$('input').addClass('');
+		if(firstName != "") {
+			console.log('200 OK');
+			$('.checkFirstName').text("");
+		} else {
+			$('.checkFirstName').text('Please enter your first name');
 		}
 	}
-*/
+
+	function checkLastNameContent() {
+		var lastName  = $(this).val();
+
+		if(lastName != "") {
+			console.log('200 OK');
+			$('.checkLastName').text("");
+		} else {
+			$('.checkLastName').text('Please enter your last name');
+		}
+	}
+
+	function checkUsernameContent() {
+		var username  = $(this).val();
+
+		if(username != "") {
+			console.log('200 OK');
+			$('.checkUsername').text("");
+		} else {
+			$('.checkUsername').text('Please enter your username');
+		}
+	}
+
 	return {
 		init: function() {
 			$('form').on('keyup', '#email', ValidateEmailAddress);
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
+			$('#firstName').on('keyup', checkFirstNameContent);
+			$('#lastName').on('keyup', checkLastNameContent);
+			$('#username').on('keyup', checkUsernameContent);
 
 		}
 	}
@@ -49,4 +76,14 @@ var LOGIN = (function() {
 
 $(document).ready(function() {
 	LOGIN.init();
+
+	$('.signIn').on('blur', '#email', function(){
+		var $this = $(this);
+
+		$this.val() ? $this.closest('.formInput').addClass('input-focus') : $this.closest('.formInput').removeClass('input-focus');
+
+
+		console.log($this.val());
+	});
+
 });

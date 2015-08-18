@@ -246,7 +246,8 @@ nav ul li:hover a{
 	top: -18px;
 	cursor: pointer;
 }
-.input-focus, .formInput .formControl:focus ~ label,
+.input-focus label, 
+.formInput .formControl:focus ~ label,
 .formInput .formControl.used ~ label {
 	color: #42a5f5;
 	font-size: 1rem;
@@ -257,10 +258,19 @@ nav ul li:hover a{
 	width: 50%;
 	top: 97%;
 }
+.input-focus label {
+	margin: 0 auto;
+}
+
 .formInput .input-group {
 	position: initial;
 	width: 100%;
 }
 .formInput .input-group label {
 	left: 36px;
+}
+
+.checkUsername, .checkLastName, .checkFirstName, .passwordsStatus, .validEmail {
+	color: tomato;
+	margin-bottom: 7px;
 }
