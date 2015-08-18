@@ -59,6 +59,17 @@ var LOGIN = (function() {
 		}
 	}
 
+	function keepInputFocusStyle() {
+
+		var $this = $(this);
+		
+		if( $this.val() ) {
+			$this.closest('.formInput').addClass('input-focus');
+		} else {
+			$this.closest('.formInput').removeClass('input-focus');
+		}
+	}
+
 	return {
 		init: function() {
 			$('form').on('keyup', '#email', ValidateEmailAddress);
@@ -68,6 +79,7 @@ var LOGIN = (function() {
 			$('#firstName').on('keyup', checkFirstNameContent);
 			$('#lastName').on('keyup', checkLastNameContent);
 			$('#username').on('keyup', checkUsernameContent);
+			$('.signIn').on('blur', '#email', keepInputFocusStyle);
 
 		}
 	}
@@ -76,14 +88,4 @@ var LOGIN = (function() {
 
 $(document).ready(function() {
 	LOGIN.init();
-
-	$('.signIn').on('blur', '#email', function(){
-		var $this = $(this);
-
-		$this.val() ? $this.closest('.formInput').addClass('input-focus') : $this.closest('.formInput').removeClass('input-focus');
-
-
-		console.log($this.val());
-	});
-
 });
