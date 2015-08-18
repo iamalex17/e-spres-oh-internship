@@ -196,7 +196,6 @@ nav ul {
 }
 nav li {
 	display: block;
-	padding: 10px 10px;
 	margin-top: 20px;
 	vertical-align: top;
 }
@@ -204,7 +203,8 @@ nav ul a {
 	color: #88999c;
 	text-decoration: none;
 	vertical-align: top;
-	padding: 10px;
+	padding: 20px;
+	display: block;
 }
 nav ul li:hover,
 nav ul li:hover a{
