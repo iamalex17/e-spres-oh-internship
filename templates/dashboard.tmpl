@@ -25,57 +25,18 @@
 		{% include 'topAccountSection.tmpl' %}
 	</div>
 
-	<div class="mentorList">
+	<!--Mentor and Intern List-->
+	{% if user_role == 1 %}
+		{% include 'adminContent.tmpl' %}
+	{% endif %}
 
-		<div class="alignment">
-			<h2 class="category">Mentors</h2>
-			<h4 class="list">List of mentors</h4>
-		</div>
+	{% if user_role == 2 %}
+		{% include 'mentorContent.tmpl' %}
+	{% endif %}
 
-		<div class="buttonAlignment">
-			<a href="createMentor.php"><button id="buttonNewMentor" class="buttonMentor"><i class="fa fa-plus"></i >New Mentor</button></a>
-		</div>
-
-		<div class="existingMentor">
-
-		<div class="alignment">
-				<h3 class="newUserName">First Name Last Name</h3>
-				<h5 class="emailAddress">email</h5>
-		</div>
-
-		<div class="buttonAlignment">
-			<button class="buttonDelete"><i class="fa fa-times"></i></button>
-		</div>
-
-		</div>
-
-	</div>
-
-	<div class="internList">
-
-		<div class="alignment">
-			<h2 class="category">Interns</h2>
-			<h4 class="list">List of interns</h4>
-		</div>
-
-		<div class="buttonAlignment">
-			<a href="createIntern.php"><button id="buttonNewIntern" class="buttonIntern"><i class="fa fa-plus"></i>New Intern</button></a>
-		</div>
-
-		<div class="existingIntern">
-
-		<div class="alignment">
-				<h3 class="newUserName">First Name Last Name</h3>
-				<h5 class="emailAddress">email</h5>
-		</div>
-
-		<div class="buttonAlignment">
-			<button class="buttonDelete"><i class="fa fa-times"></i></button>
-		</div>
-
-		</div>
-
-	</div>
+	{% if user_role == 3 %}
+		{% include 'internContent.tmpl' %}
+	{% endif %}
 
 	<!--Footer-->
 	<div class="footer">
