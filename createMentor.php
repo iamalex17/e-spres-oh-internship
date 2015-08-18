@@ -8,7 +8,7 @@ $successMessage = '';
 try {
 	$status = 1;
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
-		if(isset($_POST['firstName']) && isset($_POST['lastName']) &&isset($_POST['username']) && isset($_POST['emailAdress']) && isset($_POST['password']) && isset($_POST['retypePassword'])) {
+		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['emailAdress']) && isset($_POST['password']) && isset($_POST['retypePassword'])) {
 			$firstName = $_POST['firstName'];
 			$lastName = $_POST['lastName'];
 			$username = $_POST['username'];
@@ -51,8 +51,8 @@ try {
 			}
 		}
 	}
-	$template = loadTemplate('../templates', 'createMentor.tmpl');
-	echo $template->render(array('errorMessage' => $errorMessage), 'successMessage' => $successMessage);
+	$template = loadTemplate('templates', 'createMentor.tmpl');
+	echo $template->render(array('errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
