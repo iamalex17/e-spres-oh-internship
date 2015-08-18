@@ -14,11 +14,11 @@ try {
 			$username = $_POST['username'];
 			$emailAdress = $_POST['emailAdress'];
 			$password = $_POST['password'];
-			if(trim($firstName) = '') {
+			if(trim($firstName) == '') {
 				$errorMessage .= 'First Name field not completed properly';
 				$status = 0;
 			}
-			if(trim($lastName) = '') {
+			if(trim($lastName) == '') {
 				$errorMessage .= 'Last Name field not completed properly';
 				$status = 0;
 			}
@@ -26,7 +26,7 @@ try {
 				$errorMessage = 'Password must have at least 8 characters length';
 				$status = 0;
 			}
-			if(trim(($username)) = '') {
+			if(trim(($username)) == '') {
 				$errorMessage .= 'Username filed not completed properly';
 				$status = 0;
 			}
@@ -38,7 +38,7 @@ try {
 				$errorMessage .= 'Email is not valid<br>';
 				$status = 0;
 			}
-			if($status = 1) {
+			if($status == 1) {
 				$sth = $dbh->prepare('INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :firstName, :lastName, :emailAdress, :username, :password, 2, 1, NULL, NULL);');
 				$sth->bindValue(':firstName', $firstName);
 				$sth->bindValue(':lastName', $lastName);
