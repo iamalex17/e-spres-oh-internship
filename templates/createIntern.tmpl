@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="css/dashboard.css" />
 	<link rel="stylesheet" href="css/default.css" />
 	<!--Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/signin.js"></script>
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!--Templates-->
@@ -35,24 +37,28 @@
 				<span class="formBar"></span>
 				<label for="firstName">First Name</label>
 			</div>
+			<div class="checkFirstName"></div>
 
 			<div class="formInput">
 				<input class="formControl" id="lastName" type="text" name="lastName" placeholder="Last Name">
 				<span class="formBar"></span>
 				<label for="lastName">Last Name</label>
 			</div>
+			<div class="checkLastName"></div>
 
 			<div class="formInput">
 				<input class="formControl" id="username" type="text" name="username" placeholder="Username">
 				<span class="formBar"></span>
 				<label for="username">Username</label>
 			</div>
+			<div class="checkUsername"></div>
 
 			<div class="formInput">
-				<input class="formControl" id="emailAdress" type="email" name="emailAdress" placeholder="Email Adress">
+				<input class="formControl" id="email" type="email" name="emailAdress" placeholder="Email Adress">
 				<span class="formBar"></span>
 				<label for="emailAdress">Email Adress</label>
 			</div>
+			<div class="validEmail"></div>
 
 			<div class="formInput">
 				<input class="formControl" id="password" type="password" name="password" placeholder="Password">
@@ -65,6 +71,7 @@
 				<span class="formBar"></span>
 				<label for="retypePassword">Retype Password</label>
 			</div>
+			<div class="passwordsStatus"></div>
 
 			<div class="imageAlignment">
 				<img src="http://placehold.it/100x100">
