@@ -19,32 +19,12 @@
 
 	<!--Sidebar-->
 	<div class="side-navigation">
-	{% if user_role == 1 %}
 		{% include 'sidebar.tmpl' %}
-	{% endif %}
-
-	{% if user_role == 2 %}
-		{% include 'mentorSidebar.tmpl' %}
-	{% endif %}
-
-	{% if user_role == 3 %}
-		{% include 'internSidebar.tmpl' %}
-	{% endif %}
 	</div>
 
 	<!--Content-->
 	<div class="topAccount">
-		{% if user_role == 1 %}
-			{% include 'topAccountSection.tmpl' %}
-		{% endif %}
-
-		{% if user_role == 2 %}
-			{% include 'topAccountSectionMentor.tmpl' %}
-		{% endif %}
-
-		{% if user_role == 3 %}
-			{% include 'topAccountSectionIntern.tmpl' %}
-		{% endif %}
+		{% include 'topAccountSection.tmpl' %}
 	</div>
 
 	<!--Mentor and Intern List-->
