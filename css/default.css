@@ -24,15 +24,7 @@ li {
 .clearfix {
 	clear: both;
 }
-.noMargin{
-	margin:0;
-}
-.noPadding{
-	padding:0;
-}
-.noBorder{
-	border:0;
-}
+
 button{
 	margin:0;
 	padding:0;
@@ -160,6 +152,13 @@ button{
 	background-position: -713px -10px;
 	margin-right: 10px;
 }
+
+.iconMinusMore {
+	width: 14px;
+	height: 14px;
+	background-position: -543px -10px;
+	float: right;
+}
 nav a:hover .iconText{
 	background-position: -747px -10px;
 }
@@ -175,17 +174,12 @@ nav a:hover .iconDashboard{
 nav a:hover .iconPlus{
 	background-position: -645px -10px;
 }
-nav a:hover .iconPlusMore{
+/*nav a:hover .iconPlusMore{
 	background-position: -645px -10px;
-}
-	/*Menu*/
-/*nav ul li ul.subNav {
-	display: none;
 }*/
 
-nav ul li ul.visible {
-	display: block;
-}
+
+
 nav {
 	border-top: 1px solid #2e2e2e;
 	border-bottom: 1px solid #2e2e2e;
@@ -206,8 +200,8 @@ nav ul a {
 	padding: 20px;
 	display: block;
 }
-nav ul li:hover,
-nav ul li:hover a{
+
+nav ul li:hover > a{
 	background-color: #243342;
 	color: #ffffff;
 }
