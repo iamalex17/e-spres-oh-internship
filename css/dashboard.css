@@ -24,19 +24,28 @@
 	width: 75%;
 	display:inline-block;
 }
+.existing-mentor-container {
+	border: 1px solid #d2d9d6;
+	margin-top: 20px;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+}
 .existingMentor{
 	background-color: #ffffff;
+	border-bottom: 1px solid #d2d9d6;
+
+}
+.existing-intern-container {
 	border: 1px solid #d2d9d6;
+	margin-top: 20px;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 }
 .existingIntern{
 	background-color: #ffffff;
-	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	border-bottom: 1px solid #d2d9d6;
 }
 .existingCourse{
 	padding: 10px;
@@ -131,6 +140,7 @@
 	height: 30px;
 	width: 100px;
 	cursor:pointer;
+	font-weight: 600;
 }
 .buttonMentor{
 	border: 1px solid #d2d9d6;
@@ -144,6 +154,7 @@
 	height: 30px;
 	width: 100px;
 	cursor:pointer;
+	font-weight: 600;
 }
 .buttonAddImage{
 	border: 1px solid #d2d9d6;
