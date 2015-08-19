@@ -56,6 +56,7 @@ try {
 			unset($fileName[count($fileName)-1]);
 			$fileName = implode('', $fileName);
 			$fileName = MD5($fileName);
+// ADD USER ID TO FILENAME
 			$completeFileName = $fileName . '.' . $fileExtension;
 			$target_file = $target_dir . basename($completeFileName);
 			$uploadOk = 1;
@@ -72,8 +73,8 @@ try {
 				$errorMessage .= "Sorry, your file is too large.";
 				$uploadOk = 0;
 			}// Allow certain file formats
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-				$errorMessage .= "Sorry, only JPG, JPEG, PNG files are allowed.";
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+				$errorMessage .= "Sorry, only JPG, JPEG, PNG and GIF files are allowed.";
 				$uploadOk = 0;
 			}// Check if $uploadOk is set to 0 by an error
 			if ($uploadOk != 0){// Check if file already exists
