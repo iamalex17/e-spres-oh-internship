@@ -1,10 +1,13 @@
 <?php
 require 'config.php';
 require 'functions/load_template.php';
-session_start();
-session_regenerate_id();
 $errorMessage = '';
 $successMessage = '';
+
+if(!verifySessionID($dbh)){
+	header('Location: login.php');
+	exit();
+}
 try {
 	$status = 1;
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
