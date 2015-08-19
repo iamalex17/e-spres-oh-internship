@@ -25,11 +25,17 @@
 	margin-top: 30px;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 }
 .existingIntern{
 	margin-top: 30px;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 }
 .existingCourse{
 	padding: 10px;
@@ -204,13 +210,13 @@
 	background-color: #0d89ed;
 }
 	/*HoverLog*/
-a.hoverLogin span {
+a.hoverLogin ul li {
 	display: none;
 }
 a.hoverLogin{
 	text-align: center;
 }
-a.hoverLogin:hover span {
+a.hoverLogin:hover ul li {
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
@@ -221,12 +227,13 @@ a.hoverLogin:hover span {
 	background-color: #ffffff;
 	color: black;
 	text-align: left;
-	width:10%;
-	height: 3%;
+	width:12%;
+	height: auto;
 	font-size: 14px;
 	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */
 	top: 0%;
-	left: 88%;
+	left: 85%;
+	border-bottom: 1px solid #d2d9d6;
 }
 .labelGrey{
 	background-color: #eeeeee;
