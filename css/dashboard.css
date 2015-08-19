@@ -210,30 +210,32 @@
 	background-color: #0d89ed;
 }
 	/*HoverLog*/
-a.hoverLogin ul li {
+.hoverLogin ul li{
 	display: none;
 }
-a.hoverLogin{
-	text-align: center;
-}
-a.hoverLogin:hover ul li {
+.hoverLogin:hover ul {
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	display: block;
 	position: absolute;
-	padding: 10px;
 	background-color: #ffffff;
 	color: black;
 	text-align: left;
 	width:12%;
 	height: auto;
 	font-size: 14px;
-	/*EDIT THESE TO RE-ALIGN HIDDEN BOX */
+/*EDIT THESE TO RE-ALIGN HIDDEN BOX */
 	top: 0%;
 	left: 85%;
+}
+.hoverLogin:hover ul, .hoverLogin:hover ul li{
+	display: block;
+}
+.hoverLogin:hover li{
 	border-bottom: 1px solid #d2d9d6;
+	padding: 10px;
 }
 .labelGrey{
 	background-color: #eeeeee;
