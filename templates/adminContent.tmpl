@@ -1,18 +1,18 @@
 	<div class="mentorList">
-		<div class="separateContent">
-			<div class="alignment">
-				<h2 class="category">Mentors</h2>
-				<h4 class="list">List of mentors</h4>
-			</div>
 
-			<div class="buttonAlignment">
-				<button id="buttonNewMentor" class="buttonMentor">
-					<a href="createMentor.php">
-						<i class="fa fa-plus"></i >New Mentor
-					</a>
-				</button>
-			</div>
+		<div class="alignment">
+			<h2 class="category">Mentors</h2>
+			<h4 class="list">List of mentors</h4>
 		</div>
+
+		<div class="buttonAlignment">
+			<button id="buttonNewMentor" class="buttonMentor">
+				<a href="createMentor.php">
+					<i class="fa fa-plus"></i >New Mentor
+				</a>
+			</button>
+		</div>
+
 		{% for user in mentor %}
 		<div class="existingMentor">
 		<div class="alignment">
@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="delete_button_{{ user.id }}" name="delete_button" class="buttonDelete"><i class="fa fa-times" value="{{ user.id }}"></i></button>
+			<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 		</div>
 		{{ message }}
 		</div>
@@ -30,20 +30,20 @@
 	</div>
 
 	<div class="internList">
-		<div class="separateContent">
-			<div class="alignment">
-				<h2 class="category">Interns</h2>
-				<h4 class="list">List of interns</h4>
-			</div>
 
-			<div class="buttonAlignment">
-				<button id="buttonNewIntern" class="buttonIntern">
-					<a href="createIntern.php">
-						<i class="fa fa-plus"></i>New Intern
-					</a>
-				</button>
-			</div>
+		<div class="alignment">
+			<h2 class="category">Interns</h2>
+			<h4 class="list">List of interns</h4>
 		</div>
+
+		<div class="buttonAlignment">
+			<button id="buttonNewIntern" class="buttonIntern">
+				<a href="createIntern.php">
+					<i class="fa fa-plus"></i>New Intern
+				</a>
+			</button>
+		</div>
+
 		{% for user in intern %}
 		<div class="existingIntern">
 		<div class="alignment">
@@ -52,10 +52,37 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="delete_button_{{ user.id }}" name="delete_button" class="buttonDelete"><i class="fa fa-times" value="{{ user.id }}"></i></button>
+			<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 		</div>
 		{{ message }}
 		</div>
 		{% endfor %}
 
 	</div>
+
+	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+				</div>
+
+				<div class="modal-body">
+					<p>Are you sure you want to delete [first name] [last name]?</p>
+					<p class="debug-url"></p>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<a class="btn btn-danger btn-ok">Delete</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a href="#" data-href="/delete.php?id=23" data-toggle="modal" data-target="#confirm-delete">Delete record #23</a><br>
+
+	<button class="btn btn-default" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirm-delete">
+		Delete record #54
+	</button>
