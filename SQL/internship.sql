@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2015 at 03:20 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Aug 19, 2015 at 04:49 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `internship`
@@ -34,24 +34,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(30) NOT NULL,
   `password` varchar(32) NOT NULL,
   `user_privilege` int(1) NOT NULL,
-  `profile_image` char(32) DEFAULT NULL,
+  `profile_image` varchar(40) DEFAULT NULL,
   `session_id` varchar(40) DEFAULT NULL,
   `status` int(1) NOT NULL,
   `reset_password` char(64) DEFAULT NULL,
   `deletion_link_time` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `profile_image`, `session_id`, `status`, `reset_password`, `deletion_link_time`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, NULL, 1, NULL, NULL),
+(1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, 'ndc6fjsv41r23al6ppe38ask00', 1, NULL, NULL),
 (2, 'Ungureanu', 'Alex', 'ualex', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, NULL, 1, NULL, NULL),
 (3, 'Csiki', 'Andrei', 'candrei', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, NULL, 1, NULL, NULL),
 (4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, NULL, NULL, 1, NULL, NULL),
 (5, 'Sitov', 'Cristian', 'scristi', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, NULL, NULL, 1, NULL, NULL),
-(7, 'test', 'test', 'test', 'test@test.test', '05a671c66aefea124cc08b76ea6d30bb', 3, NULL, NULL, 1, NULL, NULL);
+(7, 'test', 'test', 'test', 'test@test.test', '05a671c66aefea124cc08b76ea6d30bb', 3, NULL, NULL, 1, NULL, NULL),
+(8, 'test1', 'test1', 'test1', 'test1@test.test', '05a671c66aefea124cc08b76ea6d30bb', 2, '46f0f485940e6e16afcf77cc29a63e32.png', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,12 @@ INSERT INTO `users_privileges` (`privilege_id`, `privilege_no`, `privilege_name`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD KEY `username` (`username`), ADD KEY `email` (`email`), ADD KEY `user_privilege` (`user_privilege`), ADD KEY `resetPassword` (`reset_password`), ADD KEY `session_id` (`session_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `email` (`email`),
+  ADD KEY `user_privilege` (`user_privilege`),
+  ADD KEY `resetPassword` (`reset_password`),
+  ADD KEY `session_id` (`session_id`);
 
 --
 -- Indexes for table `users_privileges`
@@ -98,7 +104,7 @@ ALTER TABLE `users_privileges`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users_privileges`
 --
@@ -112,7 +118,7 @@ ALTER TABLE `users_privileges`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-ADD CONSTRAINT `user_privilege_FK` FOREIGN KEY (`user_privilege`) REFERENCES `users_privileges` (`privilege_id`);
+  ADD CONSTRAINT `user_privilege_FK` FOREIGN KEY (`user_privilege`) REFERENCES `users_privileges` (`privilege_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
