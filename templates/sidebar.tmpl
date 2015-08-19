@@ -3,13 +3,45 @@
 	</div>
 	<div class="userAvatar">
 		<i class=" iconParent iconProfileUser"></i>
-		<h3 class="userName"> Admin </h3>
+		<h3 class="userName"> {{ last_name }} </h3>
 	</div>
 
 	<nav>
+		{% if user_role == 1 %}
 		<ul>
 		<li><a href='dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
 		<li><a href='createMentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
 		<li><a href='createIntern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
 		</ul>
+		{% endif %}
+		{% if user_role != 1 %}
+		<ul>
+		<li class="dropDown">
+			<a href='#'><i class=" iconParent iconGraduation">
+				</i> Courses <i class=" iconParent iconPlusMore change-icon"></i>
+			</a>
+			<ul class="subNav">
+				<li><a href='#'>All</a></li>
+				<li><a href='#'>Frontend</a></li>
+				<li><a href='#'>Backend</a></li>
+			</ul>
+		</li>
+		</ul>
+		{% endif %}
+		{% if user_role == 2 %}
+		<ul>
+
+		<li>
+			<a href='#'>
+				<i class=" iconParent iconPlus"></i> Create Course 
+			</a>
+		</li>
+		<li>
+			<a href='#'>
+				<i class=" iconParent iconText"></i>Submitted Exercises
+				<i class=" iconParent iconPlusMore"></i>
+			</a>
+		</li>
+		</ul>
+		{% endif %}
 	</nav>

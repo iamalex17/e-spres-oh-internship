@@ -2,6 +2,14 @@
 
 				<i class="iconParent iconSmallProfileUser"></i>{{ last_name }}<i class="iconParent iconDownArrow"></i>
 				<ul>
+					{% if user_role != 1 %}
+					<li>
+						<a href="editProfileMentor.php">Edit Profile</a>
+					</li>
+					<li>
+						<a href="changePasswordMentor.php">Change Password</a>
+					</li>
+					{% endif %}
 					<li>
 						<a href="logout.php">Logout</a>
 					</li>
