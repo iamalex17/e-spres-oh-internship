@@ -33,7 +33,7 @@
 
 		<h1 class="mainHeaderDashboard">Create Mentor</h1>
 
-		<form method="POST" action="createMentor.php">
+		<form method="POST" action="createMentor.php" enctype="multipart/form-data">
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="firstName" type="text" placeholder="First Name">
 				<span class="formBar"></span>
@@ -80,7 +80,7 @@
 				<img src="http://placehold.it/100x100" alt="Mentor avatar">
 			</div>
 			<div class="buttonAlign">
-				<button type="submit" id="buttonAddImage" class="buttonAddImage">Add image</button>
+				<input type="file" name="fileToUpload" id="buttonAddImage" class="buttonAddImage">
 			</div>
 			<button type="submit" id="buttonSubmitMentor" class="buttonSubmitMentor" >Submit </button>
 

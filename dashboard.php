@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$deleteMessage = 'User succesfully deleted!';
 }
 	$userID = $_SESSION['id'];
-	$sth = $dbh->prepare('SELECT last_name, user_privilege FROM `users` WHERE id = :userID');
+	$sth = $dbh->prepare('SELECT last_name, user_privilege, profile_image FROM `users` WHERE id = :userID');
 	$sth->bindValue(':userID', $userID);
 	$sth->execute();
 	$result = $sth->fetchAll();
@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$mentorMessage = '';
 		$user = $result[0];
 		$lastName = $user[0];
-		$user_role = $user[1];
+		$userRole = $user[1];
+		$profileImage = $user[2];
 		$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 2');
 		$sth->execute();
 		$mentor = $sth->fetchAll();
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$internMessage .= 'No intern to display yet.';
 		}
 		$template = loadTemplate('templates','dashboard.tmpl');
-		echo $template->render(array('user_role'=>$user_role, 'last_name' => $lastName, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage));
+		echo $template->render(array('user_role'=>$userRole, 'last_name' => $lastName, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage, 'profile_image' => $profileImage));
 	}
 //else errorMessage?
 ?>

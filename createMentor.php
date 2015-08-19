@@ -49,13 +49,52 @@ try {
 					$status = 0;
 				}
 			}
+			$target_dir = "images/user_profile_images/";
+			$file = $_FILES['fileToUpload'];
+			$fileName = explode('.', $file['name']);
+			$fileExtension = $fileName[count($fileName)-1];
+			unset($fileName[count($fileName)-1]);
+			$fileName = implode('', $fileName);
+			$fileName = MD5($fileName);
+			$completeFileName = $fileName . '.' . $fileExtension;
+			$target_file = $target_dir . basename($completeFileName);
+			$uploadOk = 1;
+			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+			// Check if image file is a actual image or fake image
+			$check = getimagesize($_FILES['fileToUpload']['tmp_name']);
+			if($check !== false) {
+				$uploadOk = 1;
+			} else {
+				$errorMessage .= "File is not an image.";
+				$uploadOk = 0;
+			}// Check file size
+			if ($_FILES["fileToUpload"]["size"] > 2097152) {
+				$errorMessage .= "Sorry, your file is too large.";
+				$uploadOk = 0;
+			}// Allow certain file formats
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+				$errorMessage .= "Sorry, only JPG, JPEG, PNG files are allowed.";
+				$uploadOk = 0;
+			}// Check if $uploadOk is set to 0 by an error
+			if ($uploadOk != 0){// Check if file already exists
+				if (file_exists($target_file)) {
+					unlink($target_file);
+				}
+				if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+					$errorMessage .= "Sorry, there was an error uploading your file.";
+					$status = 0;
+				}
+			}else {
+				$status = 0;
+			}
 			if($status == 1) {
-				$sth = $dbh->prepare('INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :firstName, :lastName, :username, :email, MD5(:password), 2, 1, NULL, NULL);');
+				$sth = $dbh->prepare('INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_privilege`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :firstName, :lastName, :username, :email, MD5(:password), 2, :profileImage, 1, NULL, NULL)');
 				$sth->bindValue(':firstName', $firstName);
 				$sth->bindValue(':lastName', $lastName);
 				$sth->bindValue(':username', $username);
 				$sth->bindValue(':email', $email);
 				$sth->bindValue(':password', $password);
+				$sth->bindValue(':profileImage', $completeFileName);
 				$sth->execute();
 				$result = $sth->fetchAll();
 				$successMessage = 'Mentor added succesfully.';
