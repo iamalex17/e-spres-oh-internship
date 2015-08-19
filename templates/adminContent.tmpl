@@ -1,18 +1,18 @@
 	<div class="mentorList">
+		<div class="separateContent">
+			<div class="alignment">
+				<h2 class="category">Mentors</h2>
+				<h4 class="list">List of mentors</h4>
+			</div>
 
-		<div class="alignment">
-			<h2 class="category">Mentors</h2>
-			<h4 class="list">List of mentors</h4>
+			<div class="buttonAlignment">
+				<button id="buttonNewMentor" class="buttonMentor">
+					<a href="createMentor.php">
+						<i class="fa fa-plus"></i >New Mentor
+					</a>
+				</button>
+			</div>
 		</div>
-
-		<div class="buttonAlignment">
-			<button id="buttonNewMentor" class="buttonMentor">
-				<a href="createMentor.php">
-					<i class="fa fa-plus"></i >New Mentor
-				</a>
-			</button>
-		</div>
-
 		{% for user in mentor %}
 		<div class="existingMentor">
 		<div class="alignment">
@@ -30,20 +30,20 @@
 	</div>
 
 	<div class="internList">
+		<div class="separateContent">
+			<div class="alignment">
+				<h2 class="category">Interns</h2>
+				<h4 class="list">List of interns</h4>
+			</div>
 
-		<div class="alignment">
-			<h2 class="category">Interns</h2>
-			<h4 class="list">List of interns</h4>
+			<div class="buttonAlignment">
+				<button id="buttonNewIntern" class="buttonIntern">
+					<a href="createIntern.php">
+						<i class="fa fa-plus"></i>New Intern
+					</a>
+				</button>
+			</div>
 		</div>
-
-		<div class="buttonAlignment">
-			<button id="buttonNewIntern" class="buttonIntern">
-				<a href="createIntern.php">
-					<i class="fa fa-plus"></i>New Intern
-				</a>
-			</button>
-		</div>
-
 		{% for user in intern %}
 		<div class="existingIntern">
 		<div class="alignment">
