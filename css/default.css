@@ -179,9 +179,9 @@ nav a:hover .iconPlusMore{
 	background-position: -645px -10px;
 }
 	/*Menu*/
-nav ul li ul.subNav {
+/*nav ul li ul.subNav {
 	display: none;
-}
+}*/
 
 nav ul li ul.visible {
 	display: block;
