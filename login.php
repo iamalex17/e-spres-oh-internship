@@ -1,8 +1,6 @@
 <?php
 require_once 'config.php';
 require_once 'functions/load_template.php';
-session_start();
-session_regenerate_id();
 $errorMessage = '';
 $username = '';
 try {
@@ -21,6 +19,11 @@ try {
 				$sth->execute();
 				$result = $sth->fetchAll();
 				if(count($result)==1){
+					session_start();
+					$sth = $dbh->prepare('UPDATE `users` SET session_id = :sessionID WHERE username = :username');
+					$sth->bindValue(':sessionID', session_id());
+					$sth->bindValue(':username', $username);
+					$sth->execute();
 					$row = $result[0];
 					$_SESSION['id'] = $row[0];
 					header('Location: dashboard.php');
