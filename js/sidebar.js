@@ -1,5 +1,20 @@
+
+
 $(document).ready(function() {
-		$('.dropDown').click(function() {
-			$('.subNav').toggleClass('visible');
+
+	$('.subNav').hide();
+	$('nav').on('click', '.dropDown', function() {
+			$('.subNav').slideToggle('slow');
 		});
-	});
+
+
+});
+
+
+
+
+
+
+
+
+
