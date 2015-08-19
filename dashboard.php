@@ -18,4 +18,13 @@ if(count($result) == 1){
 	echo $template->render(array('user_role'=>$user_role, 'last_name' => $lastName));
 }
 //else errorMessage?
+$message = '';
+$sth = $dbh->prepare('SELECT first_name, last_name, email FROM `users` WHERE user_privilege = 2');
+$sth->execute();
+$result = $sth->fetchAll();
+if(!count($result)) {
+	$message .= 'No mentor or intern to display yet.';
+}
+$template = loadTemplate('templates', 'adminContent.tmpl');
+echo $template->render(array('result' => $result, 'message' => $message));
 ?>

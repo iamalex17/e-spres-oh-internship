@@ -13,18 +13,19 @@
 			</button>
 		</div>
 
+		{% for user in result %}
 		<div class="existingMentor">
-
 		<div class="alignment">
-				<h3 class="newUserName">First Name Last Name</h3>
-				<h5 class="emailAddress">email</h5>
+				<h3 class="newUserName">{{ user.first_name }} {{ user.last_name }}</h3>
+				<h5 class="emailAddress">{{ user.email }}</h5>
 		</div>
 
 		<div class="buttonAlignment">
 			<button class="buttonDelete"><i class="fa fa-times"></i></button>
 		</div>
-
+		{{ message }}
 		</div>
+		{% endfor %}
 
 	</div>
 
