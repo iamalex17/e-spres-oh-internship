@@ -6,31 +6,43 @@ if(!verifySessionID($dbh)){
 	header('Location: login.php');
 	exit();
 }
-
-$userID = $_SESSION['id'];
-$sth = $dbh->prepare('SELECT last_name, user_privilege FROM `users` WHERE id = :userID');
-$sth->bindValue(':userID', $userID);
-$sth->execute();
-$result = $sth->fetchAll();
-if(count($result) == 1) {
-	$message = '';
-	$user = $result[0];
-	$lastName = $user[0];
-	$user_role = $user[1];
-	$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 2');
-	$sth->execute();
-	$mentor = $sth->fetchAll();
-	if(!count($mentor)) {
-		$message .= 'No mentor to display yet.';
+$deleteMessage = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+	$request = verifyRequestURL($_SERVER['REQUEST_URI']);
+	if($request != 'dashboard.php'){
+		exit();
 	}
-	$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 3');
+	$deleteUser = $_POST['delete_button'];
+	$sth = $dbh->prepare('UPDATE `users` SET status = 0 WHERE id = :deletedUserID');
+	$sth->bindValue(':deletedUserID', $deleteUser);
 	$sth->execute();
-	$intern = $sth->fetchAll();
-	if(!count($intern)) {
-		$message .= 'No intern to display yet.';
-	}
-	$template = loadTemplate('templates','dashboard.tmpl');
-	echo $template->render(array('user_role'=>$user_role, 'last_name' => $lastName, 'mentor' => $mentor, 'intern' => $intern, 'message' => $message));
+	$deleteMessage = 'User succesfully deleted!';
 }
+	$userID = $_SESSION['id'];
+	$sth = $dbh->prepare('SELECT last_name, user_privilege FROM `users` WHERE id = :userID');
+	$sth->bindValue(':userID', $userID);
+	$sth->execute();
+	$result = $sth->fetchAll();
+	if(count($result) == 1) {
+		$internMessage = '';
+		$mentorMessage = '';
+		$user = $result[0];
+		$lastName = $user[0];
+		$user_role = $user[1];
+		$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 2');
+		$sth->execute();
+		$mentor = $sth->fetchAll();
+		if(!count($mentor)) {
+			$mentorMessage .= 'No mentor to display yet.';
+		}
+		$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 3');
+		$sth->execute();
+		$intern = $sth->fetchAll();
+		if(!count($intern)) {
+			$internMessage .= 'No intern to display yet.';
+		}
+		$template = loadTemplate('templates','dashboard.tmpl');
+		echo $template->render(array('user_role'=>$user_role, 'last_name' => $lastName, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage));
+	}
 //else errorMessage?
 ?>

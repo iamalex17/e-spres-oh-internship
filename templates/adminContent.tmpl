@@ -1,3 +1,6 @@
+	<div class="deleteMessage">
+		{{ deleteMessage }}
+	</div>
 	<div class="mentorList">
 		<div class="separateContent">
 			<div class="alignment">
@@ -23,7 +26,7 @@
 		<div class="buttonAlignment">
 			<button id="delete_button_{{ user.id }}" name="delete_button" class="buttonDelete"><i class="fa fa-times" value="{{ user.id }}"></i></button>
 		</div>
-		{{ message }}
+		{{ mentorMessage }}
 		</div>
 		{% endfor %}
 
@@ -54,7 +57,7 @@
 		<div class="buttonAlignment">
 			<button id="delete_button_{{ user.id }}" name="delete_button" class="buttonDelete"><i class="fa fa-times" value="{{ user.id }}"></i></button>
 		</div>
-		{{ message }}
+		{{ internMessage }}
 		</div>
 		{% endfor %}
 
