@@ -5,12 +5,10 @@
 	<!--Styles-->
 	<link rel="stylesheet" href="css/dashboard.css" />
 	<link rel="stylesheet" href="css/default.css" />
-	<link rel="stylesheet" type="text/css" href="Remodal-1.0.2/dist/remodal.css">
-	<link rel="stylesheet" type="text/css" href="Remodal-1.0.2/dist/remodal-default-theme.css">
 
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="Remodal-1.0.2/dist/remodal.min.js"></script>
+	<script type="text/javascript" src="css/popup.js"></script>
 	<script type="text/javascript" src ="js/sidebar.js"></script>
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -57,8 +55,8 @@
 				Are you sure you want to delete this user?
 			</p>
 			<br>
-			<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-			<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+			<button  class="remodal-cancel">Cancel</button>
+			<button  class="remodal-confirm" onclick="check()">OK</button>
 		</div>
 	</div>
 

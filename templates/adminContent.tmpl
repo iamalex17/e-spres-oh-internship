@@ -22,8 +22,9 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<form action="#modal">
-						<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+					<form id="test1" action="dashboard.php" method = "POST" class="test">
+						<input type="hidden" name = "delete_button" value = "{{ user.id }}"/>
+						<button id="delete_button" class="buttonDelete"><i class="fa fa-times"></i></button>
 					</form>
 				</div>
 				{{ message }}
@@ -56,13 +57,34 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<form action="#modal">
-						<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+					<form data-remodal-target="modal" action="dashboard.php" method="POST" class="test">
+						<button name="delete_button" value="{{ user.id }}" class="buttonDelete">
+						<i class="fa fa-times"></i></button>
 					</form>
 				</div>
 				{{ message }}
 			</div>
 			{% endfor %}
 		</div>
+
+		<script type="text/javascript">
+			;(function($) {
+		$(function() {
+			$('.buttonDelete').on('click', function(e) {
+				e.preventDefault();
+				var that = $(this);
+				$('.remodal-bg').bPopup({
+					appendTo: 'form'
+					, zIndex: 2
+					, modalClose: false
+				});
+			});
+		 });
+	 })(jQuery);
+
+	 function check(){
+	 	$(this).closest('.test').submit();
+	 }
+		</script>
 
 	</div>

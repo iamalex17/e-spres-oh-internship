@@ -8,13 +8,16 @@ if(!verifySessionID($dbh)) {
 }
 
 $deleteMessage = '';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$request = verifyRequestURL($_SERVER['REQUEST_URI']);
 	if($request != 'dashboard.php') {
 		exit();
 	}
+	var_dump($_POST);
 	$deleteUser = $_POST['delete_button'];
+	var_dump($deleteUser);
+	exit();
+
 	$sth = $dbh->prepare('UPDATE `users` SET status = 0 WHERE id = :deletedUserID');
 	$sth->bindValue(':deletedUserID', $deleteUser);
 	$sth->execute();
