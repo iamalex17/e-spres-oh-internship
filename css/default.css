@@ -109,10 +109,15 @@ button{
 	margin-bottom: 20px;
 }
 	/*Aside Icons*/
+.profile-image{
+	height: 100px;
+	width: 100px;
+}
 .iconProfileUser{
 	width: 100px;
 	height: 100px;
 	background-position: -10px -10px;
+	border-radius: 50%;
 	margin: 0;
 }
 .iconDashboard{

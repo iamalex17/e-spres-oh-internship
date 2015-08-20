@@ -33,6 +33,14 @@
 
 		<h1 class="mainHeaderDashboard">Create Mentor</h1>
 
+		<div>
+			{{ errorMessage }}
+		</div>
+		
+		<div>
+			{{ successMessage }}
+		</div>
+
 		<form method="POST" action="createMentor.php" enctype="multipart/form-data">
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="firstName" type="text" placeholder="First Name">
@@ -77,7 +85,7 @@
 			<div class="passwordsStatus"></div>
 
 			<div class="imageAlignment">
-				<img src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
+				<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
 			</div>
 			<div class="buttonAlign">
 				<input type="file" accept="image/*" name="fileToUpload" id="buttonAddImage" onchange="loadFile(event)" >
@@ -86,14 +94,6 @@
 			<button type="submit" id="buttonSubmitMentor" class="buttonSubmitMentor" >Submit </button>
 
 		</form>
-		
-		<div>
-			{{ errorMessage }}
-		</div>
-		
-		<div>
-			{{ successMessage }}
-		</div>
 
 	</div>
 

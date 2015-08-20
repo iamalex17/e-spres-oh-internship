@@ -98,6 +98,7 @@
 	width: 25px;
 	height: 25px;
 	background-position: -130px -10px;;
+	border-radius: 50%;
 	display: inline-block;
 	margin-right: 10px;
 	vertical-align: middle;
