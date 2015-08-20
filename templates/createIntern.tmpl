@@ -83,12 +83,12 @@
 			<div class="passwordsStatus"></div>
 
 			<div class="imageAlignment">
-				<img class="profile-image" src="http://placehold.it/100x100" alt="Intern avatar">
+				<img class="profile-image" src="http://placehold.it/100x100" alt="Intern avatar" id="output">
 			</div>
 			<div class="buttonAlign">
-				<button type="submit" id="buttonAddImage" class="buttonAddImage">Add image</button>
 			</div>
-			<button type="submit" id="buttonSubmitMentor" class="buttonSubmitMentor" >Submit </button>
+
+			<button type="submit" id="buttonSubmitMentor" class="buttonSubmitUser" >Submit </button>
 
 		</form>
 	</div>
@@ -98,6 +98,17 @@
 	<div class="footer">
 		{% include 'footer.tmpl' %}
 	</div>
+	<script>
+		var loadFile = function(event) {
+			var reader = new FileReader();
+			reader.onload = function(){
+				var output = document.getElementById('output');
+				output.src = reader.result;
+			};
+			reader.readAsDataURL(event.target.files[0]);
+		};
+	</script>
+
 </body>
 
 </html>
