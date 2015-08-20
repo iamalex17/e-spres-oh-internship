@@ -136,7 +136,6 @@
 	cursor:pointer;
 	font-weight: 600;
 }
-
 .button-add-user > a {
 	padding: 9px;
 	display: inline-block;
@@ -187,6 +186,22 @@
 	margin-right: 10px;
 	cursor:pointer;
 	background-color: #efefef;
+}
+.buttonCourse{
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	background-color: #ffffff;
+	color: #444444;
+	font-size: 10px;
+	text-transform: uppercase;
+	cursor:pointer;
+	font-weight: 600;
+}
+.buttonCourse > a {
+	padding: 9px;
+	display: inline-block;
 }
 .buttonEdit:hover{
 	background-color: #dfdddd;
