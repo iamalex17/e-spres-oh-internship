@@ -30,6 +30,13 @@ button{
 	padding:0;
 	border:0;
 }
+/*Error and Succes Message*/
+.errorMessage{
+	color: #FA3E3E;
+}
+.successMessage{
+	color: #74DF00;
+}
 	/*Main Icon*/
 .iconParent{
 	background-image: url("../images/icon-sprites.png");
