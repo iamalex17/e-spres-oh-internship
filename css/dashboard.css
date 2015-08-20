@@ -135,11 +135,10 @@
 	text-transform: uppercase;
 	cursor:pointer;
 	font-weight: 600;
-}
-.button-add-form > a {
-	padding: 9px;
+	padding: 8px;
 	display: inline-block;
 }
+
 .buttonAddImage{
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
