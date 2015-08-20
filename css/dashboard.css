@@ -24,7 +24,7 @@
 	width: 75%;
 	display:inline-block;
 }
-.existing-mentor-container {
+.existing-user-container {
 	border: 1px solid #d2d9d6;
 	margin-top: 50px;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
@@ -36,13 +36,7 @@
 	border-bottom: 1px solid #d2d9d6;
 
 }
-.existing-intern-container {
-	border: 1px solid #d2d9d6;
-	margin-top: 50px;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-}
+
 .existingIntern{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
@@ -128,21 +122,8 @@
 	margin-right: 5px;
 }
 /*Button*/
-.buttonIntern{
-	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	background-color: #ffffff;
-	color: #444444;
-	font-size: 10px;
-	text-transform: uppercase;
-	height: 30px;
-	width: 100px;
-	cursor:pointer;
-	font-weight: 600;
-}
-.buttonMentor{
+
+.button-add-user{
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
