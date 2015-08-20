@@ -322,7 +322,10 @@ nav ul li:hover > a{
 	left: 36px;
 }
 
-.checkUsername, .checkLastName, .checkFirstName, .passwordsStatus, .validEmail {
+.check-input-hidden {
+	display: none;
+}
+.check-input, .passwordsStatus, .validEmail {
 	color: tomato;
 	margin-bottom: 7px;
 }

@@ -26,38 +26,18 @@ var LOGIN = (function() {
 		}
 	}
 
-	function checkFirstNameContent() {
-		var firstName  = $(this).val();
 
-		if(firstName != "") {
+	function checkInputValue() {
+		var $this = $(this);
+
+		if($this.val() != "") {
 			console.log('200 OK');
-			$('.checkFirstName').text("");
+			$this.closest('.formInput').next('.check-input').addClass("check-input-hidden");
 		} else {
-			$('.checkFirstName').text('Please enter your first name');
+			$this.closest('.formInput').next('.check-input').removeClass("check-input-hidden");
 		}
 	}
 
-	function checkLastNameContent() {
-		var lastName  = $(this).val();
-
-		if(lastName != "") {
-			console.log('200 OK');
-			$('.checkLastName').text("");
-		} else {
-			$('.checkLastName').text('Please enter your last name');
-		}
-	}
-
-	function checkUsernameContent() {
-		var username  = $(this).val();
-
-		if(username != "") {
-			console.log('200 OK');
-			$('.checkUsername').text("");
-		} else {
-			$('.checkUsername').text('Please enter your username');
-		}
-	}
 
 	function keepInputFocusStyle() {
 
@@ -76,9 +56,9 @@ var LOGIN = (function() {
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
-			$('#firstName').on('keyup', checkFirstNameContent);
-			$('#lastName').on('keyup', checkLastNameContent);
-			$('#username').on('keyup', checkUsernameContent);
+			$('#firstName').on('keyup', checkInputValue);
+			$('#lastName').on('keyup', checkInputValue);
+			$('#username').on('keyup', checkInputValue);
 
 			$('form').on('blur', 'input', keepInputFocusStyle);
 
