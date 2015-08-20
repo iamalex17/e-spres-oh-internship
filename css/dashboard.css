@@ -26,7 +26,7 @@
 }
 .existing-mentor-container {
 	border: 1px solid #d2d9d6;
-	margin-top: 20px;
+	margin-top: 50px;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
@@ -38,7 +38,7 @@
 }
 .existing-intern-container {
 	border: 1px solid #d2d9d6;
-	margin-top: 20px;
+	margin-top: 50px;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
