@@ -26,6 +26,9 @@ try {
 					$sth->execute();
 					$row = $result[0];
 					$_SESSION['id'] = $row[0];
+					$_SESSION['last_name'] = $row[2];
+					$_SESSION['user_privilege'] = $row[6];
+					$_SESSION['profile_image'] = $row[7];
 					header('Location: dashboard.php');
 					exit();
 				} else {
