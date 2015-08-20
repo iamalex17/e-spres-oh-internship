@@ -63,8 +63,12 @@ try {
 			}
 		}
 	}
+	$userID = $_SESSION['id'];
+	$lastName = $_SESSION['last_name'];
+	$userRole = $_SESSION['user_privilege'];
+	$profileImage = $_SESSION['profile_image'];
 	$template = loadTemplate('templates', 'createIntern.tmpl');
-	echo $template->render(array('errorMessage' => $errorMessage, 'successMessage' => $successMessage));
+	echo $template->render(array('last_name' => $lastName, 'user_role' => $userRole, 'profile_image' => $profileImage, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
