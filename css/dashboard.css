@@ -97,7 +97,7 @@
 .iconSmallProfileUser{
 	width: 25px;
 	height: 25px;
-	background-color: #212121;
+	background-color: transparent;
 	border-radius: 50%;
 	display: inline-block;
 	margin-right: 10px;
