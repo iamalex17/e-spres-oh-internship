@@ -9,6 +9,6 @@ $userID = $_SESSION['id'];
 $lastName = $_SESSION['last_name'];
 $userRole = $_SESSION['user_privilege'];
 $profileImage = $_SESSION['profile_image'];
-$template = loadTemplate('templates','editProfileMentor.tmpl');
+$template = loadTemplate('templates','changePassword.tmpl');
 echo $template->render(array('userID' => $userID, 'last_name' => $lastName, 'user_role' => $userRole, 'profile_image' => $profileImage));
 ?>
