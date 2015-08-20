@@ -123,7 +123,6 @@
 	margin-right: 5px;
 }
 /*Button*/
-
 .button-add-form{
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
@@ -138,22 +137,7 @@
 	padding: 8px;
 	display: inline-block;
 }
-
-.buttonAddImage{
-	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	background-color: #ffffff;
-	display: inline-block;
-	color: #444444;
-	font-size: 10px;
-	text-transform: uppercase;
-	height: 30px;
-	width: 100px;
-	cursor: pointer;
-}
-.buttonSubmitMentor{
+.buttonSubmitUser{
 	width: 16%;
 	height: auto;
 	background-color: #06a8d7;
@@ -187,7 +171,6 @@
 	background-color: #efefef;
 }
 
-
 .buttonEdit:hover{
 	background-color: #dfdddd;
 }
@@ -197,11 +180,7 @@
 .button-add-form:hover{
 	background-color: #efefef;
 }
-
-.buttonAddImage:hover{
-	background-color: #efefef;
-}
-.buttonSubmitMentor:hover{
+.buttonSubmitUser:hover{
 	background-color: #0d89ed;
 }
 	/*HoverLog*/
