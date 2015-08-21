@@ -64,16 +64,14 @@ button{
 /*Top Account*/
 .topAccount{
 	background-color: #ffffff;
-	height: 50px;
 	height: 45px;
 	border-bottom: 1px solid #eeeeee;
 	width:100%;
 }
 .topAccountSection{
+	float:right;
 	height: auto;
-	width: auto;
 	text-align: center;
-	padding: 13px;
 	padding: 10px;
 	border-left: 1px solid #eeeeee;
 	width: 12%;
@@ -85,6 +83,7 @@ button{
 	/*Container*/
 .side-navigation{
 	width:19%;
+	float:left;
 	height: 1024px;
 	background-color: #212121;
 	color: #ffffff;
@@ -166,6 +165,7 @@ button{
 	background-position: -713px -10px;
 	margin-right: 10px;
 }
+
 .iconMinusMore {
 	width: 14px;
 	height: 14px;
@@ -190,6 +190,7 @@ nav a:hover .iconPlus{
 /*nav a:hover .iconPlusMore{
 	background-position: -645px -10px;
 }*/
+
 nav {
 	border-top: 1px solid #2e2e2e;
 	border-bottom: 1px solid #2e2e2e;
