@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-require 'functions/load_template.php';
+require 'functions/load-template.php';
 $errorMessage = '';
 $successMessage = '';
 if(!verifySessionID()){
@@ -49,7 +49,7 @@ try {
 					$status = 0;
 				}
 			}
-			$target_dir = "images/user_profile_images/";
+			$target_dir = "images/user-profile-images/";
 			$file = $_FILES['fileToUpload'];
 			$fileName = explode('.', $file['name']);
 			$fileExtension = $fileName[count($fileName)-1];
@@ -111,7 +111,7 @@ try {
 	$lastName = $_SESSION['last_name'];
 	$userRole = $_SESSION['user_privilege'];
 	$profileImage = $_SESSION['profile_image'];
-	$template = loadTemplate('templates', 'createMentor.tmpl');
+	$template = loadTemplate('templates', 'create-mentor.tmpl');
 	echo $template->render(array('userID' => $userID, 'last_name' => $lastName, 'user_role' => $userRole, 'profile_image' => $profileImage, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());

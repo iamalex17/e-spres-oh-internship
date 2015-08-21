@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-require 'functions/load_template.php';
+require 'functions/load-template.php';
 try {
 	$link = '';
 	$errorMessage = '';
@@ -37,7 +37,7 @@ try {
 			$errorMessage .= 'Please insert password.</br>';
 		}
 	}
-	$template = loadTemplate('templates','resetPassword.tmpl');
+	$template = loadTemplate('templates','reset-password.tmpl');
 	echo $template->render(array('link' => $link, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());

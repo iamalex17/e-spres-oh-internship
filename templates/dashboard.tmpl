@@ -26,20 +26,20 @@
 
 	<!--Content-->
 	<div class="topAccount">
-		{% include 'topAccountSection.tmpl' %}
+		{% include 'top-account-section.tmpl' %}
 	</div>
 
 	<!--Mentor and Intern List-->
 	{% if user_role == 1 %}
-		{% include 'adminContent.tmpl' %}
+		{% include 'admin-content.tmpl' %}
 	{% endif %}
 
 	{% if user_role == 2 %}
-		{% include 'mentorContent.tmpl' %}
+		{% include 'mentor-content.tmpl' %}
 	{% endif %}
 
 	{% if user_role == 3 %}
-		{% include 'internContent.tmpl' %}
+		{% include 'intern-content.tmpl' %}
 	{% endif %}
 
 	<!--Footer-->

@@ -1,5 +1,5 @@
 <?php
-	require 'functions/config_functions.php';
+	require 'functions/config-functions.php';
 	require 'class.connect-to-db.php';
 	require_once 'class.user.php';
 	

@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-require 'functions/load_template.php';
+require 'functions/load-template.php';
 
 if(!verifySessionID()) {
 	header('Location: login.php');

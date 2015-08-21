@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once 'functions/load_template.php';
+require_once 'functions/load-template.php';
 try {
 	session_start();
 	$userID = $_SESSION['id'];

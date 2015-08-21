@@ -2,7 +2,7 @@
 		<h4 class="topLogo"> [e-spres-oh] Internship </h4>
 	</div>
 	<div class="userAvatar">
-		<img class="iconProfileUser" src="images/user_profile_images/{{ profile_image }}">
+		<img class="iconProfileUser" src="images/user-profile-images/{{ profile_image }}">
 		<h3 class="userName"> {{ last_name }} </h3>
 	</div>
 
@@ -10,8 +10,8 @@
 		{% if user_role == 1 %}
 		<ul>
 		<li><a href='dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li><a href='createMentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
-		<li><a href='createIntern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
+		<li><a href='create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
+		<li><a href='create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}

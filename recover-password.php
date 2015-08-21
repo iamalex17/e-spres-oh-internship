@@ -1,11 +1,11 @@
 <?php
 	require 'config.php';
-	require 'functions/load_template.php';
-	require 'functions/recover_functions.php';
+	require 'functions/load-template.php';
+	require 'functions/recover-functions.php';
 	$errorMessage = '';
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$request = verifyRequestURL($_SERVER['REQUEST_URI']);
-		if($request != 'recoverPassword.php'){
+		if($request != 'recover-password.php'){
 			exit();
 		}
 		if(isset($_POST['email'])){
@@ -18,6 +18,6 @@
 			}
 		}
 	}
-	$template = loadTemplate('templates','recoverPassword.tmpl');
+	$template = loadTemplate('templates','recover-password.tmpl');
 	echo $template->render(array('errorMessage' => $errorMessage));
 ?>

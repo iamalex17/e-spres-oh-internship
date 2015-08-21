@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-require 'functions/load_template.php';
+require 'functions/load-template.php';
 $errorMessage = '';
 $successMessage = '';
 
@@ -67,7 +67,7 @@ try {
 	$lastName = $_SESSION['last_name'];
 	$userRole = $_SESSION['user_privilege'];
 	$profileImage = $_SESSION['profile_image'];
-	$template = loadTemplate('templates', 'createIntern.tmpl');
+	$template = loadTemplate('templates', 'create-intern.tmpl');
 	echo $template->render(array('last_name' => $lastName, 'user_role' => $userRole, 'profile_image' => $profileImage, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
