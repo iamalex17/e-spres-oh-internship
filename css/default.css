@@ -37,6 +37,11 @@ button{
 .successMessage{
 	color: #74DF00;
 }
+.deleteMessage{
+	color: #74DF00;
+	text-align: center;
+	margin-top: 10px;
+}
 	/*Main Icon*/
 .iconParent{
 	background-image: url("../images/icon-sprites.png");
