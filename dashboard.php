@@ -33,16 +33,24 @@ $profileImage = $_SESSION['profile_image'];
 $sth = $dbh->prepare('SELECT id, first_name, last_name, email, status FROM `users` WHERE user_privilege = 2');
 $sth->execute();
 $mentor = $sth->fetchAll();
+$sth = $dbh->prepare('SELECT count(*) FROM `users` WHERE user_privilege = 2 AND status = 0');
+$sth->execute();
+$result = $sth->fetch();
 
-if(!count($mentor)) {
+if($result[0] == count($mentor)) {
+	$mentor = NULL;
 	$mentorMessage .= 'No mentor to display yet.';
 }
 
 $sth = $dbh->prepare('SELECT id, first_name, last_name, email, status FROM `users` WHERE user_privilege = 3');
 $sth->execute();
 $intern = $sth->fetchAll();
+$sth = $dbh->prepare('SELECT count(*) FROM `users` WHERE user_privilege = 3 AND status = 0');
+$sth->execute();
+$result = $sth->fetch();
 
-if(!count($intern)) {
+if($result[0] == count($intern)) {
+	$intern = NULL;
 	$internMessage .= 'No intern to display yet.';
 }
 

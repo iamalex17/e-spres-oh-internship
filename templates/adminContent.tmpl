@@ -14,6 +14,7 @@
 			</a>
 		</div>
 		<div class="existing-user-container">
+			{{ mentorMessage }}
 			{% for user in mentor %}
 			{% if user.status == 1 %}
 			<div class="existingMentor">
@@ -25,7 +26,6 @@
 				<div class="buttonAlignment">
 					<button value = "{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 				</div>
-				{{ message }}
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -48,6 +48,7 @@
 
 
 		<div class="existing-user-container">
+			{{ internMessage }}
 			{% for user in intern %}
 			{% if user.status == 1 %}
 			<div class="existingIntern">
@@ -62,7 +63,6 @@
 						<i class="fa fa-times"></i></button>
 					</form>
 				</div>
-				{{ message }}
 			</div>
 			{% endif %}
 			{% endfor %}
