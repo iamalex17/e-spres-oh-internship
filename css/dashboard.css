@@ -243,3 +243,7 @@
 	font-size: 32px;
 	margin-bottom: 2%;
 }
+
+.modal-container {
+	display: none;
+}

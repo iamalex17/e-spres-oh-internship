@@ -13,10 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if($request != 'dashboard.php') {
 		exit();
 	}
-	var_dump($_POST);
 	$deleteUser = $_POST['delete_button'];
-	var_dump($deleteUser);
-	exit();
+
 
 	$sth = $dbh->prepare('UPDATE `users` SET status = 0 WHERE id = :deletedUserID');
 	$sth->bindValue(':deletedUserID', $deleteUser);
@@ -32,7 +30,7 @@ $lastName = $_SESSION['last_name'];
 $userRole = $_SESSION['user_privilege'];
 $profileImage = $_SESSION['profile_image'];
 
-$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 2');
+$sth = $dbh->prepare('SELECT id, first_name, last_name, email, status FROM `users` WHERE user_privilege = 2');
 $sth->execute();
 $mentor = $sth->fetchAll();
 
@@ -40,7 +38,7 @@ if(!count($mentor)) {
 	$mentorMessage .= 'No mentor to display yet.';
 }
 
-$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 3');
+$sth = $dbh->prepare('SELECT id, first_name, last_name, email, status FROM `users` WHERE user_privilege = 3');
 $sth->execute();
 $intern = $sth->fetchAll();
 

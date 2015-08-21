@@ -15,6 +15,7 @@
 		</div>
 		<div class="existing-user-container">
 			{% for user in mentor %}
+			{% if user.status == 1 %}
 			<div class="existingMentor">
 				<div class="alignment">
 						<h3 class="newUserName">{{ user.first_name }} {{ user.last_name }}</h3>
@@ -22,13 +23,11 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<form id="test1" action="dashboard.php" method = "POST" class="test">
-						<input type="hidden" name = "delete_button" value = "{{ user.id }}"/>
-						<button id="delete_button" class="buttonDelete"><i class="fa fa-times"></i></button>
-					</form>
+					<button value = "{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 				</div>
 				{{ message }}
 			</div>
+			{% endif %}
 			{% endfor %}
 		</div>
 
@@ -50,6 +49,7 @@
 
 		<div class="existing-user-container">
 			{% for user in intern %}
+			{% if user.status == 1 %}
 			<div class="existingIntern">
 				<div class="alignment">
 						<h3 class="newUserName">{{ user.first_name }} {{ user.last_name }}</h3>
@@ -58,33 +58,37 @@
 
 				<div class="buttonAlignment">
 					<form data-remodal-target="modal" action="dashboard.php" method="POST" class="test">
-						<button name="delete_button" value="{{ user.id }}" class="buttonDelete">
+						<button name="delete_button" value="{{ user.id }}" class="buttonDelete" >
 						<i class="fa fa-times"></i></button>
 					</form>
 				</div>
 				{{ message }}
 			</div>
+			{% endif %}
 			{% endfor %}
 		</div>
 
 		<script type="text/javascript">
-			;(function($) {
-		$(function() {
-			$('.buttonDelete').on('click', function(e) {
-				e.preventDefault();
-				var that = $(this);
-				$('.remodal-bg').bPopup({
-					appendTo: 'form'
-					, zIndex: 2
-					, modalClose: false
-				});
-			});
-		 });
-	 })(jQuery);
 
-	 function check(){
-	 	$(this).closest('.test').submit();
-	 }
+			;(function($) {
+				$(function() {
+
+					$('.buttonDelete').bind('click', function(e) {
+						e.preventDefault();
+						$idTest = $(this).attr('value');
+						$('.modal-container').bPopup({
+							closeClass: 'remodal-cancel',
+							modalClose: true
+						});
+						$('.remodal-confirm').attr('value', $idTest);
+					});
+
+					$('.remodal-confirm').on('click', function() {
+						$(this).submit();
+					});
+				});
+			})(jQuery);
+
 		</script>
 
 	</div>
