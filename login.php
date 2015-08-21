@@ -10,25 +10,20 @@ try {
 			exit();
 		}
 		if(isset($_POST['username'])){
-			$username = trim($_POST['username']);
 			if(isset($_POST['password'])){
-				$password = trim($_POST['password']);
-				$sth = $dbh->prepare('SELECT * FROM `users` WHERE username = :username AND password = MD5(:password)');
-				$sth->bindValue(':username', $username);
-				$sth->bindValue(':password', $password);
-				$sth->execute();
-				$result = $sth->fetchAll();
+				$user = new User($_POST);
+				$sql = 'SELECT * FROM `users` WHERE username = :username AND password = :password';
+				$valuesToBind = array('username' => $user->username, 'password' => $user->password);
+				$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 				if(count($result)==1){
+					$user = new User($result[0]);
 					session_start();
-					$sth = $dbh->prepare('UPDATE `users` SET session_id = :sessionID WHERE username = :username');
-					$sth->bindValue(':sessionID', session_id());
-					$sth->bindValue(':username', $username);
-					$sth->execute();
-					$row = $result[0];
-					$_SESSION['id'] = $row[0];
-					$_SESSION['last_name'] = $row[2];
-					$_SESSION['user_privilege'] = $row[6];
-					$_SESSION['profile_image'] = $row[7];
+					session_regenerate_id();
+					$user->session_id = session_id();
+					$sql = 'UPDATE `users` SET session_id = :session_id WHERE username = :username';
+					$valuesToBind = array('session_id' => session_id(), 'username' => $user->username);
+					ConnectToDB::interogateDB($sql, $valuesToBind);
+					$_SESSION = (array)$user;
 					header('Location: dashboard.php');
 					exit();
 				} else {

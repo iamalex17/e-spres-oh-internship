@@ -2,13 +2,12 @@
 require 'config.php';
 require 'functions/load_template.php';
 
-if(!verifySessionID($dbh)) {
+if(!verifySessionID()) {
 	header('Location: login.php');
 	exit();
 }
 
 $deleteMessage = '';
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$request = verifyRequestURL($_SERVER['REQUEST_URI']);
 	if($request != 'dashboard.php') {
@@ -24,28 +23,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $internMessage = '';
 $mentorMessage = '';
 
-$userID = $_SESSION['id'];
-$lastName = $_SESSION['last_name'];
-$userRole = $_SESSION['user_privilege'];
-$profileImage = $_SESSION['profile_image'];
+$sql = 'SELECT * FROM `users` WHERE session_id = :session_id';
+$valuesToBind = array('session_id' => $_SESSION['session_id']);
 
-$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 2');
-$sth->execute();
-$mentor = $sth->fetchAll();
+$user = new User($_SESSION);
+
+$sql = 'SELECT * FROM `users` WHERE user_role = 2';
+$mentor = ConnectToDB::interogateDB($sql);
 
 if(!count($mentor)) {
 	$mentorMessage .= 'No mentor to display yet.';
 }
 
-$sth = $dbh->prepare('SELECT id, first_name, last_name, email FROM `users` WHERE user_privilege = 3');
-$sth->execute();
-$intern = $sth->fetchAll();
+$sql = 'SELECT * FROM `users` WHERE user_role = 2';
+$intern = ConnectToDB::interogateDB($sql);
 
 if(!count($intern)) {
 	$internMessage .= 'No intern to display yet.';
 }
 
 $template = loadTemplate('templates','dashboard.tmpl');
-echo $template->render(array('user_role'=>$userRole, 'last_name' => $lastName, 'profile_image' => $profileImage, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage));
+echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage));
 
 ?>

@@ -8,21 +8,20 @@
 		return $url[count($url)-1];
 	}
 
-	function verifySessionID($dbh){
+	function verifySessionID(){
 		session_start();
 		if(!isset($_SESSION['id'])){
 			return false;
 		}
-		$sth = $dbh->prepare('SELECT session_id FROM `users` WHERE id = :userID');
-		$sth->bindValue(':userID', $_SESSION['id']);
-		$sth->execute();
-		$result=$sth->fetch();
-		if($result[0]==session_id()){
+		$sql = 'SELECT session_id FROM `users` WHERE id = :userID';
+		$valuesToBind = array('userID' => $_SESSION['id']);
+		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+		$row = $result[0];
+		if($row['session_id'] == session_id()) {
 			session_regenerate_id();
-			$sth = $dbh->prepare('UPDATE `users` SET session_id = :sessionID WHERE id = :userID');
-			$sth->bindValue(':sessionID', session_id());
-			$sth->bindValue(':userID', $_SESSION['id']);
-			$sth->execute();
+			$sql = 'UPDATE `users` SET session_id = :session_id WHERE id = :id';
+			$valuesToBind = array('session_id' => session_id(), 'id' => $_SESSION['id']);
+			ConnectToDB::interogateDB($sql, $valuesToBind);
 			return true;
 		}
 		return false;
