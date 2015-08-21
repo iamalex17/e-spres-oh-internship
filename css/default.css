@@ -30,6 +30,18 @@ button{
 	padding:0;
 	border:0;
 }
+/*Error and Succes Message*/
+.errorMessage{
+	color: #FA3E3E;
+}
+.successMessage{
+	color: #74DF00;
+}
+.deleteMessage{
+	color: #74DF00;
+	text-align: center;
+	margin-top: 10px;
+}
 	/*Main Icon*/
 .iconParent{
 	background-image: url("../images/icon-sprites.png");
@@ -57,7 +69,7 @@ button{
 /*Top Account*/
 .topAccount{
 	background-color: #ffffff;
-	height: 50px;
+	height: 45px;
 	border-bottom: 1px solid #eeeeee;
 	width:100%;
 }
@@ -109,10 +121,16 @@ button{
 	margin-bottom: 20px;
 }
 	/*Aside Icons*/
+.profile-image{
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
 .iconProfileUser{
 	width: 100px;
 	height: 100px;
-	background-position: -10px -10px;
+	background-color: transparent;
+	border-radius: 50%;
 	margin: 0;
 }
 .iconDashboard{

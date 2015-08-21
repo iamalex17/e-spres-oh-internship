@@ -30,19 +30,14 @@ var LOGIN = (function() {
 	function checkInputValue() {
 		var $this = $(this);
 
-		if($this.val() != "") {
-			console.log('200 OK');
-			$this.closest('.formInput').next('.check-input').addClass("check-input-hidden");
-		} else {
-			$this.closest('.formInput').next('.check-input').removeClass("check-input-hidden");
-		}
+		$this.closest('.formInput').next('.check-input').toggleClass("check-input-hidden", $this.val() != "");
 	}
 
 
 	function keepInputFocusStyle() {
 
 		var $this = $(this);
-		
+
 		if( $this.val() ) {
 			$this.closest('.formInput').addClass('input-focus');
 		} else {

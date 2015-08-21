@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
 	$('.subNav').hide();
@@ -9,6 +7,7 @@ $(document).ready(function() {
 			$('.change-icon').toggleClass('iconMinusMore');
 		});
 	});
+
 
 });
 

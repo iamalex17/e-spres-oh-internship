@@ -9,14 +9,14 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="buttonNewMentor" class="button-add-user">
-				<a href="createMentor.php">
-					<i class="fa fa-plus"></i >New Mentor
-				</a>
-			</button>
+			<a href="createMentor.php" id="buttonNewMentor" class="button-add-form">
+				<i class="fa fa-plus"></i >New Mentor
+			</a>
 		</div>
 		<div class="existing-user-container">
+			{{ mentorMessage }}
 			{% for user in mentor %}
+			{% if user.status == 1 %}
 			<div class="existingMentor">
 				<div class="alignment">
 						<h3 class="newUserName">{{ user.first_name }} {{ user.last_name }}</h3>
@@ -24,10 +24,10 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+					<button value = "{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 				</div>
-				{{ message }}
 			</div>
+			{% endif %}
 			{% endfor %}
 		</div>
 
@@ -41,16 +41,16 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<button id="buttonNewIntern" class="button-add-user">
-				<a href="createIntern.php">
-					<i class="fa fa-plus"></i>New Intern
-				</a>
-			</button>
+			<a href="createIntern.php" id="buttonNewIntern" class="button-add-form">
+				<i class="fa fa-plus"></i>New Intern
+			</a>
 		</div>
 
 
 		<div class="existing-user-container">
+			{{ internMessage }}
 			{% for user in intern %}
+			{% if user.status == 1 %}
 			<div class="existingIntern">
 				<div class="alignment">
 						<h3 class="newUserName">{{ user.first_name }} {{ user.last_name }}</h3>
@@ -58,11 +58,37 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<button id="delete_button_{{ user.id }}" name="delete_button_{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+					<form data-remodal-target="modal" action="dashboard.php" method="POST" class="test">
+						<button name="delete_button" value="{{ user.id }}" class="buttonDelete" >
+						<i class="fa fa-times"></i></button>
+					</form>
 				</div>
-				{{ message }}
 			</div>
+			{% endif %}
 			{% endfor %}
 		</div>
+
+		<script type="text/javascript">
+
+			;(function($) {
+				$(function() {
+
+					$('.buttonDelete').bind('click', function(e) {
+						e.preventDefault();
+						$idTest = $(this).attr('value');
+						$('.modal-container').bPopup({
+							closeClass: 'remodal-cancel',
+							modalClose: true
+						});
+						$('.remodal-confirm').attr('value', $idTest);
+					});
+
+					$('.remodal-confirm').on('click', function() {
+						$(this).submit();
+					});
+				});
+			})(jQuery);
+
+		</script>
 
 	</div>

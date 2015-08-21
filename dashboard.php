@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		exit();
 	}
 	$deleteUser = $_POST['delete_button'];
+
+
 	$sth = $dbh->prepare('UPDATE `users` SET status = 0 WHERE id = :deletedUserID');
 	$sth->bindValue(':deletedUserID', $deleteUser);
 	$sth->execute();
@@ -31,14 +33,23 @@ $user = new User($_SESSION);
 $sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $mentor = ConnectToDB::interogateDB($sql);
 
-if(!count($mentor)) {
+$sql = 'SELECT count(*) FROM `users` WHERE user_privilege = 2 AND status = 0';
+$result = ConnectToDB::interogateDB($sql);
+
+if($result[0] == count($mentor)) {
+	$mentor = NULL;
 	$mentorMessage .= 'No mentor to display yet.';
 }
+
 
 $sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $intern = ConnectToDB::interogateDB($sql);
 
-if(!count($intern)) {
+$sql = 'SELECT count(*) FROM `users` WHERE user_privilege = 3 AND status = 0';
+$result = ConnectToDB::interogateDB($sql);
+
+if($result[0] == count($intern)) {
+	$intern = NULL;
 	$internMessage .= 'No intern to display yet.';
 }
 
