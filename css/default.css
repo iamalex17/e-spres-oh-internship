@@ -298,7 +298,7 @@ nav a:hover .iconPlus{
 	color: #2b2b2b;
 	padding: 5px 0 10px 10px;
 	margin-bottom:20px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 }
 .course-name{
@@ -551,4 +551,11 @@ li.active a, li.active a:hover {
 }
 .tab.active {
 	display:block;
+}
+.input-type{
+	border: transparent;
+	padding: 10px;
+}
+.form-distance{
+	margin-top: 10px;
 }

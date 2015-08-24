@@ -40,26 +40,31 @@
 		</ul>
 		<div class="tab-content">
 			<div id="tab1" class="tab active">
-				<b class="title">Title</b>
-				<h3 class="course-name">Basics of HTML</h3>
+				<b class="title">Title</b><br>
+				<input type="text" name="course" id="course" placeholder="Input course name here" class="input-type">
 				<div class="description-create-course">
 					<b class="label-name">Label</b><br>
 					<form class="course-checkbox">
-						<input type="checkbox" name="frontend" value="Frontend">Frontend
-						<input type="checkbox" name="backend" value="Backend">Backend
+						<input type="checkbox" name="frontend" value="Frontend" id="frontend">
+						<label for="frontend">Frontend</label>
+						<input type="checkbox" name="backend" value="Backend" id="backend">
+						<label for="backend">Backend</label>
 					</form>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Presented By</b><br>
 					<form class="course-checkbox">
-						<input type="checkbox" name="mentor" value="mentor">{username}
-						<input type="checkbox" name="mentor" value="mentor">{username}
-						<input type="checkbox" name="mentor" value="mentor">{username}
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
 					</form>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Description</b><br>
-					<form method="POST" action="">
+					<form method="POST" action="" class="form-distance">
 						<textarea name="content" style="width:100%"></textarea>
 					</form>
 				</div>
