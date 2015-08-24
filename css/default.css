@@ -8,6 +8,10 @@ body{
 	padding: 0;
 	font-weight: normal;
 }
+form{
+	margin:0;
+	padding:0;
+}
 a {
 	text-decoration: none;
 	color: inherit;
@@ -75,6 +79,14 @@ button{
 	margin-right: 10px;
 }
 .fa-plus{
+	margin-right: 5px;
+}
+.fa-lock{
+	color: #42a5f5;
+	margin-right: 5px;
+}
+.fa-credit-card{
+	color: #adb3ba;
 	margin-right: 5px;
 }
 /*Aside Icons*/
@@ -152,6 +164,17 @@ nav a:hover .iconPlus{
 	background-position: -645px -10px;
 }*/
 /*Button*/
+.button-save-course{
+	width: auto;
+	height: auto;
+	background-color: #06a8d7;
+	padding: 10px;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: block;
+	cursor:pointer;
+}
 .button-add-form{
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
@@ -270,6 +293,28 @@ nav a:hover .iconPlus{
 	padding:0;
 }
 /*Heading*/
+.label-name{
+	color: #2b2b2b;
+	padding: 5px 0 10px 10px;
+	margin-bottom:20px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.course-name{
+	color: #2b2b2b;
+	padding: 5px 0 5px 10px;
+	border-bottom: 2px solid #eeeeee;
+}
+.title{
+	color: #42a5f5;
+	padding: 10px;
+}
+.decoration{
+	color: #42a5f5;
+}
+.decoration-inactive{
+	color: #adb3ba;
+}
 .category{
 	color: #323232;
 }
@@ -445,4 +490,76 @@ nav ul li:hover > a{
 .check-input, .passwordsStatus, .validEmail {
 	color: tomato;
 	margin-bottom: 7px;
+}
+/*Course List*/
+.half{
+	width: 50%;
+	float:left;
+	list-style-type: none;
+}
+.half-inactive{
+	width: 50%;
+	float:left;
+	list-style-type: none;
+}
+.navigation-course{
+	width: 100%;
+	overflow: hidden;
+}
+.create-menu{
+	margin: 0px;
+	padding: 0 10px 0 10px;
+	width:100%;
+	display:inline-block;
+}
+.description-create-course{
+	padding: 5px 0 10px 5px;
+}
+.course-checkbox{
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #eeeeee;
+}
+/*Tab Links*/
+/* Clearfix */
+.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+.tab-links li {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+.tab-links a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background:#7FB5DA;
+	font-size:16px;
+	font-weight:600;
+	color:#4c4c4c;
+	transition:all linear 0.15s;
+}
+.tab-links a:hover {
+	background:#a7cce5;
+	text-decoration:none;
+}
+li.active a, li.active a:hover {
+	background:#fff;
+	color:#4c4c4c;
+}
+/*Content of Tabs*/
+.tab-content {
+	padding:15px;
+	border-radius:3px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	background:#fff;
+}
+.tab {
+	display:none;
+}
+.tab.active {
+	display:block;
 }
