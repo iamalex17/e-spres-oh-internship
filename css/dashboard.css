@@ -9,12 +9,14 @@
 	margin-top: 110px;
 	width: 38%;
 	display:inline-block;
+	vertical-align: top;
 }
 .internList{
 	margin-right: 20px;
 	margin-top: 110px;
 	width: 37%;
 	display:inline-block;
+	vertical-align: top;
 }
 .courseList{
 	margin-left: 20px;
