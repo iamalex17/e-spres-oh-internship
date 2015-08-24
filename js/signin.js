@@ -45,9 +45,29 @@ var LOGIN = (function() {
 		}
 	}
 
+	function iterateInput() {
+
+		$('form').find('input').each(function() {
+
+			//console.log('dddd');
+			//console.log($('#password').val());
+
+			if( $(this).val().length < 1 ) {
+				$(this).closest('.formInput').addClass('input-focus');
+			} else {
+				$(this).closest('.formInput').removeClass('input-focus');
+			}
+		});
+	}
+
+
 	return {
 		init: function() {
+
+			//setTimeout(function(){ iterateInput(); }, 1000);
+
 			$('form').on('keyup', '#email', ValidateEmailAddress);
+
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 

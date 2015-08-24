@@ -8,6 +8,10 @@ body{
 	padding: 0;
 	font-weight: normal;
 }
+form{
+	margin:0;
+	padding:0;
+}
 a {
 	text-decoration: none;
 	color: inherit;
@@ -24,7 +28,6 @@ li {
 .clearfix {
 	clear: both;
 }
-
 button{
 	margin:0;
 	padding:0;
@@ -49,78 +52,45 @@ button{
 	list-style-type: none;
 	display: inline-block;
 }
-	/*Footer*/
-.footer{
-	text-align: center;
-	color: #888;
-	font-weight: 500;
-	background: #fff;
-	height: 45px;
-	line-height: 45px;
-	display: block;
-	box-shadow: 0 -3px 5px -3px rgba(0, 0, 0, 0.15);
-	z-index: 101;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: 0;
+	/*Icons*/
+.iconSmallProfileUser{
+	width: 25px;
+	height: 25px;
+	background-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: middle;
 }
-/*Top Account*/
-.topAccount{
-	background-color: #ffffff;
-	height: 45px;
-	border-bottom: 1px solid #eeeeee;
-	width:100%;
+.iconDownArrow{
+	width: 14px;
+	height: 14px;
+	background-position: -311px -10px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-left: 10px;
+	vertical-align: -webkit-baseline-middle;
 }
-.topAccountSection{
-	float:right;
-	height: auto;
-	text-align: center;
-	padding: 10px;
-	border-left: 1px solid #eeeeee;
-	width: 12%;
+.iconPlusButton{
+	width: 14px;
+	height: 14px;
+	background-position: -611px -10px;
+	display: inline-block;
+	margin-right: 10px;
 }
-.topUserName{
-	display:inline-block;
+.fa-plus{
+	margin-right: 5px;
 }
-	/*Sidebar Navigation*/
-	/*Container*/
-.side-navigation{
-	width:19%;
-	float:left;
-	height: 1024px;
-	background-color: #212121;
-	color: #ffffff;
-	margin: 0;
-	padding: 0;
+.fa-lock{
+	color: #42a5f5;
+	margin-right: 5px;
+	margin-left: 5px;
 }
-.topProfile{
-	background-color: #42a5f5;
-	height: auto;
-	padding-top:10px;
-	padding-bottom: 10px;
-	margin-bottom:10px;
+.fa-credit-card{
+	color: #adb3ba;
+	margin-right: 5px;
 }
-.userAvatar{
-	text-align: center;
-	margin:0;
-	padding:0;
-}
-	/*Heading*/
-.topLogo{
-	text-align:center;
-	margin:0;
-	padding:0;
-	font-size: 20px;
-}
-.userName{
-	font-size: 22px;
-	margin:0;
-	padding:0;
-	margin-bottom: 20px;
-}
-	/*Aside Icons*/
+/*Aside Icons*/
 .profile-image{
 	height: 100px;
 	width: 100px;
@@ -170,7 +140,6 @@ button{
 	background-position: -713px -10px;
 	margin-right: 10px;
 }
-
 .iconMinusMore {
 	width: 14px;
 	height: 14px;
@@ -195,7 +164,185 @@ nav a:hover .iconPlus{
 /*nav a:hover .iconPlusMore{
 	background-position: -645px -10px;
 }*/
-
+/*Button*/
+.button-save-course{
+	width: auto;
+	height: auto;
+	background-color: #06a8d7;
+	padding: 10px;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: block;
+	cursor:pointer;
+}
+.button-add-form{
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	background-color: #ffffff;
+	color: #444444;
+	font-size: 10px;
+	text-transform: uppercase;
+	cursor:pointer;
+	font-weight: 600;
+	padding: 8px;
+	display: inline-block;
+}
+.buttonSubmitUser{
+	width: 16%;
+	height: auto;
+	background-color: #06a8d7;
+	margin-top: 10px;
+	padding: 11px 15px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: block;
+	cursor:pointer;
+}
+.buttonDelete{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor:pointer;
+	background-color: #efefef;
+}
+.buttonEdit{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	cursor:pointer;
+	background-color: #efefef;
+}
+.buttonEdit:hover{
+	background-color: #dfdddd;
+}
+.buttonDelete:hover{
+	background-color: #dfdddd;
+}
+.button-add-form:hover{
+	background-color: #efefef;
+}
+.buttonSubmitUser:hover{
+	background-color: #0d89ed;
+}
+	/*Footer*/
+.footer{
+	text-align: center;
+	color: #888;
+	font-weight: 500;
+	background: #fff;
+	height: 45px;
+	line-height: 45px;
+	display: block;
+	box-shadow: 0 -3px 5px -3px rgba(0, 0, 0, 0.15);
+	z-index: 101;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+}
+/*Top Account*/
+.topAccount{
+	background-color: #ffffff;
+	height: 45px;
+	border-bottom: 1px solid #eeeeee;
+	width:100%;
+}
+.topAccountSection{
+	float:right;
+	height: auto;
+	text-align: center;
+	padding: 10px;
+	border-left: 1px solid #eeeeee;
+	width: 12%;
+}
+.topUserName{
+	display:inline-block;
+}
+/*Sidebar Navigation*/
+/*Container*/
+.side-navigation{
+	width:19%;
+	float:left;
+	height: 1024px;
+	background-color: #212121;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+.topProfile{
+	background-color: #42a5f5;
+	height: auto;
+	padding-top:10px;
+	padding-bottom: 10px;
+	margin-bottom:10px;
+}
+.userAvatar{
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+/*Heading*/
+.label-name{
+	color: #2b2b2b;
+	padding: 5px 0 10px 10px;
+	margin-bottom:20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.course-name{
+	color: #2b2b2b;
+	padding: 5px 0 5px 10px;
+	border-bottom: 2px solid #eeeeee;
+}
+.title{
+	color: #42a5f5;
+	padding: 10px;
+}
+.decoration{
+	color: #42a5f5;
+}
+.decoration-inactive{
+	color: #adb3ba;
+}
+.category{
+	color: #323232;
+}
+.newUserName{
+	color: #2b2b2b;
+	padding: 5px 0 5px 10px;
+}
+.list{
+	color: #a2a2a2;
+}
+.emailAddress{
+	color: #a2a2a2;
+	padding:0 0 10px 10px;
+}
+.topLogo{
+	text-align:center;
+	margin:0;
+	padding:0;
+	font-size: 20px;
+}
+.userName{
+	font-size: 22px;
+	margin:0;
+	padding:0;
+	margin-bottom: 20px;
+}
+/*Menu Navigation*/
 nav {
 	border-top: 1px solid #2e2e2e;
 	border-bottom: 1px solid #2e2e2e;
@@ -216,7 +363,6 @@ nav ul a {
 	padding: 20px;
 	display: block;
 }
-
 nav ul li:hover > a{
 	background-color: #243342;
 	color: #ffffff;
@@ -226,7 +372,6 @@ nav ul li:hover > a{
 	outline: 0;
 	outline-offset: 0;
 }
-
 .formInput {
 	border: none;
 	border-radius: 0;
@@ -266,6 +411,7 @@ nav ul li:hover > a{
 	-moz-appearance: none;
 	appearance: none;
 	height: auto;
+	width: 100%;
 }
 .formInput .formControl::-moz-placeholder {
 	color: transparent;
@@ -316,7 +462,7 @@ nav ul li:hover > a{
 	top: -18px;
 	cursor: pointer;
 }
-.input-focus label, 
+.input-focus label,
 .formInput .formControl:focus ~ label,
 .formInput .formControl.used ~ label {
 	color: #42a5f5;
@@ -346,4 +492,70 @@ nav ul li:hover > a{
 .check-input, .passwordsStatus, .validEmail {
 	color: tomato;
 	margin-bottom: 7px;
+}
+/*Course List*/
+.half{
+	width: 50%;
+	float:left;
+	list-style-type: none;
+}
+.half-inactive{
+	width: 50%;
+	float:left;
+	list-style-type: none;
+}
+.navigation-course{
+	width: 100%;
+	overflow: hidden;
+}
+.create-menu{
+	margin-left:2%;
+	margin-top: 2%;
+	padding: 0 10px 0 10px;
+	width:75%;
+	display:inline-block;
+}
+.description-create-course{
+	padding: 5px 0 10px 5px;
+}
+.course-checkbox{
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #eeeeee;
+}
+/*Tab Links*/
+/* Clearfix */
+.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+.tab-links a:hover {
+	background:#eeeeee;
+	text-decoration:none;
+}
+li.active a, li.active a:hover {
+	background:#fff;
+	color:#4c4c4c;
+}
+/*Content of Tabs*/
+.tab-content {
+	padding:15px;
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	background:#fff;
+}
+.tab {
+	display:none;
+}
+.tab.active {
+	display:block;
+}
+.input-type{
+	border: transparent;
+	padding: 10px;
+}
+.form-distance{
+	margin-top: 10px;
 }

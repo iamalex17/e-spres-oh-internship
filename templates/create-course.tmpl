@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--Styles-->
+	<link rel="stylesheet" href="css/dashboard.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<!--Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src ="js/sidebar.js"></script>
+	<script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+	<script>tinymce.init({selector:'textarea'});</script>
+	<script type="text/javascript" src="<your installation path>/tinymce/tinymce.min.js"></script>
+	<script type="text/javascript" src ="js/tab.js"></script>
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!--Templates-->
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<!--Sidebar-->
+	<div class="side-navigation">
+		{% include 'partial-templates/sidebar.tmpl' %}
+	</div>
+
+	<!--Content-->
+	<div class="topAccount">
+		{% include 'partial-templates/top-account-section.tmpl' %}
+	</div>
+
+	<!--Container-->
+	<div class="create-menu">
+		<ul class="navigation-course tab-links">
+			<li class="active"><a href="#tab1" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
+			<li><a href= "#tab2" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
+			<br style="clear:both">
+		</ul>
+		<div class="tab-content">
+			<div id="tab1" class="tab active">
+				<b class="title">Title</b><br>
+				<input type="text" name="course" id="course" placeholder="Input course name here" class="input-type">
+				<div class="description-create-course">
+					<b class="label-name">Label</b><br>
+					<form class="course-checkbox">
+						<input type="checkbox" name="frontend" value="Frontend" id="frontend">
+						<label for="frontend">Frontend</label>
+						<input type="checkbox" name="backend" value="Backend" id="backend">
+						<label for="backend">Backend</label>
+					</form>
+				</div>
+				<div class="description-create-course">
+					<b class="label-name">Presented By</b><br>
+					<form class="course-checkbox">
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
+						<input type="checkbox" name="mentor" value="mentor" id="user">
+						<label for="user">User</label>
+					</form>
+				</div>
+				<div class="description-create-course">
+					<b class="label-name">Description</b><br>
+					<form method="POST" action="" class="form-distance">
+						<textarea name="content" style="width:100%"></textarea>
+					</form>
+				</div>
+				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
+			</div>
+			<div id="tab2" class="tab">
+				deeeeyuuu
+			</div>
+		</div>
+	</div>
+
+	<!--Footer-->
+	<div class="footer">
+		{% include 'partial-templates/footer.tmpl' %}
+	</div>
+<script type="text/javascript">
+tinymce.init({
+	selector: "textarea",
+		"advlist autolink lists link image charmap print preview anchor",
+		"searchreplace visualblocks code fullscreen",
+		"insertdatetime media table contextmenu paste"
+		],
+		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+</script>
+</body>
+
+</html>
