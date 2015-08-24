@@ -32,9 +32,7 @@
 .existingMentor{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
-
 }
-
 .existingIntern{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
@@ -76,112 +74,7 @@
 	display: inline-block;
 	margin-left: 10%;
 }
-/*Headings*/
-.category{
-	color: #323232;
-}
-.newUserName{
-	color: #2b2b2b;
-	padding: 5px 0 5px 10px;
-}
-.list{
-	color: #a2a2a2;
-}
-.emailAddress{
-	color: #a2a2a2;
-	padding:0 0 10px 10px;
-}
-	/*Icons*/
-.iconSmallProfileUser{
-	width: 25px;
-	height: 25px;
-	background-color: transparent;
-	border-radius: 50%;
-	display: inline-block;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-.iconDownArrow{
-	width: 14px;
-	height: 14px;
-	background-position: -311px -10px;
-	display: inline-block;
-	margin-right: 10px;
-	margin-left: 10px;
-	vertical-align: -webkit-baseline-middle;
-}
-.iconPlusButton{
-	width: 14px;
-	height: 14px;
-	background-position: -611px -10px;
-	display: inline-block;
-	margin-right: 10px;
-}
-.fa-plus{
-	margin-right: 5px;
-}
-/*Button*/
-.button-add-form{
-	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	background-color: #ffffff;
-	color: #444444;
-	font-size: 10px;
-	text-transform: uppercase;
-	cursor:pointer;
-	font-weight: 600;
-	padding: 8px;
-	display: inline-block;
-}
-.buttonSubmitUser{
-	width: 16%;
-	height: auto;
-	background-color: #06a8d7;
-	margin-top: 10px;
-	padding: 11px 15px;
-	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	color: #ffffff;
-	border-radius: 2px;
-	text-transform: uppercase;
-	display: block;
-	cursor:pointer;
-}
-.buttonDelete{
-	width: 15px;
-	height: 15px;
-	display: inline-block;
-	margin-top: 10px;
-	margin-right: 10px;
-	cursor:pointer;
-	background-color: #efefef;
-}
-.buttonEdit{
-	width: 15px;
-	height: 15px;
-	display: inline-block;
-	margin-top: 10px;
-	margin-right: 10px;
-	cursor:pointer;
-	background-color: #efefef;
-}
-
-.buttonEdit:hover{
-	background-color: #dfdddd;
-}
-.buttonDelete:hover{
-	background-color: #dfdddd;
-}
-.button-add-form:hover{
-	background-color: #efefef;
-}
-.buttonSubmitUser:hover{
-	background-color: #0d89ed;
-}
-	/*HoverLog*/
+/*HoverLog*/
 .hoverLogin ul li{
 	display: none;
 }
@@ -241,7 +134,6 @@
 	font-size: 32px;
 	margin-bottom: 2%;
 }
-
 .modal-container {
 	display: none;
 }
