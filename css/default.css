@@ -411,6 +411,7 @@ nav ul li:hover > a{
 	-moz-appearance: none;
 	appearance: none;
 	height: auto;
+	width: 100%;
 }
 .formInput .formControl::-moz-placeholder {
 	color: transparent;
