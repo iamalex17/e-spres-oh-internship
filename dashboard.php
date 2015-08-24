@@ -2,7 +2,7 @@
 require 'config.php';
 require 'functions/load-template.php';
 
-if(!verifySessionID()) {
+if(!User::verifySessionID()) {
 	header('Location: login.php');
 	exit();
 }
@@ -33,24 +33,27 @@ $user = new User($_SESSION);
 $sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $mentor = ConnectToDB::interogateDB($sql);
 
-$sql = 'SELECT count(*) FROM `users` WHERE user_privilege = 2 AND status = 0';
+$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 0';
 $result = ConnectToDB::interogateDB($sql);
 
-if($result[0] == count($mentor)) {
-	$mentor = NULL;
-	$mentorMessage .= 'No mentor to display yet.';
+if(count($result) != 0) {
+	if(count($result) == count($mentor)) {
+		$mentor = NULL;
+		$mentorMessage .= 'No mentor to display yet.';
+	}
 }
 
-
-$sql = 'SELECT * FROM `users` WHERE user_role = 2';
+$sql = 'SELECT * FROM `users` WHERE user_role = 3';
 $intern = ConnectToDB::interogateDB($sql);
 
-$sql = 'SELECT count(*) FROM `users` WHERE user_privilege = 3 AND status = 0';
+$sql = 'SELECT * FROM `users` WHERE user_role = 3 AND status = 0';
 $result = ConnectToDB::interogateDB($sql);
 
-if($result[0] == count($intern)) {
-	$intern = NULL;
-	$internMessage .= 'No intern to display yet.';
+if(count($result) != 0) {
+	if(count($result) == count($intern)) {
+		$intern = NULL;
+		$internMessage .= 'No intern to display yet.';
+	}
 }
 
 $template = loadTemplate('templates','dashboard.tmpl');

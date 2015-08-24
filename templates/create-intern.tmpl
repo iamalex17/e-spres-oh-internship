@@ -33,16 +33,16 @@
 		<h1 class="mainHeaderDashboard">Create Intern</h1>
 
 		<div class="errorMessage">
-			{{ errorMessage }}
+			{{ errorMessage | nl2br}}
 		</div>
 
 		<div class="successMessage">
 			{{ successMessage }}
 		</div>
 
-		<form method="POST" action="create-intern.php">
+		<form method="POST" action="controllers/create-user.php">
 			<div class="formInput">
-				<input class="formControl" id="firstName" name="firstName" type="text" placeholder="First Name">
+				<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name">
 				<span class="formBar"></span>
 				<label for="firstName">First Name</label>
 			</div>
@@ -50,7 +50,7 @@
 
 
 			<div class="formInput">
-				<input class="formControl" id="lastName" type="text" name="lastName" placeholder="Last Name">
+				<input class="formControl" id="lastName" type="text" name="last_name" placeholder="Last Name">
 				<span class="formBar"></span>
 				<label for="lastName">Last Name</label>
 			</div>
@@ -65,7 +65,7 @@
 			<div class="check-input check-input-hidden">Please enter your username</div>
 
 			<div class="formInput">
-				<input class="formControl" id="email" type="email" name="emailAdress" placeholder="Email Adress">
+				<input class="formControl" id="email" type="email" name="email" placeholder="Email Adress">
 				<span class="formBar"></span>
 				<label for="email">Email Adress</label>
 			</div>
