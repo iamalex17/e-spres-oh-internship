@@ -5,7 +5,6 @@
 	<!--Styles-->
 	<link rel="stylesheet" href="css/dashboard.css" />
 	<link rel="stylesheet" href="css/default.css" />
-
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="css/popup.js"></script>
@@ -21,30 +20,30 @@
 
 	<!--Sidebar-->
 	<div class="side-navigation">
-		{% include 'sidebar.tmpl' %}
+		{% include 'partial-templates/sidebar.tmpl' %}
 	</div>
 
 	<!--Content-->
 	<div class="topAccount">
-		{% include 'top-account-section.tmpl' %}
+		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
 	<!--Mentor and Intern List-->
 	{% if user_role == 1 %}
-		{% include 'admin-content.tmpl' %}
+		{% include 'partial-templates/admin-content.tmpl' %}
 	{% endif %}
 
 	{% if user_role == 2 %}
-		{% include 'mentor-content.tmpl' %}
+		{% include 'partial-templates/mentor-content.tmpl' %}
 	{% endif %}
 
 	{% if user_role == 3 %}
-		{% include 'intern-content.tmpl' %}
+		{% include 'partial-templates/intern-content.tmpl' %}
 	{% endif %}
 
 	<!--Footer-->
 	<div class="footer">
-		{% include 'footer.tmpl' %}
+		{% include 'partial-templates/footer.tmpl' %}
 	</div>
 
 	<div class="modal-container">
