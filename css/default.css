@@ -84,6 +84,7 @@ button{
 .fa-lock{
 	color: #42a5f5;
 	margin-right: 5px;
+	margin-left: 5px;
 }
 .fa-credit-card{
 	color: #adb3ba;
@@ -507,9 +508,10 @@ nav ul li:hover > a{
 	overflow: hidden;
 }
 .create-menu{
-	margin: 0px;
+	margin-left:2%;
+	margin-top: 2%;
 	padding: 0 10px 0 10px;
-	width:100%;
+	width:75%;
 	display:inline-block;
 }
 .description-create-course{
@@ -527,23 +529,8 @@ nav ul li:hover > a{
 	clear:both;
 	content:'';
 }
-.tab-links li {
-	margin:0px 5px;
-	float:left;
-	list-style:none;
-}
-.tab-links a {
-	padding:9px 15px;
-	display:inline-block;
-	border-radius:3px 3px 0px 0px;
-	background:#7FB5DA;
-	font-size:16px;
-	font-weight:600;
-	color:#4c4c4c;
-	transition:all linear 0.15s;
-}
 .tab-links a:hover {
-	background:#a7cce5;
+	background:#eeeeee;
 	text-decoration:none;
 }
 li.active a, li.active a:hover {
@@ -553,8 +540,9 @@ li.active a, li.active a:hover {
 /*Content of Tabs*/
 .tab-content {
 	padding:15px;
-	border-radius:3px;
-	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	background:#fff;
 }
 .tab {
