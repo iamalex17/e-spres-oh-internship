@@ -36,9 +36,11 @@ button{
 /*Error and Succes Message*/
 .errorMessage{
 	color: #FA3E3E;
+	text-align: center;
 }
 .successMessage{
 	color: #74DF00;
+	text-align: center;
 }
 .deleteMessage{
 	color: #74DF00;
@@ -320,7 +322,7 @@ nav a:hover .iconPlus{
 	color: #2b2b2b;
 	padding: 5px 0 10px 10px;
 	margin-bottom:20px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: bold;
 }
 .course-name{
@@ -393,6 +395,9 @@ nav ul li:hover > a{
 *:focus{
 	outline: 0;
 	outline-offset: 0;
+}
+.createUserForm {
+	padding: 16px;
 }
 .formInput {
 	border: none;
