@@ -43,9 +43,9 @@
 		$errorMessage .= "Email field should not be empty.\n";
 		$status = 0;
 	}
-	if(!isset($_POST['password'])) {
+	if((!isset($_POST['password'])) || (strlen($_POST['password']))) {
 		$_POST['password'] = trim($_POST['password']);
-		$errorMessage .= "Password field should not be empty.\n";
+		$errorMessage .= "Password must have at least 8 characters.\n";
 		$status = 0;
 	}
 	if(!isset($_POST['retypePassword'])) {
@@ -53,7 +53,7 @@
 		$errorMessage .= "Retype password field should not be empty.\n";
 		$status = 0;
 	}
-
+	$_SESSION['userToAdd'] = $_POST;
 	if($status == 0) {
 		$_SESSION['errorMessage'] = $errorMessage;
 		$role == 2 ? header('Location: ../create-mentor.php') : header('Location: ../create-intern.php');
@@ -73,7 +73,11 @@
 		$errorMessage .= "Username filed not completed properly.\n";
 		$status = 0;
 	}
+	var_dump(strlen($user->password));
+	exit();
 	if(strlen($user->password)< 8) {
+	var_dump(strlen($user->password));
+	exit();
 		$errorMessage = "Password must have at least 8 characters.\n";
 		$status = 0;
 	}
