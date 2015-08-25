@@ -1,25 +1,23 @@
 <?php
-require 'config.php';
-require 'functions/load-template.php';
+require_once 'config.php';
+require_once 'functions/load-template.php';
 
 if(!User::verifySessionID()) {
 	header('Location: login.php');
 	exit();
 }
 
-$deleteMessage = '';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$request = verifyRequestURL($_SERVER['REQUEST_URI']);
-	if($request != 'dashboard.php') {
-		exit();
-	}
-	$deleteUser = $_POST['delete_button'];
+$errorMessage = '';
+$successMessage = '';
 
+if(isset($_SESSION['errorMessage'])) {
+	$errorMessage = $_SESSION['errorMessage'];
+	unset($_SESSION['errorMessage']);
+}
 
-	$sth = $dbh->prepare('UPDATE `users` SET status = 0 WHERE id = :deletedUserID');
-	$sth->bindValue(':deletedUserID', $deleteUser);
-	$sth->execute();
-	$deleteMessage = 'User succesfully deleted!';
+if(isset($_SESSION['successMessage'])) {
+	$errorMessage = $_SESSION['successMessage'];
+	unset($_SESSION['successMessage']);
 }
 
 $internMessage = '';
@@ -57,6 +55,6 @@ if(count($result) != 0) {
 }
 
 $template = loadTemplate('templates','dashboard.tmpl');
-echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'deleteMessage' => $deleteMessage));
+echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'mentor' => $mentor, 'intern' => $intern, 'mentorMessage' => $mentorMessage, 'internMessage' => $internMessage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
 
 ?>

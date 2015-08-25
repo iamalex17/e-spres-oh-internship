@@ -45,20 +45,6 @@ var LOGIN = (function() {
 		}
 	}
 
-	function iterateInput() {
-
-		$('form').find('input').each(function() {
-
-			//console.log('dddd');
-			//console.log($('#password').val());
-
-			if( $(this).val().length < 1 ) {
-				$(this).closest('.formInput').addClass('input-focus');
-			} else {
-				$(this).closest('.formInput').removeClass('input-focus');
-			}
-		});
-	}
 
 
 	return {
@@ -75,7 +61,7 @@ var LOGIN = (function() {
 			$('#lastName').on('keyup', checkInputValue);
 			$('#username').on('keyup', checkInputValue);
 
-			$('form').on('blur', 'input', keepInputFocusStyle);
+			$('form').on('change blur', 'input', keepInputFocusStyle);
 
 		}
 	}
