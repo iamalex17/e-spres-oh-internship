@@ -90,6 +90,9 @@ button{
 	color: #adb3ba;
 	margin-right: 5px;
 }
+.fa-file-text-o{
+	margin: 0 10px 0 10px;
+}
 /*Aside Icons*/
 .profile-image{
 	height: 100px;
@@ -175,6 +178,18 @@ nav a:hover .iconPlus{
 	text-transform: uppercase;
 	display: block;
 	cursor:pointer;
+}
+.button-save-exercise{
+	width: auto;
+	height: auto;
+	background-color: #06a8d7;
+	padding: 10px;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: inline-block;
+	cursor:pointer;
+	float: right;
 }
 .button-add-form{
 	border: 1px solid #d2d9d6;
@@ -294,11 +309,15 @@ nav a:hover .iconPlus{
 	padding:0;
 }
 /*Heading*/
+.exercise-number{
+	display: inline-block;
+	color: #2b2b2b;
+}
 .label-name{
 	color: #2b2b2b;
 	padding: 5px 0 10px 10px;
 	margin-bottom:20px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 }
 .course-name{
@@ -371,9 +390,6 @@ nav ul li:hover > a{
 *:focus{
 	outline: 0;
 	outline-offset: 0;
-}
-.createUserForm {
-	padding: 16px;
 }
 .formInput {
 	border: none;
@@ -498,14 +514,17 @@ nav ul li:hover > a{
 }
 /*Course List*/
 .half{
-	width: 50%;
 	float:left;
 	list-style-type: none;
+	padding:10px;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba(94,94,94,0.33);
+	-moz-box-shadow: 1px 1px 5px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 5px 0px rgba(94,94,94,0.33);
 }
 .half-inactive{
-	width: 50%;
 	float:left;
 	list-style-type: none;
+	padding:10px;
 }
 .navigation-course{
 	width: 100%;
@@ -554,4 +573,19 @@ li.active a, li.active a:hover {
 }
 .tab.active {
 	display:block;
+}
+.input-type{
+	border: transparent;
+	padding: 10px;
+}
+.form-distance{
+	margin-top: 10px;
+}
+.exercise-name{
+	width: 85%;
+	border: 2px solid #d2d9d6;
+	height: 25px;
+}
+.exercise-name-holder{
+	margin: 40px 0 10px 0;
 }
