@@ -178,8 +178,3 @@
 	background-color: tomato;
 
 }
-
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: rgb(250, 255, 0) !important;
-    background-image: none;
-}
