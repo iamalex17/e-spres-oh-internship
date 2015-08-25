@@ -195,31 +195,34 @@ nav a:hover .iconPlus{
 	float: right;
 }
 .button-add-form{
-	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	border: 1px solid #efefef;
+	border-radius: 2px;
+	/*-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
 	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);*/
 	background-color: #ffffff;
 	color: #444444;
-	font-size: 10px;
+	font-size: 12px;
+	text-align: center;
 	text-transform: uppercase;
 	cursor:pointer;
-	font-weight: 600;
-	padding: 8px;
+	font-weight: 500;
+	padding: 8px 12px;
 	display: inline-block;
 }
 .buttonSubmitUser{
-	width: 16%;
 	height: auto;
-	background-color: #06a8d7;
+	background-color: #42a5f5;
 	margin-top: 10px;
-	padding: 11px 15px;
+	padding: 8px 12px;
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	color: #ffffff;
 	border-radius: 2px;
 	text-transform: uppercase;
+	font-size: 13px;
+	line-height: 1.5;
 	display: block;
 	cursor:pointer;
 }
