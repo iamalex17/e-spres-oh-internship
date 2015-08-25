@@ -1,11 +1,13 @@
 <?php
 require_once 'config.php';
 require_once 'functions/load-template.php';
+require_once 'class.connect-to-db.php';
+
 $errorMessage = '';
 $username = '';
 try {
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-		$request = verifyRequestURL($_SERVER['REQUEST_URI']);
+		$request = User::verifyRequestURL($_SERVER['REQUEST_URI']);
 		if($request != 'login.php'){
 			exit();
 		}
