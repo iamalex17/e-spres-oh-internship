@@ -298,7 +298,7 @@ nav a:hover .iconPlus{
 	color: #2b2b2b;
 	padding: 5px 0 10px 10px;
 	margin-bottom:20px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: bold;
 }
 .course-name{
@@ -371,6 +371,9 @@ nav ul li:hover > a{
 *:focus{
 	outline: 0;
 	outline-offset: 0;
+}
+.createUserForm {
+	padding: 16px;
 }
 .formInput {
 	border: none;
@@ -551,11 +554,4 @@ li.active a, li.active a:hover {
 }
 .tab.active {
 	display:block;
-}
-.input-type{
-	border: transparent;
-	padding: 10px;
-}
-.form-distance{
-	margin-top: 10px;
 }
