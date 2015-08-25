@@ -48,7 +48,8 @@
 
 		static function verifyRequestURL($url) {
 			$url = explode('/', $url);
-			return $url[count($url)-1];
+			$url = explode('?', $url[count($url)-1]);
+			return $url[0];
 		}
 	}
 ?>
