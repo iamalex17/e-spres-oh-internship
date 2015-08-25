@@ -9,12 +9,16 @@ if(!User::verifySessionID()) {
 	exit();
 }
 
-$errorMessage = isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : '';
+$errorMessage = '';
 
+if(isset($_SESSION['errorMessage'])) {
+	$errorMessage = $_SESSION['errorMessage'];
+	unset($_SESSION['errorMessage']);
+}
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('templates','edit-profile.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
