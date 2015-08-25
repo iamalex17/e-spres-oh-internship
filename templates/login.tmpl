@@ -24,11 +24,14 @@
 
 		<form method="POST" action="controllers/auth.php?action=login" id="signInForm">
 			<div class="formInput">
+				<input style="display:none" type="text" name="fakeusernameremembered"/>
 				<input class="formControl" id="username" name="username" type="text" placeholder="Username" autocomplete="off">
 				<span class="formBar"></span>
 				<label for="username">Username</label>
 			</div>
 			<div class="formInput">
+
+				<input style="display:none" type="password" name="fakeusernameremembered"/>
 				<input class="formControl" id="password" type="password" name="password" placeholder="Enter Password" autocomplete="off">
 				<span class="formBar"></span>
 				<label for="password">Password</label>
