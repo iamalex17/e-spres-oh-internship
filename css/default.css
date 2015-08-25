@@ -549,11 +549,6 @@ nav ul li:hover > a{
 .description-create-course{
 	padding: 5px 0 10px 5px;
 }
-.course-checkbox{
-	margin-top: 10px;
-	padding: 10px;
-	border: 1px solid #eeeeee;
-}
 /*Tab Links*/
 /* Clearfix */
 .tab-links:after {
