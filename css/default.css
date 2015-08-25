@@ -593,3 +593,9 @@ li.active a, li.active a:hover {
 .exercise-name-holder{
 	margin: 40px 0 10px 0;
 }
+
+/*remove chrome specific yellow background color on input*/
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
