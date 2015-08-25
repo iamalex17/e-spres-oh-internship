@@ -178,6 +178,7 @@ nav a:hover .iconPlus{
 	text-transform: uppercase;
 	display: block;
 	cursor:pointer;
+	float: right;
 }
 .button-save-exercise{
 	width: auto;
