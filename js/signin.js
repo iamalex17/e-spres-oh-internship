@@ -64,6 +64,8 @@ var LOGIN = (function() {
 
 			$('form').on('change blur', 'input', keepInputFocusStyle);
 
+			
+
 		}
 	}
 

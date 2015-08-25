@@ -8,6 +8,8 @@ $(document).ready(function() {
 		});
 	});
 
+	//$('.successMessage').fadeIn('fast').delay(3000).fadeOut('fast');
+
 
 });
 
