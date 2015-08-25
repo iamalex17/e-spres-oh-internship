@@ -60,6 +60,7 @@ var LOGIN = (function() {
 			$('#firstName').on('keyup', checkInputValue);
 			$('#lastName').on('keyup', checkInputValue);
 			$('#username').on('keyup', checkInputValue);
+			$('#oldPassword').on('keyup', checkInputValue);
 
 			$('form').on('change blur', 'input', keepInputFocusStyle);
 

@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="css/dashboard.css" />
 	<link rel="stylesheet" href="css/default.css" />
 	<!--Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src ="js/sidebar.js"></script>
+	<script type="text/javascript" src ="js/signin.js"></script>
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!--Templates-->
@@ -37,21 +40,22 @@
 		<div class="successMessage">
 			{{ successMessage }}
 		</div>
-		<form method="POST" action="">
+		<form method="POST" action="" class="createUserForm">
 
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="firstName" type="text" placeholder="First Name">
 				<span class="formBar"></span>
 				<label for="firstName">First Name</label>
 			</div>
-			<div class="checkFirstName"></div>
+			<div class="check-input check-input-hidden">Please enter your first name</div>
 
 			<div class="formInput">
 				<input class="formControl" id="lastName" type="text" name="lastName" placeholder="Last Name">
 				<span class="formBar"></span>
 				<label for="lastName">Last Name</label>
 			</div>
-			<div class="checkLastName"></div>
+			<div class="check-input check-input-hidden">Please enter your last name</div>
+
 
 			<div class="imageAlignment">
 				<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">

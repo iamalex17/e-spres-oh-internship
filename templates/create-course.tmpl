@@ -32,43 +32,43 @@
 
 	<!--Container-->
 	<div class="create-menu">
+
 		<ul class="navigation-course tab-links">
 			<li class="active"><a href="#tab1" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
 			<li><a href= "#tab2" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
 			<br style="clear:both">
 		</ul>
+
 		<div class="tab-content">
+
+		<form method="POST" action ="">
+
 			<div id="tab1" class="tab active">
 				<b class="title">Title</b><br>
 				<input type="text" name="course" id="course" placeholder="Input course name here" class="input-type">
 				<div class="description-create-course">
 					<b class="label-name">Label</b><br>
-					<form class="course-checkbox">
-						<input type="checkbox" name="frontend" value="Frontend" id="frontend">
-						<label for="frontend">Frontend</label>
-						<input type="checkbox" name="backend" value="Backend" id="backend">
-						<label for="backend">Backend</label>
-					</form>
+					<input type="checkbox" name="frontend" value="Frontend" id="frontend">
+					<label for="frontend">Frontend</label>
+					<input type="checkbox" name="backend" value="Backend" id="backend">
+					<label for="backend">Backend</label>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Presented By</b><br>
-					<form class="course-checkbox">
-						<input type="checkbox" name="mentor" value="mentor" id="user">
-						<label for="user">User</label>
-						<input type="checkbox" name="mentor" value="mentor" id="user">
-						<label for="user">User</label>
-						<input type="checkbox" name="mentor" value="mentor" id="user">
-						<label for="user">User</label>
-					</form>
+					<input type="checkbox" name="mentor" value="mentor" id="user">
+					<label for="user">User</label>
+					<input type="checkbox" name="mentor" value="mentor" id="user">
+					<label for="user">User</label>
+					<input type="checkbox" name="mentor" value="mentor" id="user">
+					<label for="user">User</label>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Description</b><br>
-					<form method="POST" action="" class="form-distance">
-						<textarea name="content" style="width:100%"></textarea>
-					</form>
+					<textarea name="content" style="width:100%"></textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
 			</div>
+
 			<div id="tab2" class="tab">
 				<h4 class="exercise-number">x Exercises</h4>
 				<button type="submit" id="buttonSaveCourse" class="button-save-exercise" > Add exercise </button><br>
@@ -81,14 +81,17 @@
 					</div>
 				</div>
 				<div class="description-create-course">
-					<form method="POST" action="" class="form-distance">
-						<textarea name="content" style="width:100%"></textarea>
-					</form>
+					<textarea name="content" style="width:100%"></textarea>
 				</div>
-				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
+				<a href="create-course.php" id="buttonSaveCourse" class="button-save-course" > Save </a>
 			</div>
+
 			<div class="clearfix"></div>
+
+		</form>
+
 		</div>
+
 	</div>
 
 	<!--Footer-->
