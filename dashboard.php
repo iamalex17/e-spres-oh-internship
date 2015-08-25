@@ -16,7 +16,7 @@ if(isset($_SESSION['errorMessage'])) {
 }
 
 if(isset($_SESSION['successMessage'])) {
-	$errorMessage = $_SESSION['successMessage'];
+	$successMessage = $_SESSION['successMessage'];
 	unset($_SESSION['successMessage']);
 }
 
