@@ -36,9 +36,11 @@ button{
 /*Error and Succes Message*/
 .errorMessage{
 	color: #FA3E3E;
+	text-align: center;
 }
 .successMessage{
 	color: #74DF00;
+	text-align: center;
 }
 .deleteMessage{
 	color: #74DF00;
