@@ -39,10 +39,7 @@
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 				$_SESSION['session_id'] = session_id();
 				return true;
-			}			
-			var_dump($row);
-			var_dump(session_id());
-			exit();
+			}
 			return false;
 		}
 
