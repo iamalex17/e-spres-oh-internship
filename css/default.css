@@ -92,8 +92,10 @@ button{
 	color: #adb3ba;
 	margin-right: 5px;
 }
-.fa-file-text-o{
-	margin: 0 10px 0 10px;
+.fa-align-justify{
+	border: 1px solid #e2e9e6;
+	padding: 10px;
+	margin-right: 10px;
 }
 /*Aside Icons*/
 .profile-image{
@@ -170,6 +172,11 @@ nav a:hover .iconPlus{
 	background-position: -645px -10px;
 }*/
 /*Button*/
+.button-placement{
+	display:inline-block;
+	float: right;
+	margin-top:30px;
+}
 .button-save-course{
 	width: auto;
 	height: auto;
@@ -513,7 +520,11 @@ nav ul li:hover > a{
 .formInput .input-group label {
 	left: 36px;
 }
-
+.form-placement{
+	display: inline-block;
+	width: 89%;
+	margin-top: 20px;
+}
 .check-input-hidden {
 	display: none;
 }
@@ -585,31 +596,18 @@ li.active a, li.active a:hover {
 .form-distance{
 	margin-top: 10px;
 }
-.exercise-name{
-	width: 85%;
-	border: 2px solid #d2d9d6;
-	height: 25px;
-}
-.exercise-name-holder{
-	margin: 40px 0 10px 0;
-}
-
 /*remove chrome specific yellow background color on input*/
 input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
-
 /* CREATE COURSE STYLE*/
-
 .course-label-container {
 	padding: 16px;
 	border: 1px solid #e2e9e6;
 }
-
 input[type="checkbox"] {
 	vertical-align: middle;
 }
-
 .course-label-container > label {
 	display: inline-block;
 	cursor: pointer;
@@ -617,11 +615,12 @@ input[type="checkbox"] {
 	margin-right: 10px;
 	color: #212121;
 }
-
 .mce-btn button, .mce-container, .mce-container-body, .mce-btn-group .mce-btn {
 	background-color: #ffffff !important;
 }
-
 .mce-btn-group:not(:first-child) {
 	border: none !important;
+}
+.exercise-name-holder{
+	margin-top:20px;
 }
