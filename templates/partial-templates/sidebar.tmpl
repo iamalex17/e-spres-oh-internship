@@ -2,16 +2,16 @@
 		<h4 class="topLogo"> [e-spres-oh] Internship </h4>
 	</div>
 	<div class="userAvatar">
-		<img class="iconProfileUser" src="images/user-profile-images/{{ profile_image }}">
+		<img class="iconProfileUser" src="http://127.0.0.1/e-spres-oh-internship/images/user-profile-images/{{ profile_image }}">
 		<h3 class="userName"> {{ last_name }} </h3>
 	</div>
 
 	<nav>
 		{% if user_role == 1 %}
 		<ul>
-		<li><a href='dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li><a href='admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
-		<li><a href='admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
+		<li><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
+		<li><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
+		<li><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
@@ -21,9 +21,9 @@
 				</i> Courses <i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
 			<ul class="subNav">
-				<li><a href='#'>All</a></li>
-				<li><a href='#'>Frontend</a></li>
-				<li><a href='#'>Backend</a></li>
+				<li><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'>All</a></li>
+				<li><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'>Frontend</a></li>
+				<li><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'>Backend</a></li>
 			</ul>
 		</li>
 		</ul>

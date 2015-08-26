@@ -1,17 +1,17 @@
 <div class="topAccountSection hoverLogin">
-	<img class="iconSmallProfileUser" src="images/user-profile-images/{{ profile_image }}">{{ last_name }}
+	<img class="iconSmallProfileUser" src="http://127.0.0.1/e-spres-oh-internship/images/user-profile-images/{{ profile_image }}">{{ last_name }}
 	<i class="iconParent iconDownArrow"></i>
 	<ul>
 		{% if user_role != 1 %}
 		<li>
-			<a href="users/edit-profile.php">Edit Profile</a>
+			<a href="http://127.0.0.1/e-spres-oh-internship/users/edit-profile.php">Edit Profile</a>
 		</li>
 		<li>
-			<a href="users/change-password.php">Change Password</a>
+			<a href="http://127.0.0.1/e-spres-oh-internship/users/change-password.php">Change Password</a>
 		</li>
 		{% endif %}
 		<li>
-			<a href="controllers/auth.php?action=logout">Logout</a>
+			<a href="http://127.0.0.1/e-spres-oh-internship/login.php">Logout</a>
 		</li>
 	</ul>
 </div>
