@@ -43,7 +43,7 @@
 
 		<div class="tab-content">
 
-		<form method="POST" action ="controllers/create-a-course.php">
+		<form method="POST" action ="../controllers/create-a-course.php">
 
 			<div id="tab1" class="tab active">
 				<b class="title">Title</b><br>
@@ -58,13 +58,13 @@
 				<div class="description-create-course">
 					<b class="label-name">Presented By</b><br>
 					{% for user in mentor %}
-					<input type="checkbox" name="mentor" value="{{ user.id }}" id="user">
-					<label for="user">{{ user.last_name }}</label>
+					<input type="checkbox" name="mentor[]" value="{{ user.id }}" id="{{ user.id }}">
+					<label for="{{ user.id }}">{{ user.last_name }}</label>
 					{% endfor %}
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Description</b><br>
-					<textarea name="textareas" style="width:100%"></textarea>
+					<textarea name="textareas" class="mceEditor"></textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
 			</div>
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 				<div class="description-create-course">
-					<textarea name="content" style="width:100%"></textarea>
+					<textarea name="content"></textarea>
 				</div>
 				<a href="create-course.php" id="buttonSaveCourse" class="button-save-course" > Save </a>
 			</div>
