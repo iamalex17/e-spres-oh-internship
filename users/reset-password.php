@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-require 'functions/load-template.php';
+require_once '../config.php';
+require_once '../controllers/load-template.php';
 try {
 
 $link = '';
@@ -18,7 +18,7 @@ if(isset($_SESSION['errorMessage'])) {
 	unset($_SESSION['errorMessage']);
 }
 
-	$template = loadTemplate('templates','reset-password.tmpl');
+	$template = loadTemplate('../templates','reset-password.tmpl');
 	echo $template->render(array('link' => $link, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());

@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once 'functions/load-template.php';
+require_once 'controllers/load-template.php';
 require_once 'classes/class.connect-to-db.php';
 session_start();
 

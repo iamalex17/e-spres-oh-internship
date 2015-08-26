@@ -1,11 +1,10 @@
 <?php
 require_once '../config.php';
-require_once '../functions/load-template.php';
-require_once '../class.connect-to-db.php';
-require_once '../class.user.php';
+require_once '../classes/class.connect-to-db.php';
+require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: login.php');
+	header('Location: ../login.php');
 	exit();
 }
 
@@ -71,7 +70,7 @@ if($status == 1) {
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ../change-password.php');
+	header('Location: ../users/change-password.php');
 	exit();
 }
 ?>

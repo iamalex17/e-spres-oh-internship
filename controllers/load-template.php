@@ -1,6 +1,8 @@
 <?php
 	function loadTemplate($folder, $file){
-		include 'Twig/Autoloader.php';
+		$p = (explode('/', $folder));
+		$path = $p[0] == '..' ? '../vendors/Twig/Autoloader.php' : 'vendors/Twig/Autoloader.php';
+		require_once $path;
 		Twig_Autoloader::register();
 		// define template directory location
 		$loader = new Twig_Loader_Filesystem($folder);

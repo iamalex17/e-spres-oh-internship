@@ -1,11 +1,11 @@
 <?php
 require_once '../config.php';
-require_once '../functions/load-template.php';
+require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: login.php');
+	header('Location: ../login.php');
 	exit();
 }
 
@@ -18,7 +18,7 @@ if(isset($_SESSION['errorMessage'])) {
 
 try {
 	$user = new User($_SESSION);
-	$template = loadTemplate('templates','change-password.tmpl');
+	$template = loadTemplate('../templates','change-password.tmpl');
 	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'user_role' => $user->user_role));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());

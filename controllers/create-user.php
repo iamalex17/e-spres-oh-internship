@@ -4,8 +4,8 @@
 	}
 
 	require_once '../config.php';
-	require_once '../class.user.php';
-	require_once '../class.connect-to-db.php';
+	require_once '../classes/class.user.php';
+	require_once '../classes/class.connect-to-db.php';
 	
 	if(!User::verifySessionID()) {
 		header('Location: login.php');
@@ -56,7 +56,7 @@
 	$_SESSION['userToAdd'] = $_POST;
 	if($status == 0) {
 		$_SESSION['errorMessage'] = $errorMessage;
-		$role == 2 ? header('Location: ../create-mentor.php') : header('Location: ../create-intern.php');
+		$role == 2 ? header('Location: ../admin/create-mentor.php') : header('Location: ../admin/create-intern.php');
 		exit();
 	}
 
@@ -101,7 +101,7 @@
 	$uploadOk = 1;
 
 	if($user->profile_image != '21232f297a57a5a743894a0e4a801fc3.png') {
-		$target_dir = 'images/user-profile-images';
+		$target_dir = '../images/user-profile-images';
 		$file = $_FILES['profile_image'];
 		$fileName = explode('.', $file['name']);
 		$fileExtension = $fileName[count($fileName)-1];
@@ -158,7 +158,7 @@
 		}
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
-		$role == 2 ? header('Location:../create-mentor.php') : header('Location:../create-intern.php');
+		$role == 2 ? header('Location:../admin/create-mentor.php') : header('Location:../admin/create-intern.php');
 		exit();
 	}
 	header('Location: ../dashboard.php');

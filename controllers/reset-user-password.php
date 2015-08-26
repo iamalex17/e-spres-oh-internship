@@ -40,7 +40,7 @@ require_once '../classes/class.user.php';
 		}
 
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ../reset-password.php');
+		header('Location: ../users/reset-password.php');
 		exit();
 	}
 ?>

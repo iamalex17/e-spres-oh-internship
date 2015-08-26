@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-require_once 'functions/load-template.php';
+require_once 'controllers/load-template.php';
 
 if(!User::verifySessionID()) {
 	header('Location: login.php');

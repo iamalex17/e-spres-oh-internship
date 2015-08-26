@@ -32,13 +32,13 @@ session_start();
 			} else {
 				$errorMessage = 'E-mail address is not valid.';
 				$_SESSION['errorMessage'] = $errorMessage;
-				header('Location: ../recover-password.php');
+				header('Location: ../users/recover-password.php');
 				exit();
 			}
 		} else {
 			$errorMessage = 'E-mail address is not valid.';
 			$_SESSION['errorMessage'] = $errorMessage;
-			header('Location: ../recover-password.php');
+			header('Location: ../users/recover-password.php');
 			exit();
 		}
 	}
@@ -76,7 +76,7 @@ function insert_link($string, $email){
 }
 
 function send_link($string, $email){
-	require '../Sendgrid/Autoloader.php';
+	require '../vendors/Sendgrid/Autoloader.php';
 	$sendgrid_username = "internship-espresoh";
 	$sendgrid_password = "internship-project1";
 	$url = get_current_url();
