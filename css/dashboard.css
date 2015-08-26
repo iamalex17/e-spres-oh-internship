@@ -31,6 +31,11 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+.noUserMessage {
+	text-align: center;
+	background-color: #ffffff;
+	padding: 5px 0;
+}
 .existingMentor{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
