@@ -27,9 +27,9 @@
 .existing-user-container {
 	border: 1px solid #d2d9d6;
 	margin-top: 50px;
-	-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
+	-webkit-box-shadow: 2px 2px 17px -6px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 17px -6px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 17px -6px rgba(0,0,0,0.75);
 }
 .existingMentor{
 	background-color: #ffffff;
