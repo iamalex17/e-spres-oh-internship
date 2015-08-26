@@ -309,6 +309,30 @@ nav a:hover .iconPlus{
 	margin: 0;
 	padding: 0;
 }
+@media screen and (max-width: 960px) {
+	.side-navigation {
+		width: 300px;
+	}
+	.courseList, .create-menu, .footer, .topAccount{
+		width: 800px;
+	}
+}
+@media screen and (max-width: 758px) {
+	.side-navigation {
+		width: 200px;
+	}
+	.courseList, .create-menu, .footer, .topAccount{
+		width: 700px;
+	}
+}
+@media screen and (max-width: 524px) {
+	.side-navigation {
+		width: 100px;
+	}
+	.courseList, .create-menu, .footer, .topAccount{
+		width: 600px;
+	}
+}
 .topProfile{
 	background-color: #42a5f5;
 	height: auto;
