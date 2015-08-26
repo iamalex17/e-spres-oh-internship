@@ -1,6 +1,6 @@
 <?php
-	require 'class.connect-to-db.php';
-	require_once 'class.user.php';
+	require_once 'classes/class.connect-to-db.php';
+	require_once 'classes/class.user.php';
 //	$interogate = 'ConnectToDB::interogateDB';
 	$host = 'localhost';
 	$db = 'internship';

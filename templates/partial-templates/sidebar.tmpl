@@ -10,8 +10,8 @@
 		{% if user_role == 1 %}
 		<ul>
 		<li><a href='dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li><a href='create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
-		<li><a href='create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
+		<li><a href='admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor </a></li>
+		<li><a href='admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern </a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
@@ -32,7 +32,7 @@
 		<ul>
 
 		<li>
-			<a href='create-course.php'>
+			<a href='users/create-course.php'>
 				<i class=" iconParent iconPlus"></i> Create Course
 			</a>
 		</li>

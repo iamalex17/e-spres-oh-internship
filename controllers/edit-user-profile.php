@@ -1,8 +1,8 @@
 <?php
 
 require_once '../config.php';
-require_once '../class.connect-to-db.php';
-require_once '../class.user.php';
+require_once '../classes/class.connect-to-db.php';
+require_once '../classes/class.user.php';
 	
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: ../dashboard.php');
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ../edit-profile.php');
+		header('Location: ../users/edit-profile.php');
 		exit();
 	}
 }

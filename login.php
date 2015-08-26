@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'functions/load-template.php';
-require_once 'class.connect-to-db.php';
+require_once 'classes/class.connect-to-db.php';
 session_start();
 
 $errorMessage = '';
@@ -21,7 +21,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 
 try {
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-		$request = User::verifyRequestURL($_SERVER['REQUEST_URI']);
+		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'login.php'){
 			exit();
 		}

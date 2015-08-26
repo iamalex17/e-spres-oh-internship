@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php';
-require_once '../class.user.php';
+require_once '../classes/class.user.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();

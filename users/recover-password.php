@@ -1,6 +1,6 @@
 <?php
-	require 'config.php';
-	require 'functions/load-template.php';
+	require '../config.php';
+	require '../functions/load-template.php';
 
 session_start();
 $errorMessage = '';
