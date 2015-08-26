@@ -321,10 +321,10 @@ nav a:hover .iconPlus{
 }
 .label-name{
 	color: #2b2b2b;
-	padding: 5px 0 10px 10px;
-	margin-bottom:20px;
-	font-size: 12px;
-	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 5px;
+	font-size: 13px;
+	line-height: 1.5;
 }
 .course-name{
 	color: #2b2b2b;
@@ -599,3 +599,29 @@ input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+/* CREATE COURSE STYLE*/
+
+.course-label-container {
+	padding: 16px;
+	border: 1px solid #e2e9e6;
+}
+
+input[type="checkbox"] {
+	vertical-align: middle;
+}
+
+.course-label-container > label {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 14px;
+	margin-right: 10px;
+	color: #212121;
+}
+
+.mce-btn button, .mce-container, .mce-container-body, .mce-btn-group .mce-btn {
+	background-color: #ffffff !important;
+}
+
+.mce-btn-group:not(:first-child) {
+	border: none !important;
+}
