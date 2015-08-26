@@ -20,6 +20,10 @@ if(isset($_SESSION['successMessage'])) {
 	unset($_SESSION['successMessage']);
 }
 
+if(isset($_SESSION['userToAdd'])) {
+	unset($_SESSION['userToAdd']);
+}
+
 $internMessage = '';
 $mentorMessage = '';
 

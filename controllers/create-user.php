@@ -43,7 +43,7 @@
 		$errorMessage .= "Email field should not be empty.\n";
 		$status = 0;
 	}
-	if((!isset($_POST['password'])) || (strlen($_POST['password']))) {
+	if((!isset($_POST['password'])) || (strlen($_POST['password']))<8) {
 		$_POST['password'] = trim($_POST['password']);
 		$errorMessage .= "Password must have at least 8 characters.\n";
 		$status = 0;
@@ -59,7 +59,6 @@
 		$role == 2 ? header('Location: ../admin/create-mentor.php') : header('Location: ../admin/create-intern.php');
 		exit();
 	}
-
 	$user = new User($_POST);
 	if($user->first_name == '') {
 		$errorMessage .= "First Name field not completed properly.\n";
@@ -73,11 +72,8 @@
 		$errorMessage .= "Username filed not completed properly.\n";
 		$status = 0;
 	}
-	var_dump(strlen($user->password));
-	exit();
+
 	if(strlen($user->password)< 8) {
-	var_dump(strlen($user->password));
-	exit();
 		$errorMessage = "Password must have at least 8 characters.\n";
 		$status = 0;
 	}
@@ -97,11 +93,12 @@
 		$errorMessage .= "Email is not valid.\n";
 		$status = 0;
 	}
-
+	if(isset($_FILES['profile_image'])) {
+		$user->profile_image = MD5($_FILES['profile_image']['name']);
+	}
 	$uploadOk = 1;
-
 	if($user->profile_image != '21232f297a57a5a743894a0e4a801fc3.png') {
-		$target_dir = '../images/user-profile-images';
+		$target_dir = '../images/user-profile-images/';
 		$file = $_FILES['profile_image'];
 		$fileName = explode('.', $file['name']);
 		$fileExtension = $fileName[count($fileName)-1];
@@ -130,18 +127,18 @@
 		$uploadOk = 0;
 	}
 	if($status == 1) {
-		$sql = 'INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_role`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :first_name, :last_name, :username, :email, MD5(:password), :role, "21232f297a57a5a743894a0e4a801fc3.png", 1, NULL, NULL)';
+		$sql = 'INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_role`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :first_name, :last_name, :username, :email, :password, :role, "21232f297a57a5a743894a0e4a801fc3.png", 1, NULL, NULL)';
 		$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'username' => $user->username, 'email' => $user->email, 'password' => $user->password, 'role' => $role);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
-		$_SESSION['successMessage'] = 'Mentor added succesfully.';
+		$_SESSION['successMessage'] =  $role == 2 ? 'Mentor added succesfully.' : 'Intern added succesfully';
 		if($uploadOk) {
-			$sql = 'SELECT id FROM `users` WHERE username = :username';
-			$valuesToBind = array('username' => $user->username);
+			$sql = 'SELECT id FROM `users` WHERE email = :email';
+			$valuesToBind = array('email' => $user->email);
 			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 			if(count($result)) {
 				$id = $result[0]['id'];
-				$target_file = $id . '_' . $target_file;
 				$completeFileName = $id . '_' . $completeFileName;
+				$target_file = $target_dir . $completeFileName;
 				if(file_exists($target_file)){
 					unlink($target_file);
 				}
@@ -149,8 +146,8 @@
 					$errorMessage .= "Sorry, there was an error uploading your file.\n";
 					//$status = 0;
 				}
-				$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE id = :userid';
-				$valuesToBind = array('profile_image' => $completeFileName);
+				$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE id = :id';
+				$valuesToBind = array('profile_image' => $completeFileName, 'id' => $id);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 			}
 		} else {
