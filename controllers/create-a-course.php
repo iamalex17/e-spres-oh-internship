@@ -22,33 +22,40 @@ if(!isset($_POST['title'])) {
 	$errorMessage .= "Add a title to the course.\n";
 	$status = 0;
 }
+
 if(empty($_POST['label'])) {
 	$errorMessage .= "Select a label: backend or frontend.\n";
 	$status = 0;
 }
+
 if(empty($_POST['mentor'])) {
 	$errorMessage .= "Choose at least one mentor.\n";
 	$status = 0;
 }
+
 if(!isset($_POST['textareas'])) {
 	$_POST['textareas'] = trim($_POST['textareas']);
 	$errorMessage .= "Add a description to the course.\n";
 	$status = 0;
 }
+
 if($_POST['title'] == '') {
 	$errorMessage = "Add a title to the course.\n";
 	$status = 0;
 }
+
 if($_POST['textareas'] == '') {
 	$errorMessage = "Add a description to the course.\n";
 	$status = 0;
 }
+
 $sql = 'SELECT title FROM `courses`';
 $result = ConnectToDB::interogateDB($sql);
 if(strtolower($_POST['title']) == strtolower($result[0][0])) {
 	$errorMessage = "A course with this name already exists\n";
 	$status = 0;
 }
+
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`) VALUES (NULL, :title, :label, :textareas)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'textareas' => $_POST['textareas']);
