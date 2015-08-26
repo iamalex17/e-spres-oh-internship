@@ -18,10 +18,10 @@ if(isset($_SESSION['errorMessage'])) {
 
 try {
 	$user = new User($_SESSION);
-	$sql = 'SELECT id, last_name FROM `users` WHERE user_role = 2 AND status = 1';
+	$sql = 'SELECT id, last_name, user_role FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'mentor' => $mentor));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'mentor' => $mentor, 'user_role' => $user->user_role));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
