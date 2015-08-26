@@ -2,7 +2,7 @@
 require_once '../config.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.course.php';
-require_once '../classesclass.user.php';
+require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
 	header('Location: ../login.php');
@@ -46,13 +46,13 @@ if($_POST['title'] == '') {
 	$errorMessage = "Add a title to the course.\n";
 	$status = 0;
 }
-if($_POST['content'] == '') {
+if($_POST['textareas'] == '') {
 	$errorMessage = "Add a description to the course.\n";
 	$status = 0;
 }
 if($status == 1) {
-	$sql = 'INSERT INTO `internship`.`courses` (`id`, `title`, `label`, `description`) VALUES (NULL, :title, :label, :content)';
-	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'content' => $_POST['content']);
+	$sql = 'INSERT INTO `internship`.`courses` (`id`, `title`, `label`, `description`) VALUES (NULL, :title, :label, :textareas)';
+	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'textareas' => $_POST['textareas']);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Course created!\n";
 	$_SESSION['successMessage'] = $successMessage;
