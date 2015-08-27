@@ -97,6 +97,13 @@ button{
 	padding: 10px;
 	margin-right: 10px;
 }
+.fa-arrow-down{
+	float: right;
+	margin-left: 5px;
+}
+.fa-pencil{
+	text-align: center;
+}
 /*Aside Icons*/
 .profile-image{
 	height: 100px;
@@ -234,8 +241,8 @@ nav a:hover .iconPlus{
 	cursor:pointer;
 }
 .buttonDelete{
-	width: 15px;
-	height: 15px;
+	width: 13px;
+	height: 18px;
 	display: inline-block;
 	margin-top: 10px;
 	margin-right: 10px;
@@ -244,7 +251,7 @@ nav a:hover .iconPlus{
 }
 .buttonEdit{
 	width: 15px;
-	height: 15px;
+	height: 18px;
 	display: inline-block;
 	margin-top: 10px;
 	margin-right: 10px;
