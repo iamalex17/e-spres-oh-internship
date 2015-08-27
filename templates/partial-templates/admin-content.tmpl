@@ -14,7 +14,9 @@
 			</a>
 		</div>
 		<div class="existing-user-container">
-			{{ mentorMessage }}
+			<div class="noUserMessage">
+				{{ mentorMessage }}
+			</div>
 			{% for user in mentor %}
 			{% if user.status == 1 %}
 			<div class="existingMentor">
@@ -48,7 +50,9 @@
 
 
 		<div class="existing-user-container">
-			{{ internMessage }}
+			<div class="noUserMessage">
+				{{ internMessage }}
+			</div>
 			{% for user in intern %}
 			{% if user.status == 1 %}
 			<div class="existingIntern">
