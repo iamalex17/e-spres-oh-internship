@@ -30,14 +30,8 @@
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
-	<div class="errorMessage"> {{ errorMessage }} </div>
-
 	<!--Container-->
 		<div class="courseList">
-
-		<div class="alignment">
-			<h2 class="category">All</h2>
-		</div>
 
 		<div class="buttonAlignment">
 			<a href="users/create-course.php" id="buttonNewCourse" class="button-add-form">
@@ -45,25 +39,7 @@
 			</a>
 		</div>
 
-	{% for course in courses %}
 	<div class="courseList">
-
-		<div class="course-details">
-			<div class="courseName">
-			<div class="alignment">
-				<h3 class="newUserName">{{ course.title }}</h3>
-			</div>
-
-			</div>
-			<div class="courseName">
-				<span class="labelGrey alignment">Backend</span>
-			</div>
-			<div class="courseContent">
-				<span class="courseDetail alignment">{{ course.description |raw }}</span>
-			</div>
-			<h4 class="courseUserName">Presented by Username, Username</h4>
-			<a class="show-more-info" href=""><i class="fa fa-arrow-left"></i> Go Back </a>
-		</div>
 
 		<div class="course-details">
 			<div class="courseName">
@@ -72,22 +48,17 @@
 			</div>
 			</div>
 			<div class="courseName">
-				<span class="labelGrey alignment">Frontend</span>
+				<span class="labelGrey alignment">{{ course.label }}</span>
 			</div>
 			<div class="courseContent">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
-			<h4 class="courseUserName">Presented by Username, Username</h4>
 			<a class="show-more-info" href=""><i class="fa fa-arrow-left"></i> Go Back </a>
 			<h4 class="courseUserName">
-				{% for mentor in course.mentors %}
-					{{ mentor.mentor_name }}
-				{% endfor %}
 			</h4>
 		</div>
-
+	
 	</div>
-	{% endfor %}
 
 	</div>
 
