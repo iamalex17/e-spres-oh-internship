@@ -335,6 +335,9 @@ nav a:hover .iconPlus{
 	.courseList, .create-menu, .footer, .topAccount{
 		width: 800px;
 	}
+	.topAccountSection{
+		width: 150px;
+	}
 }
 @media screen and (max-width: 758px) {
 	.side-navigation {
@@ -343,6 +346,9 @@ nav a:hover .iconPlus{
 	.courseList, .create-menu, .footer, .topAccount{
 		width: 700px;
 	}
+	.topAccountSection{
+		width: 150px;
+	}
 }
 @media screen and (max-width: 524px) {
 	.side-navigation {
@@ -350,6 +356,9 @@ nav a:hover .iconPlus{
 	}
 	.courseList, .create-menu, .footer, .topAccount{
 		width: 600px;
+	}
+	.topAccountSection{
+		width: 150px;
 	}
 }
 .topProfile{
