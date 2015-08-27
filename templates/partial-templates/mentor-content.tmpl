@@ -10,10 +10,11 @@
 			</a>
 		</div>
 
+		{% for course in courses %}
 		<div class="existingCourse">
 			<div class="courseName">
 			<div class="alignment">
-				<h3 class="newUserName">General</h3>
+				<h3 class="newUserName">{{ course.title }}</h3>
 			</div>
 			<div class="buttonAlignment">
 				<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a> !!!!!!!!!!!!!!!!!!!!!
@@ -24,7 +25,7 @@
 				<span class="labelGrey alignment">Backend</span>
 			</div>
 			<div class="courseContent">
-				<span class="courseDetail alignment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
 			<h4 class="courseUserName">Presented by Username, Username</h4>
 			<a class="show-more-info" href=""><i class="fa fa-arrow-down"></i> Show more </a>
@@ -44,10 +45,16 @@
 				<span class="labelGrey alignment">Frontend</span>
 			</div>
 			<div class="courseContent">
-				<span class="courseDetail alignment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
 			<h4 class="courseUserName">Presented by Username, Username</h4>
 			<a class="show-more-info" href=""><i class="fa fa-arrow-down"></i> Show more </a>
+			<h4 class="courseUserName">
+				{% for mentor in course.mentors %}
+					{{ mentor.mentor_name }}
+				{% endfor %}
+			</h4>
 		</div>
+		{% endfor %}
 
 	</div>
