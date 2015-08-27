@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2015 at 03:22 PM
+-- Generation Time: Aug 27, 2015 at 12:20 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -30,16 +30,16 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `id` int(3) NOT NULL,
   `title` varchar(30) NOT NULL,
   `label` varchar(15) NOT NULL,
-  `description` blob
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `description` blob,
+  `status` int(2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `title`, `label`, `description`) VALUES
-(1, 'HTML', 'frontend', 0x3c703e637572732068746d6c3c2f703e),
-(2, 'CSS', 'frontend', 0x3c703e435353333c2f703e);
+INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES
+(1, 'HTML', 'Array', 0x3c703e637572732068746d6c3c2f703e, 1);
 
 -- --------------------------------------------------------
 
@@ -51,16 +51,14 @@ CREATE TABLE IF NOT EXISTS `presentors` (
   `id` int(3) NOT NULL,
   `course_id` int(3) NOT NULL,
   `presentor_id` int(3) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `presentors`
 --
 
 INSERT INTO `presentors` (`id`, `course_id`, `presentor_id`) VALUES
-(1, 1, 4),
-(2, 2, 4),
-(3, 2, 6);
+(1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -91,7 +89,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 (1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, 'rl0gplhn1o3f533ru0n5bapq83', 1, NULL, NULL),
 (2, 'Ungureanu', 'Alex', 'ualex', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, 'ihg6c1hlkmudoccb1q6oh59b20', 1, NULL, NULL),
 (3, 'Csiki', 'Andrei', 'candrei', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, NULL, 1, NULL, NULL),
-(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '28ok6d6hed0lc10935rhhmp8o0', 1, NULL, NULL),
+(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '5e5rlako5r78f50fpaoi93q3r7', 1, NULL, NULL),
 (5, 'Sitov', 'Cristian', 'scristi', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, NULL, NULL, 1, NULL, NULL),
 (6, 'test', 'test', 'test', 'test@yahoo.com', '05a671c66aefea124cc08b76ea6d30bb', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, 1, NULL, NULL),
 (7, 'test', 'test', 'test1', 'test@saf.com', '05a671c66aefea124cc08b76ea6d30bb', 3, '21232f297a57a5a743894a0e4a801fc3.png', NULL, 1, NULL, NULL);
@@ -153,12 +151,12 @@ ALTER TABLE `users_privileges`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `presentors`
 --
 ALTER TABLE `presentors`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
