@@ -201,7 +201,11 @@
 	font-size: 14px;
 	display: inline-block;
 	text-decoration: none;
-	color: black;
+	color: #42a5f5;
+}
+.show-more-info:hover{
+	color: #0c80df;
+	text-decoration: underline;
 }
 .courseUserName{
 	display: inline-block;
