@@ -57,7 +57,7 @@ if(strtolower($_POST['title']) == strtolower($result[0][0])) {
 }
 
 if($status == 1) {
-	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`) VALUES (NULL, :title, :label, :textareas)';
+	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'textareas' => $_POST['textareas']);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$sql = 'SELECT id FROM `courses` WHERE title = :title';
