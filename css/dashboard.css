@@ -62,6 +62,19 @@
 	border-bottom: 2px dotted #dfdddd;
 	margin-bottom: 10px;
 }
+.course-details-name{
+	border-bottom: 2px dotted #808080;
+	margin-bottom: 10px;
+}
+.course-details-content{
+	margin-top: 40px;
+}
+.course-exercise-content{
+	margin-top:20px;
+}
+.course-exercise-name{
+	margin-bottom: 10px;
+}
 .courseContent{
 	border-bottom: 2px solid #efefef;
 	margin-bottom: 10px;
