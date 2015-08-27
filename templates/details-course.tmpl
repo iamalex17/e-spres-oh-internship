@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--Styles-->
+	<link rel="stylesheet" href="../css/dashboard.css" />
+	<link rel="stylesheet" href="../css/default.css" />
+	<!--Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src ="../js/sidebar.js"></script>
+	<script src="https://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+	<script>tinymce.init({selector:'textarea'});</script>
+	<script type="text/javascript" src ="../js/tab.js"></script>
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!--Templates-->
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+		<!--Sidebar-->
+	<div class="side-navigation">
+		{% include 'partial-templates/sidebar.tmpl' %}
+	</div>
+
+	<!--Content-->
+	<div class="topAccount">
+		{% include 'partial-templates/top-account-section.tmpl' %}
+	</div>
+
+	<div class="errorMessage"> {{ errorMessage }} </div>
+
+	<!--Container-->
+		<div class="courseList">
+
+		<div class="alignment">
+			<h2 class="category">All</h2>
+		</div>
+
+		<div class="buttonAlignment">
+			<a href="users/create-course.php" id="buttonNewCourse" class="button-add-form">
+				<i class="fa fa-plus"></i >New Course
+			</a>
+		</div>
+
+	{% for course in courses %}
+	<div class="courseList">
+
+		<div class="course-details">
+			<div class="courseName">
+			<div class="alignment">
+				<h3 class="newUserName">{{ course.title }}</h3>
+			</div>
+
+			</div>
+			<div class="courseName">
+				<span class="labelGrey alignment">Backend</span>
+			</div>
+			<div class="courseContent">
+				<span class="courseDetail alignment">{{ course.description |raw }}</span>
+			</div>
+			<h4 class="courseUserName">Presented by Username, Username</h4>
+			<a class="show-more-info" href=""><i class="fa fa-arrow-left"></i> Go Back </a>
+		</div>
+
+		<div class="course-details">
+			<div class="courseName">
+			<div class="alignment">
+					<h3 class="newUserName">{{ course.title }}</h3>
+			</div>
+			</div>
+			<div class="courseName">
+				<span class="labelGrey alignment">Frontend</span>
+			</div>
+			<div class="courseContent">
+				<span class="courseDetail alignment">{{ course.description |raw }}</span>
+			</div>
+			<h4 class="courseUserName">Presented by Username, Username</h4>
+			<a class="show-more-info" href=""><i class="fa fa-arrow-left"></i> Go Back </a>
+			<h4 class="courseUserName">
+				{% for mentor in course.mentors %}
+					{{ mentor.mentor_name }}
+				{% endfor %}
+			</h4>
+		</div>
+
+	</div>
+	{% endfor %}
+
+	</div>
+
+		<!--Footer-->
+	<div class="footer">
+		{% include 'partial-templates/footer.tmpl' %}
+	</div>
+
+	</body>
+</html>

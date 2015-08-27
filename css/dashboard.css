@@ -54,6 +54,11 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+.course-details{
+	padding: 10px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
 .courseName{
 	border-bottom: 2px dotted #dfdddd;
 	margin-bottom: 10px;
