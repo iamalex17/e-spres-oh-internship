@@ -42,8 +42,13 @@
 }
 /*Input Design*/
 .recoverRequest{
-	color: #06a8d7;
+	color: #42a5f5;
 	font-size: 13px;
 	text-decoration: none;
 	font-weight: 700;
+}
+
+.recoverRequest:hover {
+	color: #0c80df;
+	text-decoration: underline;
 }
