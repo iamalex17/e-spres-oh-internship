@@ -4,34 +4,27 @@
 			<h2 class="category">All</h2>
 		</div>
 
+		{% for course in courses %}
 		<div class="existingCourse">
 			<div class="courseName">
 			<div class="alignment">
-					<h3 class="newUserName">General</h3>
+					<h3 class="newUserName"> <a href="users/view-course.php?course_id={{course.id}}">{{ course.title }}</a></h3>
 			</div>
 			</div>
 			<div class="courseName">
-				<span class="labelGrey alignment">Backend</span>
+				<span class="labelGrey alignment">{{ course.label }}</span>
 			</div>
 			<div class="courseContent">
-				<span class="courseDetail alignment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
-			<h4 class="courseUserName">Presented by Username, Username</h4>
+			<h4 class="courseUserName">Presented by </h4>
+			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"><i class="fa fa-arrow-down"></i> Show more </a>
+			<h4 class="courseUserName">
+				{% for mentor in course.mentors %}
+					{{ mentor.mentor_name }}
+				{% endfor %}
+			</h4>
 		</div>
-
-		<div class="existingCourse">
-			<div class="courseName">
-			<div class="alignment">
-					<h3 class="newUserName">General</h3>
-			</div>
-			</div>
-			<div class="courseName">
-				<span class="labelGrey alignment">Frontend</span>
-			</div>
-			<div class="courseContent">
-				<span class="courseDetail alignment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-			</div>
-			<h4 class="courseUserName">Presented by Username, Username</h4>
-		</div>
+		{% endfor %}
 
 	</div>
