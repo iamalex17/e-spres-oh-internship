@@ -4,7 +4,7 @@
 	$courses = ConnectToDB::interogateDB($sql);
 	if (count($courses)) {
 		foreach ($courses as &$course) {
-			$sql = 'SELECT CONCAT_WS(" ", `users`.`first_name`, `users`.`last_name`) AS mentor_name
+			$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name
 					FROM `users`
 					INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
 					INNER JOIN `courses` ON `courses`.`id` = `presentors`.`course_id`
