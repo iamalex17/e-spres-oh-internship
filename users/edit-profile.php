@@ -18,7 +18,7 @@ if(isset($_SESSION['errorMessage'])) {
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','edit-profile.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage));
+	echo $template->render(array('last_name' => $user->last_name, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
