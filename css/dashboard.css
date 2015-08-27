@@ -54,6 +54,11 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+.course-details{
+	padding: 10px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
 .courseName{
 	border-bottom: 2px dotted #dfdddd;
 	margin-bottom: 10px;
@@ -65,6 +70,10 @@
 .courseDetail{
 	margin-bottom:10px;
 	color: darkslategrey;
+	white-space: nowrap;
+	width: 1000px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .alignment{
 	display: inline-block;
@@ -148,19 +157,16 @@
 	border-radius: 10px;
 	background-color: #ffffff;
 }
-
 .modal-container > .remodal > h1 {
 	font-weight: 600;
 	padding: 15px;
 	font-size: 20px;
 	border-bottom: 1px solid silver;
 }
-
 .modal-container > .remodal > p {
 	padding: 15px;
 	font-size: 16px;
 }
-
 .remodal-button {
 	padding: 12px 14px;
 	color: #ffffff;
@@ -168,18 +174,23 @@
 	border-radius: 2px;
 	cursor: pointer;
 	margin-left: 13px;
-
-
 }
 .remodal > form {
 	margin-top: -20px;
 }
-
 .remodal-confirm {
 	background-color: #4caf50;
 }
-
 .remodal-cancel {
 	background-color: tomato;
-
+}
+.show-more-info{
+	float: right;
+	font-size: 14px;
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+}
+.courseUserName{
+	display: inline-block;
 }
