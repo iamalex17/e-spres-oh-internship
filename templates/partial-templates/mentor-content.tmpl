@@ -14,7 +14,7 @@
 		<div class="existingCourse">
 			<div class="courseName">
 			<div class="alignment">
-				<h3 class="newUserName"><a href="controllers/course-details.php?course_id={{course.id}}">{{ course.title }}</a></h3>
+					<h3 class="newUserName"> <a href="users/view-course.php?course_id={{course.id}}">{{ course.title }}</a></h3>
 			</div>
 			<div class="buttonAlignment">
 				<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
@@ -27,8 +27,13 @@
 			<div class="courseContent">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
-			<h4 class="courseUserName">Presented by Username, Username</h4>
-			<a class="show-more-info" href="controllers/course-details.php?course_id={{course.id}}"><i class="fa fa-arrow-down"></i> Show more </a>
+			<h4 class="courseUserName">Presented by </h4>
+			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"><i class="fa fa-arrow-down"></i> Show more </a>
+			<h4 class="courseUserName">
+				{% for mentor in course.mentors %}
+					{{ mentor.mentor_name }}
+				{% endfor %}
+			</h4>
 		</div>
 		{% endfor %}
 
