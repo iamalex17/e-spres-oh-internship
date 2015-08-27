@@ -1,7 +1,11 @@
 <?php
-	$coureseMessage = '';
-	$sql = 'SELECT * FROM `courses`';
+	$courseMessage = '';
+	$sql = 'SELECT * FROM `courses` WHERE status = 1';
 	$courses = ConnectToDB::interogateDB($sql);
+
+	$sql = 'SELECT * FROM `courses` WHERE status = 0';
+	$deletedCourses = ConnectToDB::interogateDB($sql);
+
 	if (count($courses)) {
 		foreach ($courses as &$course) {
 			$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name
@@ -15,5 +19,13 @@
 			html_entity_decode($course['description']);
 		}
 	}
-	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses));
+
+	if(count($deletedCourses != 0)) {
+		if(count($courses) == count($deletedCourses)) {
+			$courses = NULL;
+			$courseMessage = 'No courses to display yet.';
+		}
+	}
+
+	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage));
 ?>
