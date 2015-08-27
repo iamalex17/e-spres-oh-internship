@@ -268,11 +268,13 @@ nav a:hover .iconPlus{
 	background-color: #efefef;
 	vertical-align: -webkit-baseline-middle;
 }
-.buttonEdit:hover{
-	background-color: #dfdddd;
+.buttonDelete:hover {
+	background-color: #d5d5d5;
+	border: 1px solid #c8c8c8;
 }
-.buttonDelete:hover{
-	background-color: #dfdddd;
+.buttonEdit:hover {
+	background-color: #d5d5d5;
+	border: 1px solid #c8c8c8;
 }
 .button-add-form:hover{
 	background-color: #efefef;
