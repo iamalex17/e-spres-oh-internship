@@ -47,7 +47,7 @@
 
 			<div id="tab1" class="tab active">
 				<div class="formInput">
-					<input class="formControl" id="add-course-name" type="tex" name="title">
+					<input class="formControl" id="add-course-name" type="tex" name="title" value="{{ titleValue }}">
 					<span class="formBar"></span>
 					<label for="add-course-name">Title</label>
 				</div>
@@ -72,7 +72,7 @@
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Description</b><br>
-					<textarea name="textareas" class="mceEditor"></textarea>
+					<textarea name="textareas" class="mceEditor">{{ descriptionValue }}</textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
 			</div>
