@@ -1,4 +1,4 @@
-var LOGIN = (function() {
+var APP = (function() {
 
 	function ValidateEmailAddress() {
 
@@ -50,9 +50,8 @@ var LOGIN = (function() {
 	return {
 		init: function() {
 
-			//setTimeout(function(){ iterateInput(); }, 1000);
 
-			$('form').on('keyup', '#email', ValidateEmailAddress);
+			$('form').on('blur keyup', '#email', ValidateEmailAddress);
 
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
@@ -64,13 +63,21 @@ var LOGIN = (function() {
 
 			$('form').on('change blur', 'input', keepInputFocusStyle);
 
-			
+			$('.subNav').hide();
 
+			$('nav').on('click', '.dropDown', function() {
+				$('.subNav').slideToggle('slow', function() {
+					$('.change-icon').toggleClass('iconMinusMore');
+				});
+			});
+
+			$('.successMessage').fadeIn('fast').delay(3000).fadeOut('slow');
+			$('.errorMessage').fadeIn('fast').delay(3000).fadeOut('slow');
 		}
 	}
 
 }());
 
 $(document).ready(function() {
-	LOGIN.init();
+	APP.init();
 });
