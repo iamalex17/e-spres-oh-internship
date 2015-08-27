@@ -9,7 +9,9 @@
 				<i class="fa fa-plus"></i >New Course
 			</a>
 		</div>
-
+		<div class="noUserMessage">
+			{{ coursesMessage }}
+		</div>
 		{% for course in courses %}
 		<div class="existingCourse">
 			<div class="courseName">
@@ -27,13 +29,12 @@
 			<div class="courseContent">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
-			<h4 class="courseUserName">Presented by </h4>
-			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Show more </a>
-			<h4 class="courseUserName">
+			<h4 class="courseUserName">Presented by 
 				{% for mentor in course.mentors %}
 					{{ mentor.mentor_name }}
 				{% endfor %}
 			</h4>
+			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Show more </a>
 		</div>
 		{% endfor %}
 
