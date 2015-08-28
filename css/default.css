@@ -330,36 +330,83 @@ nav a:hover .iconPlus{
 	position:fixed;
 }
 @media screen and (max-width: 960px) {
-	.side-navigation {
-		width: 300px;
+	.side-navigation{
+		width: 150px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.courseList, .footer, .topAccount{
 		width: 800px;
 	}
 	.topAccountSection{
 		width: 150px;
 	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4, nav{
+		width: 150px;
+	}
+	.iconProfileUser{
+		width:100px;
+	}
 }
 @media screen and (max-width: 758px) {
-	.side-navigation {
-		width: 200px;
+	.side-navigation,{
+		width: 100px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.courseList, .footer, .topAccount{
 		width: 700px;
 	}
 	.topAccountSection{
 		width: 150px;
 	}
-}
-@media screen and (max-width: 524px) {
-	.side-navigation {
+	.create-menu{
+		50px;
+	}
+	a, li, h1, h2, h3, h4 nav{
 		width: 100px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.iconProfileUser{
+		width:50px;
+	}
+}
+@media screen and (max-width: 524px) {
+	.side-navigation{
+		width: 50px;
+	}
+	.courseList, .footer, .topAccount{
 		width: 600px;
 	}
 	.topAccountSection{
 		width: 150px;
+	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4 nav{
+		width: 50px;
+	}
+	.iconProfileUser{
+		width:30px;
+	}
+}
+@media screen and (max-width: 200px) {
+	.side-navigation{
+		width: 30px;
+	}
+	.courseList, .footer, .topAccount{
+		width: 600px;
+	}
+	.topAccountSection{
+		width: 150px;
+	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4, nav{
+		width: 30px;
+	}
+	.iconProfileUser{
+		width:10px;
 	}
 }
 .topProfile{
