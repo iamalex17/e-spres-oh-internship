@@ -55,20 +55,21 @@ var APP = (function() {
 	return {
 		init: function() {
 
+			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
 
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
-			
+
 			//check if input field has no value
 			$('#firstName').on('keyup', checkInputValue);
 			$('#lastName').on('keyup', checkInputValue);
 			$('#username').on('keyup', checkInputValue);
 			$('#oldPassword').on('keyup', checkInputValue);
 
-			$('form').on('change blur', 'input', keepInputFocusStyle);
+			$('form').on('blur', 'input', keepInputFocusStyle);
 
 			// show-hide dropdown list from sidebar
 			$('.subNav').hide();

@@ -11,41 +11,50 @@
 			</a>
 		</div>
 		{% endif %}
-		
+
 		<div class="noUserMessage">
 			{{ courseMessage }}
 		</div>
+
 		{% for course in courses %}
+
 		<div class="existingCourse">
+
 			<div class="courseName">
+
 			<div class="alignment">
 					<h3 class="newUserName"> <a href="users/view-course.php?course_id={{course.id}}">{{ course.title }}</a></h3>
 			</div>
-			<div class="buttonAlignment">
-			
+
 			{% if user_role == 2 %}
+			<div class="buttonAlignment">
 				<a href="users/create-course.php?course_id={{course.id}}" class="buttonEdit"><i class="fa fa-pencil"></i></a>
 				<button value="{{ course.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
 			</div>
 			{% endif %}
 
 			</div>
+
 			<div class="courseName">
 				<span class="labelGrey alignment">{{ course.label }}</span>
 			</div>
+
 			<div class="courseContent">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
+
 			<h4 class="courseUserName">Presented by 
 				{% for mentor in course.mentors %}
 					{{ mentor.mentor_name }}
 				{% endfor %}
 			</h4>
+
 			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Show more </a>
 		</div>
 		{% endfor %}
 
 		<div class="modal-container">
+
 			<div class="remodal">
 				<h1>Delete Course</h1>
 				<p>
@@ -57,6 +66,7 @@
 					<button type="reset" class="remodal-cancel remodal-button">Cancel</button>
 				</form>
 			</div>
+
 		</div>
 
 
