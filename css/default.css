@@ -84,12 +84,12 @@ button{
 	margin-right: 5px;
 }
 .fa-lock{
-	color: #42a5f5;
+	/*color: #42a5f5;*/
 	margin-right: 5px;
 	margin-left: 5px;
 }
 .fa-credit-card{
-	color: #adb3ba;
+	/*color: #adb3ba;*/
 	margin-right: 5px;
 }
 .fa-align-justify{
@@ -395,12 +395,12 @@ nav a:hover .iconPlus{
 	color: #42a5f5;
 	padding: 10px;
 }
-.decoration{
+/*.decoration{
 	color: #42a5f5;
-}
-.decoration-inactive{
+}*/
+/*.decoration-inactive{
 	color: #adb3ba;
-}
+}*/
 .category{
 	color: #323232;
 }
@@ -621,13 +621,13 @@ nav ul li:hover > a{
 	clear:both;
 	content:'';
 }
-.tab-links a:hover {
-	background:#eeeeee;
-	text-decoration:none;
+
+li.inactive a {
+	color: #adb3ba;
 }
-li.active a, li.active a:hover {
-	background:#fff;
-	color:#4c4c4c;
+li.active a {
+	background: #ffffff;
+	color :#42a5f5;
 }
 /*Content of Tabs*/
 .tab-content {
