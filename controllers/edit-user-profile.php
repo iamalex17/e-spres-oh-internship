@@ -30,6 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'id' => $user->id);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 		$successMessage = 'Your data has been successfully modified.';
+		if($_FILES['profile_image']['name'] != '') {
+			$errorMessage .= $user->addProfileImage();
+		}
 		$_SESSION = (array)$user;
 		$_SESSION['successMessage'] = $successMessage;
 		header('Location: ../dashboard.php');
