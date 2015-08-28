@@ -681,13 +681,14 @@ li.inactive a {
 li.active a {
 	background: #ffffff;
 	color :#42a5f5;
+	border: 1px solid #e2e9e6;
+	border-bottom: transparent;
 }
 /*Content of Tabs*/
 .tab-content {
 	padding:40px;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	border: 1px solid #e2e9e6;
+	border-top: transparent;
 	background:#fff;
 }
 .tab {
