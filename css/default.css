@@ -37,15 +37,19 @@ button{
 .errorMessage{
 	color: #FA3E3E;
 	text-align: center;
+	margin-top: 3%;
+	margin-left: 20%;
 }
 .successMessage{
 	color: #74DF00;
 	text-align: center;
+	margin-top: 3%;
+	margin-left: 20%;
 }
 .deleteMessage{
 	color: #74DF00;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 	/*Main Icon*/
 .iconParent{
