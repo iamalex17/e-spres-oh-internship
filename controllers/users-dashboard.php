@@ -6,6 +6,19 @@
 	$sql = 'SELECT * FROM `courses` WHERE status = 0';
 	$deletedCourses = ConnectToDB::interogateDB($sql);
 
+	$label = '';
+	if(isset($_GET['show'])) {
+		$label = $_GET['show'];
+		$sql = 'SELECT * FROM `courses` WHERE status = 1 AND label = :show';
+		$valuesToBind = array('show' => $label);
+		$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
+	} else {
+		$sql = 'SELECT * FROM `courses` WHERE status = 1';
+		$courses = ConnectToDB::interogateDB($sql);
+	}
+
+	/*echo '<pre>';
+	var_dump($courses);*/
 	if (count($courses)) {
 		foreach ($courses as &$course) {
 			$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name

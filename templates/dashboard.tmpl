@@ -34,12 +34,8 @@
 		{% include 'partial-templates/admin-content.tmpl' %}
 	{% endif %}
 
-	{% if user_role == 2 %}
-		{% include 'partial-templates/mentor-content.tmpl' %}
-	{% endif %}
-
-	{% if user_role == 3 %}
-		{% include 'partial-templates/intern-content.tmpl' %}
+	{% if user_role != 1 %}
+		{% include 'partial-templates/users-content.tmpl' %}
 	{% endif %}
 
 	<!--Footer-->

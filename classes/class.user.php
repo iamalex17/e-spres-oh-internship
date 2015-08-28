@@ -48,5 +48,59 @@
 			$url = explode('?', $url[count($url)-1]);
 			return $url[0];
 		}
+
+		function addProfileImage() {
+			$uploadOk = 1;
+			$this->profile_image = MD5($_FILES['profile_image']['name']);
+			$target_dir = '../images/user-profile-images/';
+			$file = $_FILES['profile_image'];
+			$fileName = explode('.', $file['name']);
+			$fileExtension = $fileName[count($fileName)-1];
+			unset($fileName[count($fileName)-1]);
+			$fileName = implode('', $fileName);
+			$fileName = MD5($fileName);
+			$completeFileName = $fileName . '.' . $fileExtension;
+			$target_file = $target_dir . $completeFileName;
+			$uploadOk = 1;
+			$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+			// Check if image file is a actual image or fake image
+			$check = getimagesize($_FILES['profile_image']['tmp_name']);
+			$errorMessage = '';
+			$uploadOk = 1;
+			if($check === false) {
+				$errorMessage .= "File is not an image.\n";
+				$uploadOk = 0;
+			}// Check file size
+			if ($_FILES['profile_image']['size'] > 2097152) {
+				$errorMessage  .= "Sorry, your file is too large.\n";
+				$$uploadOk = 0;
+			}// Allow certain file formats
+			if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
+				$errorMessage  .= "Sorry, only JPG, JPEG, PNG and GIF files are allowed.\n";
+				$uploadOk = 0;
+			}
+			if($uploadOk) {
+				$sql = 'SELECT id FROM `users` WHERE email = :email';
+				$valuesToBind = array('email' => $this->email);
+				$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+				if(count($result)) {
+					$id = $result[0]['id'];
+					$completeFileName = $id . '_' . $completeFileName;
+					$target_file = $target_dir . $completeFileName;
+					$this->profile_image = $completeFileName;
+					if(file_exists($target_file)){
+						unlink($target_file);
+					}
+					if (!move_uploaded_file($_FILES['profile_image']['tmp_name'], $target_file)) {
+						$errorMessage .= "Sorry, there was an error uploading your file.\n";
+						//$status = 0;
+					}
+					$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE id = :id';
+					$valuesToBind = array('profile_image' => $completeFileName, 'id' => $id);
+					ConnectToDB::interogateDB($sql, $valuesToBind);
+				}
+			}
+			return $errorMessage;
+		}
 	}
 ?>

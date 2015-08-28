@@ -55,13 +55,14 @@ var APP = (function() {
 	return {
 		init: function() {
 
+			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
 
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
-			
+
 			//check if input field has no value
 			$('#firstName').on('keyup', checkInputValue);
 			$('#lastName').on('keyup', checkInputValue);
