@@ -37,15 +37,19 @@ button{
 .errorMessage{
 	color: #FA3E3E;
 	text-align: center;
+	margin-top: 3%;
+	margin-left: 20%;
 }
 .successMessage{
 	color: #74DF00;
 	text-align: center;
+	margin-top: 3%;
+	margin-left: 20%;
 }
 .deleteMessage{
 	color: #74DF00;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 	/*Main Icon*/
 .iconParent{
@@ -84,12 +88,12 @@ button{
 	margin-right: 5px;
 }
 .fa-lock{
-	color: #42a5f5;
+	/*color: #42a5f5;*/
 	margin-right: 5px;
 	margin-left: 5px;
 }
 .fa-credit-card{
-	color: #adb3ba;
+	/*color: #adb3ba;*/
 	margin-right: 5px;
 }
 .fa-align-justify{
@@ -327,38 +331,86 @@ nav a:hover .iconPlus{
 	color: #ffffff;
 	margin: 0;
 	padding: 0;
+	position:fixed;
 }
 @media screen and (max-width: 960px) {
-	.side-navigation {
-		width: 300px;
+	.side-navigation{
+		width: 150px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.courseList, .footer, .topAccount{
 		width: 800px;
 	}
 	.topAccountSection{
 		width: 150px;
 	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4, nav{
+		width: 150px;
+	}
+	.iconProfileUser{
+		width:100px;
+	}
 }
 @media screen and (max-width: 758px) {
-	.side-navigation {
-		width: 200px;
+	.side-navigation,{
+		width: 100px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.courseList, .footer, .topAccount{
 		width: 700px;
 	}
 	.topAccountSection{
 		width: 150px;
 	}
-}
-@media screen and (max-width: 524px) {
-	.side-navigation {
+	.create-menu{
+		50px;
+	}
+	a, li, h1, h2, h3, h4 nav{
 		width: 100px;
 	}
-	.courseList, .create-menu, .footer, .topAccount{
+	.iconProfileUser{
+		width:50px;
+	}
+}
+@media screen and (max-width: 524px) {
+	.side-navigation{
+		width: 50px;
+	}
+	.courseList, .footer, .topAccount{
 		width: 600px;
 	}
 	.topAccountSection{
 		width: 150px;
+	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4 nav{
+		width: 50px;
+	}
+	.iconProfileUser{
+		width:30px;
+	}
+}
+@media screen and (max-width: 200px) {
+	.side-navigation{
+		width: 30px;
+	}
+	.courseList, .footer, .topAccount{
+		width: 600px;
+	}
+	.topAccountSection{
+		width: 150px;
+	}
+	.create-menu{
+		200px;
+	}
+	a, li, h1, h2, h3, h4, nav{
+		width: 30px;
+	}
+	.iconProfileUser{
+		width:10px;
 	}
 }
 .topProfile{
@@ -394,12 +446,12 @@ nav a:hover .iconPlus{
 	color: #42a5f5;
 	padding: 10px;
 }
-.decoration{
+/*.decoration{
 	color: #42a5f5;
-}
-.decoration-inactive{
+}*/
+/*.decoration-inactive{
 	color: #adb3ba;
-}
+}*/
 .category{
 	color: #323232;
 }
@@ -603,8 +655,9 @@ nav ul li:hover > a{
 	overflow: hidden;
 }
 .create-menu{
-	margin-left:2%;
+	margin-left:21%;
 	margin-top: 2%;
+	margin-bottom: 5%;
 	padding: 0 10px 0 10px;
 	width:75%;
 	display:inline-block;
@@ -619,13 +672,13 @@ nav ul li:hover > a{
 	clear:both;
 	content:'';
 }
-.tab-links a:hover {
-	background:#eeeeee;
-	text-decoration:none;
+
+li.inactive a {
+	color: #adb3ba;
 }
-li.active a, li.active a:hover {
-	background:#fff;
-	color:#4c4c4c;
+li.active a {
+	background: #ffffff;
+	color :#42a5f5;
 }
 /*Content of Tabs*/
 .tab-content {
