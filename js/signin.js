@@ -69,7 +69,7 @@ var APP = (function() {
 			$('#username').on('keyup', checkInputValue);
 			$('#oldPassword').on('keyup', checkInputValue);
 
-			$('form').on('change blur', 'input', keepInputFocusStyle);
+			$('form').on('blur', 'input', keepInputFocusStyle);
 
 			// show-hide dropdown list from sidebar
 			$('.subNav').hide();
