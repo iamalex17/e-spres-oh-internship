@@ -43,20 +43,34 @@
 
 		<div class="tab-content">
 
+		{% if page == 'edit' %}
+		<form method="POST" action ="../controllers/edit-a-course.php">
+		<input type="hidden" name="course_id" value="{{ course.id }}">
+		{% else %}
+		
 		<form method="POST" action ="../controllers/create-a-course.php">
+		{% endif %} 
 
 			<div id="tab1" class="tab active">
 				<div class="formInput">
-					<input class="formControl" id="add-course-name" type="tex" name="title" value="{{ titleValue }}">
+					<input class="formControl" id="add-course-name" type="tex" name="title" value="{{ course.title }}">
 					<span class="formBar"></span>
 					<label for="add-course-name">Title</label>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Label</b><br>
 					<div class="course-label-container">
-						<input type="radio" name="label" value="Frontend" id="frontend">
+						<input type="radio" name="label" value="Frontend" id="frontend" 
+						{% if course.label == 'Frontend' %}
+							checked 
+						{% endif %}
+						>
 						<label for="frontend">Frontend</label>
-						<input type="radio" name="label" value="Backend" id="backend">
+						<input type="radio" name="label" value="Backend" id="backend" 
+						{% if course.label == 'Backend' %}
+							checked 
+						{% endif %}
+						>
 						<label for="backend">Backend</label>
 					</div>
 				</div>
@@ -65,14 +79,20 @@
 
 					<div class="course-label-container">
 						{% for user in mentor %}
-						<input type="checkbox" name="mentor[]" value="{{ user.id }}" id="{{ user.id }}">
+						<input type="checkbox" name="mentor[]" value="{{ user.id }}" id="{{ user.id }}"
+						{% for courseMentor in courseMentors %}
+							{% if user.id == courseMentor.id %}
+								checked
+							{% endif %}
+						{% endfor %}
+						>
 						<label for="{{ user.id }}">{{ user.last_name }}</label>
 						{% endfor %}
 					</div>
 				</div>
 				<div class="description-create-course">
 					<b class="label-name">Description</b><br>
-					<textarea name="textareas" class="mceEditor">{{ descriptionValue }}</textarea>
+					<textarea name="textareas" class="mceEditor">{{ course.description }}</textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course" > Save </button>
 			</div>
