@@ -4,22 +4,21 @@
 	margin-bottom: 30px;
 }
 .mentorList{
-	margin-right: 20px;
-	margin-left: 20px;
+	margin-right: 2%;
+	margin-left: 21%;
 	margin-top: 110px;
 	width: 38%;
 	display:inline-block;
 	vertical-align: top;
 }
 .internList{
-	margin-right: 20px;
 	margin-top: 110px;
 	width: 37%;
 	display:inline-block;
 	vertical-align: top;
 }
 .courseList{
-	margin-left: 20px;
+	margin-left: 23%;
 	margin-top: 110px;
 	width: 75%;
 	display:inline-block;
@@ -46,7 +45,7 @@
 .existingCourse{
 	padding: 10px;
 	margin-top: 30px;
-	margin-bottom: 20px;
+	margin-bottom: 6%;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
