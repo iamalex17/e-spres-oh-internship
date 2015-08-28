@@ -40,12 +40,12 @@ if(!isset($_POST['textareas'])) {
 }
 
 if($_POST['title'] == '') {
-	$errorMessage = "Add a title to the course.\n";
+	$errorMessage .= "Add a title to the course.\n";
 	$status = 0;
 }
 
 if($_POST['textareas'] == '') {
-	$errorMessage = "Add a description to the course.\n";
+	$errorMessage .= "Add a description to the course.\n";
 	$status = 0;
 }
 
