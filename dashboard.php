@@ -10,6 +10,10 @@ if(!User::verifySessionID()) {
 $errorMessage = '';
 $successMessage = '';
 
+if(isset($_SESSION['userToAdd'])) {
+	unset($_SESSION['userToAdd']);
+}
+
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
 	unset($_SESSION['errorMessage']);

@@ -93,65 +93,16 @@
 		$errorMessage .= "Email is not valid.\n";
 		$status = 0;
 	}
-	if(isset($_FILES['profile_image'])) {
-		$user->profile_image = MD5($_FILES['profile_image']['name']);
-	}
-	$uploadOk = 1;
-	if($user->profile_image != '21232f297a57a5a743894a0e4a801fc3.png') {
-		$target_dir = '../images/user-profile-images/';
-		$file = $_FILES['profile_image'];
-		$fileName = explode('.', $file['name']);
-		$fileExtension = $fileName[count($fileName)-1];
-		unset($fileName[count($fileName)-1]);
-		$fileName = implode('', $fileName);
-		$fileName = MD5($fileName);
-		$completeFileName = $fileName . '.' . $fileExtension;
-		$target_file = $target_dir . $completeFileName;
-		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-		// Check if image file is a actual image or fake image
-		$check = getimagesize($_FILES['profile_image']['tmp_name']);
-		if($check === false) {
-			$errorMessage .= "File is not an image.\n";
-			$uploadOk = 0;
-		}// Check file size
-		if ($_FILES['profile_image']['size'] > 2097152) {
-			$errorMessage .= "Sorry, your file is too large.\n";
-			$uploadOk = 0;
-		}// Allow certain file formats
-		if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
-			$errorMessage .= "Sorry, only JPG, JPEG, PNG and GIF files are allowed.\n";
-			$uploadOk = 0;
-		}
-	} else {
-		$uploadOk = 0;
-	}
 	if($status == 1) {
 		$sql = 'INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_role`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :first_name, :last_name, :username, :email, :password, :role, "21232f297a57a5a743894a0e4a801fc3.png", 1, NULL, NULL)';
 		$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'username' => $user->username, 'email' => $user->email, 'password' => $user->password, 'role' => $role);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 		$_SESSION['successMessage'] =  $role == 2 ? 'Mentor added succesfully.' : 'Intern added succesfully';
-		if($uploadOk) {
-			$sql = 'SELECT id FROM `users` WHERE email = :email';
-			$valuesToBind = array('email' => $user->email);
-			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-			if(count($result)) {
-				$id = $result[0]['id'];
-				$completeFileName = $id . '_' . $completeFileName;
-				$target_file = $target_dir . $completeFileName;
-				if(file_exists($target_file)){
-					unlink($target_file);
-				}
-				if (!move_uploaded_file($_FILES['profile_image']['tmp_name'], $target_file)) {
-					$errorMessage .= "Sorry, there was an error uploading your file.\n";
-					//$status = 0;
-				}
-				$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE id = :id';
-				$valuesToBind = array('profile_image' => $completeFileName, 'id' => $id);
-				ConnectToDB::interogateDB($sql, $valuesToBind);
-			}
+		if($_FILES['profile_image']['name'] != '') {
+			array_push($_SESSION['userToAdd'], $_FILES['profile_image']['name']);
+			$errorMessage .= $user->addProfileImage();
 		} else {
-			$_SESSION['errorMessage'] = $errorMessage;
+			$errorMessage .= "Profile image was not added.";
 		}
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;

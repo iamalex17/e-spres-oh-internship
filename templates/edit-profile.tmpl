@@ -36,7 +36,7 @@
 			{{ errorMessage | nl2br}}
 		</div>
 
-		<form method="POST" action="../controllers/edit-user-profile.php" class="createUserForm">
+		<form method="POST" action="../controllers/edit-user-profile.php" class="createUserForm" enctype="multipart/form-data">
 
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name" value="{{first_name}}">
@@ -57,7 +57,7 @@
 				<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
 			</div>
 			<div class="buttonAlign">
-				<input class="button-add-form" type="file" accept="image/*" name="fileToUpload" id="buttonAddImage" onchange="loadFile(event)" >
+				<input class="button-add-form" type="file" accept="image/*" name="profile_image" id="buttonAddImage" onchange="loadFile(event)" >
 			</div>
 
 			<button type="submit" id="buttonSubmitUser" class="buttonSubmitUser" >Submit </button>
