@@ -9,6 +9,14 @@ if(!User::verifySessionID()) {
 	exit();
 }
 
+$course = '';
+
+if(isset($_SESSION['course'])) {
+	$course = $_SESSION['course'];
+	$course['description'] = $_SESSION['course']['textareas'];
+	unset($_SESSION['course']);
+}
+
 $errorMessage = '';
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
@@ -16,7 +24,6 @@ if(isset($_SESSION['errorMessage'])) {
 }
 
 try {
-	$course = '';
 	$courseMentors = '';
 	$page = '';
 	if(($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) {

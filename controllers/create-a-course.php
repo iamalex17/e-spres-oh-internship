@@ -56,6 +56,13 @@ if(strtolower($_POST['title']) == strtolower($result[0][0])) {
 	$status = 0;
 }
 
+if($status == 0) {
+	$titleToAdd = $_POST['title'];
+	$descriptionToAdd = $_POST['textareas'];
+}
+
+$_SESSION['course'] = $_POST;
+
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'textareas' => $_POST['textareas']);
