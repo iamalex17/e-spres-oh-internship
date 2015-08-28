@@ -6,6 +6,14 @@
 	$sql = 'SELECT * FROM `courses` WHERE status = 0';
 	$deletedCourses = ConnectToDB::interogateDB($sql);
 
+	$course = '';
+
+	if(isset($_SESSION['course'])) {
+		$course = $_SESSION['course'];
+		$course['description'] = $_SESSION['course']['textareas'];
+		unset($_SESSION['course']);
+	}
+
 	$label = '';
 	if(isset($_GET['show'])) {
 		$label = $_GET['show'];
