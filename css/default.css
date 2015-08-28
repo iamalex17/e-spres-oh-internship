@@ -43,7 +43,6 @@ button{
 	color: #74DF00;
 	text-align: center;
 	margin-top: 3%;
-	margin-left: 20%;
 }
 .deleteMessage{
 	color: #74DF00;
@@ -191,8 +190,10 @@ nav a:hover .iconPlus{
 .button-save-course{
 	width: auto;
 	height: auto;
-	background-color: #06a8d7;
-	padding: 10px;
+	background-color: #42a5f5;
+	padding: 8px 12px;
+	line-height: 1.4;
+	font-size: 13px;
 	color: #ffffff;
 	border-radius: 2px;
 	text-transform: uppercase;
@@ -203,8 +204,10 @@ nav a:hover .iconPlus{
 .button-save-exercise{
 	width: auto;
 	height: auto;
-	background-color: #06a8d7;
-	padding: 10px;
+	background-color: #42a5f5;
+	padding: 8px 12px;
+	line-height: 1.4;
+	font-size: 13px;
 	color: #ffffff;
 	border-radius: 2px;
 	text-transform: uppercase;
@@ -640,9 +643,6 @@ nav ul li:hover > a{
 	float:left;
 	list-style-type: none;
 	padding:10px;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .half-inactive{
 	float:left;
