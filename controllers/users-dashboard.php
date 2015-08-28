@@ -17,8 +17,6 @@
 		$courses = ConnectToDB::interogateDB($sql);
 	}
 
-	/*echo '<pre>';
-	var_dump($courses);*/
 	if (count($courses)) {
 		foreach ($courses as &$course) {
 			$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name
