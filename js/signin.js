@@ -45,6 +45,11 @@ var APP = (function() {
 		}
 	}
 
+	function showDropdownMenu() {
+		$('.subNav').slideToggle('slow', function() {
+			$('.change-icon').toggleClass('iconMinusMore');
+		});
+	}
 
 
 	return {
@@ -56,6 +61,8 @@ var APP = (function() {
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
+			
+			//check if input field has no value
 			$('#firstName').on('keyup', checkInputValue);
 			$('#lastName').on('keyup', checkInputValue);
 			$('#username').on('keyup', checkInputValue);
@@ -63,14 +70,11 @@ var APP = (function() {
 
 			$('form').on('change blur', 'input', keepInputFocusStyle);
 
+			// show-hide dropdown list from sidebar
 			$('.subNav').hide();
+			$('nav').on('click', '.dropDown', showDropdownMenu);
 
-			$('nav').on('click', '.dropDown', function() {
-				$('.subNav').slideToggle('slow', function() {
-					$('.change-icon').toggleClass('iconMinusMore');
-				});
-			});
-
+			// hide error/success message
 			$('.successMessage').fadeIn('fast').delay(3000).fadeOut('slow');
 			$('.errorMessage').fadeIn('fast').delay(3000).fadeOut('slow');
 		}
