@@ -728,3 +728,11 @@ input[type="checkbox"] {
 .exercise-name-holder{
 	margin-top:20px;
 }
+
+input {
+	text-align: center;
+}
+
+.input-left {
+	text-align: left;
+}
