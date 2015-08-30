@@ -491,14 +491,13 @@ nav ul {
 }
 nav li {
 	display: block;
-	margin-top: 20px;
 	vertical-align: top;
 }
 nav ul a {
 	color: #88999c;
 	text-decoration: none;
 	vertical-align: top;
-	padding: 20px;
+	padding: 15px;
 	display: block;
 }
 nav ul li:hover > a{
