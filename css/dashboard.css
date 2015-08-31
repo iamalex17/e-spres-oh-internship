@@ -46,6 +46,30 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+.existingExercise{
+	margin-left:21%;
+	width:75%;
+	padding: 10px;
+	margin-top: 2%;
+	margin-bottom: 6%;
+	background-color: #ffffff;
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+}
+.exercise-details{
+	border-bottom: 1px solid #d2d9d6;
+}
+.exercise-responses{
+	margin-left: 8%;
+	width:90%;
+	padding: 10px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #ffffff;
+	border: 1px solid #d2d9d6;
+}
 .course-details{
 	padding: 10px;
 	margin-top: 30px;
