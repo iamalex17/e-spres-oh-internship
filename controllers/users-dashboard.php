@@ -21,7 +21,7 @@
 	$label = '';
 	if(isset($_GET['show'])) {
 		$label = $_GET['show'];
-		$sql = 'SELECT * FROM `courses` WHERE status = 1 AND label = :show';
+		$sql = 'SELECT * FROM `courses` WHERE status = 1 AND label LIKE %:show%';
 		$valuesToBind = array('show' => $label);
 		$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
 	} else {
