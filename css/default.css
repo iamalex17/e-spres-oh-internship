@@ -285,7 +285,7 @@ nav a:hover .iconPlus{
 	font-size: 12px;
 	color: #444444;
 	display: inline-block;
-	margin-top: -30px;
+	margin-top: -28px;
 	cursor:pointer;
 	background-color: #ffffff;
 	vertical-align: -webkit-baseline-middle;
@@ -648,7 +648,7 @@ nav ul li:hover > a{
 }
 .form-placement{
 	display: inline-block;
-	width: 89%;
+	width: 85%;
 	margin-top: 20px;
 }
 .check-input-hidden {
@@ -704,7 +704,6 @@ li.active a {
 /*Content of Tabs*/
 .tab-content {
 	padding:40px;
-	border: 1px solid #e2e9e6;
 	border-top: transparent;
 	background:#fff;
 }
