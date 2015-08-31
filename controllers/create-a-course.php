@@ -61,11 +61,15 @@ if($status == 0) {
 	$descriptionToAdd = $_POST['textareas'];
 }
 
+if(!empty($_POST['label'])) {
+	$label = implode(', ', $_POST['label']);
+}
+
 $_SESSION['course'] = $_POST;
 
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
-	$valuesToBind = array('title' => $_POST['title'], 'label' => $_POST['label'], 'textareas' => $_POST['textareas']);
+	$valuesToBind = array('title' => $_POST['title'], 'label' => $label, 'textareas' => $_POST['textareas']);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$sql = 'SELECT id FROM `courses` WHERE title = :title';
 	$valuesToBind = array('title' => $_POST['title']);
