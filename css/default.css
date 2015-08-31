@@ -704,7 +704,6 @@ li.active a {
 /*Content of Tabs*/
 .tab-content {
 	padding:40px;
-	border: 1px solid #e2e9e6;
 	border-top: transparent;
 	background:#fff;
 }
