@@ -36,12 +36,19 @@
 				<span class="formBar"></span>
 				<label for="password">Password</label>
 			</div>
-			<div class="errorMessage">
-				{{ errorMessage }}
-			</div>
+
+			{% if errorMessage != ''%}
+				<div class="errorMessage">
+					{{ errorMessage|nl2br }}
+				</div>
+			{% endif %}
+
+			{% if successMessage != ''%}
 			<div class="successMessage">
 				{{ successMessage }}
 			</div>
+			{% endif %}
+			
 			<button type="submit" id="buttonSignin" class="buttonSignIn" > Login <i class="iconParent iconLock"></i> </button>
 			<a href="http://127.0.0.1/e-spres-oh-internship/users/recover-password.php"  id="recoverPassword" class="recoverRequest">Recover Password</a>
 		</form>

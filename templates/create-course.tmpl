@@ -29,8 +29,12 @@
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
-	<div class="errorMessage"> {{ errorMessage |nl2br }} </div>
-
+	{% if errorMessage != ''%}
+		<div class="errorMessage">
+			{{ errorMessage|nl2br }}
+		</div>
+	{% endif %}
+	
 	<!--Container-->
 	<div class="create-menu">
 

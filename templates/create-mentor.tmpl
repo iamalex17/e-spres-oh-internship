@@ -32,13 +32,17 @@
 
 		<h1 class="mainHeaderDashboard">Create Mentor</h1>
 
-		<div class="errorMessage">
-			{{ errorMessage | nl2br}}
-		</div>
+		{% if errorMessage != ''%}
+			<div class="errorMessage">
+				{{ errorMessage|nl2br }}
+			</div>
+		{% endif %}
 
+		{% if successMessage != ''%}
 		<div class="successMessage">
 			{{ successMessage }}
 		</div>
+		{% endif %}
 
 		<form method="POST" action="../controllers/create-user.php" class="createUserForm" enctype="multipart/form-data">
 			<div class="formInput">

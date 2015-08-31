@@ -32,9 +32,11 @@
 
 		<h1 class="mainHeaderDashboard">Edit profile</h1>
 
-		<div class="errorMessage">
-			{{ errorMessage | nl2br}}
-		</div>
+		{% if errorMessage != ''%}
+			<div class="errorMessage">
+				{{ errorMessage|nl2br }}
+			</div>
+		{% endif %}
 
 		<form method="POST" action="../controllers/edit-user-profile.php" class="createUserForm" enctype="multipart/form-data">
 

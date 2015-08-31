@@ -27,8 +27,19 @@
 	<div class="topAccount">
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
-	<div class="successMessage"> {{ successMessage }} </div>
-	<div class="errorMessage"> {{ errorMessage }} </div>
+
+	{% if errorMessage != ''%}
+		<div class="errorMessage">
+			{{ errorMessage|nl2br }}
+		</div>
+	{% endif %}
+
+	{% if successMessage != ''%}
+	<div class="successMessage">
+		{{ successMessage }}
+	</div>
+	{% endif %}
+
 	<!--Mentor and Intern List-->
 	{% if user_role == 1 %}
 		{% include 'partial-templates/admin-content.tmpl' %}
