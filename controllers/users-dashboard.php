@@ -21,12 +21,12 @@
 	$label = '';
 	if(isset($_GET['show'])) {
 		$label = $_GET['show'];
-		$sql = 'SELECT * FROM `courses` WHERE `status` = 1 AND `label` LIKE :show';
+		$sql = 'SELECT DISTINCT `courses`.* FROM `courses` INNER JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 AND `label` LIKE :show';
 		$valuesToBind = array('show' => '%'.$label.'%');
 		$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
 		//$courses = ConnectToDB::interogateDB($sql);
 	} else {
-		$sql = 'SELECT * FROM `courses` WHERE status = 1';
+		$sql = 'SELECT DISTINCT `courses`.* FROM `courses` INNER JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1';
 		$courses = ConnectToDB::interogateDB($sql);
 	}
 

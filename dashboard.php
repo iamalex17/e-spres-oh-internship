@@ -24,6 +24,10 @@ if(isset($_SESSION['successMessage'])) {
 	unset($_SESSION['successMessage']);
 }
 
+if(isset($_SESSION['course'])) {
+	unset($_SESSION['course']);
+}
+
 $sql = 'SELECT * FROM `users` WHERE session_id = :session_id';
 $valuesToBind = array('session_id' => $_SESSION['session_id']);
 ConnectToDB::interogateDB($sql, $valuesToBind);

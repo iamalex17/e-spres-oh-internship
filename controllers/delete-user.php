@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql = 'UPDATE `users` SET status = 0 WHERE id = :deletedUserID';
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
+
+	$sql = 'DELETE FROM presentors WHERE presentor_id = :deletedUserID';
+	$valuesToBind = array('deletedUserID' => $deleteUser);
+	ConnectToDB::interogateDB($sql, $valuesToBind);
+
 	$successMessage = 'User succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
 	header('Location: ../dashboard.php');
