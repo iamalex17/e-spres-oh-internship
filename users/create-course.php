@@ -38,8 +38,6 @@ try {
 		$valuesToBind = array('id' => $id);
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 		$course = $result[0];
-		$sql = 'SELECT id, last_name, user_role FROM `users` WHERE user_role = 2 AND status = 1';
-		$mentor = ConnectToDB::interogateDB($sql);
 
 		$sql = 'SELECT users.id
 				FROM `users`
@@ -51,7 +49,7 @@ try {
 	}
 
 	$user = new User($_SESSION);
-	$sql = 'SELECT id, last_name, user_role FROM `users` WHERE user_role = 2 AND status = 1';
+	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
 	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage));
