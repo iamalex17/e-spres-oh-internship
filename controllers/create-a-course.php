@@ -52,7 +52,7 @@ if($_POST['textareas'] == '') {
 $sql = 'SELECT title FROM `courses`';
 $result = ConnectToDB::interogateDB($sql);
 if(strtolower($_POST['title']) == strtolower($result[0][0])) {
-	$errorMessage = "A course with this name already exists\n";
+	$errorMessage .= "A course with this name already exists\n";
 	$status = 0;
 }
 
