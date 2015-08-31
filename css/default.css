@@ -163,6 +163,7 @@ button{
 	height: 14px;
 	background-position: -543px -10px;
 	float: right;
+	margin-top: 5px;
 }
 nav a:hover .iconText{
 	background-position: -747px -10px;
