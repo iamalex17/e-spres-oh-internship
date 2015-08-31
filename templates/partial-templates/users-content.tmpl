@@ -1,8 +1,14 @@
 	<div class="courseList">
 
+		{% if label != NULL %}
+			<div class="alignment">
+				<h2 class="category">{{ label }}</h2>
+			</div>
+		{% else %}
 		<div class="alignment">
 			<h2 class="category">All</h2>
 		</div>
+		{% endif %}
 
 		{% if user_role == 2 %}
 		<div class="buttonAlignment">
