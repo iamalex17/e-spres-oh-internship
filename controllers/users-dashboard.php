@@ -1,5 +1,9 @@
 <?php
 	$courseMessage = '';
+
+	$sql = 'SELECT * FROM `courses`';
+	$allCourses = ConnectToDB::interogateDB($sql);
+
 	$sql = 'SELECT * FROM `courses` WHERE status = 1';
 	$courses = ConnectToDB::interogateDB($sql);
 
@@ -34,13 +38,19 @@
 					WHERE `courses`.`id` = :courseID';
 			$valuesToBind = array('courseID' => $course['id']);
 			$mentors = ConnectToDB::interogateDB($sql, $valuesToBind);
+			foreach ($mentors as $key => &$mentor) {
+				unset($mentor[0]);
+				unset($mentor[1]);
+				$mentor = implode(' ', $mentor);
+			}
+			$mentors = implode(', ', $mentors);
 			$course['mentors'] = $mentors;
 			html_entity_decode($course['description']);
 		}
 	}
 
 	if(count($deletedCourses != 0)) {
-		if(count($courses) == count($deletedCourses)) {
+		if(count($allCourses) == count($deletedCourses)) {
 			$courses = NULL;
 			$courseMessage = 'No courses to display yet.';
 		}
