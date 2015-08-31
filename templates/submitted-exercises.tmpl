@@ -32,51 +32,67 @@
 
 	<!--Container-->
 
-	<div class="courseList">
+	<div class="existingExercise">
 
-		<div class="course-details">
-			<div class="course-details-name">
-			<div class="alignment">
-				<h3 class="newUserName">{{ course.title }}</h3>
-			</div>
-			</div>
-			<div class="course-details-name">
-				<span class="labelGrey alignment">{{ course.label }}</span>
-			</div>
-			<div class="course-details-content">
-				<span class="courseDetail alignment">{{ course.description |raw }}</span>
-			</div>
-
-	<!--Add exercise-->
-
-	<div class="existingCourse">
+	<div class="exercise-details">
 
 		<div class="course-exercise-name">
+
 		<div class="alignment">
 			<h3 class="newUserName"><a href="">Exercise 1</a></h3>
 		</div>
+
 		<div class="buttonAlignment">
-			<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
-			<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
+			<a href="" class="buttonOpen">Open</a>
 		</div>
+
 		</div>
+
 		<div class="course-exercise-name">
 			<h4>exercise theme name</h4>
 		</div>
+
 		<div class="course-exercise-content">
-			<span class="courseDetail alignment">{{ course.description |raw }}</span>
+			<span class="courseDetail alignment">{{ exercise.description }}</span>
 		</div>
 
 	</div>
 
-		<a class="show-more-info" href="../dashboard.php"> Go Back </a>
-		<h4 class="courseUserName">
-		</h4>
+	<div class="exercise-responses">
+
+		<div class="exercise-details">
+			<div class="alignment">
+				<h3 class="newUserName"><a href="">Solution from Intern 1</a></h3>
+			</div>
+			<div class="buttonAlignment">
+				<a href="" class="buttonOpen">Open</a>
+			</div>
+		</div>
+
+		<div class="course-exercise-content">
+			<span class="courseDetail alignment">{{ submission.description }}</span>
 		</div>
 
 	</div>
 
+	<div class="exercise-responses">
 
+		<div class="exercise-details">
+			<div class="alignment">
+				<h3 class="newUserName"><a href="">Solution from Intern 1</a></h3>
+			</div>
+			<div class="buttonAlignment">
+				<a href="" class="buttonOpen">Open</a>
+			</div>
+		</div>
+
+		<div class="course-exercise-content">
+			<span class="courseDetail alignment">{{ submission.description }}</span>
+		</div>
+
+	</div>
+
+	</div>
 
 		<!--Footer-->
 	<div class="footer">

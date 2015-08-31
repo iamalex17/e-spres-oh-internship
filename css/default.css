@@ -138,6 +138,7 @@ button{
 	height: 14px;
 	background-position: -611px -10px;
 	float: right;
+	margin-top: 5px;
 }
 .iconMinus{
 	width: 14px;
@@ -273,6 +274,25 @@ nav a:hover .iconPlus{
 	cursor:pointer;
 	background-color: #efefef;
 	vertical-align: -webkit-baseline-middle;
+}
+.buttonOpen{
+	padding: 1px 5px;
+	line-height: 1.5;
+	border-radius: 3px;
+	vertical-align: middle;
+	border: 1px solid #e7e7e7;
+	font-size: 12px;
+	color: #444444;
+	display: inline-block;
+	margin-top: -30px;
+	cursor:pointer;
+	background-color: #ffffff;
+	vertical-align: -webkit-baseline-middle;
+	border-top:transparent;
+}
+.buttonOpen:hover {
+	background-color: #d5d5d5;
+	border: 1px solid #c8c8c8;
 }
 .buttonDelete:hover {
 	background-color: #d5d5d5;
