@@ -167,6 +167,7 @@
 	font-weight: bold;
 	border-radius: .25em;
 	margin-bottom: 5px;
+	margin-left: 10px;
 }
 /*Container*/
 .containerForm{
@@ -242,4 +243,5 @@
 }
 .courseUserName{
 	display: inline-block;
+	margin-left: 10px;
 }
