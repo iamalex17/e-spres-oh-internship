@@ -8,15 +8,18 @@ if(!User::verifySessionID()) {
 	header('Location: login.php');
 	exit();
 }
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
 	$errorMessage = '';
-	$id = $_POST['course_id'];
-	if(!isset($_POST['title'])) {
-		$_POST['title'] = trim($_POST['title']);
-		$errorMessage .= "Add a title to the course.\n";
-		$status = 0;
+	if(isset($_POST['course_id'])) {
+		$id = $_POST['course_id'];
+	} else if (isset($_SESSION['course_id'])) {
+		$id = $_SESSION['course_id'];
+	}
+	if(isset($_POST['title'])) {
+		$title = trim($_POST['title']);
+	} else if(isset($_SESSION['title'])) {
+		$title = $_SESSION['title'];
 	}
 
 	if(empty($_POST['label'])) {
@@ -34,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$status = 0;
 	}
 
-	if($_POST['title'] == '') {
+	if($title == '') {
 		$errorMessage = "Add a title to the course.\n";
 		$status = 0;
 	}
@@ -43,23 +46,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errorMessage = "Add a description to the course.\n";
 		$status = 0;
 	}
-	
 	$sql = 'SELECT count(*) FROM `courses` WHERE title = :title AND id != :id';
-	$valuesToBind = array('title' => $_POST['title'], 'id' => $id);
+	$valuesToBind = array('title' => $title, 'id' => $id);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	if($result[0][0]) {
 		$status = 0;
 	}
-
 	if($status == 1) {
-		$title = $_POST['title'];
-		$label = $_POST['label'];
+		$label = implode(', ', $_POST['label']);
 		$presentors = $_POST['mentor'];
 		$description = $_POST['textareas'];
 		$sql = 'UPDATE `courses` SET title = :title, label = :label, description = :description WHERE id = :id';
 		$valuesToBind = array('title' => $title, 'label' => $label, 'description' => $description, 'id' => $id);
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-
 		$sql = 'DELETE FROM `presentors` WHERE course_id = :id';
 		$valuesToBind = array('id' => $id);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -76,6 +75,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		exit();
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
+		$_SESSION['course_id'] = $id;
+		$_SESSION['title'] = $title;
 		header('Location: ../users/create-course.php');
 		exit();
 	}
