@@ -457,6 +457,7 @@ nav a:hover .iconPlus{
 }
 /*Heading*/
 .exercise-number{
+	vertical-align: sub;
 	display: inline-block;
 	color: #2b2b2b;
 }
@@ -767,4 +768,12 @@ input {
 .list-editor{
 	margin:0;
 	list-style-type: none;
+}
+
+.exercise-container {
+	border: 1px solid silver;
+	border-radius: 3px;
+	margin-top: 10px;
+	height: auto;
+	padding: 6px;
 }
