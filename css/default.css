@@ -377,9 +377,9 @@ nav a:hover .iconPlus{
 	.create-menu{
 		200px;
 	}
-	a, li, h1, h2, h3, h4, nav{
+	/*a, li, h1, h2, h3, h4, nav{
 		width: 150px;
-	}
+	}*/
 	.iconProfileUser{
 		width:100px;
 	}
@@ -411,9 +411,9 @@ nav a:hover .iconPlus{
 	.courseList, .footer, .topAccount{
 		width: 600px;
 	}
-	.topAccountSection{
+	/*.topAccountSection{
 		width: 150px;
-	}
+	}*/
 	.create-menu{
 		200px;
 	}
