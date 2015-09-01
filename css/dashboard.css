@@ -217,7 +217,16 @@
 .remodal-confirm {
 	background-color: #4caf50;
 }
-.remodal-cancel {
+.button-x {
+	cursor: pointer;
+	padding: 6px 8px;
+	color: darkgray;
+	font-weight: 600;
+	background-color: #ffffff;
+	border-top-right-radius: 10px;
+	font-family: 'Roboto';
+}
+.remodal-cancel.remodal-button {
 	background-color: tomato;
 }
 .show-more-info{
