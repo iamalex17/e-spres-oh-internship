@@ -15,11 +15,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$id = $_POST['course_id'];
 	} else if (isset($_SESSION['course_id'])) {
 		$id = $_SESSION['course_id'];
+		unset($_SESSION['course_id']);
 	}
 	if(isset($_POST['title'])) {
 		$title = trim($_POST['title']);
 	} else if(isset($_SESSION['title'])) {
 		$title = $_SESSION['title'];
+		unset($_SESSION['title']);
 	}
 
 	if(empty($_POST['label'])) {

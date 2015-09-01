@@ -10,7 +10,6 @@ if(!User::verifySessionID()) {
 }
 $course = '';
 $courseMentors = array();
-
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
 	$course['description'] = $_SESSION['course']['textareas'];
@@ -40,17 +39,20 @@ try {
 			exit();
 		}
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
+		unset($_SESSION['course_id']);
 		$sql = 'SELECT * FROM `courses` WHERE id = :id';
 		$valuesToBind = array('id' => $id);
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-		$course = $result[0];
-		$sql = 'SELECT users.id
-				FROM `users`
-				INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
-				INNER JOIN `courses` ON `courses`.`id` = `presentors`.`course_id`
-				WHERE `courses`.`id` = :courseID';
-		$valuesToBind = array('courseID' => $course['id']);
-		$courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
+		if(isset($result[0])) {
+			$course = $result[0];
+			$sql = 'SELECT users.id
+					FROM `users`
+					INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
+					INNER JOIN `courses` ON `courses`.`id` = `presentors`.`course_id`
+					WHERE `courses`.`id` = :courseID';
+			$valuesToBind = array('courseID' => $course['id']);
+			$courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
+		}
 	}
 
 	$user = new User($_SESSION);

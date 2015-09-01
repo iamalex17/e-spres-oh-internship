@@ -18,6 +18,14 @@
 		unset($_SESSION['course']);
 	}
 
+	if(isset($_SESSION['title'])) {
+		unset($_SESSION['title']);
+	}
+	
+	if (isset($_SESSION['course_id'])) {
+		unset($_SESSION['course_id']);
+	}
+
 	$label = '';
 	if(isset($_GET['show'])) {
 		$label = $_GET['show'];

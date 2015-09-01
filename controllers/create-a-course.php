@@ -51,10 +51,11 @@ if($_POST['textareas'] == '') {
 
 $sql = 'SELECT title FROM `courses`';
 $result = ConnectToDB::interogateDB($sql);
-
-if(strtolower($_POST['title']) == strtolower($result[0][0])) {
-	$errorMessage .= "A course with this name already exists\n";
-	$status = 0;
+if(count($result)) {
+	if(strtolower($_POST['title']) == strtolower($result[0][0])) {
+		$errorMessage .= "A course with this name already exists\n";
+		$status = 0;
+	}
 }
 
 if($status == 0) {
@@ -67,7 +68,6 @@ if(!empty($_POST['label'])) {
 }
 
 $_SESSION['course'] = $_POST;
-
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $label, 'textareas' => $_POST['textareas']);
