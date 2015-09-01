@@ -17,7 +17,7 @@ a {
 	color: inherit;
 }
 li {
-	list-style-type: none;
+	margin-left: 20px;
 }
 .float-left {
 	float: left;
@@ -766,4 +766,8 @@ input {
 
 .input-left {
 	text-align: left;
+}
+.list-editor{
+	margin:0;
+	list-style-type: none;
 }
