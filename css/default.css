@@ -356,6 +356,14 @@ nav a:hover .iconPlus{
 	padding: 0;
 	position:fixed;
 }
+.sub-nav-list>a{
+	padding-left: 45px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.sub-nav-list:hover>a{
+	background-color: transparent;
+}
 @media screen and (max-width: 960px) {
 	.side-navigation{
 		width: 150px;
@@ -481,6 +489,9 @@ nav a:hover .iconPlus{
 .newUserName{
 	color: #2b2b2b;
 	padding: 5px 0 5px 10px;
+}
+.newUserName:hover{
+	text-decoration: underline;
 }
 .list{
 	color: #a2a2a2;
