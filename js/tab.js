@@ -17,4 +17,9 @@ jQuery(document).ready(function() {
 			],
 			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 		});
+
+	$('#tab2').on('click', '#buttonAddExercise', function(e) {
+		e.preventDefault();
+		$('.create-exercise').last().clone().appendTo('#tab2');
+	})
 });
