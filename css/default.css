@@ -357,7 +357,7 @@ nav a:hover .iconPlus{
 	position:fixed;
 }
 .sub-nav-list>a{
-	padding-left: 45px;
+	padding-left: 25px;
 	padding-top: 10px;
 	padding-bottom: 5px;
 }
@@ -759,11 +759,9 @@ input[type="checkbox"] {
 .exercise-name-holder{
 	margin-top:20px;
 }
-
 input {
 	text-align: center;
 }
-
 .input-left {
 	text-align: left;
 }
