@@ -201,7 +201,6 @@ nav a:hover .iconPlus{
 	text-transform: uppercase;
 	display: block;
 	cursor:pointer;
-	float: right;
 }
 .button-save-exercise{
 	width: auto;
@@ -693,7 +692,7 @@ nav ul li:hover > a{
 	display:inline-block;
 }
 .description-create-course{
-	padding: 5px 0 10px 5px;
+	padding: 5px 0 10px 0;
 }
 /*Tab Links*/
 /* Clearfix */
