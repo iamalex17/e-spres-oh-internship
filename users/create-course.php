@@ -8,13 +8,20 @@ if(!User::verifySessionID()) {
 	header('Location: ../login.php');
 	exit();
 }
-
 $course = '';
+$courseMentors = array();
 
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
 	$course['description'] = $_SESSION['course']['textareas'];
 	unset($_SESSION['course']);
+	if(isset($course['label'])) {
+		$course['label'] = implode(', ', $course['label']);
+	}
+	foreach ($course['mentor'] as $key => $courseMentor) {
+		$a = array('id' => $courseMentor);
+		array_push($courseMentors, $a);
+	}
 }
 
 $errorMessage = '';
@@ -24,21 +31,19 @@ if(isset($_SESSION['errorMessage'])) {
 }
 
 try {
-	$courseMentors = '';
 	$page = '';
-	if(($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) {
+	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {	
 		$page = 'edit';
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-		if($request != 'dashboard.php') {
+		if($request != 'dashboard.php' && $request != 'create-course.php') {
 			header('Location: ../dashboard.php');
 			exit();
 		}
+		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
 		$sql = 'SELECT * FROM `courses` WHERE id = :id';
-		$id = $_GET['course_id'];
 		$valuesToBind = array('id' => $id);
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 		$course = $result[0];
-
 		$sql = 'SELECT users.id
 				FROM `users`
 				INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`

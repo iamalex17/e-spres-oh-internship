@@ -67,8 +67,6 @@ if(!empty($_POST['label'])) {
 }
 
 $_SESSION['course'] = $_POST;
-/*var_dump($_SESSION['course']);
-exit();*/
 
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
