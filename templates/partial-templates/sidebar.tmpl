@@ -9,14 +9,14 @@
 	<nav>
 		{% if user_role == 1 %}
 		<ul>
-		<li><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
-		<li><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
+		<li class="list-editor"><a href='http://127.0.0.1/e-spres-oh-internship/dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
+		<li class="list-editor"><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
+		<li class="list-editor"><a href='http://127.0.0.1/e-spres-oh-internship/admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
 		<ul>
-		<li class="dropDown">
+		<li class="dropDown list-editor">
 			<a href='#'><i class=" iconParent iconGraduation">
 				</i> Courses <i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
@@ -31,12 +31,12 @@
 		{% if user_role == 2 %}
 		<ul>
 
-		<li>
+		<li class="list-editor">
 			<a href='http://127.0.0.1/e-spres-oh-internship/users/create-course.php'>
 				<i class=" iconParent iconPlus"></i> Create Course
 			</a>
 		</li>
-		<li>
+		<li class="list-editor">
 			<a href='http://127.0.0.1/e-spres-oh-internship/users/submitted-exercises.php'>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore"></i>
