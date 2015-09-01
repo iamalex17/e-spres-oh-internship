@@ -31,6 +31,7 @@
 
 	if (count($courses)) {
 		foreach ($courses as &$course) {
+			$course['label'] = explode(', ', $course['label']);
 			$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name
 					FROM `users`
 					INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
