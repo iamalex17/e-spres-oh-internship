@@ -273,7 +273,6 @@ nav a:hover .iconPlus{
 	margin-right: 10px;
 	cursor:pointer;
 	background-color: #efefef;
-	vertical-align: -webkit-baseline-middle;
 }
 .buttonOpen{
 	padding: 1px 5px;
