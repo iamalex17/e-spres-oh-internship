@@ -24,7 +24,6 @@
 		$sql = 'SELECT DISTINCT `courses`.* FROM `courses` INNER JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 AND `label` LIKE :show';
 		$valuesToBind = array('show' => '%'.$label.'%');
 		$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
-		//$courses = ConnectToDB::interogateDB($sql);
 	} else {
 		$sql = 'SELECT DISTINCT `courses`.* FROM `courses` INNER JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1';
 		$courses = ConnectToDB::interogateDB($sql);
@@ -48,13 +47,16 @@
 			$course['mentors'] = $mentors;
 			html_entity_decode($course['description']);
 		}
-	}
 
-	if(count($deletedCourses != 0)) {
-		if(count($allCourses) == count($deletedCourses)) {
-			$courses = NULL;
-			$courseMessage = 'No courses to display yet.';
+		if(count($deletedCourses != 0)) {
+			if(count($allCourses) == count($deletedCourses)) {
+				$courses = NULL;
+				$courseMessage = 'No courses to display yet.';
+			}
 		}
+	} else {
+		$courses = NULL;
+		$courseMessage = 'No courses to display yet.';
 	}
 	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label));
 ?>
