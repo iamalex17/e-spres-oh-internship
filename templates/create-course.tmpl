@@ -64,13 +64,13 @@
 					<b class="label-name">Label</b><br>
 					<div class="course-label-container">
 						<input type="checkbox" name="label[]" value="Frontend" id="frontend" 
-						{% if course.label == 'Frontend' %}
+						{% if course.label == 'Frontend' or (course.label == 'Frontend, Backend') %}
 							checked 
 						{% endif %}
 						>
 						<label for="frontend">Frontend</label>
 						<input type="checkbox" name="label[]" value="Backend" id="backend" 
-						{% if course.label == 'Backend' %}
+						{% if (course.label == 'Backend') or (course.label == 'Frontend, Backend') %}
 							checked 
 						{% endif %}
 						>
