@@ -46,7 +46,6 @@
 
 	<!--Container-->
 	<div class="create-menu">
-
 		<ul class="navigation-course tab-links">
 			<li class="active list-editor"><a href="#tab1" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
 			<li class="inactive list-editor"><a href= "#tab2" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
@@ -62,7 +61,7 @@
 		
 		<form method="POST" action ="../controllers/create-a-course.php">
 		{% endif %} 
-
+			<input type="hidden" value="{{ step }}">
 			<div id="tab1" class="tab active">
 				<div class="formInput">
 					<input class="formControl input-left" id="add-course-name" type="text" name="title" value="{{ course.title }}">
@@ -109,6 +108,14 @@
 				<button type="submit" id="buttonSaveCourse" class="button-save-course float-right" > Save </button>
 				<div class="clearfix"></div>
 			</div>
+		</form>
+
+		{% if page == 'edit' %}
+			<form method="POST" action ="../controllers/edit-exercise.php">
+			<input type="hidden" name="course_id" value="{{ course.id }}">
+		{% else %}
+			<form method="POST" action ="../controllers/create-exercise.php">
+		{% endif %}
 
 			<div id="tab2" class="tab">
 				<h4 class="exercise-number">x Exercises</h4>
