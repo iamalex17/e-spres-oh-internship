@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2015 at 02:42 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Sep 02, 2015 at 04:41 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `internship`
@@ -56,7 +56,15 @@ CREATE TABLE IF NOT EXISTS `exercises` (
   `id` int(3) NOT NULL,
   `course_id` int(3) NOT NULL,
   `description` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `exercises`
+--
+
+INSERT INTO `exercises` (`id`, `course_id`, `description`) VALUES
+(1, 1, 0x266c743b702667743b7364666677645720574544266c743b2f702667743b),
+(2, 2, 0x266c743b702667743b43757273266c743b2f702667743b);
 
 -- --------------------------------------------------------
 
@@ -95,7 +103,15 @@ CREATE TABLE IF NOT EXISTS `submitted_exercises` (
   `exercise_id` int(3) NOT NULL,
   `user_id` int(3) unsigned NOT NULL,
   `description` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `submitted_exercises`
+--
+
+INSERT INTO `submitted_exercises` (`id`, `exercise_id`, `user_id`, `description`) VALUES
+(1, 1, 2, 0x266c743b702667743b7364666677645720574544266c743b2f702667743b),
+(2, 1, 2, 0x266c743b702667743b43757273266c743b2f702667743b);
 
 -- --------------------------------------------------------
 
@@ -126,7 +142,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 (1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, 'dko9a9sgplb46cg5m9iu56jq97', 1, NULL, NULL),
 (2, 'Ungureanu', 'Alex', 'ualex', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, 'jm0m3gv07ejm4gi8kcug9jpsq7', 1, NULL, NULL),
 (3, 'Csiki', 'Andrei', 'candrei', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, NULL, 1, NULL, NULL),
-(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '25l4jcokk6dnj3ou3sieorns03', 1, NULL, NULL),
+(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '07neftrqh5inabo1kgj5a10dg1', 1, NULL, NULL),
 (5, 'Sitov', 'Cristian', 'scristi', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, NULL, NULL, 1, NULL, NULL),
 (6, 'Stan', 'Razvan', 'srazvan', 'stan.razvan@e-spres-oh.com', 'f03679eb7f2c1571c39a292bdc69abb7', 2, '6_bcb3798d312ed46335afe6b1c0ebd398.jpg', NULL, 1, NULL, NULL),
 (7, 'Zaharie', 'Ciprian', 'zciprian', 'zaharie.ciprian@e-spres-oh.com', 'f03679eb7f2c1571c39a292bdc69abb7', 2, '7_28f4e638fbcacc4dcf40a55c12a218d0.jpg', NULL, 1, NULL, NULL),
@@ -169,25 +185,36 @@ ALTER TABLE `courses`
 -- Indexes for table `exercises`
 --
 ALTER TABLE `exercises`
-  ADD PRIMARY KEY (`id`), ADD KEY `course_id` (`course_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`);
 
 --
 -- Indexes for table `presentors`
 --
 ALTER TABLE `presentors`
-  ADD PRIMARY KEY (`id`), ADD KEY `course_id` (`course_id`), ADD KEY `presentor_id` (`presentor_id`), ADD KEY `presentor_id_2` (`presentor_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`),
+  ADD KEY `presentor_id` (`presentor_id`),
+  ADD KEY `presentor_id_2` (`presentor_id`);
 
 --
 -- Indexes for table `submitted_exercises`
 --
 ALTER TABLE `submitted_exercises`
-  ADD PRIMARY KEY (`id`), ADD KEY `exercise_id` (`exercise_id`), ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `exercise_id` (`exercise_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD KEY `username` (`username`), ADD KEY `email` (`email`), ADD KEY `user_privilege` (`user_role`), ADD KEY `resetPassword` (`reset_password`), ADD KEY `session_id` (`session_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `email` (`email`),
+  ADD KEY `user_privilege` (`user_role`),
+  ADD KEY `resetPassword` (`reset_password`),
+  ADD KEY `session_id` (`session_id`);
 
 --
 -- Indexes for table `users_privileges`
@@ -208,7 +235,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `exercises`
 --
 ALTER TABLE `exercises`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `presentors`
 --
@@ -218,7 +245,7 @@ ALTER TABLE `presentors`
 -- AUTO_INCREMENT for table `submitted_exercises`
 --
 ALTER TABLE `submitted_exercises`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -237,27 +264,27 @@ ALTER TABLE `users_privileges`
 -- Constraints for table `exercises`
 --
 ALTER TABLE `exercises`
-ADD CONSTRAINT `exercise_course_id_FK` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`);
+  ADD CONSTRAINT `exercise_course_id_FK` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`);
 
 --
 -- Constraints for table `presentors`
 --
 ALTER TABLE `presentors`
-ADD CONSTRAINT `course_id_FK` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`),
-ADD CONSTRAINT `presentor_id_FK` FOREIGN KEY (`presentor_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `course_id_FK` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`),
+  ADD CONSTRAINT `presentor_id_FK` FOREIGN KEY (`presentor_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `submitted_exercises`
 --
 ALTER TABLE `submitted_exercises`
-ADD CONSTRAINT `exercise_id_FK` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
-ADD CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `exercise_id_FK` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
+  ADD CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-ADD CONSTRAINT `user_privilege_FK` FOREIGN KEY (`user_role`) REFERENCES `users_privileges` (`privilege_id`);
+  ADD CONSTRAINT `user_privilege_FK` FOREIGN KEY (`user_role`) REFERENCES `users_privileges` (`privilege_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
