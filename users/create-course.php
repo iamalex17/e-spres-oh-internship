@@ -42,6 +42,9 @@ if(isset($_GET['step'])) {
 	$step = $_GET['step'] == 2 ? 2 : 0;
 }
 
+$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+$coursesWithExercises = ConnectToDB::interogateDB($sql);
+
 try {
 	$page = '';
 	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {
@@ -72,7 +75,7 @@ try {
 	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
