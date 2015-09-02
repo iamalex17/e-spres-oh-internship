@@ -52,7 +52,7 @@
 		function addProfileImage() {
 			$uploadOk = 1;
 			$this->profile_image = MD5($_FILES['profile_image']['name']);
-			$target_dir = '../images/user-profile-images/';
+			$target_dir = $path . 'images/user-profile-images/';
 			$file = $_FILES['profile_image'];
 			$fileName = explode('.', $file['name']);
 			$fileExtension = $fileName[count($fileName)-1];

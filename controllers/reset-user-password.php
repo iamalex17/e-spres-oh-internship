@@ -8,7 +8,7 @@ require_once '../classes/class.user.php';
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'reset-password.php') {
-			header('Location:../login.php');
+			header('Location: ' . $path . 'login.php');
 			exit();
 		}
 		session_start();
@@ -24,7 +24,7 @@ require_once '../classes/class.user.php';
 						$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 						$successMessage = 'Your password has been successfully modified.';
 						$_SESSION['successMessage'] = $successMessage;
-						header('Location: ../login.php');
+						header('Location: ' . $path . 'login.php');
 						exit();
 					} else {
 						$errorMessage = "Passwords do not match. Check again!\n";
@@ -40,7 +40,7 @@ require_once '../classes/class.user.php';
 		}
 
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ../users/reset-password.php');
+		header('Location: ' . $path . 'users/reset-password.php');
 		exit();
 	}
 ?>

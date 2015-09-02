@@ -21,5 +21,5 @@ jQuery(document).ready(function() {
 	$('#tab2').on('click', '#buttonAddExercise', function(e) {
 		e.preventDefault();
 		$('.create-exercise').last().clone().appendTo('.create-exercise-container');
-	})
+	});
 });

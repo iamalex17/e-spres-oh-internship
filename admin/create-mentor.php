@@ -5,7 +5,7 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ../login.php');
+	header('Location: ' . $path . 'login.php');
 	exit();
 }
 
@@ -26,7 +26,7 @@ if(isset($_SESSION['userToAdd'])) {
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates', 'create-mentor.tmpl');
-	echo $template->render(array('id' => $user->id, 'last_name' => $user->last_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'userToAdd' => $userToAdd));
+	echo $template->render(array('id' => $user->id, 'last_name' => $user->last_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'userToAdd' => $userToAdd, 'path' => $path));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }

@@ -5,7 +5,7 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ../login.php');
+	header('Location: ' . $path . 'login.php');
 	exit();
 }
 
@@ -19,7 +19,7 @@ if(isset($_SESSION['errorMessage'])) {
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','change-password.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'user_role' => $user->user_role));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'user_role' => $user->user_role, 'path' => $path));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }

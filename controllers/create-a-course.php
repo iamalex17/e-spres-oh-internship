@@ -5,12 +5,12 @@ require_once '../classes/class.course.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ../login.php');
+	header('Location: ' . $path . 'login.php');
 	exit();
 }
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ../dashboard.php');
+	header('Location: ' . $path . 'dashboard.php');
 }
 
 $errorMessage = '';
@@ -83,11 +83,11 @@ if($status == 1) {
 	}
 	$successMessage = "Course created!\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ../users/create-course.php?step=2');
+	header('Location: ' . $path . 'users/create-course.php?step=2');
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ../users/create-course.php');
+	header('Location: ' . $path . 'users/create-course.php');
 	exit();
 }
 ?>

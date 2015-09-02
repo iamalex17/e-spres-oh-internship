@@ -250,7 +250,7 @@ nav a:hover .iconPlus{
 	cursor:pointer;
 }
 .buttonDelete{
-	padding: 1px 5px;
+	padding: 4px 5px;
 	line-height: 1.5;
 	border-radius: 3px;
 	border: 1px solid #e7e7e7;
@@ -262,7 +262,7 @@ nav a:hover .iconPlus{
 	background-color: #efefef;
 }
 .buttonEdit{
-	padding: 1px 5px;
+	padding: 4px 5px;
 	line-height: 1.5;
 	border-radius: 3px;
 	vertical-align: middle;
@@ -782,4 +782,8 @@ input {
 	margin-top: 10px;
 	border: 1px solid #e0e0e0;
 	border-radius: 3px;
+}
+
+.fa.fa-times, .fa.fa-pencil {
+	display: block;
 }

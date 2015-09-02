@@ -73,13 +73,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$successMessage = "Course updated!\n";
 		$_SESSION['successMessage'] = $successMessage;
-		header('Location: ../dashboard.php');
+		header('Location: ' . $path . 'dashboard.php');
 		exit();
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
 		$_SESSION['course_id'] = $id;
 		$_SESSION['title'] = $title;
-		header('Location: ../users/create-course.php');
+		header('Location: ' . $path . 'users/create-course.php');
 		exit();
 	}
 }
