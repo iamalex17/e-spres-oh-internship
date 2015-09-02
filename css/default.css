@@ -168,7 +168,7 @@ button{
 nav a:hover .iconText{
 	background-position: -747px -10px;
 }
-nav a:hover .iconGraduation{
+nav ul:hover .iconGraduation{
 	background-position: -407px -10px;
 }
 nav a:hover .iconMinus{
@@ -361,6 +361,7 @@ nav a:hover .iconPlus{
 }
 .sub-nav-list:hover>a{
 	background-color: transparent;
+	
 }
 @media screen and (max-width: 960px) {
 	.side-navigation{
