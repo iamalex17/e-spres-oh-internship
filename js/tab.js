@@ -20,6 +20,6 @@ jQuery(document).ready(function() {
 
 	$('#tab2').on('click', '#buttonAddExercise', function(e) {
 		e.preventDefault();
-		$('.create-exercise').last().clone().appendTo('#tab2');
+		$('.create-exercise').last().clone().appendTo('.create-exercise-container');
 	})
 });

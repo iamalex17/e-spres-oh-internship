@@ -3,6 +3,7 @@
 
 <head>
 	<!--Styles-->
+	<link rel="stylesheet" href="../css/normalize.css" />
 	<link rel="stylesheet" href="../css/dashboard.css" />
 	<link rel="stylesheet" href="../css/default.css" />
 	<!--Scripts-->
@@ -36,7 +37,13 @@
 			{{ errorMessage|nl2br }}
 		</div>
 	{% endif %}
-	
+
+	{% if successMessage != '' %}
+		<div class="successMessage">
+			{{ successMessage|nl2br }}
+		</div>
+	{% endif %}
+
 	<!--Container-->
 	<div class="create-menu">
 
@@ -100,6 +107,7 @@
 					<textarea name="textareas" class="mceEditor">{{ course.description }}</textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course float-right" > Save </button>
+				<div class="clearfix"></div>
 			</div>
 
 			<div id="tab2" class="tab">
@@ -114,11 +122,15 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
+				<div class="create-exercise-container">
 				<div class="description-create-course create-exercise">
 					<textarea name="exerciseContent[]" class="mceEditor"></textarea>
 					<button id="buttonSaveCourse" class="button-save-course float-left" > Save </button>
 					<div class="clearfix"></div>
 				</div>
+				</div>
+				<button id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
+				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
 

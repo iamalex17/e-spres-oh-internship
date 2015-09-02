@@ -31,10 +31,12 @@
 .existingMentor{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
+	padding-top: 5px;
 }
 .existingIntern{
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
+	padding-top: 5px;
 }
 .existingCourse{
 	padding: 10px;
