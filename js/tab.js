@@ -32,4 +32,34 @@ $(document).ready(function() {
 
 		initTinyMCE();
 	});
+
+	/*if($('#step').val() == 2) {
+		console.log('lala');
+		$('.create-menu .tab-links a').prop('disabled', true);
+	}*/
+
+	$('.solutions-container').hide();
+	$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
+		e.preventDefault();
+		$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, function() {
+			if ($(this).is(":visible")) {
+				$(this).prev().find('.buttonOpen').text('close');
+			} else {
+				$(this).prev().find('.buttonOpen').text('open');
+			}
+		});
+	});
+
+	$('.course-exercise-content').hide();
+	$('.exercise-responses').on('click', '.buttonOpen', function(e){
+		e.preventDefault();
+		$(this).closest('.exercise-responses').find('.course-exercise-content').slideToggle(300, function() {
+			if ($(this).is(":visible")) {
+				$(this).prev().find('.buttonOpen').text('close');
+			} else {
+				$(this).prev().find('.buttonOpen').text('open');
+			}
+		});
+	});
+
 });

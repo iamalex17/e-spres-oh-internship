@@ -44,7 +44,7 @@
 
 		<div class="existingExercise">
 
-				<div class="exercise-details">
+				<div class="exercise-details submitted">
 
 					<div class="course-exercise-name">
 						<div class="alignment">
@@ -68,6 +68,7 @@
 						{{ solutionsMessage }}
 					</div>
 				{% else %}
+				<div class="solutions-container">
 					{% for solution in exercise.solutions %}
 
 					<div class="exercise-responses">
@@ -87,6 +88,7 @@
 
 					</div>
 					{% endfor %}
+					</div>
 				{% endif %}
 		</div>
 
