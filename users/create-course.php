@@ -19,9 +19,11 @@ if(isset($_SESSION['course'])) {
 	if(isset($course['label'])) {
 		$course['label'] = implode(', ', $course['label']);
 	}
-	foreach ($course['mentor'] as $key => $courseMentor) {
-		$a = array('id' => $courseMentor);
-		array_push($courseMentors, $a);
+	if(isset($course['mentor'])) {
+		foreach ($course['mentor'] as $key => $courseMentor) {
+			$a = array('id' => $courseMentor);
+			array_push($courseMentors, $a);
+		}
 	}
 }
 
@@ -32,7 +34,7 @@ if(isset($_SESSION['errorMessage'])) {
 	unset($_SESSION['errorMessage']);
 }
 if(isset($_SESSION['successMessage'])) {
-	$errorMessage = $_SESSION['successMessage'];
+	$successMessage = $_SESSION['successMessage'];
 	unset($_SESSION['successMessage']);
 }
 
