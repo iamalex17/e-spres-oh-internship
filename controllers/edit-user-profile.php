@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if($request != 'edit-profile.php') {
-		header('Location: ../dashboard.php');
+		header('Location: ' . $path . 'dashboard.php');
 		exit();
 	}
 	$errorMessage = '';
@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 		$_SESSION = (array)$user;
 		$_SESSION['successMessage'] = $successMessage;
-		header('Location: ../dashboard.php');
+		header('Location: ' . $path . 'dashboard.php');
 		exit();
 	} else {
 		$errorMessage = "Please insert first name and/or last name.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ../users/edit-profile.php');
+		header('Location: ' . $path . 'users/edit-profile.php');
 		exit();
 	}
 }

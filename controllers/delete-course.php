@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if(($request != 'dashboard.php') || ($_SESSION['user_role'] != 2)) {
-		header('Location: ../dashboard.php');
+		header('Location: ' . $path . 'dashboard.php');
 		exit();
 	}
 	$deleteCourse = $_POST['delete_course'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = 'Course succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ../dashboard.php');
+	header('Location: ' . $path . 'dashboard.php');
 	exit();
 }
 

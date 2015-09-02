@@ -5,7 +5,7 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ../login.php');
+	header('Location: ' . $path . 'login.php');
 	exit();
 }
 $step = 0;
@@ -48,7 +48,7 @@ try {
 		$page = 'edit';
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'dashboard.php' && $request != 'create-course.php') {
-			header('Location: ../dashboard.php');
+			header('Location: ' . $path . 'dashboard.php');
 			exit();
 		}
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
@@ -72,7 +72,7 @@ try {
 	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'path' => $path));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
