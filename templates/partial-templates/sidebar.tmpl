@@ -30,17 +30,16 @@
 		{% endif %}
 		{% if user_role == 2 %}
 		<ul>
-
-		<li class="list-editor">
-			<a href='{{ path }}users/create-course.php'>
-				<i class=" iconParent iconPlus"></i> Create Course
-			</a>
-		</li>
-		<li class="list-editor">
-			<a href='{{ path }}users/submitted-exercises.php'>
-				<i class=" iconParent iconText"></i>Submitted Exercises
-				<i class=" iconParent iconPlusMore"></i>
-			</a>
+			<li class="list-editor">
+				<a href='{{ path }}users/create-course.php'>
+					<i class=" iconParent iconPlus"></i> Create Course
+				</a>
+			</li>
+		</ul>
+		<ul>
+		<li class=" dropDown list-editor">
+			<i class=" iconParent iconText"></i>Submitted Exercises
+			<i class=" iconParent iconPlusMore"></i>
 			<ul class="subNav">
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php"></a></li>
 			</ul>
