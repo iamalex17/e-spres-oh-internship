@@ -37,12 +37,12 @@
 			</a>
 		</li>
 		<li class="list-editor">
-			<a href='{{ path }}users/submitted-exercises.php'>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore"></i>
-			</a>
 			<ul class="subNav">
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php"></a></li>
+				{% for course in coursesWithExercises %}
+				<li class="sub-nav-list"><a href="{{path}}controllers/view-exercises?course_id={{ course.id }}">{{ course.title }}</a></li>
+				{% endfor %}
 			</ul>
 		</li>
 		</ul>
