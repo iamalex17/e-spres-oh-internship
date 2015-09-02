@@ -4,12 +4,12 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ' . $path . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
 }
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $path . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 }
 
 $errorMessage = '';
@@ -66,11 +66,11 @@ if($status == 1) {
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Password changed succesfully!\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $path . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $path . 'users/change-password.php');
+	header('Location: ' . $GLOBALS['path'] . 'users/change-password.php');
 	exit();
 }
 ?>

@@ -10,7 +10,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'login.php'){
-			header('Location: ' . $path . 'login.php');
+			header('Location: ' . $GLOBALS['path'] . 'login.php');
 		}
 		if($_GET['action'] == 'login') {
 			login();
@@ -34,12 +34,12 @@
 					$valuesToBind = array('session_id' => session_id(), 'username' => $user->username);
 					ConnectToDB::interogateDB($sql, $valuesToBind);
 					$_SESSION = (array)$user;
-					header('Location: ' . $path . 'dashboard.php');
+					header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 					exit();
 				} else {
 					$errorMessage .= 'Username or password incorrect. Please, try again.';
 					$_SESSION['errorMessage'] = $errorMessage;
-					header('Location: ' . $path . 'login.php');
+					header('Location: ' . $GLOBALS['path'] . 'login.php');
 				}
 			} else {
 				$errorMessage .= 'Please insert password.';

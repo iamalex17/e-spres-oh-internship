@@ -744,6 +744,7 @@ input[type="checkbox"] {
 }
 .course-label-container > label {
 	display: inline-block;
+	vertical-align: middle;
 	cursor: pointer;
 	font-size: 14px;
 	margin-right: 10px;

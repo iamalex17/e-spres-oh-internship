@@ -3,11 +3,11 @@
 
 <head>
 	<!--Styles-->
-	<link rel="stylesheet" href="../css/dashboard.css" />
-	<link rel="stylesheet" href="../css/default.css" />
+	<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
+	<link rel="stylesheet" href="{{ path }}css/default.css" />
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src ="../js/signin.js"></script>
+	<script type="text/javascript" src ="{{ path }}js/signin.js"></script>
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!--Templates-->
@@ -38,7 +38,7 @@
 			</div>
 		{% endif %}
 
-		<form method="POST" action="../controllers/edit-user-profile.php" class="createUserForm" enctype="multipart/form-data">
+		<form method="POST" action="{{ path }}controllers/edit-user-profile.php" class="createUserForm" enctype="multipart/form-data">
 
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name" value="{{first_name}}">

@@ -11,5 +11,5 @@ if(isset($_SESSION['errorMessage'])) {
 }
 
 $template = loadTemplate('../templates','recover-password.tmpl');
-echo $template->render(array('errorMessage' => $errorMessage));
+echo $template->render(array('errorMessage' => $errorMessage, 'path' => $path));
 ?>
