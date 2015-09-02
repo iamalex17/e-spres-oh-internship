@@ -28,10 +28,13 @@ if(isset($_POST['exerciseContent'])) {
 			$ok = 1;
 			$sql = 'INSERT INTO `exercises` (course_id, description) VALUES (:courseID, :description)';
 			$valuesToBind = array('courseID' => $courseID, 'description' => $description);
+			ConnectToDB::interogateDB($sql, $valuesToBind);
+			$successMessage = 'Exercises added successfully.';
+			$_SESSION['successMessage'] = $successMessage;
+			header('Location: ../users/create-course.php');
 		}
 	}
 	if(!$ok) {
-	} else {
 		$errorMessage = "Please add exercise description.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
 		header('Location: ../users/create-course.php');
