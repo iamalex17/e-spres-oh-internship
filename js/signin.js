@@ -46,7 +46,7 @@ var APP = (function() {
 	}
 
 	function showDropdownMenu() {
-		$('.subNav').slideToggle('slow', function() {
+		$(this).find('.subNav').slideToggle('slow', function() {
 			$('.change-icon').toggleClass('iconMinusMore');
 		});
 	}
