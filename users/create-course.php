@@ -9,6 +9,7 @@ if(!User::verifySessionID()) {
 	exit();
 }
 $course = '';
+$successMessage = '';
 $courseMentors = array();
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
@@ -59,7 +60,7 @@ try {
 	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
