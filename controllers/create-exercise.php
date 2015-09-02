@@ -17,7 +17,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		exit();
 	}
 }
-echo "<pre>";
-var_dump($_POST);
-exit();	
+
+if(isset($_POST['exerciseContent'])) {
+	$ok = 0;
+	$exercises = array();
+	$courseID = 1;
+	foreach ($_POST['exerciseContent'] as $key => $exercise) {
+		if(!empty($exercise)) {
+			$description = htmlentities($exercise);
+			$ok = 1;
+			$sql = 'INSERT INTO `exercises` (course_id, description) VALUES (:courseID, :description)';
+			$valuesToBind = array('courseID' => $courseID, 'description' => $description);
+		}
+	}
+	if(!$ok) {
+	} else {
+		$errorMessage = "Please add exercise description.\n";
+		$_SESSION['errorMessage'] = $errorMessage;
+		header('Location: ../users/create-course.php');
+	}
+}
+
 ?>
