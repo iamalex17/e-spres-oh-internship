@@ -48,27 +48,30 @@
 			</div>
 
 	<!--Add exercise-->
-
-	<div class="existingCourse">
-
-		<div class="course-exercise-name">
-		<div class="alignment">
-			<h3 class="newUserName"><a href="">Exercise 1</a></h3>
-		</div>
-		<div class="buttonAlignment">
-			<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
-			<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
-		</div>
-		</div>
-		<div class="course-exercise-name">
-			<h4 class="exercise-theme-name">exercise theme name</h4>
-		</div>
-		<div class="course-exercise-content">
-			<span class="courseDetail alignment">{{ course.description |raw }}</span>
-		</div>
-
-	</div>
-
+		{% if exercisesMessage != ""%}
+			<div class="otherMessage">
+				{{ exercisesMessage }}
+			</div>
+		{% else %}
+			{% set number = 0 %}
+			{% for exercise in course.exercises %}
+				{% set number = number +1 %}
+				<div class="existingCourse">
+					<div class="course-exercise-name">
+					<div class="alignment">
+						<h3 class="newUserName"><a href="">Exercise {{ number }}</a></h3>
+					</div>
+					<div class="buttonAlignment">
+						<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+						<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
+					</div>
+					</div>
+					<div class="course-exercise-content">
+						<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
 		<a class="show-more-info" href="{{ path }}dashboard.php"> Go Back </a>
 		<h4 class="courseUserName">
 		</h4>
