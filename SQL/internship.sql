@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2015 at 02:21 PM
+-- Generation Time: Sep 02, 2015 at 02:29 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -55,7 +55,7 @@ INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES
 CREATE TABLE IF NOT EXISTS `exercises` (
   `id` int(3) NOT NULL,
   `course_id` int(3) NOT NULL,
-  `drescription` blob NOT NULL
+  `description` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -113,7 +113,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 (1, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, 'dko9a9sgplb46cg5m9iu56jq97', 1, NULL, NULL),
 (2, 'Ungureanu', 'Alex', 'ualex', 'ungureanualex17@yahoo.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, 'jm0m3gv07ejm4gi8kcug9jpsq7', 1, NULL, NULL),
 (3, 'Csiki', 'Andrei', 'candrei', 'andrei.g.csiki@gmail.com', '081d29b9330707cc21a1bf4132f7d3f7', 3, NULL, NULL, 1, NULL, NULL),
-(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '5n8tro58rrpjacj2dm3dovod15', 1, NULL, NULL),
+(4, 'Pfeiffer', 'Andrei', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, '21232f297a57a5a743894a0e4a801fc3.png', '35brcih8hlfiiobt3cnhva0d01', 1, NULL, NULL),
 (5, 'Sitov', 'Cristian', 'scristi', 'cristian.sitov@e-spres-oh.com', '23cbeacdea458e9ced9807d6cbe2f4d6', 2, NULL, NULL, 1, NULL, NULL),
 (6, 'Stan', 'Razvan', 'srazvan', 'stan.razvan@e-spres-oh.com', 'f03679eb7f2c1571c39a292bdc69abb7', 2, '6_bcb3798d312ed46335afe6b1c0ebd398.jpg', NULL, 1, NULL, NULL),
 (7, 'Zaharie', 'Ciprian', 'zciprian', 'zaharie.ciprian@e-spres-oh.com', 'f03679eb7f2c1571c39a292bdc69abb7', 2, '7_28f4e638fbcacc4dcf40a55c12a218d0.jpg', NULL, 1, NULL, NULL),
