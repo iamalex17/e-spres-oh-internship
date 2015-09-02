@@ -45,6 +45,11 @@ button{
 	text-align: center;
 	margin-top: 3%;
 }
+.otherMessage{
+	margin: 15px 0 0 100px;
+	padding: 5px 0 5px 20px;
+	background-color: #eea236;
+}
 .deleteMessage{
 	color: #74DF00;
 	text-align: center;
