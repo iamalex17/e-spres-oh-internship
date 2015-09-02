@@ -51,7 +51,6 @@ var APP = (function() {
 		});
 	}
 
-
 	return {
 		init: function() {
 
