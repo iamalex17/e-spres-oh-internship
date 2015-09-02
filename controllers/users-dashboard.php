@@ -67,5 +67,5 @@
 		$courses = NULL;
 		$courseMessage = 'No courses to display yet.';
 	}
-	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label));
+	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label, 'path' => $path));
 ?>

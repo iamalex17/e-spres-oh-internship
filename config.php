@@ -13,4 +13,8 @@
 		die();
 	}
 
+	$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
+	$additionalFolder = 'e-spres-oh-internship/';
+
+	$path = $server . $additionalFolder;
 ?>
