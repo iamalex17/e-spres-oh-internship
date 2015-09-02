@@ -45,7 +45,7 @@
 			</a>
 			<ul class="subNav">
 				{% for course in coursesWithExercises %}
-				<li class="sub-nav-list"><a href="{{path}}controllers/view-exercises?course_id={{ course.id }}">{{ course.title }}</a></li>
+				<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
 				{% endfor %}
 			</ul>
 		</li>

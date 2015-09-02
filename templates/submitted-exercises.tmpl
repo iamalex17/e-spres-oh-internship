@@ -32,75 +32,66 @@
 
 	<!--Container-->
 
+
+	{% set number = 0 %}
+	{% for exercise in exercises %}
+		{% set number = number +1 %}
 	<div class="courseList">
 
 		<div class="alignment">
-			<h2 class="category">Submitted Exercises for Frontend</h2>
+			<h2 class="category">Submitted Exercises for {{ exercise.course.label }} - {{ exercise.course.title }}</h2>
 		</div>
 
 		<div class="existingExercise">
 
-		<div class="exercise-details">
+				<div class="exercise-details">
 
-			<div class="course-exercise-name">
+					<div class="course-exercise-name">
+						<div class="alignment">
+							<h3 class="newUserName">Exercise {{ number }}</h3>
+						</div>
 
-			<div class="alignment">
-				<h3 class="newUserName"><a href="">Exercise NUMBER</a></h3>
-			</div>
+						<div class="buttonAlignment">
+							<a href="" class="buttonOpen">Open</a>
+						</div>
 
-			<div class="buttonAlignment">
-				<a href="" class="buttonOpen">Open</a>
-			</div>
+					</div>
 
-			</div>
+					<div class="course-exercise-content">
+						<span class="courseDetail alignment">{{ exercise.description | raw}}</span>
+					</div>
 
-			<div class="course-title-name">
-				<h4>Course Name</h4>
-			</div>
-
-			<div class="course-exercise-content">
-			<span class="courseDetail alignment">description</span>
-			</div>
-
-		</div>
-
-		<div class="exercise-responses">
-
-			<div class="exercise-details">
-				<div class="alignment">
-					<h3 class="newUserName"><a href="">Solution from Intern Name 1</a></h3>
 				</div>
-				<div class="buttonAlignment">
-					<a href="" class="buttonOpen">Open</a>
-				</div>
-			</div>
 
-			<div class="course-exercise-content">
-				<span class="courseDetail alignment">description</span>
-			</div>
+				{% if solutionsMessage != ""%}
+					<div class="solutionsMessage">
+						{{ solutionsMessage }}
+					</div>
+				{% else %}
+					{% for solution in exercise.solutions %}
 
-		</div>
+					<div class="exercise-responses">
 
-		<div class="exercise-responses">
+						<div class="exercise-details">
+							<div class="alignment">
+								<h3 class="newUserName"><a href="">Solution from {{ solution.userName }}</a></h3>
+							</div>
+							<div class="buttonAlignment">
+								<a href="" class="buttonOpen">Open</a>
+							</div>
+						</div>
 
-			<div class="exercise-details">
-				<div class="alignment">
-					<h3 class="newUserName"><a href="">Solution from Intern Name 2</a></h3>
-				</div>
-				<div class="buttonAlignment">
-					<a href="" class="buttonOpen">Open</a>
-				</div>
-			</div>
+						<div class="course-exercise-content">
+							<span class="courseDetail alignment">{{ solution.description | raw }}</span>
+						</div>
 
-			<div class="course-exercise-content">
-				<span class="courseDetail alignment">description</span>
-			</div>
-
-		</div>
-
+					</div>
+					{% endfor %}
+				{% endif %}
 		</div>
 
 	</div>
+	{% endfor %}
 
 		<!--Footer-->
 	<div class="footer">
