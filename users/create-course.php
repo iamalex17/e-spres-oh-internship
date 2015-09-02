@@ -8,6 +8,7 @@ if(!User::verifySessionID()) {
 	header('Location: ../login.php');
 	exit();
 }
+$step = 0;
 $course = '';
 $courseMentors = array();
 if(isset($_SESSION['course'])) {
@@ -24,14 +25,23 @@ if(isset($_SESSION['course'])) {
 }
 
 $errorMessage = '';
+$successMessage = '';
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
 	unset($_SESSION['errorMessage']);
 }
+if(isset($_SESSION['successMessage'])) {
+	$errorMessage = $_SESSION['successMessage'];
+	unset($_SESSION['successMessage']);
+}
+
+if(isset($_GET['step'])) {
+	$step = $_GET['step'] == 2 ? 2 : 0;
+}
 
 try {
 	$page = '';
-	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {	
+	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {
 		$page = 'edit';
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'dashboard.php' && $request != 'create-course.php') {
