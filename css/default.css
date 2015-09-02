@@ -166,7 +166,7 @@ button{
 	float: right;
 	margin-top: 4px;
 }
-nav a:hover .iconText{
+nav ul:hover .iconText{
 	background-position: -747px -10px;
 }
 nav ul:hover .iconGraduation{
