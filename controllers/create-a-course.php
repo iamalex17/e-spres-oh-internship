@@ -83,7 +83,7 @@ if($status == 1) {
 	}
 	$successMessage = "Course created!\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ../dashboard.php');
+	header('Location: ../users/create-course.php?step=2');
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
