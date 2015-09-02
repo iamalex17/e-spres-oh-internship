@@ -37,7 +37,13 @@
 			{{ errorMessage|nl2br }}
 		</div>
 	{% endif %}
-	
+
+	{% if successMessage != '' %}
+		<div class="successMessage">
+			{{ successMessage|nl2br }}
+		</div>
+	{% endif %}
+
 	<!--Container-->
 	<div class="create-menu">
 
