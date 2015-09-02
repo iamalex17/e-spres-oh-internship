@@ -21,24 +21,24 @@ session_start();
 					$link = generateRandomString($email);
 					$successMessage = 'An e-mail with recover details was sent to ' .$email ;
 					$_SESSION['successMessage'] = $successMessage;
-					header('Location: ' . $path . 'login.php');
+					header('Location: ' . $GLOBALS['path'] . 'login.php');
 					exit();
 				} else {
 					$successMessage = 'An e-mail with recover details was sent to ' .$email ;
 					$_SESSION['successMessage'] = $successMessage;
-					header('Location: ' . $path . 'login.php');
+					header('Location: ' . $GLOBALS['path'] . 'login.php');
 					exit();
 				}
 			} else {
 				$errorMessage = 'E-mail address is not valid.';
 				$_SESSION['errorMessage'] = $errorMessage;
-				header('Location: ' . $path . 'users/recover-password.php');
+				header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
 				exit();
 			}
 		} else {
 			$errorMessage = 'E-mail address is not valid.';
 			$_SESSION['errorMessage'] = $errorMessage;
-			header('Location: ' . $path . 'users/recover-password.php');
+			header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
 			exit();
 		}
 	}

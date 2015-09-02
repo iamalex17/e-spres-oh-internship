@@ -1,6 +1,6 @@
 <?php
 	if($_SERVER['REQUEST_METHOD'] != 'POST') {
-		header('Location: ' . $path . 'dashboard.php');
+		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 	}
 
 	require_once '../config.php';
@@ -18,7 +18,7 @@
 	} else if($request == 'create-mentor.php') {
 		$role = 2;
 	} else {
-		header('Location: ' . $path . 'dashboard.php');
+		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 	}
 	$errorMessage = '';
 	$status = 1;
@@ -109,5 +109,5 @@
 		$role == 2 ? header('Location:../admin/create-mentor.php') : header('Location:../admin/create-intern.php');
 		exit();
 	}
-	header('Location: ' . $path . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 ?>

@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if(($request != 'dashboard.php') || ($_SESSION['user_role'] != 1)) {
-		header('Location: ' . $path . 'dashboard.php');
+		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 		exit();
 	}
 	$deleteUser = $_POST['delete_button'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$successMessage = 'User succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $path . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 	exit();
 }
 

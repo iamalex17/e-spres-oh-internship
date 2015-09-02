@@ -5,7 +5,7 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: ' . $path . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
 }
 $step = 0;
@@ -48,7 +48,7 @@ try {
 		$page = 'edit';
 		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 		if($request != 'dashboard.php' && $request != 'create-course.php') {
-			header('Location: ' . $path . 'dashboard.php');
+			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 			exit();
 		}
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
