@@ -79,7 +79,7 @@
 	margin-bottom: 20px;
 }
 .courseName{
-	border-bottom: 2px dotted #dfdddd;
+	border-bottom: 1px dashed #000;
 	margin-bottom: 10px;
 }
 .course-details-name{
