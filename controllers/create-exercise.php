@@ -10,13 +10,14 @@ if(!User::verifySessionID()) {
 	exit();
 }
 
-if(($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if($request != 'create-course.php') {
 		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 		exit();
 	}
 }
-
+echo "<pre>";
 var_dump($_POST);
+exit();	
 ?>
