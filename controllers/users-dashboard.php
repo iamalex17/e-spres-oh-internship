@@ -10,6 +10,9 @@
 	$sql = 'SELECT * FROM `courses` WHERE status = 0';
 	$deletedCourses = ConnectToDB::interogateDB($sql);
 
+	$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+	$coursesWithExercises = ConnectToDB::interogateDB($sql);
+
 	$course = '';
 
 	if(isset($_SESSION['course'])) {
@@ -67,5 +70,5 @@
 		$courses = NULL;
 		$courseMessage = 'No courses to display yet.';
 	}
-	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label, 'path' => $path));
+	echo $template->render(array('user_role' => $user->user_role, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
 ?>
