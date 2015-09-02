@@ -40,6 +40,8 @@
 .mainHeader{
 	font-size: 32px;
 	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 /*Input Design*/
 .recoverRequest{
