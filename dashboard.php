@@ -7,8 +7,6 @@ if(!User::verifySessionID()) {
 	exit();
 }
 
-var_dump($path);
-
 $errorMessage = '';
 $successMessage = '';
 
