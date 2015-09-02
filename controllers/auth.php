@@ -13,7 +13,6 @@
 			header('Location: ../login.php');
 		}
 		if($_GET['action'] == 'login') {
-			echo("bbb");
 			login();
 		}
 	}
