@@ -40,7 +40,8 @@ $(document).ready(function() {
 		var elem = "<div class='description-create-course create-exercise'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
 		//var elem = document.createElement("textarea");
 		$(elem).attr("id", ta_count.toString());
-		$(elem).appendTo(".create-exercise-container");
+		//$(elem).appendTo(".append-exercise");
+		$(elem).insertBefore("#buttonSaveExercise");
 
 		initTinyMCE();
 	});
