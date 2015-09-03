@@ -115,6 +115,9 @@ button{
 	float: right;
 	margin-left: 5px;
 }
+.fa-check{
+	display: inline-block;
+}
 /*Aside Icons*/
 .profile-image{
 	height: 100px;
@@ -796,7 +799,9 @@ input {
 	border: 1px solid #e0e0e0;
 	border-radius: 3px;
 }
-
+.display{
+	display:inline-block;
+}
 .fa.fa-times, .fa.fa-pencil {
 	display: block;
 }
