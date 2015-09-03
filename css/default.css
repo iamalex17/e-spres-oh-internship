@@ -29,6 +29,10 @@ li {
 .clearfix {
 	clear: both;
 }
+
+.inline {
+	display: inline-block;
+}
 button{
 	margin:0;
 	padding:0;
@@ -834,4 +838,11 @@ input {
 }
 .fa.fa-times, .fa.fa-pencil {
 	display: block;
+}
+
+.submitted-exercise-container > .alignment {
+	width: 100%;
+}
+.submitted-exercise-container > .alignment > .edit-solution {
+	margin-top: 10px;
 }

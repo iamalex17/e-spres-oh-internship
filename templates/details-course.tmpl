@@ -94,8 +94,8 @@
 							{% else %}
 								{% if ok == 1 %}
 								<div class="alignment">
-											<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
-											<a href="" class="buttonEdit edit-solution"><i class="fa fa-pencil"></i></a>
+											<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
+											<a href="" class="buttonEdit edit-solution float-right"><i class="fa fa-pencil"></i></a>
 									<div class="edit-solution-container">
 										<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
 										<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
