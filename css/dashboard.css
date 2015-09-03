@@ -252,6 +252,8 @@
 	display: inline-block;
 	text-decoration: none;
 	color: #42a5f5;
+	margin-top: -40px;
+	margin-right: 10px;
 }
 .show-more-info:hover{
 	color: #0c80df;
