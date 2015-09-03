@@ -72,7 +72,7 @@
 						</div>
 						{% if user_role == 2 %}
 						<div class="buttonAlignment">
-							<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+							<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
 							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
 						</div>
 						{% endif %}
@@ -86,12 +86,12 @@
 							<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
 						</div>
 					</div>
-					<div class="create-exercise-container">
+					<div class="edit-exercise-container">
 						{% if ok == 1 %}<div class="alignment">
 							<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
 							<div class="create-exercise-container">
 								<div class="buttonAlignment">
-									<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+									<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
 								</div>
 								<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
 								<div class="clearfix"></div>
@@ -103,6 +103,7 @@
 								<div class="clearfix"></div>
 							</div>
 							<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+							<div class="clearfix"></div>
 							</div>
 						{% endif %}
 					</div>
@@ -110,7 +111,7 @@
 				</div>
 			{% endfor %}
 		{% endif %}
-		<a class="show-more-info" href="{{ path }}dashboard.php"> Go Back </a>
+		<a class="show-more-info message-info-align" href="{{ path }}dashboard.php"> Go Back </a>
 		<h4 class="courseUserName">
 		</h4>
 		</div>
