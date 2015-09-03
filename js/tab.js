@@ -57,7 +57,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$('.course-exercise-content').hide();
+	//$('.course-exercise-content').hide();
 	$('.exercise-responses').on('click', '.buttonOpen', function(e){
 		e.preventDefault();
 		$(this).closest('.exercise-responses').find('.course-exercise-content').slideToggle(300, function() {
@@ -69,10 +69,22 @@ $(document).ready(function() {
 		});
 	});
 
-	$('.edit-exercise-container').hide();
+	//$('.edit-exercise-container').hide();
 	$('.exercise-details.submitted').on('click', '.edit-exercise', function(e) {
 		e.preventDefault();
 		$(this).closest('.existingCourse').find('.edit-exercise-container').slideToggle();
 	});
 
+	$('.edit-solution-container').hide();
+	$('.submitted-exercise-container').on('click', '.edit-solution', function(e) {
+		e.preventDefault();
+		$(this).closest('.exercise-details').find('.edit-solution-container').slideToggle();
+	});
+
+	$('.submitted-exercise-container').hide();
+
+	$('.exercise-details').on('click', '.open-solution-content', function(e) {
+		e.preventDefault();
+		$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle();
+	});
 });
