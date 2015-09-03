@@ -45,7 +45,7 @@ if(isset($_GET['course_id'])) {
 	$user = new User($_SESSION);
 
 	$template = loadTemplate('../templates','submitted-exercises.tmpl');
-	echo $template->render(array('solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises));
+	echo $template->render(array('solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
 } else {
 	header('Location: ../dashboard.php');
 }

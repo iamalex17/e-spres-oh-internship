@@ -19,7 +19,7 @@ if(isset($_SESSION['errorMessage'])) {
 }
 
 	$template = loadTemplate('../templates','reset-password.tmpl');
-	echo $template->render(array('link' => $link, 'errorMessage' => $errorMessage));
+	echo $template->render(array('link' => $link, 'errorMessage' => $errorMessage, 'currentPage' => $currentPage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }

@@ -30,5 +30,5 @@
 		$exercisesMessage = 'No exercise at the moment.';
 	}
 	$template = loadTemplate('../templates','details-course.tmpl');
-	echo $template->render(array('exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'last_name' => $_SESSION['last_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
+	echo $template->render(array('exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'last_name' => $_SESSION['last_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
 ?>

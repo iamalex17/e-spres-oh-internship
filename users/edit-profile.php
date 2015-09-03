@@ -22,7 +22,7 @@ $coursesWithExercises = ConnectToDB::interogateDB($sql);
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','edit-profile.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
+	echo $template->render(array('last_name' => $user->last_name, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
