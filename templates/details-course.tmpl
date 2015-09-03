@@ -106,11 +106,15 @@
 									<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
 									<a href="" class="buttonEdit edit-solution float-right"><i class="fa fa-pencil"></i></a>
 								</div>
-									<div class="edit-solution-container">
-										<textarea name="exerciseContent" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
-										<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
-										<div class="clearfix"></div>
-									</div>
+									<form action="{{ path }}controllers/edit-solution.php" method="POST">
+									<input type="hidden" name="course_id" value="{{ course.id }}">
+									<input type="hidden" name="solution.id" value="{{ exercise.solution.id }}">
+										<div class="edit-solution-container">
+											<textarea name="exerciseContent" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
+											<button type="submit"  id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
+											<div class="clearfix"></div>
+										</div>
+									</form>
 							{% else %}
 									<form action="{{ path }}controllers/create-solution.php" method="POST">
 									<input type="hidden" name="course_id" value="{{ course.id }}">
