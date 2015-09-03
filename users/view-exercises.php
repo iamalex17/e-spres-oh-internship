@@ -11,6 +11,9 @@ if(!User::verifySessionID()) {
 
 $solutionsMessage = '';
 
+$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+$coursesWithExercises = ConnectToDB::interogateDB($sql);
+
 if(isset($_GET['course_id'])) {
 	$courseID = $_GET['course_id'];
 	$sql = 'SELECT * FROM `exercises` `e` WHERE `e`.course_id = :courseID';
@@ -42,7 +45,7 @@ if(isset($_GET['course_id'])) {
 	$user = new User($_SESSION);
 
 	$template = loadTemplate('../templates','submitted-exercises.tmpl');
-	echo $template->render(array('solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role));
+	echo $template->render(array('solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises));
 } else {
 	header('Location: ../dashboard.php');
 }
