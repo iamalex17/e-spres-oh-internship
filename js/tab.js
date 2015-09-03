@@ -45,7 +45,7 @@ $(document).ready(function() {
 		initTinyMCE();
 	});
 
-	/*$('.solutions-container').hide();
+	$('.solutions-container').hide();
 	$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
 		e.preventDefault();
 		$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, function() {
@@ -67,6 +67,6 @@ $(document).ready(function() {
 				$(this).prev().find('.buttonOpen').text('open');
 			}
 		});
-	});*/
+	});
 
 });
