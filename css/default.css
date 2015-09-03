@@ -29,6 +29,10 @@ li {
 .clearfix {
 	clear: both;
 }
+
+.inline {
+	display: inline-block;
+}
 button{
 	margin:0;
 	padding:0;
@@ -326,10 +330,6 @@ nav a:hover .iconPlus{
 }
 .button-save-course:hover{
 	background-color: #0c80df;
-}
-.buttonOpen:hover {
-	background-color: #d5d5d5;
-	border: 1px solid #c8c8c8;
 }
 .buttonDelete:hover {
 	background-color: #d5d5d5;
@@ -838,4 +838,20 @@ input {
 }
 .fa.fa-times, .fa.fa-pencil {
 	display: block;
+}
+
+.submitted-exercise-container > .alignment {
+	width: 100%;
+}
+.submitted-exercise-container > .alignment > .edit-solution {
+	margin-top: 10px;
+}
+.mce-primary button, .mce-primary button i {
+	color: black!important;
+}
+.mce-primary {
+	background-color: #F0F0F0!important;
+}
+.mce-primary:hover, .mce-primary:focus {
+	border-color: #CCC!important;
 }
