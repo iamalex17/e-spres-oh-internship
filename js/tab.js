@@ -8,6 +8,20 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
+	if($('#step').attr('value') == 2) {
+		$('#tab2-click').hide();
+	}
+
+	$('#tab1-click').click(function(){
+		$('#tab1').show();
+		$('#tab2').hide();
+	});
+	$('#tab2-click').click(function(){
+		$('#tab2').show();
+		$('#tab1').hide();
+	});
+
+
 	initTinyMCE();
 
 	function initTinyMCE() {
