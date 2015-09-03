@@ -129,12 +129,23 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="create-exercise-container">
-				<div class="description-create-course create-exercise">
-					<textarea name="exerciseContent[]" class="mceEditor"></textarea>
-					<div class="clearfix"></div>
-				</div>
-				</div>
+				{% if exerciseStatus == 1 %}
+					{% for exercise in exercises %}
+					<div class="create-exercise-container">
+					<div class="description-create-course create-exercise">
+						<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.description|raw }}</textarea>
+						<div class="clearfix"></div>
+					</div>
+					</div>
+					{% endfor %}
+				{% else %}
+					<div class="create-exercise-container">
+					<div class="description-create-course create-exercise">
+						<textarea name="exerciseContent[]" class="mceEditor"></textarea>
+						<div class="clearfix"></div>
+					</div>
+					</div>
+				{% endif %}
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
 				<div class="clearfix"></div>
 			</div>
