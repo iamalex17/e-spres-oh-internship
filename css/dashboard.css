@@ -109,6 +109,9 @@
 .course-exercise-name{
 	margin-bottom: 10px;
 }
+.exercise-details > .course-exercise-name > .alignment > h3 {
+	font-size: 25px;
+}
 .course-title-name{
 	margin-bottom: 10px;
 	margin-left: 1%;
@@ -116,7 +119,7 @@
 .courseContent{
 	border-bottom: 2px solid #efefef;
 	margin-bottom: 10px;
-	height: 60px;
+	height: 53px;
 	overflow: hidden;
 }
 .courseDetail{
@@ -127,6 +130,9 @@
 	width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+.courseDetail.alignment > p {
+	font-size: 14px;
 }
 .alignment{
 	display: inline-block;
