@@ -82,8 +82,9 @@ if($status == 1) {
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 	}
 	$successMessage = "Course created!\n";
+	$successMessage .= "Now you can add exercises.\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?step=2');
+	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?course_id=' . $courseId );
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;

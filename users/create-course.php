@@ -38,10 +38,6 @@ if(isset($_SESSION['successMessage'])) {
 	unset($_SESSION['successMessage']);
 }
 
-if(isset($_GET['step'])) {
-	$step = $_GET['step'] == 2 ? 2 : 0;
-}
-
 $sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
 
