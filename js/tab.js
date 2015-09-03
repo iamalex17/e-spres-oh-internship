@@ -45,11 +45,6 @@ $(document).ready(function() {
 		initTinyMCE();
 	});
 
-	/*if($('#step').val() == 2) {
-		console.log('lala');
-		$('.create-menu .tab-links a').prop('disabled', true);
-	}*/
-
 	/*$('.solutions-container').hide();
 	$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
 		e.preventDefault();
