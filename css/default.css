@@ -327,10 +327,6 @@ nav a:hover .iconPlus{
 .button-save-course:hover{
 	background-color: #0c80df;
 }
-.buttonOpen:hover {
-	background-color: #d5d5d5;
-	border: 1px solid #c8c8c8;
-}
 .buttonDelete:hover {
 	background-color: #d5d5d5;
 	border: 1px solid #c8c8c8;
