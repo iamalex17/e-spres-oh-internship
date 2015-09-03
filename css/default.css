@@ -35,6 +35,9 @@ button{
 	border:0;
 }
 /*Error and Succes Message*/
+.message-align{
+	margin-left: 18%;
+}
 .errorMessage{
 	color: #FA3E3E;
 	text-align: center;
