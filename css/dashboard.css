@@ -102,6 +102,8 @@
 .courseContent{
 	border-bottom: 2px solid #efefef;
 	margin-bottom: 10px;
+	height: 60px;
+	overflow: hidden;
 }
 .courseDetail{
 	margin-bottom:10px;
