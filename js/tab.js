@@ -50,9 +50,9 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, function() {
 			if ($(this).is(":visible")) {
-				$(this).prev().find('.buttonOpen').text('close');
+				$(this).prev().find('.buttonOpen').text('Close');
 			} else {
-				$(this).prev().find('.buttonOpen').text('open');
+				$(this).prev().find('.buttonOpen').text('Open');
 			}
 		});
 	});
@@ -62,14 +62,14 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).closest('.exercise-responses').find('.course-solution-content').slideToggle(300, function() {
 			if ($(this).is(":visible")) {
-				$(this).prev().find('.buttonOpen').text('close');
+				$(this).prev().find('.buttonOpen').text('Close');
 			} else {
-				$(this).prev().find('.buttonOpen').text('open');
+				$(this).prev().find('.buttonOpen').text('Open');
 			}
 		});
 	});
 
-	//$('.edit-exercise-container').hide();
+	$('.edit-exercise-container').hide();
 	$('.exercise-details.submitted').on('click', '.edit-exercise', function(e) {
 		e.preventDefault();
 		$(this).closest('.existingCourse').find('.edit-exercise-container').slideToggle();
@@ -87,9 +87,9 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle(300, function() {
 			if ($(this).is(":visible")) {
-				$(this).prev().prev().find('.open-solution-content').text('close');
+				$(this).prev().prev().find('.open-solution-content').text('Close');
 			} else {
-				$(this).prev().prev().find('.open-solution-content').text('open');
+				$(this).prev().prev().find('.open-solution-content').text('Open');
 			}
 		});
 	});
