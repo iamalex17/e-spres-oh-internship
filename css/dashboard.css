@@ -69,9 +69,9 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
-.exercise-details{
+/*.exercise-details{
 	border-bottom: 1px solid #d2d9d6;
-}
+}*/
 .exercise-responses{
 	margin-left: 4%;
 	width:95%;
@@ -100,9 +100,9 @@
 .course-details-content{
 	margin-top: 40px;
 }
-.course-exercise-content{
+/*.course-exercise-content{
 	margin-top:20px;
-}
+}*/
 .course-exercise-name{
 	margin-bottom: 10px;
 }

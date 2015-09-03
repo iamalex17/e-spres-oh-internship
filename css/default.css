@@ -535,6 +535,12 @@ nav a:hover .iconPlus{
 	color: #2b2b2b;
 	padding: 10px;
 }
+.newUserName > a {
+	font-size: 25px;
+}
+.newUserName > p {
+	font-size: 14px;
+}
 .username-underline{
 	color: #2b2b2b;
 	padding: 5px 0 5px 10px;
