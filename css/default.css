@@ -334,7 +334,7 @@ nav a:hover .iconPlus{
 	background-color: #d5d5d5;
 	border: 1px solid #c8c8c8;
 }
-..button-cancel:hover{
+.button-cancel:hover{
 	background-color: #d5d5d5;
 	border: 1px solid #c8c8c8;
 }
