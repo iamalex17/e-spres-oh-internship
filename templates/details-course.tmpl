@@ -85,6 +85,42 @@
 						</div>
 					</div>
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+				<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="existingCourse-answer">
+				<div class="exercise-details submitted">
+					<div class="course-exercise-name">
+						<div class="alignment">
+							<h3 class="newUserName"><a href="">Exercise {{ number }}</a></h3>
+						</div>
+						{% if user_role == 2 %}
+						<div class="buttonAlignment">
+							<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
+						</div>
+						{% endif %}
+						{% if user_role == 3 %}
+							<div class="buttonAlignment">
+								<a href="" class="buttonOpen">Open</a>
+							</div>
+						{% endif %}
+					</div>
+						<div class="course-exercise-content">
+							<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
+						</div>
+					</div>
+					<div class="create-exercise-container">
+						<div class="alignment">
+							<h3 class="newUserName"><a href="">My answer</a></h3>
+						</div>
+						<div class="buttonAlignment">
+							<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+						</div>
+					</div>
+				<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+				<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
 				<div class="clearfix"></div>
 			</div>
 			{% endfor %}

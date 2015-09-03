@@ -682,11 +682,13 @@ nav ul li:hover > a{
 	float:left;
 	list-style-type: none;
 	padding:10px;
+	cursor: pointer;
 }
 .half-inactive{
 	float:left;
 	list-style-type: none;
 	padding:10px;
+	cursor: pointer;
 }
 .navigation-course{
 	width: 100%;
@@ -785,9 +787,7 @@ input {
 	margin-top: 6px;
 	height: auto;
 	padding: 6px;
-	display: inline-block;
 	vertical-align: middle;
-	width: 93.3%;
 }
 
 .create-exercise {
