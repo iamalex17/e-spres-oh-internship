@@ -120,10 +120,15 @@
 							<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
 						</div>
 					</div>
+					{% if exercise.solution != ''%}
+						<div>
+							{{ exercise.solution.description | raw }}
+						</div>
+					{% endif %}
+				</div>
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
 				<div class="clearfix"></div>
-			</div>
 			{% endfor %}
 		{% endif %}
 		<a class="show-more-info" href="{{ path }}dashboard.php"> Go Back </a>

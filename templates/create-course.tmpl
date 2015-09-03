@@ -58,6 +58,7 @@
 		{% else %}
 		
 		<form id="tab1" class="tab active" method="POST" action ="{{ path }}/controllers/create-a-course.php">
+		{% set step = 2 %}
 		{% endif %} 
 			<input type="hidden" value="{{ step }}" id="step">
 			<div>
