@@ -67,7 +67,9 @@
 					<div class="exercise-details submitted">
 						<div class="course-exercise-name">
 						<div class="alignment">
+							{% if user_role == 3 and ok == 1 %}
 							<i class="fa fa-check"></i>
+							{% endif %}
 							<h3 class="newUserName display"><a href="">Exercise {{ number }}</a></h3>
 						</div>
 						{% if user_role == 2 %}
@@ -83,7 +85,7 @@
 						{% endif %}
 						</div>
 						<div class="course-exercise-content">
-							<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
+							<span class="courseDetail alignment">{{ exercise.description | raw }}</span>
 						</div>
 					</div>
 					<div class="create-exercise-container">
