@@ -79,11 +79,9 @@
 							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
 						</div>
 						{% endif %}
-						{% if user_role == 3 and ok == 1 %}
 							<div class="buttonAlignment">
 								<a href="" class="buttonOpen open-solution-content">Open</a>
 							</div>
-						{% endif %}
 						</div>
 						<div class="course-exercise-content">
 							<span class="courseDetail alignment">{{ exercise.description | raw }}</span>
@@ -116,8 +114,8 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
-				</div>
 			{% endfor %}
+				</div>
 		{% endif %}
 		<h4 class="courseUserName">
 		</h4>
