@@ -45,8 +45,8 @@
 	<!--Container-->
 	<div class="create-menu">
 		<ul class="navigation-course tab-links">
-			<li class="active list-editor"><a href="#tab1" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
-			<li class="inactive list-editor"><a href= "#tab2" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
+			<li class="active list-editor"><a id="tab1-click" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
+			<li class="inactive list-editor"><a id="tab2-click" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
 			<br style="clear:both">
 		</ul>
 
@@ -187,6 +187,21 @@
 				});
 			});
 		})(jQuery);
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function (){
+			if($('#step').attr('value') == 2) {
+				$('#tab2-click').hide();
+			}
+		})
+		$('#tab1-click').click(function(){
+			$('#tab1').show();
+			$('#tab2').hide();
+		});
+		$('#tab2-click').click(function(){
+				$('#tab2').show();
+				$('#tab1').hide();
+		});
 	</script>
 </body>
 
