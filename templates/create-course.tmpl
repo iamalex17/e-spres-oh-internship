@@ -116,12 +116,11 @@
 		</form>
 
 		{% if page == 'edit' %}
-			<form id="tab2" class="tab" method="POST" action ="../controllers/edit-exercise.php">
+			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/create-exercise.php">
 			<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% else %}
-			<form id="tab2" class="tab" method="POST" action ="../controllers/create-exercise.php">
+			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise.php">
 		{% endif %}
-
 			<div>
 				<h4 class="exercise-number">x Exercises</h4>
 				<a id="buttonAddExercise" class="button-save-exercise" > Add exercise </a>

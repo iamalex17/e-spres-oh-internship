@@ -20,9 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if(isset($_POST['exerciseContent'])) {
 	$ok = 0;
+	$courseID = $_POST['course_id'];
 	$exercises = array();
-	$courseID = 1;
-	foreach ($_POST['exerciseContent'] as $key => $exercise) {
+	$sql = 'SELECT id FROM `courses` WHERE id = :courseId';
+	$valuesToBind = array('courseId' => $courseID);
+	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+	foreach($_POST['exerciseContent'] as $exercise) {
 		if(!empty($exercise)) {
 			$description = htmlentities($exercise);
 			$ok = 1;
