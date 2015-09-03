@@ -73,25 +73,17 @@
 							{% endif %}
 							<h3 class="newUserName display"><a href="">Exercise {{ number }}</a></h3>
 						</div>
-						{% if user_role == 2 %}
-						<div class="buttonAlignment">
-							<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
-							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
-						</div>
-						{% endif %}
+							{% if user_role == 3 %}
 							<div class="buttonAlignment">
 								<a href="" class="buttonOpen open-solution-content">Open</a>
 							</div>
+							{% endif %}
 						</div>
 						<div class="course-exercise-content">
-							<span class="courseDetail alignment">{{ exercise.description | raw }}</span>
+							<h3 class="newUserName inline">{{ exercise.description | raw }}
+							</h3>
 						</div>
 						<div class="submitted-exercise-container">
-							{% if user_role == 2 %}
-								<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.description | raw }}</textarea>
-								<div class="clearfix"></div>
-								<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
-							{% else %}
 								{% if ok == 1 %}
 								<div class="alignment">
 											<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
@@ -110,7 +102,6 @@
 									<div class="clearfix"></div>
 								</div>
 								{% endif %}
-							{% endif %}
 						</div>
 					</div>
 					<div class="clearfix"></div>
