@@ -10,7 +10,9 @@ if(!User::verifySessionID()) {
 }
 $step = 0;
 $course = '';
+$exercises = '';
 $successMessage = '';
+$exerciseStatus = '';
 $courseMentors = array();
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
@@ -65,13 +67,25 @@ try {
 			$valuesToBind = array('courseID' => $course['id']);
 			$courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
 		}
+		$exerciseStatus = '';
+		$sql = 'SELECT * FROM `exercises` WHERE course_id = :id';
+		$valuesToBind = array('id' => $course['id']);
+		$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
+		if(count($exercises)) {
+			foreach($exercises as &$exercise) {
+				$exercise['description'] = html_entity_decode($exercise['description']);
+			}
+			$exerciseStatus = 1;
+		} else {
+			$exerciseStatus = 0;
+		}
 	}
 
 	$user = new User($_SESSION);
 	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
 	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
+	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
