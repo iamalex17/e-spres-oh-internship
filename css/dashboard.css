@@ -13,8 +13,8 @@
 	vertical-align: top;
 }
 .courseList{
-	margin: 5% 0 0 23%;
-	width: 75%;
+	margin: 5% 0 0 21%;
+	width: 77%;
 	display:inline-block;
 }
 .existing-user-container {
@@ -59,7 +59,6 @@
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .existingExercise{
-	padding: 10px;
 	margin-top: 2%;
 	margin-bottom: 6%;
 	background-color: #ffffff;
@@ -74,7 +73,6 @@
 .exercise-responses{
 	margin-left: 3%;
 	width:95%;
-	padding: 10px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background-color: #ffffff;
