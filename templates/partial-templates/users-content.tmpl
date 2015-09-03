@@ -29,7 +29,7 @@
 			<div class="courseName">
 
 			<div class="alignment">
-					<h3 class="newUserName"> <a href="users/view-course.php?course_id={{course.id}}">{{ course.title }}</a></h3>
+					<h3 class="newUserName username-underline"> <a href="users/view-course.php?course_id={{course.id}}">{{ course.title }}</a></h3>
 			</div>
 
 			{% if user_role == 2 %}
@@ -43,7 +43,7 @@
 
 			<div class="courseName">
 				{% for label in course.label %}
-				<span class="labelGrey alignment">{{ label }}</span>
+					<span class="labelGrey alignment">{{ label }}</span>
 				{% endfor %}
 			</div>
 

@@ -8,6 +8,7 @@
 	$valuesToBind = array('id'=>$course_id);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$course = $result[0];
+	$course['label'] = explode(', ', $course['label']);
 	$sql = 'SELECT * FROM `exercises` WHERE course_id = :courseID';
 	$valuesToBind = array('courseID' => $course['id']);
 	$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);

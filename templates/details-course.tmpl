@@ -41,7 +41,9 @@
 			</div>
 			</div>
 			<div class="course-details-name">
-				<span class="labelGrey alignment">{{ course.label }}</span>
+				{% for label in course.label %}
+					<span class="labelGrey alignment">{{ label }}</span>
+				{% endfor %}
 			</div>
 			<div class="course-details-content">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
