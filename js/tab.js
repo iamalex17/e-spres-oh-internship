@@ -85,6 +85,12 @@ $(document).ready(function() {
 
 	$('.exercise-details').on('click', '.open-solution-content', function(e) {
 		e.preventDefault();
-		$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle();
+		$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle(300, function() {
+			if ($(this).is(":visible")) {
+				$(this).prev().prev().find('.open-solution-content').text('close');
+			} else {
+				$(this).prev().prev().find('.open-solution-content').text('open');
+			}
+		});
 	});
 });
