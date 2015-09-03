@@ -56,7 +56,6 @@
 			{% set number = 0 %}
 			{% for exercise in course.exercises %}
 				{% set number = number +1 %}
-
 				{% if exercise.solution == ''%}
 					{% set ok = 0 %}
 				<div class="existingCourse">
@@ -87,27 +86,34 @@
 						<div class="course-exercise-content">
 							<span class="courseDetail alignment">{{ exercise.description | raw }}</span>
 						</div>
-					</div>
-					<div class="edit-exercise-container">
-						{% if ok == 1 %}<div class="alignment">
-							<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
-							<div class="create-exercise-container">
-								<div class="buttonAlignment">
-									<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
-								</div>
-								<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
+						<div class="edit-exercise-container">
+							{% if user_role == 2 %}
+								<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.description | raw }}</textarea>
 								<div class="clearfix"></div>
-							<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
-							</div>
-						{% else %}
-							<div class="description-create-course create-exercise">
-								<textarea name="exerciseContent[]" class="mceEditor"></textarea>
-								<div class="clearfix"></div>
-							</div>
-							<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
-							<div class="clearfix"></div>
-							</div>
-						{% endif %}
+								<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
+							{% else %}
+								{% if ok == 1 %}
+								<div class="alignment">
+									<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
+									<div class="create-exercise-container">
+										<div class="buttonAlignment">
+											<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
+										</div>
+										<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
+										<div class="clearfix"></div>
+									<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
+									</div>
+								{% else %}
+									<div class="description-create-course create-exercise">
+										<textarea name="exerciseContent[]" class="mceEditor"></textarea>
+										<div class="clearfix"></div>
+									</div>
+									<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+									<div class="clearfix"></div>
+									</div>
+								{% endif %}
+							{% endif %}
+						</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
