@@ -79,16 +79,14 @@
 							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
 						</div>
 						{% endif %}
-						{% if user_role == 3 and ok == 1 %}
 							<div class="buttonAlignment">
-								<a href="" class="buttonOpen">Open</a>
+								<a href="" class="buttonOpen open-solution-content">Open</a>
 							</div>
-						{% endif %}
 						</div>
 						<div class="course-exercise-content">
 							<span class="courseDetail alignment">{{ exercise.description | raw }}</span>
 						</div>
-						<div class="edit-exercise-container">
+						<div class="submitted-exercise-container">
 							{% if user_role == 2 %}
 								<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.description | raw }}</textarea>
 								<div class="clearfix"></div>
@@ -97,11 +95,11 @@
 								{% if ok == 1 %}
 								<div class="alignment">
 											<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
-											<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
-									<div class="create-exercise-container">
+											<a href="" class="buttonEdit edit-solution"><i class="fa fa-pencil"></i></a>
+									<div class="edit-solution-container">
 										<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
+										<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
 										<div class="clearfix"></div>
-									<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
 									</div>
 								{% else %}
 									<div class="description-create-course create-exercise">
@@ -110,14 +108,14 @@
 									</div>
 									<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
 									<div class="clearfix"></div>
-									</div>
+								</div>
 								{% endif %}
 							{% endif %}
 						</div>
 					</div>
 					<div class="clearfix"></div>
-				</div>
 			{% endfor %}
+				</div>
 		{% endif %}
 		<h4 class="courseUserName">
 		</h4>
