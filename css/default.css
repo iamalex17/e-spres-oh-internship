@@ -812,6 +812,7 @@ input {
 .list-editor{
 	margin:0;
 	list-style-type: none;
+	cursor: pointer;
 }
 .exercise-container {
 	border: 1px solid #e0e0e0;
