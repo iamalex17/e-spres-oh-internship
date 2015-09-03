@@ -188,6 +188,8 @@
 	margin-top: 2%;
 	font-size: 32px;
 	margin-bottom: 2%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .modal-container {
 	display: none;
