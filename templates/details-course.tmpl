@@ -49,6 +49,16 @@
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
 
+		{% if successMessage != ""%}
+			<div class="successMessage">
+				{{ successMessage }}
+			</div>
+		{% endif %}
+		{% if errorMessage != ""%}
+			<div class="errorMessage">
+				{{ errorMessage }}
+			</div>
+		{% endif %}
 	<!--Add exercise-->
 		{% if exercisesMessage != ""%}
 			<div class="otherMessage">
@@ -58,6 +68,7 @@
 			{% set number = 0 %}
 			{% for exercise in course.exercises %}
 				{% set number = number +1 %}
+				
 				{% if exercise.solution == ''%}
 					{% set ok = 0 %}
 				<div class="existingCourse">
@@ -65,6 +76,7 @@
 					{% set ok = 1 %}
 				<div class="existingCourse-answer">
 				{% endif %}
+
 					<div class="exercise-details submitted">
 						<div class="course-exercise-name">
 						<div class="alignment">
@@ -84,29 +96,33 @@
 							</h3>
 						</div>
 						<div class="submitted-exercise-container">
-								{% if ok == 1 %}
+							{% if ok == 1 %}
 								<div class="alignment">
-											<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
-											<a href="" class="buttonEdit edit-solution float-right"><i class="fa fa-pencil"></i></a>
+									<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
+									<a href="" class="buttonEdit edit-solution float-right"><i class="fa fa-pencil"></i></a>
+								</div>
 									<div class="edit-solution-container">
-										<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
+										<textarea name="exerciseContent" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
 										<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
 										<div class="clearfix"></div>
 									</div>
-								{% else %}
+							{% else %}
+									<form action="{{ path }}controllers/create-solution.php" method="POST">
+									<input type="hidden" name="course_id" value="{{ course.id }}">
+									<input type="hidden" name="exercise.id" value="{{ exercise.id }}">
 									<div class="description-create-course create-exercise">
-										<textarea name="exerciseContent[]" class="mceEditor"></textarea>
+										<textarea name="exerciseContent" class="mceEditor"></textarea>
 										<div class="clearfix"></div>
 									</div>
-									<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+									<button type="submit" id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
 									<div class="clearfix"></div>
-								</div>
-								{% endif %}
+									</form>
+							{% endif %}
 						</div>
 					</div>
 					<div class="clearfix"></div>
-			{% endfor %}
 				</div>
+			{% endfor %}
 		{% endif %}
 		<h4 class="courseUserName">
 		</h4>

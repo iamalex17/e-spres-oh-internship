@@ -12,7 +12,17 @@ if(!User::verifySessionID()) {
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 }
-echo "<pre>";
-var_dump($_POST);
-exit();
+
+if((isset($_POST['exerciseContent'])) && !empty($_POST['exerciseContent'])) {
+	$description = htmlentities($_POST['exerciseContent']);
+	$sql = 'INSERT INTO `submitted_exercises` (`exercise_id`, `user_id`, `description`) VALUES (:exerciseID, :userID, :description)';
+	$valuesToBind = array('exerciseID' => $_POST['exercise_id'], 'userID' => $_SESSION['id'], 'description' => $description);
+	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+	$successMessage = 'Solution added succesfully.';
+	$_SESSION['successMessage'] = $successMessage;
+} else {
+	$errorMessage = "Please insert your solution.\n";
+	$_SESSION['errorMessage'] = $errorMessage;
+}
+	header('Location: ' . $GLOBALS['path'] . 'users/view-course.php?course_id=' . $_POST['course_id']);
 ?>

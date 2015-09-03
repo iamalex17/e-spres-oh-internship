@@ -1,5 +1,16 @@
 <?php
 	$exercisesMessage = '';
+	$successMessage = '';
+	$errorMessage = '';
+	if(isset($_SESSION['errorMessage'])) {
+		$errorMessage = $_SESSION['errorMessage'];
+		unset($_SESSION['errorMessage']);
+	}
+
+	if(isset($_SESSION['successMessage'])) {
+		$successMessage = $_SESSION['successMessage'];
+		unset($_SESSION['successMessage']);
+	}
 	$course_id = $_GET['course_id'];
 
 	$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
@@ -30,5 +41,5 @@
 		$exercisesMessage = 'No exercise at the moment.';
 	}
 	$template = loadTemplate('../templates','details-course.tmpl');
-	echo $template->render(array('exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'last_name' => $_SESSION['last_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
+	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'last_name' => $_SESSION['last_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises));
 ?>
