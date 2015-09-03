@@ -835,3 +835,12 @@ input {
 .fa.fa-times, .fa.fa-pencil {
 	display: block;
 }
+.mce-primary button, .mce-primary button i {
+	color: black!important;
+}
+.mce-primary {
+	background-color: #F0F0F0!important;
+}
+.mce-primary:hover, .mce-primary:focus {
+	border-color: #CCC!important;
+}
