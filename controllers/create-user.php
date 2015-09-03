@@ -94,7 +94,7 @@
 		$status = 0;
 	}
 	if($status == 1) {
-		$sql = 'INSERT INTO `internship`.`users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_role`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :first_name, :last_name, :username, :email, :password, :role, "21232f297a57a5a743894a0e4a801fc3.png", 1, NULL, NULL)';
+		$sql = 'INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `user_role`, `profile_image`, `status`, `reset_password`, `deletion_link_time`) VALUES (NULL, :first_name, :last_name, :username, :email, :password, :role, "21232f297a57a5a743894a0e4a801fc3.png", 1, NULL, NULL)';
 		$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'username' => $user->username, 'email' => $user->email, 'password' => $user->password, 'role' => $role);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 		$_SESSION['successMessage'] =  $role == 2 ? 'Mentor added succesfully.' : 'Intern added succesfully';
