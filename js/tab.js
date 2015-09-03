@@ -57,10 +57,10 @@ $(document).ready(function() {
 		});
 	});
 
-	//$('.course-exercise-content').hide();
+	$('.course-solution-content').hide();
 	$('.exercise-responses').on('click', '.buttonOpen', function(e){
 		e.preventDefault();
-		$(this).closest('.exercise-responses').find('.course-exercise-content').slideToggle(300, function() {
+		$(this).closest('.exercise-responses').find('.course-solution-content').slideToggle(300, function() {
 			if ($(this).is(":visible")) {
 				$(this).prev().find('.buttonOpen').text('close');
 			} else {
