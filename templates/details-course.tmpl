@@ -41,7 +41,9 @@
 			</div>
 			</div>
 			<div class="course-details-name">
-				<span class="labelGrey alignment">{{ course.label }}</span>
+				{% for label in course.label %}
+					<span class="labelGrey alignment">{{ label }}</span>
+				{% endfor %}
 			</div>
 			<div class="course-details-content">
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
@@ -94,11 +96,9 @@
 							{% else %}
 								{% if ok == 1 %}
 								<div class="alignment">
-									<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
-									<div class="create-exercise-container">
-										<div class="buttonAlignment">
+											<h3 class="newUserName">{{ exercise.solution.description | raw}}</h3>
 											<a href="" class="buttonEdit edit-exercise"><i class="fa fa-pencil"></i></a>
-										</div>
+									<div class="create-exercise-container">
 										<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.solution.description | raw }}</textarea>
 										<div class="clearfix"></div>
 									<button id="buttonSaveExercise" class="button-save-course float-left" > Update </button>
