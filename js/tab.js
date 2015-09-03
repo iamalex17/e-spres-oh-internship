@@ -1,8 +1,5 @@
 $(document).ready(function() {
 	$('.create-menu .tab-links a').on('click', function(e)  {
-		var currentAttrValue = $(this).attr('href');
-		// Show/Hide Tabs
-		$('.create-menu ' + currentAttrValue).show().siblings().hide();
 		// Change/remove current tab to active
 		$(this).parent('li').addClass('active').siblings().removeClass('active').addClass('inactive');
 		e.preventDefault();
@@ -11,12 +8,12 @@ $(document).ready(function() {
 	if($('#step').attr('value') == 2) {
 		$('#tab2-click').hide();
 	}
-
-	$('#tab1-click').click(function(){
+	$('#tab1-click').on('click', function(){
 		$('#tab1').show();
 		$('#tab2').hide();
 	});
-	$('#tab2-click').click(function(){
+
+	$('#tab2-click').on('click', function(){
 		$('#tab2').show();
 		$('#tab1').hide();
 	});
@@ -40,17 +37,13 @@ $(document).ready(function() {
 
 	$('#tab2').on('click', '#buttonAddExercise', function() {
 		var ta_count = $("textarea").length;
-		var elem = document.createElement("textarea");
+		var elem = "<div class='description-create-course create-exercise'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
+		//var elem = document.createElement("textarea");
 		$(elem).attr("id", ta_count.toString());
 		$(elem).appendTo(".create-exercise-container");
 
 		initTinyMCE();
 	});
-
-	/*if($('#step').val() == 2) {
-		console.log('lala');
-		$('.create-menu .tab-links a').prop('disabled', true);
-	}*/
 
 	/*$('.solutions-container').hide();
 	$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
