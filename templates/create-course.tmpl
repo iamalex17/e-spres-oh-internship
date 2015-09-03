@@ -120,7 +120,6 @@
 				<h4 class="exercise-number">x Exercises</h4>
 				<a id="buttonAddExercise" class="button-save-exercise" > Add exercise </a>
 				<div class="clearfix"></div>
-				<i class="fa fa-align-justify"></i>
 				<div class="exercise-container">
 					<span></span>
 					<div class="float-right">
@@ -129,7 +128,6 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<i class="fa fa-align-justify"></i>
 				<div class="create-exercise-container">
 				<div class="description-create-course create-exercise">
 					<textarea name="exerciseContent[]" class="mceEditor"></textarea>
@@ -188,21 +186,6 @@
 				});
 			});
 		})(jQuery);
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function (){
-			if($('#step').attr('value') == 2) {
-				$('#tab2-click').hide();
-			}
-		})
-		$('#tab1-click').click(function(){
-			$('#tab1').show();
-			$('#tab2').hide();
-		});
-		$('#tab2-click').click(function(){
-				$('#tab2').show();
-				$('#tab1').hide();
-		});
 	</script>
 </body>
 
