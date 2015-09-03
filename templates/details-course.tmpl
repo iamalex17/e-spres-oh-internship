@@ -57,19 +57,36 @@
 			{% for exercise in course.exercises %}
 				{% set number = number +1 %}
 				<div class="existingCourse">
-					<div class="course-exercise-name">
-					<div class="alignment">
-						<h3 class="newUserName"><a href="">Exercise {{ number }}</a></h3>
+					<div class="exercise-details submitted">
+						<div class="course-exercise-name">
+						<div class="alignment">
+							<h3 class="newUserName"><a href="">Exercise {{ number }}</a></h3>
+						</div>
+						{% if user_role == 2 %}
+						<div class="buttonAlignment">
+							<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
+							<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
+						</div>
+						{% endif %}
+						{% if user_role == 3 %}
+							<div class="buttonAlignment">
+								<a href="" class="buttonOpen">Open</a>
+							</div>
+						{% endif %}
+						</div>
+						<div class="course-exercise-content">
+							<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
+						</div>
 					</div>
-					<div class="buttonAlignment">
-						<a href="" class="buttonEdit"><i class="fa fa-pencil"></i></a>
-						<a href="" class="buttonDelete"><i class="fa fa-times"></i></a>
+					<div class="create-exercise-container">
+						<div class="description-create-course create-exercise">
+							<textarea name="exerciseContent[]" class="mceEditor"></textarea>
+							<div class="clearfix"></div>
+						</div>
 					</div>
-					</div>
-					<div class="course-exercise-content">
-						<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
-					</div>
-				</div>
+				<button id="buttonSaveExercise" class="button-save-course float-left" > Submit </button>
+				<div class="clearfix"></div>
+			</div>
 			{% endfor %}
 		{% endif %}
 		<a class="show-more-info" href="{{ path }}dashboard.php"> Go Back </a>
