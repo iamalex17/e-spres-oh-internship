@@ -69,4 +69,10 @@ $(document).ready(function() {
 		});
 	});
 
+	$('.edit-exercise-container').hide();
+	$('.course-details.submitted').on('click', '.edit-exercise', function(e) {
+		e.preventDefault();
+		$(this).closest('.course-details.submitted').find('.edit-exercise-container').slideToggle();
+	});
+
 });
