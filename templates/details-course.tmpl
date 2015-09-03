@@ -69,6 +69,11 @@
 					<div class="course-exercise-content">
 						<span class="courseDetail alignment">{{ exercise.description |raw }}</span>
 					</div>
+					{% if exercise.solution != ''%}
+						<div>
+							{{ exercise.solution.description | raw }}
+						</div>
+					{% endif %}
 				</div>
 			{% endfor %}
 		{% endif %}

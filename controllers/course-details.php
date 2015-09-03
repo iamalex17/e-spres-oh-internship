@@ -1,5 +1,4 @@
 <?php
-
 	$exercisesMessage = '';
 	$course_id = $_GET['course_id'];
 
@@ -13,6 +12,15 @@
 	if(count($exercises)) {
 		foreach ($exercises as &$exercise) {
 			$exercise['description'] = html_entity_decode($exercise['description']);
+			$sql = 'SELECT * FROM `submitted_exercises` WHERE exercise_id = :exerciseID AND user_id = :userID';
+			$valuesToBind = array('exerciseID' => $exercise['id'], 'userID' => $_SESSION['id']);
+			$solution = ConnectToDB::interogateDB($sql, $valuesToBind);
+			if(count($solution)) {
+				$solution[0]['description'] = html_entity_decode($solution[0]['description']);
+				$exercise['solution'] = $solution[0];
+			} else {
+				$solution = '';
+			}
 		}
 		$course['exercises'] = $exercises;
 	} else {
