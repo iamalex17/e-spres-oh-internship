@@ -38,6 +38,9 @@ button{
 	padding:0;
 	border:0;
 }
+.current-page{
+	display:none;
+}
 /*Error and Succes Message*/
 .message-info-align{
 	margin-top: -40px;

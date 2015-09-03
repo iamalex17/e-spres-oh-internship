@@ -17,6 +17,7 @@
 		$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 		$additionalFolder = 'e-spres-oh-internship/';
 		$path = $server . $additionalFolder;
+		$currentPage = $_SERVER['REQUEST_URI'];
 
 	} else if ($_SERVER['SERVER_NAME'] == 'esohintern.bucatzel.ro') {
 		$host = 'localhost';
@@ -32,5 +33,6 @@
 		$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 		$additionalFolder = '';
 		$path = $server . $additionalFolder;
+		$currentPage = $_SERVER['REQUEST_URI'];
 	}
 ?>
