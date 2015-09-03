@@ -35,6 +35,13 @@ button{
 	border:0;
 }
 /*Error and Succes Message*/
+.message-info-align{
+	margin-top: -40px;
+	margin-right: 10px;
+}
+.user-message-align{
+	margin-top:10px;
+}
 .message-align{
 	margin-left: 18%;
 }
