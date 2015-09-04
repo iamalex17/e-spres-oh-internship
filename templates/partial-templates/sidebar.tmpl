@@ -8,7 +8,7 @@
 	</div>
 	<div class="userAvatar">
 		<img class="iconProfileUser" src="{{ path }}images/user-profile-images/{{ profile_image }}">
-		<h3 class="userName"> {{ last_name }} </h3>
+		<h3 class="userName"> {{ first_name }} </h3>
 	</div>
 
 	<nav>
@@ -22,9 +22,7 @@
 		{% if user_role != 1 %}
 		<ul>
 		<li class="dropDown list-editor">
-			<a><i class=" iconParent iconGraduation">
-				</i> Courses <i class=" iconParent iconPlusMore change-icon"></i>
-			</a>
+			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav">
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php">All</a></li>
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Frontend">Frontend</a></li>

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!--Templates-->
 	<meta charset="UTF-8">
+	<title> Details for Course </title>
 </head>
 
 <body>
@@ -88,11 +89,11 @@
 							{% if user_role == 3 and ok == 1 %}
 							<i class="fa fa-check"></i>
 							{% endif %}
-							<h3 class="newUserName display"><a href="">Exercise {{ number }}</a></h3>
+							<h3 class="newUserName display"><a href="" class="links-a">Exercise {{ number }}</a></h3>
 						</div>
 							{% if user_role == 3 %}
 							<div class="buttonAlignment">
-								<a href="" class="buttonOpen open-solution-content">Open</a>
+								<a href="" class="buttonOpen open-solution-content links-a">Open</a>
 							</div>
 							{% endif %}
 						</div>
@@ -104,7 +105,7 @@
 							{% if ok == 1 %}
 								<div class="alignment">
 									<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
-									<a href="" class="buttonEdit edit-solution float-right"><i class="fa fa-pencil"></i></a>
+									<a href="" class="buttonEdit edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
 								</div>
 									<form action="{{ path }}controllers/edit-solution.php" method="POST">
 									<input type="hidden" name="course_id" value="{{ course.id }}">

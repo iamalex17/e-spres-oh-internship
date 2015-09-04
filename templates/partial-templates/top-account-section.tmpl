@@ -4,19 +4,19 @@
 	</div>
 
 <div class="topAccountSection hoverLogin">
-	<img class="iconSmallProfileUser" src="{{ path }}images/user-profile-images/{{ profile_image }}">{{ last_name }}
+	<img class="iconSmallProfileUser" src="{{ path }}images/user-profile-images/{{ profile_image }}">{{ first_name }}
 	<i class="iconParent iconDownArrow"></i>
 	<ul>
 		{% if user_role != 1 %}
 		<li class="list-editor">
-			<a href="{{ path }}users/edit-profile.php">Edit Profile</a>
+			<a href="{{ path }}users/edit-profile.php" class="links-a">Edit Profile</a>
 		</li>
 		<li class="list-editor">
-			<a href="{{ path }}users/change-password.php">Change Password</a>
+			<a href="{{ path }}users/change-password.php" class="links-a">Change Password</a>
 		</li>
 		{% endif %}
 		<li class="list-editor">
-			<a href="{{ path }}login.php">Logout</a>
+			<a href="{{ path }}login.php" class="links-a">Logout</a>
 		</li>
 	</ul>
 </div>

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!--Templates-->
 	<meta charset="UTF-8">
+	<title>Create Course</title>
 </head>
 
 <body>
@@ -110,7 +111,7 @@
 					<textarea name="textareas" class="mceEditor">{{ course.description }}</textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button-save-course float-right" > Save </button>
-				<a href="{{ path }}dashboard.php" class="float-right button-cancel">Cancel</a>
+				<a href="{{ path }}dashboard.php" class="float-right button-cancel links-a">Cancel</a>
 				<div class="clearfix"></div>
 			</div>
 		</form>
@@ -127,6 +128,7 @@
 				<div class="clearfix"></div>
 				{% if exerciseStatus == 1 %}
 					{% for exercise in exercises %}
+					<input type="hidden" name="exercise_id[]" value = {{ exercise.id }}>
 					<div class="exercise-container">
 						<span class="inline">
 							{{ exercise.description|raw }}
@@ -142,11 +144,11 @@
 					</div>
 					{% endfor %}
 				{% else %}
+				
 					<div class="exercise-container">
 					<div class="description-create-course create-exercise">
 						<textarea name="exerciseContent[]" class="mceEditor"></textarea>
 						<div class="clearfix"></div>
-					</div>
 					</div>
 				{% endif %}
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
