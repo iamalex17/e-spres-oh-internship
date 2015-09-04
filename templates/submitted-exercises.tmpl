@@ -36,15 +36,15 @@
 
 	<!--Container-->
 
-
-	{% set number = 0 %}
-	{% for exercise in exercises %}
-		{% set number = number +1 %}
 	<div class="courseList">
 
 		<div class="alignment">
-			<h2 class="category">Submitted Exercises for {{ exercise.course.label }} - {{ exercise.course.title }}</h2>
+			<h2 class="category">Submitted Exercises for {{ course.label }} - {{ course.title }}</h2>
 		</div>
+
+		{% set number = 0 %}
+		{% for exercise in exercises %}
+			{% set number = number +1 %}
 
 		<div class="existingExercise">
 
@@ -96,8 +96,8 @@
 				{% endif %}
 		</div>
 
-	</div>
 	{% endfor %}
+	</div>
 
 		<!--Footer-->
 	<div class="footer">

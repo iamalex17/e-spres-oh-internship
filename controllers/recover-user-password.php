@@ -80,7 +80,7 @@ function send_link($string, $email){
 	$sendgrid_username = "internship-espresoh";
 	$sendgrid_password = "internship-project1";
 	$url = get_current_url();
-	$string = $url . $GLOBALS['path'] . '/users/reset-password.php?link=' . $string;
+	$string = $GLOBALS['path'] . '/users/reset-password.php?link=' . $string;
 	var_dump($string);
 	exit();
 	$emailContent = "To recover your sign in creditentials acces the following link: <a href=\"" . $string . "\">" . $string. "</a>";
