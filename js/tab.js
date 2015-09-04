@@ -91,4 +91,11 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	// Hide/Show mce editor for create exercise
+	$('.create-exercise').hide();
+	$('.exercise-container').on('click', '.buttonEdit', function() {
+		$(this).closest('.exercise-container').find('.create-exercise').slideToggle();
+	});
+
 });

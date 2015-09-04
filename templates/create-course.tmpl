@@ -128,19 +128,21 @@
 				{% if exerciseStatus == 1 %}
 					{% for exercise in exercises %}
 					<div class="exercise-container">
-						<span>
+						<span class="inline">
 							{{ exercise.description|raw }}
 						</span>
 						<div class="float-right">
-							<button class="buttonEdit"><i class="fa fa-pencil"></i></button>
+							<a class="buttonEdit"><i class="fa fa-pencil"></i></a>
 							<button class="buttonDelete"><i class="fa fa-times"></i></button>
 						</div>
 						<div class="clearfix"></div>
+						<div class="description-create-course create-exercise">
 						<textarea name="exerciseContent[]" class="mceEditor">{{ exercise.description|raw }}</textarea>
+						</div>
 					</div>
 					{% endfor %}
 				{% else %}
-					<div class="create-exercise-container">
+					<div class="exercise-container">
 					<div class="description-create-course create-exercise">
 						<textarea name="exerciseContent[]" class="mceEditor"></textarea>
 						<div class="clearfix"></div>
