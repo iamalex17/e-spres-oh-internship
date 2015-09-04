@@ -53,7 +53,13 @@ button{
 	margin-top:10px;
 }
 .message-align{
-	margin-left: 18%;
+	width: 20%;
+	margin-left: 50%;
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	background-color: #ffffff;
 }
 .errorMessage{
 	color: #FA3E3E;
