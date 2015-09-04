@@ -12,12 +12,6 @@
 
 	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND status = 1';
 	$coursesWithExercises = ConnectToDB::interogateDB($sql);
-//	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0 AND status = 0';
-//	$coursesWithoutExercises = ConnectToDB::interogateDB($sql);
-
-//echo '<pre>';
-//var_dump($coursesWithoutExercises);
-//exit();
 
 	$noExerciseMessage = '';
 	$course = '';
