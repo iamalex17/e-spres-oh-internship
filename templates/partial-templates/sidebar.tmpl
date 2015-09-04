@@ -14,21 +14,19 @@
 	<nav>
 		{% if user_role == 1 %}
 		<ul>
-		<li class="list-editor"><a href='{{ path }}dashboard.php' class="links-a"><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li class="list-editor"><a href='{{ path }}admin/create-mentor.php' class="links-a"><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
-		<li class="list-editor"><a href='{{ path }}admin/create-intern.php' class="links-a"><i class=" iconParent iconPlus"></i> Create Intern</a></li>
+		<li class="list-editor"><a href='{{ path }}dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
+		<li class="list-editor"><a href='{{ path }}admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
+		<li class="list-editor"><a href='{{ path }}admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
 		<ul>
 		<li class="dropDown list-editor">
-			<a class="links-a"><i class=" iconParent iconGraduation">
-				</i> Courses <i class=" iconParent iconPlusMore change-icon"></i>
-			</a>
+			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav">
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php" class="links-a">All</a></li>
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Frontend" class="links-a">Frontend</a></li>
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Backend" class="links-a">Backend</a></li>
+				<li class="sub-nav-list"><a href="{{ path }}dashboard.php">All</a></li>
+				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Frontend">Frontend</a></li>
+				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Backend">Backend</a></li>
 			</ul>
 		</li>
 		</ul>
@@ -37,20 +35,20 @@
 		
 		<ul>
 			<li class="list-editor">
-				<a href='{{ path }}users/create-course.php' class="links-a">
+				<a href='{{ path }}users/create-course.php'>
 					<i class=" iconParent iconPlus"></i> Create Course
 				</a>
 			</li>
 		</ul>
 		<ul>
 		<li class=" dropDown list-editor">
-			<a href='#' class="links-a">
+			<a href='#'>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
 			<ul class="subNav">
 				{% for course in coursesWithExercises %}
-				<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}" class="links-a">{{ course.title }}</a></li>
+				<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
 				{% endfor %}
 			</ul>
 		</li>
