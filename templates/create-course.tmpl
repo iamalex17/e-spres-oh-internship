@@ -127,6 +127,7 @@
 				<div class="clearfix"></div>
 				{% if exerciseStatus == 1 %}
 					{% for exercise in exercises %}
+					<input type="hidden" name="exercise_id[]" value = {{ exercise.id }}>
 					<div class="exercise-container">
 						<span>
 							{{ exercise.description|raw }}
@@ -140,11 +141,9 @@
 					</div>
 					{% endfor %}
 				{% else %}
-					<div class="create-exercise-container">
 					<div class="description-create-course create-exercise">
 						<textarea name="exerciseContent[]" class="mceEditor"></textarea>
 						<div class="clearfix"></div>
-					</div>
 					</div>
 				{% endif %}
 				<button id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
