@@ -12,6 +12,9 @@ body{
 .user-margin{
 	margin-left: 10px;
 }
+.uppercase{
+	text-transform: uppercase;
+}
 form{
 	margin:0;
 	padding:0;
