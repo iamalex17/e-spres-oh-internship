@@ -399,6 +399,10 @@ nav a:hover .iconPlus{
 }
 /*Sidebar Navigation*/
 /*Container*/
+.active-sidebar{
+	background-color: #243342;
+	color: #ffffff;
+}
 .side-navigation{
 	width:19%;
 	float:left;
@@ -416,7 +420,6 @@ nav a:hover .iconPlus{
 }
 .sub-nav-list:hover>a{
 	background-color: transparent;
-	
 }
 @media screen and (max-width: 960px) {
 	.side-navigation{
