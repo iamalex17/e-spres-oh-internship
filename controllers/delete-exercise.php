@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 		exit();
 	}
+}
 	$deleteExercise = $_POST['delete_exercise'];
 	$sql = 'UPDATE `exercises` SET status = 0 WHERE id = :id';
 	$valuesToBind = array('id' => $deleteExercise);

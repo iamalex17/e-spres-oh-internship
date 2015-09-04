@@ -29,6 +29,7 @@ if(isset($_SESSION['course'])) {
 	}
 }
 
+$noExerciseMessage = '';
 $errorMessage = '';
 $successMessage = '';
 if(isset($_SESSION['errorMessage'])) {
