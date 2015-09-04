@@ -3,10 +3,8 @@ require_once '../config.php';
 require_once '../classes/class.user.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	session_start();
-	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-	if(($request != 'dashboard.php') || ($_SESSION['user_role'] != 2)) {
-		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	if(!User::verifySessionID()) {
+		header('Location: ' . $GLOBALS['path'] . 'login.php');
 		exit();
 	}
 	$deleteCourse = $_POST['delete_course'];
@@ -19,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql = 'UPDATE `submitted_exercises` SET status = 0 WHERE exercise_id = (SELECT id FROM `exercises` WHERE course_id = :courseID)';
 	$valuesToBind = array('courseID' => $deleteCourse);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
+
 	$successMessage = 'Course succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
