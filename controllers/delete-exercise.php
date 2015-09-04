@@ -9,17 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: ' . $GLOBALS['path'] . 'login.php');
 		exit();
 	}
-	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-	if(($request != 'dashboard.php') || ($_SESSION['user_role'] != 2)) {
-		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
-		exit();
-	}
 }
-	$deleteExercise = $_POST['delete_exercise'];
+	$request = explode('=', $_SERVER['HTTP_REFERER']);
+	$request = end($request);
+	$deleteExercise = $_POST['delete_course'];
 	$sql = 'UPDATE `exercises` SET status = 0 WHERE id = :id';
 	$valuesToBind = array('id' => $deleteExercise);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 	$sql = 'UPDATE `submitted_exercises` SET status = 0 WHERE exercise_id = :exerciseID)';
 	$valuesToBind = array('exerciseID' => $deleteExercise);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
+	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?course_id=' . $request);
 ?>

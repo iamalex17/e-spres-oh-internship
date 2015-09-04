@@ -64,7 +64,7 @@ try {
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 		if(isset($result[0])) {
 			$course = $result[0];
-			$sql = 'SELECT users.id
+			$sql = 'SELECT `users`.id
 					FROM `users`
 					INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
 					INNER JOIN `courses` ON `courses`.`id` = `presentors`.`course_id`
@@ -73,7 +73,7 @@ try {
 			$courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
 		}
 		$exerciseStatus = '';
-		$sql = 'SELECT * FROM `exercises` WHERE course_id = :id';
+		$sql = 'SELECT * FROM `exercises` WHERE course_id = :id AND status = 1';
 		$valuesToBind = array('id' => $course['id']);
 		$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
 		if(count($exercises)) {
