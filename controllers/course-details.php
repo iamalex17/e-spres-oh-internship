@@ -20,7 +20,7 @@
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$course = $result[0];
 	$course['label'] = explode(', ', $course['label']);
-	$sql = 'SELECT * FROM `exercises` WHERE course_id = :courseID';
+	$sql = 'SELECT * FROM `exercises` WHERE course_id = :courseID AND status = 1';
 	$valuesToBind = array('courseID' => $course['id']);
 	$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
 	if(count($exercises)) {
