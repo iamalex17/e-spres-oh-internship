@@ -2,10 +2,15 @@
 require_once 'config.php';
 require_once 'controllers/load-template.php';
 require_once 'classes/class.connect-to-db.php';
-session_start();
 
 $errorMessage = '';
 $successMessage = '';
+
+
+if(User::verifySessionID()) {
+	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	exit();
+}
 
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
