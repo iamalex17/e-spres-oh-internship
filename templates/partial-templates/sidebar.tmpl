@@ -47,9 +47,13 @@
 				<i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
 			<ul class="subNav">
-				{% for course in coursesWithExercises %}
-				<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
-				{% endfor %}
+				{% if noExerciseMessage == '' %}
+					{% for course in coursesWithExercises %}
+					<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
+					{% endfor %}
+				{% else %}
+					<li class="sub-nav-list">{{ noExerciseMessage }}</li>
+				{% endif %}
 			</ul>
 		</li>
 		</ul>
