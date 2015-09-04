@@ -488,6 +488,9 @@ nav a:hover .iconPlus{
 		width:10px;
 	}
 }
+.solutions-container{
+	padding-bottom:10px;
+}
 .topProfile{
 	background-color: #42a5f5;
 	height: auto;
@@ -536,7 +539,7 @@ nav a:hover .iconPlus{
 	padding: 10px;
 }
 .newUserName > a {
-	font-size: 25px;
+	font-size: 20px;
 }
 .newUserName > p {
 	font-size: 14px;
