@@ -10,7 +10,7 @@
 	$sql = 'SELECT * FROM `courses` WHERE status = 0';
 	$deletedCourses = ConnectToDB::interogateDB($sql);
 
-	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND status = 1';
+	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 	$coursesWithExercises = ConnectToDB::interogateDB($sql);
 
 	$noExerciseMessage = '';
@@ -60,7 +60,6 @@
 			$course['mentors'] = $mentors;
 			html_entity_decode($course['description']);
 		}
-
 		if(count($deletedCourses != 0)) {
 			if(count($allCourses) == count($deletedCourses)) {
 				$courses = NULL;

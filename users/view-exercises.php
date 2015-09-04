@@ -11,7 +11,7 @@ if(!User::verifySessionID()) {
 
 $solutionsMessage = '';
 
-$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
 
 if(isset($_GET['course_id'])) {
@@ -20,6 +20,7 @@ if(isset($_GET['course_id'])) {
 	$valuesToBind = array('courseID' => $courseID);
 	$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
 	foreach ($exercises as &$exercise) {
+		$solutionsMessage = '';
 		$exercise['description'] = html_entity_decode($exercise['description']);
 		$sql = 'SELECT * FROM `courses` WHERE id = :courseID';
 		$valuesToBind = array('courseID' => $exercise['course_id']);
@@ -41,6 +42,7 @@ if(isset($_GET['course_id'])) {
 			$solutionsMessage = "No solution at the moment.";
 		}
 		$exercise['solutions'] = $solutions;
+		$exercise['solutionsMessage'] = $solutionsMessage;
 	}
 	$user = new User($_SESSION);
 
