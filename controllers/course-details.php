@@ -13,7 +13,7 @@
 	}
 	$course_id = $_GET['course_id'];
 
-	$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 	$coursesWithExercises = ConnectToDB::interogateDB($sql);
 	$sql = 'SELECT * FROM `courses` WHERE id = :id';
 	$valuesToBind = array('id'=>$course_id);
