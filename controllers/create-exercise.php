@@ -34,7 +34,7 @@ if(isset($_POST['exerciseContent'])) {
 				$valuesToBind = array('description' => $description, 'exerciseID' => $_POST['exercise'][$key]);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 			} else {
-				$sql = 'INSERT INTO `exercises` (course_id, description) VALUES (:courseID, :description)';
+				$sql = 'INSERT INTO `exercises` (course_id, description, status) VALUES (:courseID, :description, 1)';
 				$valuesToBind = array('courseID' => $courseID, 'description' => $description);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 			}
