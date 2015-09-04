@@ -14,6 +14,8 @@
 		}
 		if($_GET['action'] == 'login') {
 			login();
+		} else if ($_GET['action'] == 'logout') {
+			logout();
 		}
 	}
 
@@ -57,7 +59,7 @@
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 		session_unset();
 		session_destroy();
-		header('Location: ' . $path . 'login.php');
+		header('Location: ' . $GLOBALS['path'] . 'login.php');
 		exit();
 	}
 ?>
