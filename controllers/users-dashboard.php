@@ -10,9 +10,16 @@
 	$sql = 'SELECT * FROM `courses` WHERE status = 0';
 	$deletedCourses = ConnectToDB::interogateDB($sql);
 
-	$sql = 'SELECT `c`.`title`, `c`.`id` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0';
+	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND status = 1';
 	$coursesWithExercises = ConnectToDB::interogateDB($sql);
+//	$sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id`) > 0 AND status = 0';
+//	$coursesWithoutExercises = ConnectToDB::interogateDB($sql);
 
+//echo '<pre>';
+//var_dump($coursesWithoutExercises);
+//exit();
+
+	$noExerciseMessage = '';
 	$course = '';
 
 	if(isset($_SESSION['course'])) {
@@ -66,9 +73,15 @@
 				$courseMessage = 'No courses to display yet.';
 			}
 		}
+
+		if(count($coursesWithExercises) == 0) {
+				$coursesWithExercises = NULL;
+				$noExerciseMessage = 'No exercises to display';
+		}
+		
 	} else {
 		$courses = NULL;
 		$courseMessage = 'No courses to display yet.';
 	}
-	echo $template->render(array('user_role' => $user->user_role, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+	echo $template->render(array('user_role' => $user->user_role, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'courses' => $courses, 'courseMessage' => $courseMessage, 'label' => $label, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'noExerciseMessage' => $noExerciseMessage));
 ?>
