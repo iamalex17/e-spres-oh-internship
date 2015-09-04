@@ -13,7 +13,7 @@
 	vertical-align: top;
 }
 .courseList{
-	margin: 5% 0 0 21%;
+	margin: 2% 0 0 21%;
 	width: 77%;
 	display:inline-block;
 }
@@ -39,7 +39,6 @@
 	padding-top: 5px;
 }
 .existingCourse{
-	padding: 0 10px 10px 10px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background-color: #ffffff;
@@ -52,7 +51,6 @@
 	padding: 10px;
 }
 .existingCourse-answer{
-	padding: 0 10px 10px 10px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background-color: #d6ffd5;
@@ -63,7 +61,7 @@
 }
 .existingExercise{
 	margin-top: 2%;
-	margin-bottom: 6%;
+	margin-bottom: 2%;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
 	border-bottom: transparent;
@@ -106,9 +104,9 @@
 .course-details-content{
 	margin-top: 40px;
 }
-/*.course-exercise-content{
-	margin-top:20px;
-}*/
+.course-exercise-content{
+	border-bottom: 1px solid #d2d9d6;
+}
 .course-exercise-name{
 	margin-bottom: 10px;
 }
