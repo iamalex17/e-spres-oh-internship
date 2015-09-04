@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+	function incrementExerciseNumber() {
+
+		var $exerciseNumber = $('.exercise-container').length;
+		$('.exerciseNumberContainer').html($exerciseNumber);
+	}
+
+	incrementExerciseNumber();
+
+
 	$('.create-menu .tab-links a').on('click', function(e)  {
 		// Change/remove current tab to active
 		$(this).parent('li').addClass('active').siblings().removeClass('active').addClass('inactive');
@@ -45,12 +55,13 @@ $(document).ready(function() {
 
 	$('#tab2').on('click', '#buttonAddExercise', function() {
 		var ta_count = $("textarea").length;
-		var elem = "<div class='description-create-course create-exercise'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
+		var elem = "<div class='description-create-course create-exercise exercise-container'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
 		$(elem).attr("id", ta_count.toString());
 		//$(elem).appendTo(".append-exercise");
 		$(elem).insertBefore("#buttonSaveExercise");
 
 		initTinyMCE();
+		incrementExerciseNumber();
 	});
 
 	// Open/Close container for exercises from Submitted Exercises
@@ -97,5 +108,4 @@ $(document).ready(function() {
 	$('.exercise-container').on('click', '.buttonEdit', function() {
 		$(this).closest('.exercise-container').find('.create-exercise').slideToggle();
 	});
-
 });

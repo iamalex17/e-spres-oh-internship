@@ -280,3 +280,8 @@
 .exercise-theme-name{
 	margin-left:10px;
 }
+
+.append-exercise > span {
+	vertical-align: sub;
+	margin-right: 5px;
+}
