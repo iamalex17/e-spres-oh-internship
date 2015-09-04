@@ -18,6 +18,7 @@
 		$additionalFolder = 'e-spres-oh-internship/';
 		$path = $server . $additionalFolder;
 		$currentPage = $_SERVER['REQUEST_URI'];
+		$docRoot = '';
 
 	} else if ($_SERVER['SERVER_NAME'] == 'esohintern.bucatzel.ro') {
 		$host = 'localhost';
@@ -34,5 +35,6 @@
 		$additionalFolder = '';
 		$path = $server . $additionalFolder;
 		$currentPage = $_SERVER['REQUEST_URI'];
+		$docRoot = '/home/esohintern/public_html/';
 	}
 ?>

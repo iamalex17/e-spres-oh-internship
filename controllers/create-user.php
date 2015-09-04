@@ -101,6 +101,7 @@
 		if($_FILES['profile_image']['name'] != '') {
 			array_push($_SESSION['userToAdd'], $_FILES['profile_image']['name']);
 			$errorMessage .= $user->addProfileImage();
+			$_SESSION['errorMessage'] = $errorMessage;
 		} else {
 			$errorMessage .= "Profile image was not added.";
 		}
