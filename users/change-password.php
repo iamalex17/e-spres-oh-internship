@@ -22,7 +22,7 @@ $coursesWithExercises = ConnectToDB::interogateDB($sql);
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','change-password.tmpl');
-	echo $template->render(array('last_name' => $user->last_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'user_role' => $user->user_role, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+	echo $template->render(array('first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'user_role' => $user->user_role, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }
