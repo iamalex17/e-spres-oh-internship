@@ -66,17 +66,15 @@
 					</div>
 
 				</div>
-
-				{% if solutionsMessage != ""%}
+				{% if exercise.solutionsMessage != ""%}
 					<div class="solutions-container">
 						<div class="otherMessage">
-							{{ solutionsMessage }}
+							{{ exercise.solutionsMessage }}
 						</div>
 					</div>
 				{% else %}
 				<div class="solutions-container">
 					{% for solution in exercise.solutions %}
-
 					<div class="exercise-responses">
 
 						<div class="exercise-details header">
