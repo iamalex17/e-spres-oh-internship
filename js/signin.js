@@ -75,8 +75,10 @@ var APP = (function() {
 			$('nav').on('click', '.dropDown', showDropdownMenu);
 
 			// hide error/success message
-			$('.successMessage').fadeIn('fast').delay(3000).fadeOut('slow');
-			$('.errorMessage').fadeIn('fast').delay(3000).fadeOut('slow');
+			$('.successMessage').on('click', 'a', function (e) {
+				e.preventDefault();
+				$(this).closest('.successMessage').fadeOut();
+			});
 		}
 	}
 

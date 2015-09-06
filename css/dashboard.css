@@ -13,7 +13,7 @@
 	vertical-align: top;
 }
 .courseList{
-	margin: 2% 0 0 21%;
+	margin: 6% 0 0 21%;
 	width: 77%;
 	display:inline-block;
 }
@@ -135,9 +135,9 @@
 .courseDetail.solution-content {
 	padding: 15px;
 }
-.courseDetail.alignment > p {
+/*.courseDetail.alignment > p {
 	font-size: 14px;
-}
+}*/
 .alignment{
 	display: inline-block;
 }

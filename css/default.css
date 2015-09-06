@@ -56,23 +56,36 @@ button{
 	margin-top:10px;
 }
 .message-align{
-	width: 20%;
 	margin-left: 50%;
-	border: 1px solid #d2d9d6;
+	/*border: 1px solid #d2d9d6;
 	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	background-color: #ffffff;
+	background-color: #ffffff;*/
 }
 .errorMessage{
 	color: #FA3E3E;
 	text-align: center;
-	margin-top: 3%;
+	margin-top: 2%;
 }
 .successMessage{
-	color: #74DF00;
+	position: absolute;
+	color: #ffffff;
 	text-align: center;
-	margin-top: 3%;
+	margin-top: 2%;
+	padding: 7px 10px;
+	background-color: limegreen;
+	border-radius: 2px;
+}
+.successMessage > a > .success-error-icon {
+	margin-top: 1px;
+	margin-left: 15px;
+	display: inline-block;
+	float: right;
+}
+.successMessage > a {
+	text-decoration: none;
+	color: #ffffff;
 }
 .otherMessage{
 	margin: 10px 9px 10px 8px;
@@ -783,7 +796,7 @@ nav ul li:hover > a{
 }
 .create-menu{
 	margin-left:21%;
-	margin-top: 2%;
+	margin-top: 7%;
 	margin-bottom: 5%;
 	padding: 0 10px 0 10px;
 	width:75%;
