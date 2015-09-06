@@ -244,6 +244,21 @@ nav a:hover .iconPlus{
 	display: block;
 	cursor:pointer;
 }
+.button-save-exit-course{
+	width: auto;
+	height: auto;
+	background-color: #42a5f5;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding: 8px 12px;
+	line-height: 1.4;
+	font-size: 13px;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: block;
+	cursor:pointer;
+}
 .button-save-exercise{
 	width: auto;
 	height: auto;
@@ -345,6 +360,9 @@ nav a:hover .iconPlus{
 	border-top:transparent;
 }
 .button-save-course:hover{
+	background-color: #0c80df;
+}
+.button-save-exit-course:hover{
 	background-color: #0c80df;
 }
 .buttonDelete:hover {
