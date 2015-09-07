@@ -52,7 +52,7 @@
 					<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
 					{% endfor %}
 				{% else %}
-					<li class="sub-nav-list">{{ noExerciseMessage }}</li>
+					<li class="sub-nav-list"><span>{{ noExerciseMessage }}</span></li>
 				{% endif %}
 			</ul>
 		</li>

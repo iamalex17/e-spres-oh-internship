@@ -447,7 +447,8 @@ nav a:hover .iconPlus{
 	padding: 0;
 	position:fixed;
 }
-.sub-nav-list>a{
+.sub-nav-list>a {
+	display: inline-block;
 	padding-left: 25px;
 	padding-top: 10px;
 	padding-bottom: 5px;
@@ -459,9 +460,9 @@ nav a:hover .iconPlus{
 	.side-navigation{
 		width: 150px;
 	}
-	.courseList, .footer, .topAccount{
+	/*.courseList, .footer, .topAccount{
 		width: 800px;
-	}
+	}*/
 	.topAccountSection{
 		width: 150px;
 	}
@@ -633,7 +634,14 @@ nav li {
 	display: block;
 	vertical-align: top;
 }
-nav ul a {
+nav ul span {
+	display: inline-block;
+	cursor: default;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-top: 7px;
+}
+nav ul a, nav ul span {
 	color: #88999c;
 	text-decoration: none;
 	vertical-align: top;
