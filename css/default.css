@@ -80,6 +80,9 @@ button{
 }
 .successMessage{
 	position: absolute;
+	left: 0;
+	right:0;
+	max-width: 250px;
 	color: #ffffff;
 	text-align: center;
 	margin-top: 2%;
@@ -834,10 +837,10 @@ nav ul li:hover > a{
 	overflow: hidden;
 }
 .create-menu{
-	margin-left:21%;
 	margin-top: 7%;
 	margin-bottom: 5%;
 	padding: 0 10px 0 10px;
+	padding-left: 21%;
 	width:75%;
 	display:inline-block;
 }
