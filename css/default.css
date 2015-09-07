@@ -122,6 +122,7 @@ button{
 	margin-right: 10px;
 	margin-left: 10px;
 	vertical-align: -webkit-baseline-middle;
+	vertical-align: -moz-middle-with-baseline;
 }
 .iconPlusButton{
 	width: 14px;
