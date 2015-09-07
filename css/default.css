@@ -210,7 +210,7 @@ button{
 	width: 14px;
 	height: 14px;
 	background-position: -713px -10px;
-	margin-right: 10px;
+	margin-right: 13px;
 }
 .iconMinusMore {
 	width: 14px;
@@ -638,10 +638,13 @@ nav ul span {
 	display: inline-block;
 	cursor: default;
 	padding-bottom: 10px;
-	padding-left: 25px;
+	padding-left: 23px;
 	padding-top: 7px;
+	color: #88999c;
+	text-decoration: none;
+	vertical-align: top;
 }
-nav ul a, nav ul span {
+nav ul a {
 	color: #88999c;
 	text-decoration: none;
 	vertical-align: top;
