@@ -42,7 +42,7 @@ $(document).ready(function() {
 				"searchreplace visualblocks code fullscreen",
 				"insertdatetime media table contextmenu paste"
 			],
-			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image fontsizeselect"
+			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 		});
 	}
 

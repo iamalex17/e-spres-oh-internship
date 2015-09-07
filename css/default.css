@@ -4,6 +4,9 @@ body{
 	margin: 0 auto;
 	margin-bottom: 3%;
 }
+.spacing > p{
+	margin:5px;
+}
 .reset{
 	margin: 0;
 	padding: 0;
