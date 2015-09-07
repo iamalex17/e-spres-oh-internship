@@ -84,6 +84,7 @@ button{
 	text-align: center;
 	margin-top: 2%;
 	padding: 7px 10px;
+	padding-right: 35px;
 	background-color: limegreen;
 	border-radius: 2px;
 }
@@ -92,6 +93,9 @@ button{
 	margin-left: 15px;
 	display: inline-block;
 	float: right;
+	position: absolute;
+	right: 5px;
+	top: 8px;
 }
 .successMessage > a {
 	text-decoration: none;
