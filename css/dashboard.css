@@ -273,6 +273,7 @@
 }
 .courseUserName{
 	display: inline-block;
+	margin:0;
 	margin-left: 10px;
 	color: #2e2e2e;
 	font-weight: 600;

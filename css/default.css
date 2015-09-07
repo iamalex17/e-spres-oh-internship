@@ -4,11 +4,6 @@ body{
 	margin: 0 auto;
 	margin-bottom: 3%;
 }
-	h1, h2, h3, h4, h5, h5, ul, ol, p, section, article, nav, aside {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-}
 .reset{
 	margin: 0;
 	padding: 0;
