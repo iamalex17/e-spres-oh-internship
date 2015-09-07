@@ -454,7 +454,7 @@ nav a:hover .iconPlus{
 	text-align: center;
 	padding: 10px;
 	border-left: 1px solid #eeeeee;
-	width: 12%;
+	width: auto;
 }
 .topUserName{
 	display:inline-block;
@@ -491,9 +491,9 @@ nav a:hover .iconPlus{
 	/*.courseList, .footer, .topAccount{
 		width: 800px;
 	}*/
-	.topAccountSection{
+	/*.topAccountSection{
 		width: 150px;
-	}
+	}*/
 	.create-menu{
 		200px;
 	}
