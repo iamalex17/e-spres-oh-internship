@@ -144,6 +144,19 @@ button{
 .fa-plus{
 	margin-right: 5px;
 }
+.fa.fa-check {
+	position: absolute;
+	top: 20px;
+}
+.submitted > .course-exercise-name > .user-margin {
+	position: relative;
+}
+.submitted > .course-exercise-name > .user-margin > .newUserName {
+	padding-left: 20px;
+}
+.submitted > .course-exercise-content > .newUserName {
+	padding-left: 20px;
+}
 .fa-lock{
 	/*color: #42a5f5;*/
 	margin-right: 5px;
