@@ -14,9 +14,35 @@
 	<nav class="reset">
 		{% if user_role == 1 %}
 		<ul class="reset">
-		<li class="list-editor"><a href='{{ path }}dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
-		<li class="list-editor"><a href='{{ path }}admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
-		<li class="list-editor"><a href='{{ path }}admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
+			{% if currentPage == '/e-spres-oh-internship/dashboard.php' %}
+				<li class="list-editor active-sidebar">
+			{% else %}
+				<li class="list-editor">
+			{% endif%}
+				<a href='{{ path }}dashboard.php'>
+					<i class=" iconParent iconDashboard"></i> Dashboard 
+				</a>
+			</li>
+
+			{% if currentPage == '/e-spres-oh-internship/admin/create-mentor.php' %}
+			<li class="list-editor active-sidebar">
+			{% else %}
+			<li class="list-editor">
+			{% endif%}
+				<a href='{{ path }}admin/create-mentor.php'>
+					<i class=" iconParent iconPlus"></i> Create Mentor
+				</a>
+			</li>
+
+			{% if currentPage == '/e-spres-oh-internship/admin/create-intern.php' %}
+			<li class="list-editor active-sidebar">
+			{% else %}
+			<li class="list-editor">
+			{% endif %}
+				<a href='{{ path }}admin/create-intern.php'>
+					<i class=" iconParent iconPlus"></i> Create Intern
+				</a>
+			</li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
@@ -24,9 +50,29 @@
 		<li class="dropDown list-editor">
 			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav reset">
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php">All</a></li>
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Frontend">Frontend</a></li>
-				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Backend">Backend</a></li>
+				{% if currentPage == '/e-spres-oh-internship/dashboard.php' %}
+				<li class="sub-nav-list active-sidebar-sublist">
+				{% else %}
+				<li class="sub-nav-list">
+				{% endif %}
+					<a href="{{ path }}dashboard.php">All</a>
+				</li>
+
+				{% if currentPage == '/e-spres-oh-internship/dashboard.php?show=Frontend' %}
+				<li class="sub-nav-list active-sidebar-sublist">
+				{% else %}
+				<li class="sub-nav-list">
+				{% endif %}
+					<a href="{{ path }}dashboard.php?show=Frontend">Frontend</a>
+				</li>
+
+				{% if currentPage == '/e-spres-oh-internship/dashboard.php?show=Backend' %}
+				<li class="sub-nav-list active-sidebar-sublist">
+				{% else %}
+				<li class="sub-nav-list">
+				{% endif %}
+					<a href="{{ path }}dashboard.php?show=Backend">Backend</a>
+				</li>
 			</ul>
 		</li>
 		</ul>
@@ -34,7 +80,11 @@
 		{% if user_role == 2 %}
 		
 		<ul class="reset">
-			<li class="list-editor">
+			{% if currentPage == '/e-spres-oh-internship/users/create-course.php' %}
+				<li class="list-editor active-sidebar">
+			{% else %}
+				<li class="list-editor">
+			{% endif%}
 				<a href='{{ path }}users/create-course.php'>
 					<i class=" iconParent iconPlus"></i> Create Course
 				</a>

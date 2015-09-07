@@ -482,6 +482,20 @@ nav a:hover .iconPlus{
 	background-color: #243342;
 	color: #ffffff;
 }
+.active-sidebar-sublist > a{
+	background-color: transparent;
+	color: #ffffff;
+}
+.active-sidebar > a {
+	background-color: #243342;
+	color: #ffffff;
+}
+.active-sidebar a .iconPlus{
+	background-position: -645px -10px;
+}
+.active-sidebar a .iconDashboard {
+	background-position: -243px -10px;
+}
 .side-navigation{
 	width:19%;
 	float:left;
