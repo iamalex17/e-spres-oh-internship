@@ -35,13 +35,14 @@ $(document).ready(function() {
 		tinymce.init({
 			selector: "textarea",
 			mode: "textareas",
-			theme_advanced_path: false,
+			theme_advanced_path: true,
+			content_css : "../css/normalize.css",
 			plugins: [
-				"advlist autolink lists link image charmap print preview anchor",
+				"advlist autolink lists link charmap print preview anchor",
 				"searchreplace visualblocks code fullscreen",
 				"insertdatetime media table contextmenu paste"
 			],
-			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image fontselect fontsizeselect"
 		});
 	}
 
