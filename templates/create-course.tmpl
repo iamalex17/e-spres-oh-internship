@@ -51,7 +51,7 @@
 
 	<!--Container-->
 	<div class="create-menu">
-		<ul class="navigation-course tab-links">
+		<ul class="navigation-course tab-links reset">
 			<li class="active list-editor"><a id="tab1-click" class="half"><i class="fa fa-lock"></i><b class="decoration">Course</b></a></li>
 			<li class="inactive list-editor"><a id="tab2-click" class="half-inactive"><i class="fa fa-credit-card"></i><b class="decoration-inactive">Exercises</b></a></li>
 			<br style="clear:both">
@@ -66,7 +66,7 @@
 		
 		<form id="tab1" class="tab active" method="POST" action ="{{ path }}/controllers/create-a-course.php">
 		{% set step = 2 %}
-		{% endif %} 
+		{% endif %}
 			<input type="hidden" value="{{ step }}" id="step">
 			<div>
 				<div class="formInput">
@@ -124,7 +124,7 @@
 			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise.php">
 		{% endif %}
 			<div class="append-exercise">
-				<h4 class="exercise-number"><span class="exerciseNumberContainer"></span> Exercises</h4>
+				<h4 class="exercise-number reset"><span class="exerciseNumberContainer"></span> Exercises</h4>
 				<a id="buttonAddExercise" class="button-save-exercise" > Add exercise </a>
 				<div class="clearfix"></div>
 				{% if exerciseStatus == 1 %}

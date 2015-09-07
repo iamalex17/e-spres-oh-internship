@@ -42,7 +42,7 @@
 		<div class="course-details">
 			<div class="course-details-name">
 			<div class="alignment">
-				<h3 class="newUserName">{{ course.title }}</h3>
+				<h3 class="newUserName reset">{{ course.title }}</h3>
 			</div>
 			</div>
 			<div class="course-details-name">
@@ -88,7 +88,7 @@
 							{% if user_role == 3 and ok == 1 %}
 							<i class="fa fa-check"></i>
 							{% endif %}
-							<h3 class="newUserName display"><a href="" class="links-a">Exercise {{ number }}</a></h3>
+							<h3 class="newUserName display reset"><a href="" class="links-a">Exercise {{ number }}</a></h3>
 						</div>
 							{% if user_role == 3 %}
 							<div class="buttonAlignment">
@@ -103,7 +103,7 @@
 						<div class="submitted-exercise-container">
 							{% if ok == 1 %}
 								<div class="alignment">
-									<h3 class="newUserName inline">{{ exercise.solution.description | raw}}</h3>
+									<h3 class="newUserName inline reset">{{ exercise.solution.description | raw}}</h3>
 									<a href="" class="buttonEdit edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
 								</div>
 									<form action="{{ path }}controllers/edit-solution.php" method="POST">

@@ -4,26 +4,26 @@
 	</div>
 
 	<div class="topProfile">
-		<h4 class="topLogo"> [e-spres-oh] Internship </h4>
+		<h4 class="topLogo reset"> [e-spres-oh] Internship </h4>
 	</div>
 	<div class="userAvatar">
 		<img class="iconProfileUser" src="{{ path }}images/user-profile-images/{{ profile_image }}">
-		<h3 class="userName"> {{ first_name }} </h3>
+		<h3 class="userName reset"> {{ first_name }} </h3>
 	</div>
 
-	<nav>
+	<nav class="reset">
 		{% if user_role == 1 %}
-		<ul>
+		<ul class="reset">
 		<li class="list-editor"><a href='{{ path }}dashboard.php'><i class=" iconParent iconDashboard"></i> Dashboard </a></li>
 		<li class="list-editor"><a href='{{ path }}admin/create-mentor.php'><i class=" iconParent iconPlus"></i> Create Mentor</a></li>
 		<li class="list-editor"><a href='{{ path }}admin/create-intern.php'><i class=" iconParent iconPlus"></i> Create Intern</a></li>
 		</ul>
 		{% endif %}
 		{% if user_role != 1 %}
-		<ul>
+		<ul class="reset">
 		<li class="dropDown list-editor">
 			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
-			<ul class="subNav">
+			<ul class="subNav reset">
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php">All</a></li>
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Frontend">Frontend</a></li>
 				<li class="sub-nav-list"><a href="{{ path }}dashboard.php?show=Backend">Backend</a></li>
@@ -33,20 +33,20 @@
 		{% endif %}
 		{% if user_role == 2 %}
 		
-		<ul>
+		<ul class="reset">
 			<li class="list-editor">
 				<a href='{{ path }}users/create-course.php'>
 					<i class=" iconParent iconPlus"></i> Create Course
 				</a>
 			</li>
 		</ul>
-		<ul>
+		<ul class="reset">
 		<li class=" dropDown list-editor">
 			<a href='#'>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
-			<ul class="subNav">
+			<ul class="subNav reset">
 				{% if noExerciseMessage == '' %}
 					{% for course in coursesWithExercises %}
 					<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
