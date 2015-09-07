@@ -11,6 +11,8 @@
 	<script type="text/javascript" src="js/signin.js"></script>
 	<!--Fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 	<!--Templates-->
 	<meta charset="UTF-8">
 	<title>Login</title>
@@ -23,8 +25,14 @@
 	</div>
 
 	<!--SingIn-->
-
+	{% if successMessage != ''%}
+		<div class="successMessageLogin">
+			{{ successMessage }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
 	<div class="signIn">
+
 		<h1 class="mainHeader reset">Sign In</h1>
 
 		<form method="POST" action="controllers/auth.php?action=login" id="signInForm">
@@ -47,13 +55,6 @@
 					{{ errorMessage|nl2br }}
 				</div>
 			{% endif %}
-
-			{% if successMessage != ''%}
-			<div class="successMessage">
-				{{ successMessage }}
-			</div>
-			{% endif %}
-			
 			<button type="submit" id="buttonSignin" class="buttonSignIn" > Login <i class="iconParent iconLock"></i> </button>
 			<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="recoverRequest links-a">Recover Password</a>
 		</form>

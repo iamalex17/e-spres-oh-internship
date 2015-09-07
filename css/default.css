@@ -91,16 +91,30 @@ button{
 	background-color: limegreen;
 	border-radius: 2px;
 }
-.successMessage > a > .success-error-icon {
+.successMessageLogin {
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+	top:10px;
+	max-width: 250px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 2%;
+	padding: 7px 10px;
+	padding-right: 35px;
+	background-color: limegreen;
+	border-radius: 2px;
+}
+.successMessage > a > .success-error-icon, .successMessageLogin > a > .success-error-icon {
 	margin-top: 1px;
 	margin-left: 15px;
 	display: inline-block;
 	float: right;
 	position: absolute;
 	right: 5px;
-	top: 8px;
+	top: 7px;
 }
-.successMessage > a {
+.successMessage > a, .successMessageLogin > a {
 	text-decoration: none;
 	color: #ffffff;
 }

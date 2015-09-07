@@ -79,6 +79,10 @@ var APP = (function() {
 				e.preventDefault();
 				$(this).closest('.successMessage').fadeOut();
 			});
+			$('.successMessageLogin').on('click', 'a', function (e) {
+				e.preventDefault();
+				$(this).closest('.successMessageLogin').fadeOut();
+			});
 		}
 	}
 
