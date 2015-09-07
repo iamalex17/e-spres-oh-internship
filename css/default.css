@@ -12,6 +12,10 @@ body{
 .reset > p{
 	margin:0;
 }
+.containerForm> h1{
+	margin: 10px;
+	font-weight: normal;
+}
 .user-margin{
 	margin-left: 10px;
 }
