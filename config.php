@@ -35,6 +35,10 @@
 
 	$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 	$path = $server . $additionalFolder;
-	$currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
-
+	$currentPage = explode('/', $_SERVER["SCRIPT_FILENAME"]);
+	$currentPage = $currentPage[count($currentPage)-1];
+	if(isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"])) {
+		$currentPage .= '?' . $_SERVER["QUERY_STRING"];
+	}
+	var_dump($currentPage);
 ?>
