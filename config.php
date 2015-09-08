@@ -15,11 +15,7 @@
 			print "Error!: " . $e->getMessage() . "<br/>";
 			die();
 		}
-
-		$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 		$additionalFolder = 'e-spres-oh-internship/';
-		$path = $server . $additionalFolder;
-		$currentPage = $_SERVER['REQUEST_URI'];
 		$docRoot = '';
 
 	} else if ($_SERVER['SERVER_NAME'] == 'esohintern.bucatzel.ro') {
@@ -33,10 +29,12 @@
 			print "Error!: " . $e->getMessage() . "<br/>";
 			die();
 		}
-		$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 		$additionalFolder = '';
-		$path = $server . $additionalFolder;
-		$currentPage = $_SERVER['REQUEST_URI'];
 		$docRoot = '/home/esohintern/public_html/';
 	}
+
+	$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
+	$path = $server . $additionalFolder;
+	$currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
+
 ?>
