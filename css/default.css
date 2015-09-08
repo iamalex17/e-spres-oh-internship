@@ -958,7 +958,12 @@ input {
 	margin:0;
 	list-style-type: none;
 	cursor: pointer;
+}
+.side-navigation > nav > ul {
 	margin-bottom: 3px;
+}
+.side-navigation > nav > ul:last-child {
+	margin-bottom: 0;
 }
 .exercise-container {
 	border: 1px solid #e0e0e0;
