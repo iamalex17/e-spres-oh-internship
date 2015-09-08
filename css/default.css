@@ -509,7 +509,7 @@ nav a:hover .iconPlus{
 	position:fixed;
 }
 .sub-nav-list>a {
-	display: inline-block;
+	display: block;
 	padding-left: 25px;
 	padding-top: 10px;
 	padding-bottom: 5px;
