@@ -45,9 +45,14 @@
 			</li>
 		</ul>
 		{% endif %}
+
 		{% if user_role != 1 %}
 		<ul class="reset">
+		{% if currentPage == 'dashboard.php' or currentPage == 'dashboard.php?show=Frontend' or currentPage == 'dashboard.php?show=Backend' %}
+		<li class="list-editor dropDown active-sidebar">
+		{% else %}
 		<li class="dropDown list-editor">
+		{% endif %}
 			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav reset">
 				{% if currentPage == 'dashboard.php' %}
@@ -91,7 +96,11 @@
 			</li>
 		</ul>
 		<ul class="reset">
-		<li class=" dropDown list-editor">
+		{% if currentPage == 'view-exercises.php?course_id=' ~ course.id %}
+		<li class="list-editor dropDown active-sidebar">
+		{% else %}
+		<li class="dropDown list-editor">
+		{% endif %}
 			<a>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore change-icon"></i>

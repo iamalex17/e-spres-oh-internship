@@ -486,15 +486,12 @@ nav a:hover .iconPlus{
 }
 /*Sidebar Navigation*/
 /*Container*/
-.active-sidebar{
-	background-color: #243342;
-	color: #ffffff;
-}
+
 .active-sidebar-sublist > a{
 	background-color: transparent;
 	color: #ffffff;
 }
-.active-sidebar > a {
+nav ul .active-sidebar > a {
 	background-color: #243342;
 	color: #ffffff;
 }
@@ -503,6 +500,12 @@ nav a:hover .iconPlus{
 }
 .active-sidebar a .iconDashboard {
 	background-position: -243px -10px;
+}
+.active-sidebar a .iconGraduation {
+	background-position: -407px -10px;
+}
+.active-sidebar a .iconText {
+	background-position: -747px -10px;
 }
 .side-navigation{
 	width:19%;
@@ -894,8 +897,6 @@ li.inactive a {
 li.active a {
 	background: #ffffff;
 	color :#42a5f5;
-	border: 1px solid #e2e9e6;
-	border-bottom: transparent;
 }
 /*Content of Tabs*/
 .tab-content {
@@ -955,7 +956,12 @@ input {
 	margin:0;
 	list-style-type: none;
 	cursor: pointer;
+}
+.side-navigation > nav > ul {
 	margin-bottom: 3px;
+}
+.side-navigation > nav > ul:last-child {
+	margin-bottom: 0;
 }
 .exercise-container {
 	border: 1px solid #e0e0e0;
