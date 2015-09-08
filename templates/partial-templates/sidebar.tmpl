@@ -14,7 +14,7 @@
 	<nav class="reset">
 		{% if user_role == 1 %}
 		<ul class="reset">
-			{% if currentPage == 'dashboard' %}
+			{% if currentPage == 'dashboard.php' %}
 				<li class="list-editor active-sidebar">
 			{% else %}
 				<li class="list-editor">
@@ -24,7 +24,7 @@
 				</a>
 			</li>
 
-			{% if currentPage == 'create-mentor' %}
+			{% if currentPage == 'create-mentor.php' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
 			<li class="list-editor">
@@ -34,7 +34,7 @@
 				</a>
 			</li>
 
-			{% if currentPage == 'create-intern' %}
+			{% if currentPage == 'create-intern.php' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
 			<li class="list-editor">
@@ -50,7 +50,7 @@
 		<li class="dropDown list-editor">
 			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav reset">
-				{% if currentPage == 'dashboard' %}
+				{% if currentPage == 'dashboard.php' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -58,7 +58,7 @@
 					<a href="{{ path }}dashboard.php">All</a>
 				</li>
 
-				{% if currentPage == '/e-spres-oh-internship/dashboard.php?show=Frontend' %}
+				{% if currentPage == 'dashboard.php?show=Frontend' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -66,7 +66,7 @@
 					<a href="{{ path }}dashboard.php?show=Frontend">Frontend</a>
 				</li>
 
-				{% if currentPage == '/e-spres-oh-internship/dashboard.php?show=Backend' %}
+				{% if currentPage == 'dashboard.php?show=Backend' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -80,7 +80,7 @@
 		{% if user_role == 2 %}
 		
 		<ul class="reset">
-			{% if currentPage == 'create-course' %}
+			{% if currentPage == 'create-course.php' %}
 				<li class="list-editor active-sidebar">
 			{% else %}
 				<li class="list-editor">
@@ -92,14 +92,20 @@
 		</ul>
 		<ul class="reset">
 		<li class=" dropDown list-editor">
-			<a href='#'>
+			<a>
 				<i class=" iconParent iconText"></i>Submitted Exercises
 				<i class=" iconParent iconPlusMore change-icon"></i>
 			</a>
 			<ul class="subNav reset">
 				{% if noExerciseMessage == '' %}
 					{% for course in coursesWithExercises %}
-					<li class="sub-nav-list"><a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">{{ course.title }}</a></li>
+						<li class="sub-nav-list {% if currentPage == 'view-exercises.php?course_id=' ~ course.id %}
+							active-sidebar-sublist
+						{% endif %}">
+							<a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">
+								{{ course.title }}
+							</a>
+						</li>
 					{% endfor %}
 				{% else %}
 					<li class="sub-nav-list"><span>{{ noExerciseMessage }}</span></li>
