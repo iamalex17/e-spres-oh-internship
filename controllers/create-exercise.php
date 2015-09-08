@@ -29,25 +29,25 @@ if(isset($_POST['exerciseContent'])) {
 		if(!empty($exercise)) {
 			$description = htmlentities($exercise);
 			$ok = 1;
-			if($_POST['exercise_id'][$key]) {
-				$sql = 'UPDATE `exercises` SET description = :description WHERE exercise_id = :exerciseID';
-				$valuesToBind = array('description' => $description, 'exerciseID' => $_POST['exercise'][$key]);
+			if(isset($_POST['exercise_id'][$key])) {
+				$sql = 'UPDATE `exercises` SET description = :description WHERE id = :exerciseID';
+				$valuesToBind = array('description' => $description, 'exerciseID' => $_POST['exercise_id'][$key]);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 			} else {
 				$sql = 'INSERT INTO `exercises` (course_id, description, status) VALUES (:courseID, :description, 1)';
-				$valuesToBind = array('courseID' => $courseID, 'description' => $description);
+				$valuesToBind = array('description' => $description, 'courseID' => $courseID);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 			}
 			$successMessage = 'Exercises added successfully.';
 			$_SESSION['successMessage'] = $successMessage;
-			if(isset($_POST['exit'])) {
-				header('Location:' . $path . 'dashboard.php');
-			} else {
-				header('Location:' . $path . 'users/create-course.php?course_id=' . $courseID);
-			}
 		}
 	}
-	exit();
+	if(isset($_POST['exit'])) {
+		header('Location:' . $path . 'dashboard.php');
+	} else {
+		header('Location:' . $path . 'users/create-course.php?course_id=' . $courseID);
+	}
+
 	if(!$ok) {
 		$errorMessage = "Please add exercise description.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
