@@ -59,8 +59,10 @@ button{
 }
 /*Error and Succes Message*/
 .message-info-align{
-	margin-top: -40px;
-	margin-right: 10px;
+	margin-top: 10px;
+	margin-right: 20px;
+	display: inline-block;
+	float: right;
 }
 .user-message-align{
 	margin-top:10px;
@@ -550,9 +552,6 @@ nav a:hover .iconPlus{
 	}
 	/*a, li, h1, h2, h3, h4 nav{
 		width: 100px;*/
-	}
-	.iconProfileUser{
-		width:50px;
 	}
 }
 @media screen and (max-width: 524px) {

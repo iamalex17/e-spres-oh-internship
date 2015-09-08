@@ -91,7 +91,6 @@
 .course-details{
 	padding: 10px;
 	margin-top: 30px;
-	margin-bottom: 20px;
 }
 .courseName{
 	border-bottom: 1px dashed #2e2e2e;
@@ -265,7 +264,6 @@
 .show-more-info{
 	float: right;
 	font-size: 14px;
-	display: inline-block;
 	text-decoration: none;
 	color: #42a5f5;
 }
