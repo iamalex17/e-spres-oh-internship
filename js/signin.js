@@ -63,13 +63,13 @@ var APP = (function() {
 	return {
 		init: function() {
 
+
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
 			$('.buttonAlign').on('change', '#buttonAddImage',loadFile);
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
-
 
 			//check if input field has no value
 			$('#firstName').on('keyup', checkInputValue);
@@ -81,6 +81,11 @@ var APP = (function() {
 
 			// show-hide dropdown list from sidebar
 			$('.subNav').hide();
+
+			if( $('.dropDown').hasClass('active-sidebar') ){
+				$('.active-sidebar').find('.subNav').show();
+				$('.active-sidebar').find('.change-icon').toggleClass('iconMinusMore');
+			}
 			$('nav').on('click', '.dropDown', showDropdownMenu);
 
 			// hide error/success message
