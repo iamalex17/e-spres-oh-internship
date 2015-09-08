@@ -50,7 +50,7 @@ var APP = (function() {
 			$(this).closest('.dropDown').find('.change-icon').toggleClass('iconMinusMore');
 		});
 	}
-	
+
 	function loadFile() {
 			var reader = new FileReader();
 			reader.onload = function(){
@@ -91,6 +91,10 @@ var APP = (function() {
 			$('.successMessageLogin').on('click', 'a', function (e) {
 				e.preventDefault();
 				$(this).closest('.successMessageLogin').fadeOut();
+			});
+			$('.errorMessageContainer').on('click', 'a', function (e) {
+				e.preventDefault();
+				$(this).closest('.errorMessageContainer').fadeOut();
 			});
 
 			$('.buttonDelete').bind('click', function(e) {

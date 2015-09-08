@@ -86,6 +86,19 @@ button{
 	text-align: center;
 	margin-top: 2%;
 }
+.errorMessageContainer {
+	position: absolute;
+	left: 0;
+	right:0;
+	max-width: 250px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 2%;
+	padding: 7px 10px;
+	padding-right: 35px;
+	background-color: tomato;
+	border-radius: 2px;
+}
 .successMessage{
 	position: absolute;
 	left: 0;
@@ -113,7 +126,7 @@ button{
 	background-color: limegreen;
 	border-radius: 2px;
 }
-.successMessage > a > .success-error-icon, .successMessageLogin > a > .success-error-icon {
+.successMessage > a > .success-error-icon, .successMessageLogin > a > .success-error-icon, .errorMessageContainer > a > .success-error-icon {
 	margin-top: 1px;
 	margin-left: 15px;
 	display: inline-block;
@@ -122,7 +135,7 @@ button{
 	right: 5px;
 	top: 7px;
 }
-.successMessage > a, .successMessageLogin > a {
+.successMessage > a, .successMessageLogin > a, .errorMessageContainer > a {
 	text-decoration: none;
 	color: #ffffff;
 }
