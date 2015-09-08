@@ -29,7 +29,7 @@
 
 		{% for course in courses %}
 
-		<div class="existingCourse existingCourseDisplay">
+		<div class="existingCourse existingCourseDisplay {% if course.mentors|length != 0 %} inactiveCourse {% endif %}">
 
 			<div class="courseName">
 
@@ -56,9 +56,11 @@
 				<span class="courseDetail alignment">{{ course.description |raw }}</span>
 			</div>
 
+			{% if course.mentors|length != 0 %}
 			<h5 class="courseUserName">Presented by
 				{{ course.mentors }}
 			</h5>
+			{% endif %}
 
 			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Course details </a>
 		</div>
