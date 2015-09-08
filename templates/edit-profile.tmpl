@@ -64,7 +64,7 @@
 				<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
 			</div>
 			<div class="buttonAlign">
-				<input class="button-add-form" type="file" accept="image/*" name="profile_image" id="buttonAddImage" onchange="loadFile(event)" >
+				<input class="button-add-form" type="file" accept="image/*" name="profile_image" id="buttonAddImage">
 			</div>
 
 			<button type="submit" id="buttonSubmitUser" class="buttonSubmitUser" >Submit </button>
@@ -78,16 +78,6 @@
 	<div class="footer">
 		{% include 'partial-templates/footer.tmpl' %}
 	</div>
-	<script>
-		var loadFile = function(event) {
-			var reader = new FileReader();
-			reader.onload = function(){
-				var output = document.getElementById('output');
-				output.src = reader.result;
-			};
-			reader.readAsDataURL(event.target.files[0]);
-		};
-	</script>
 </body>
 
 </html>
