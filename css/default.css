@@ -548,8 +548,8 @@ nav a:hover .iconPlus{
 	.create-menu{
 		50px;
 	}
-	a, li, h1, h2, h3, h4 nav{
-		width: 100px;
+	/*a, li, h1, h2, h3, h4 nav{
+		width: 100px;*/
 	}
 	.iconProfileUser{
 		width:50px;

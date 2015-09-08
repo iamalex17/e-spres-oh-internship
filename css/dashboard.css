@@ -229,10 +229,12 @@
 	padding: 15px;
 	font-size: 20px;
 	border-bottom: 1px solid silver;
+	margin: 0;
 }
 .modal-container > .remodal > p {
 	padding: 15px;
 	font-size: 16px;
+	margin: 0;
 }
 .remodal-button {
 	padding: 12px 14px;
