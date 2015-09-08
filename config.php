@@ -35,5 +35,6 @@
 
 	$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 	$path = $server . $additionalFolder;
-	$currentPage = $_SERVER['REQUEST_URI'];
+	$currentPage = basename($_SERVER["SCRIPT_FILENAME"], '.php');
+
 ?>
