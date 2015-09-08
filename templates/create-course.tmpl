@@ -121,8 +121,6 @@
 		{% if page == 'edit' %}
 			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/create-exercise.php">
 			<input type="hidden" name="course_id" value="{{ course.id }}">
-		{% else %}
-			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise.php">
 		{% endif %}
 			<div class="append-exercise">
 				<h4 class="exercise-number reset"><span class="exerciseNumberContainer"></span> Exercises</h4>
@@ -151,8 +149,8 @@
 						<div class="clearfix"></div>
 					</div>
 				{% endif %}
-				<button id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
-				<button id="buttonSaveExit" class="button-save-exit-course float-left" > Save &#38; Exit </button>
+				<button type="submit" id="buttonSaveExercise" class="button-save-course float-left" > Save </button>
+				<button type="submit" id="buttonSaveExit" name="exit" class="button-save-exit-course float-left" > Save &#38; Exit </button>
 				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>

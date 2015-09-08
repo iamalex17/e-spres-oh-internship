@@ -910,8 +910,6 @@ li.inactive a {
 li.active a {
 	background: #ffffff;
 	color :#42a5f5;
-	border: 1px solid #e2e9e6;
-	border-bottom: transparent;
 }
 /*Content of Tabs*/
 .tab-content {

@@ -40,14 +40,18 @@ if(isset($_POST['exerciseContent'])) {
 			}
 			$successMessage = 'Exercises added successfully.';
 			$_SESSION['successMessage'] = $successMessage;
-			header('Location:' . $path . 'dashboard.php');
+			if(isset($_POST['exit'])) {
+				header('Location:' . $path . 'dashboard.php');
+			} else {
+				header('Location:' . $path . 'users/create-course.php?course_id=' . $courseID);
+			}
 		}
 	}
 	exit();
 	if(!$ok) {
 		$errorMessage = "Please add exercise description.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ../users/create-course.php');
+		header('Location:' . $path . 'users/create-course.php');
 	}
 }
 

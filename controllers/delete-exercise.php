@@ -16,8 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql = 'UPDATE `exercises` SET status = 0 WHERE id = :id';
 	$valuesToBind = array('id' => $deleteExercise);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
+
 	$sql = 'UPDATE `submitted_exercises` SET status = 0 WHERE exercise_id = :exerciseID)';
 	$valuesToBind = array('exerciseID' => $deleteExercise);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
+	
+	$_SESSION['successMessage'] = 'Exercise was succesfully deleted.';
 	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?course_id=' . $request);
 ?>

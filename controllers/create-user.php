@@ -69,6 +69,13 @@
 		$status = 0;
 	}
 	if($user->username == '') {
+		$sql = 'SELECT username FROM `users` WHERE username = :username';
+		$valuesToBind = array('username' => $user->username);
+		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+		if(count($result)) {
+			$errorMessage .= "Username already exists.\n";
+			$status = 0;
+		}
 		$errorMessage .= "Username filed not completed properly.\n";
 		$status = 0;
 	}

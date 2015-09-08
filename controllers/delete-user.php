@@ -10,11 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		exit();
 	}
 	$deleteUser = $_POST['delete_button'];
-	$sql = 'UPDATE `users` SET status = 0 WHERE id = :deletedUserID';
+
+	$sql = 'DELETE FROM presentors WHERE presentor_id = :deletedUserID';
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 
-	$sql = 'DELETE FROM presentors WHERE presentor_id = :deletedUserID';
+	$sql = 'DELETE FROM `users` WHERE id = :deletedUserID';
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 
