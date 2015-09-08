@@ -949,6 +949,7 @@ input {
 	margin:0;
 	list-style-type: none;
 	cursor: pointer;
+	margin-bottom: 3px;
 }
 .exercise-container {
 	border: 1px solid #e0e0e0;
