@@ -37,12 +37,6 @@
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
-.mainHeader{
-	font-size: 32px;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-}
 /*Input Design*/
 .recoverRequest{
 	color: #42a5f5;

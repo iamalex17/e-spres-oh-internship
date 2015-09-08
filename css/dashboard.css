@@ -50,6 +50,18 @@
 .existingCourse.existingCourseDisplay {
 	padding: 10px;
 }
+.inactiveCourse{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #DEDEDE;
+	border: 1px solid #d2d9d6;
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+}
+.inactiveCourse.inactiveCourseDisplay {
+	padding: 10px;
+}
 .existingCourse-answer{
 	margin-top: 2%;
 	margin-bottom: 2%;
