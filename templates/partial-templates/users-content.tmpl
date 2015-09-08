@@ -28,42 +28,48 @@
 		</div>
 
 		{% for course in courses %}
+		{% if course.mentors|length == 0 %}
+			{% set haveMentors = 0 %}
+		{% else %}
+			{% set haveMentors = 1 %}
+		{% endif %}
+		{% if haveMentors == 1 or user_role == 2 %}
+			<div class="existingCourse existingCourseDisplay {% if haveMentors == 0 and user_role == 2 %} inactiveCourse {% endif %}">
 
-		<div class="existingCourse existingCourseDisplay {% if course.mentors|length != 0 %} inactiveCourse {% endif %}">
+				<div class="courseName">
 
-			<div class="courseName">
+				<div class="alignment">
+						<h3 class="newUserName username-underline reset"> <a href="users/view-course.php?course_id={{course.id}}" class="links-a">{{ course.title }}</a></h3>
+				</div>
 
-			<div class="alignment">
-					<h3 class="newUserName username-underline reset"> <a href="users/view-course.php?course_id={{course.id}}" class="links-a">{{ course.title }}</a></h3>
-			</div>
+				{% if user_role == 2 %}
+				<div class="buttonAlignment">
+					<a href="users/create-course.php?course_id={{course.id}}" class="buttonEdit links-a"><i class="fa fa-pencil"></i></a>
+					<button value="{{ course.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+				</div>
+				{% endif %}
 
-			{% if user_role == 2 %}
-			<div class="buttonAlignment">
-				<a href="users/create-course.php?course_id={{course.id}}" class="buttonEdit links-a"><i class="fa fa-pencil"></i></a>
-				<button value="{{ course.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+				</div>
+
+				<div class="courseName">
+					{% for label in course.label %}
+						<span class="labelGrey alignment">{{ label }}</span>
+					{% endfor %}
+				</div>
+
+				<div class="courseContent">
+					<span class="courseDetail alignment">{{ course.description |raw }}</span>
+				</div>
+
+				<h5 class="courseUserName">
+				{% if haveMentors == 1 %}
+					Presented by {{ course.mentors }}
+				{% endif %}
+				</h5>
+
+				<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Course details </a>
 			</div>
 			{% endif %}
-
-			</div>
-
-			<div class="courseName">
-				{% for label in course.label %}
-					<span class="labelGrey alignment">{{ label }}</span>
-				{% endfor %}
-			</div>
-
-			<div class="courseContent">
-				<span class="courseDetail alignment">{{ course.description |raw }}</span>
-			</div>
-
-			{% if course.mentors|length != 0 %}
-			<h5 class="courseUserName">Presented by
-				{{ course.mentors }}
-			</h5>
-			{% endif %}
-
-			<a class="show-more-info" href="users/view-course.php?course_id={{course.id}}"> Course details </a>
-		</div>
 		{% endfor %}
 
 		<div class="modal-container">
