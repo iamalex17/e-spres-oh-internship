@@ -50,6 +50,15 @@ var APP = (function() {
 			$(this).closest('.dropDown').find('.change-icon').toggleClass('iconMinusMore');
 		});
 	}
+	
+	function loadFile() {
+			var reader = new FileReader();
+			reader.onload = function(){
+				var output = document.getElementById('output');
+				output.src = reader.result;
+			};
+			reader.readAsDataURL(event.target.files[0]);
+	}
 
 	return {
 		init: function() {
@@ -57,7 +66,7 @@ var APP = (function() {
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
-
+			$('.buttonAlign').on('change', '#buttonAddImage',loadFile);
 
 			$('#newPassword, #retypeNewPassword').on('keyup', checkIfPasswordsMatch);
 
@@ -98,6 +107,7 @@ var APP = (function() {
 				$(this).submit();
 			});
 		}
+
 	}
 
 }());
