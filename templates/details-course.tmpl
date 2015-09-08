@@ -34,6 +34,12 @@
 	<div class="topAccount">
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
+	{% if successMessage != ""%}
+		<div class="successMessageLogin successMessageExercise">
+			{{ successMessage }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
 
 	<!--Container-->
 
@@ -57,11 +63,6 @@
 				<span class="courseDetail alignment spacing">{{ course.description |raw }}</span>
 			</div>
 
-		{% if successMessage != ""%}
-			<div class="successMessage">
-				{{ successMessage }}
-			</div>
-		{% endif %}
 		{% if errorMessage != ""%}
 			<div class="errorMessage">
 				{{ errorMessage }}
