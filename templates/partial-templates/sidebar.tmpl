@@ -14,7 +14,7 @@
 	<nav class="reset">
 		{% if user_role == 1 %}
 		<ul class="reset">
-			{% if currentPage == '/e-spres-oh-internship/dashboard.php' %}
+			{% if currentPage == 'dashboard' %}
 				<li class="list-editor active-sidebar">
 			{% else %}
 				<li class="list-editor">
@@ -24,7 +24,7 @@
 				</a>
 			</li>
 
-			{% if currentPage == '/e-spres-oh-internship/admin/create-mentor.php' %}
+			{% if currentPage == 'create-mentor' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
 			<li class="list-editor">
@@ -34,7 +34,7 @@
 				</a>
 			</li>
 
-			{% if currentPage == '/e-spres-oh-internship/admin/create-intern.php' %}
+			{% if currentPage == 'create-intern' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
 			<li class="list-editor">
@@ -50,7 +50,7 @@
 		<li class="dropDown list-editor">
 			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
 			<ul class="subNav reset">
-				{% if currentPage == '/e-spres-oh-internship/dashboard.php' %}
+				{% if currentPage == 'dashboard' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -80,7 +80,7 @@
 		{% if user_role == 2 %}
 		
 		<ul class="reset">
-			{% if currentPage == '/e-spres-oh-internship/users/create-course.php' %}
+			{% if currentPage == 'create-course' %}
 				<li class="list-editor active-sidebar">
 			{% else %}
 				<li class="list-editor">
