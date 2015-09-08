@@ -117,9 +117,10 @@
 				<div class="clearfix"></div>
 			</div>
 		</form>
-
 		{% if page == 'edit' %}
 			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/create-exercise.php">
+		{% else %}
+			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise.php">
 			<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% endif %}
 			<div class="append-exercise">
