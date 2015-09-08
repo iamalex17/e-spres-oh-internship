@@ -83,6 +83,20 @@ var APP = (function() {
 				e.preventDefault();
 				$(this).closest('.successMessageLogin').fadeOut();
 			});
+
+			$('.buttonDelete').bind('click', function(e) {
+				e.preventDefault();
+				$idTest = $(this).attr('value');
+				$('.modal-container').bPopup({
+					closeClass: 'remodal-cancel',
+					modalClose: true
+				});
+				$('.remodal-confirm').attr('value', $idTest);
+			});
+
+			$('.remodal-confirm').on('click', function() {
+				$(this).submit();
+			});
 		}
 	}
 
