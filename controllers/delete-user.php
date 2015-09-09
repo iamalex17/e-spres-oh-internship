@@ -15,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 
+	$sql = 'DELETE FROM submitted_exercises WHERE user_id = :deletedUserID';
+	$valuesToBind = array('deletedUserID' => $deleteUser);
+	ConnectToDB::interogateDB($sql, $valuesToBind);
+
 	$sql = 'DELETE FROM `users` WHERE id = :deletedUserID';
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
