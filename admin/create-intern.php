@@ -23,10 +23,12 @@ if(isset($_SESSION['userToAdd'])) {
 	unset($_SESSION['userToAdd']);
 }
 
+
+
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates', 'create-intern.tmpl');
-	echo $template->render(array('id' => $user->id, 'last_name' => $user->last_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'userToAdd' => $userToAdd, 'path' => $path, 'currentPage' => $currentPage));
+	echo $template->render(array('id' => $user->id, 'first_name' => $user->first_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'userToAdd' => $userToAdd, 'path' => $path, 'currentPage' => $currentPage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }
