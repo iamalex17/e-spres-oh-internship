@@ -69,6 +69,9 @@
 		$status = 0;
 	}
 	if($user->username == '') {
+		$errorMessage .= "Username filed not completed properly.\n";
+		$status = 0;
+	} else {
 		$sql = 'SELECT username FROM `users` WHERE username = :username';
 		$valuesToBind = array('username' => $user->username);
 		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -76,8 +79,6 @@
 			$errorMessage .= "Username already exists.\n";
 			$status = 0;
 		}
-		$errorMessage .= "Username filed not completed properly.\n";
-		$status = 0;
 	}
 
 	if(strlen($user->password)< 8) {
