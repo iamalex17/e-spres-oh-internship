@@ -5,7 +5,7 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
 if(!User::verifySessionID()) {
-	header('Location: login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
