@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errorMessage = "Add a description to the course.\n";
 		$status = 0;
 	}
-	$sql = 'SELECT count(*) FROM `courses` WHERE title = :title AND id != :id';
+	$sql = 'SELECT count(*) FROM `courses` WHERE id != :id AND title = :title';
 	$valuesToBind = array('title' => $title, 'id' => $id);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	if($result[0][0]) {
@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		foreach ($presentors as $presentor) {
 			$sql = 'INSERT INTO `presentors` (course_id, presentor_id) VALUES (:course_id, :presentor_id)';
-			$valuesToBind = array('course_id' => $id, 'presentor_id' => $presentor);
+			$valuesToBind = array('course_id' => $id, 'presentor_id' => $presentor[0]);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
 		}
 

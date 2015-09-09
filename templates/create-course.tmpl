@@ -61,11 +61,11 @@
 		<div class="tab-content">
 
 		{% if page == 'edit' %}
-		<form id="tab1" class="tab active" method="POST" action ="{{ path }}/controllers/edit-a-course.php">
+		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/edit-a-course.php">
 		<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% else %}
 		
-		<form id="tab1" class="tab active" method="POST" action ="{{ path }}/controllers/create-a-course.php">
+		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/create-a-course.php">
 		{% set step = 2 %}
 		{% endif %}
 			<input type="hidden" value="{{ step }}" id="step">

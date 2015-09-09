@@ -49,15 +49,15 @@ if($_POST['textareas'] == '') {
 	$status = 0;
 }
 
-$sql = 'SELECT title FROM `courses`';
-$result = ConnectToDB::interogateDB($sql);
+$sql = 'SELECT title FROM `courses` WHERE title = :title';
+$valuesToBind = array('title' => $_POST['title']);
+$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 if(count($result)) {
 	if(strtolower($_POST['title']) == strtolower($result[0][0])) {
 		$errorMessage .= "A course with this name already exists\n";
 		$status = 0;
 	}
 }
-
 if($status == 0) {
 	$titleToAdd = $_POST['title'];
 	$descriptionToAdd = $_POST['textareas'];
