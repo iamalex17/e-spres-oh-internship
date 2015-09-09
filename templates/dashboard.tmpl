@@ -36,8 +36,9 @@
 	</div>
 
 	{% if errorMessage != ''%}
-		<div class="errorMessage message-align">
+		<div class="errorMessageContainer message-align">
 			{{ errorMessage|nl2br }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
 
