@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="{{ path }}css/default.css" />
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src ="{{ path }}js/signin.js"></script>
+	<script type="text/javascript" src ="{{ path }}js/app.js"></script>
 	<script src="https://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 	<script type="text/javascript" src ="{{ path }}js/tab.js"></script>
 	<!--Fonts-->
@@ -34,6 +34,12 @@
 	<div class="topAccount">
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
+	{% if successMessage != ""%}
+		<div class="successMessageLogin successMessageExercise">
+			{{ successMessage }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
 
 	<!--Container-->
 
@@ -57,11 +63,6 @@
 				<span class="courseDetail alignment spacing">{{ course.description |raw }}</span>
 			</div>
 
-		{% if successMessage != ""%}
-			<div class="successMessage">
-				{{ successMessage }}
-			</div>
-		{% endif %}
 		{% if errorMessage != ""%}
 			<div class="errorMessage">
 				{{ errorMessage }}

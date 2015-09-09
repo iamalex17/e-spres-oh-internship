@@ -13,7 +13,8 @@
 	vertical-align: top;
 }
 .courseList{
-	margin: 6% 0 0 21%;
+	margin: 6% 0 0 0;
+	padding-left: 21%;
 	width: 77%;
 	display:inline-block;
 }

@@ -139,6 +139,11 @@ button{
 	text-decoration: none;
 	color: #ffffff;
 }
+.successMessageLogin.successMessageExercise {
+	transform: none;
+	right:0;
+	top: 35px;
+}
 .otherMessage{
 	margin: 10px 9px 10px 8px;
 	padding: 5px 0 5px 20px;
