@@ -300,3 +300,6 @@
 	vertical-align: sub;
 	margin-right: 5px;
 }
+.course-solution-content{
+	overflow: scroll;
+}
