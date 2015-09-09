@@ -101,6 +101,10 @@ var APP = (function() {
 				e.preventDefault();
 				$(this).closest('.errorMessageContainer').fadeOut();
 			});
+			$('.errorMessageLogin').on('click', 'a', function (e) {
+				e.preventDefault();
+				$(this).closest('.errorMessageLogin').fadeOut();
+			});
 
 			$('.buttonDelete').bind('click', function(e) {
 				e.preventDefault();

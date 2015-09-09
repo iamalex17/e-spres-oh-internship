@@ -31,6 +31,14 @@
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
+
+	{% if errorMessage != ''%}
+		<div class="errorMessageLogin">
+			{{ errorMessage|nl2br }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
+
 	<div class="signIn">
 
 		<h1 class="mainHeader reset">Sign In</h1>
@@ -49,12 +57,6 @@
 				<span class="formBar"></span>
 				<label for="password">Password</label>
 			</div>
-
-			{% if errorMessage != ''%}
-				<div class="errorMessage">
-					{{ errorMessage|nl2br }}
-				</div>
-			{% endif %}
 			<button type="submit" id="buttonSignin" class="buttonSignIn" > Login <i class="iconParent iconLock"></i> </button>
 			<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="recoverRequest links-a">Recover Password</a>
 		</form>
