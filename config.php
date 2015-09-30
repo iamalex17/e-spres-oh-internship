@@ -8,7 +8,7 @@
 		$host = 'localhost';
 		$db = 'internship';
 		$user = 'root';
-		$pass = '';
+		$pass = 'root';
 		try {
 			$dbConnector = new ConnectToDB($host, $db, $user, $pass);
 		} catch (PDOException $e) {
@@ -35,6 +35,8 @@
 
 	$server = 'http://' . $_SERVER['SERVER_NAME'] . '/';
 	$path = $server . $additionalFolder;
+
+
 	$currentPage = explode('/', $_SERVER["SCRIPT_FILENAME"]);
 	$currentPage = $currentPage[count($currentPage)-1];
 	if(isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"])) {
