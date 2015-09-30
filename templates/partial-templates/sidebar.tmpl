@@ -20,10 +20,11 @@
 				<li class="list-editor">
 			{% endif%}
 				<a href='{{ path }}dashboard.php'>
-					<i class=" iconParent iconDashboard"></i> Dashboard 
+					<i class=" iconParent iconDashboard"></i> Dashboard
 				</a>
 			</li>
-
+		</ul>
+		<ul class="reset">
 			{% if currentPage == 'create-mentor.php' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
@@ -33,7 +34,8 @@
 					<i class=" iconParent iconPlus"></i> Create Mentor
 				</a>
 			</li>
-
+		</ul>
+		<ul class="reset">
 			{% if currentPage == 'create-intern.php' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
