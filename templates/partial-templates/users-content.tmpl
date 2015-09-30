@@ -50,7 +50,6 @@
 				{% endif %}
 
 				</div>
-
 				<div class="courseName">
 					{% for label in course.label %}
 						<span class="labelGrey alignment">{{ label }}</span>
@@ -58,7 +57,7 @@
 				</div>
 
 				<div class="courseContent">
-					<span class="courseDetail alignment">{{ course.description |raw }}</span>
+					<span class="courseDetail alignment">{{ course.description |length>100 ? course.description|slice(0, 190)|raw }}</span>
 				</div>
 
 				<h5 class="courseUserName">
