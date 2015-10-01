@@ -1,5 +1,11 @@
 /*Content*/
 /*Middle Content for Mentors and Interns*/
+
+.container-box-shadow {
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+}
 .mentorList{
 	margin: 5% 2% 5% 21%;
 	width: 38%;
@@ -21,32 +27,22 @@
 .existing-user-container {
 	border: 1px solid #d2d9d6;
 	margin-top: 10%;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .noUserMessage {
 	text-align: center;
 	background-color: #ffffff;
 }
-.existingMentor{
+.existingUser {
 	background-color: #ffffff;
 	border-bottom: 1px solid #d2d9d6;
 	padding-top: 5px;
 }
-.existingIntern{
-	background-color: #ffffff;
-	border-bottom: 1px solid #d2d9d6;
-	padding-top: 5px;
-}
+
 .existingCourse{
 	margin-top: 2%;
 	margin-bottom: 2%;
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .existingCourse.existingCourseDisplay {
 	padding: 10px;
@@ -56,9 +52,6 @@
 	margin-bottom: 2%;
 	background-color: #DEDEDE;
 	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .inactiveCourse.inactiveCourseDisplay {
 	padding: 10px;
@@ -68,9 +61,6 @@
 	margin-bottom: 2%;
 	background-color: #d6ffd5;
 	border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .existingExercise{
 	margin-top: 2%;
@@ -78,9 +68,6 @@
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
 	border-bottom: transparent;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 /*.exercise-details{
 	border-bottom: 1px solid #d2d9d6;
@@ -93,9 +80,6 @@
 	background-color: #ffffff;
 	border: 1px solid #e2e9e6;
 	border-bottom: transparent;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 
 .exercise-details.header {
@@ -220,9 +204,6 @@
 	background-color: #ffffff;
 	border: 1px solid #d2d9d6;
 	text-align: center;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
 .mainHeaderDashboard{
 	margin-top: 2%;

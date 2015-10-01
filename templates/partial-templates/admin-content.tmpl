@@ -18,13 +18,13 @@
 				<i class="fa fa-plus"></i >New Mentor
 			</a>
 		</div>
-		<div class="existing-user-container">
+		<div class="existing-user-container container-box-shadow">
 			<div class="noUserMessage">
 				{{ mentorMessage }}
 			</div>
 			{% for user in mentor %}
 			{% if user.status == 1 %}
-			<div class="existingMentor">
+			<div class="existingUser">
 				<div class="alignment">
 						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
 						<h5 class="emailAddress reset">{{ user.email }}</h5>
@@ -53,13 +53,13 @@
 		</div>
 
 
-		<div class="existing-user-container">
+		<div class="existing-user-container container-box-shadow">
 			<div class="noUserMessage">
 				{{ internMessage }}
 			</div>
 			{% for user in intern %}
 			{% if user.status == 1 %}
-			<div class="existingIntern">
+			<div class="existingUser">
 				<div class="alignment">
 						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
 						<h5 class="emailAddress reset">{{ user.email }}</h5>
