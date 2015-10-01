@@ -319,49 +319,28 @@ nav a:hover .iconPlus{
 	float: right;
 	margin-top:30px;
 }
-.button-save-course{
+.button-save {
 	width: auto;
 	height: auto;
 	background-color: #42a5f5;
-	margin-top: 10px;
 	padding: 8px 12px;
 	line-height: 1.4;
 	font-size: 13px;
 	color: #ffffff;
 	border-radius: 2px;
 	text-transform: uppercase;
-	display: block;
 	cursor:pointer;
+}
+.button-save-course{
+	margin-top: 10px;
+	display: block;
 }
 .button-save-exit-course{
-	width: auto;
-	height: auto;
-	background-color: #42a5f5;
 	margin-top: 10px;
 	margin-left: 10px;
-	padding: 8px 12px;
-	line-height: 1.4;
-	font-size: 13px;
-	color: #ffffff;
-	border-radius: 2px;
-	text-transform: uppercase;
 	display: block;
-	cursor:pointer;
 }
-.button-save-exercise{
-	width: auto;
-	height: auto;
-	background-color: #42a5f5;
-	padding: 8px 12px;
-	line-height: 1.4;
-	font-size: 13px;
-	color: #ffffff;
-	border-radius: 2px;
-	text-transform: uppercase;
-	display: inline-block;
-	cursor:pointer;
-	float: right;
-}
+
 .button-add-form{
 	border: 1px solid #efefef;
 	border-radius: 2px;
