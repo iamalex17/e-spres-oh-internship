@@ -259,47 +259,38 @@ button{
 	border-radius: 50%;
 	margin: 0;
 }
-.iconDashboard{
+
+.icon-small {
 	width: 14px;
 	height: 14px;
+}
+.iconDashboard{
 	background-position: -209px -10px;
 	margin-right: 10px;
 	margin-top: 5px;
 }
 .iconPlus{
-	width: 14px;
-	height: 14px;
 	background-position: -611px -10px;
 	margin-right: 10px;
 }
 .iconPlusMore{
-	width: 14px;
-	height: 14px;
 	background-position: -611px -10px;
 	float: right;
 	margin-top: 4px;
 }
 .iconMinus{
-	width: 14px;
-	height: 14px;
 	background-position: -543px -10px;
 	float: right;
 }
 .iconGraduation{
-	width: 14px;
-	height: 14px;
 	background-position: -373px -10px;
 	margin-right: 10px;
 }
 .iconText{
-	width: 14px;
-	height: 14px;
 	background-position: -713px -10px;
 	margin-right: 13px;
 }
 .iconMinusMore {
-	width: 14px;
-	height: 14px;
 	background-position: -543px -10px;
 	float: right;
 	margin-top: 4px;

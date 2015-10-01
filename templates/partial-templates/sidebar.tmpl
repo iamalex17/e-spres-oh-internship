@@ -20,7 +20,7 @@
 				<li class="list-editor">
 			{% endif%}
 				<a href='{{ path }}dashboard.php'>
-					<i class=" iconParent iconDashboard"></i> Dashboard
+					<i class=" iconParent icon-small iconDashboard"></i> Dashboard
 				</a>
 			</li>
 		</ul>
@@ -31,7 +31,7 @@
 			<li class="list-editor">
 			{% endif%}
 				<a href='{{ path }}admin/create-mentor.php'>
-					<i class=" iconParent iconPlus"></i> Create Mentor
+					<i class=" iconParent icon-small iconPlus"></i> Create Mentor
 				</a>
 			</li>
 		</ul>
@@ -42,7 +42,7 @@
 			<li class="list-editor">
 			{% endif %}
 				<a href='{{ path }}admin/create-intern.php'>
-					<i class=" iconParent iconPlus"></i> Create Intern
+					<i class=" iconParent icon-small iconPlus"></i> Create Intern
 				</a>
 			</li>
 		</ul>
@@ -55,7 +55,7 @@
 		{% else %}
 		<li class="dropDown list-editor">
 		{% endif %}
-			<a><i class=" iconParent iconGraduation"></i> Courses <i class=" iconParent iconPlusMore change-icon"></i></a>
+			<a><i class=" iconParent  icon-small iconGraduation"></i> Courses <i class=" iconParent icon-small iconPlusMore change-icon"></i></a>
 			<ul class="subNav reset">
 				{% if currentPage == 'dashboard.php' %}
 				<li class="sub-nav-list active-sidebar-sublist">
@@ -93,7 +93,7 @@
 				<li class="list-editor">
 			{% endif%}
 				<a href='{{ path }}users/create-course.php'>
-					<i class=" iconParent iconPlus"></i> Create Course
+					<i class=" iconParent icon-small iconPlus"></i> Create Course
 				</a>
 			</li>
 		</ul>
@@ -104,8 +104,8 @@
 		<li class="dropDown list-editor">
 		{% endif %}
 			<a>
-				<i class=" iconParent iconText"></i>Submitted Exercises
-				<i class=" iconParent iconPlusMore change-icon"></i>
+				<i class=" iconParent icon-small iconText"></i>Submitted Exercises
+				<i class=" iconParent icon-small iconPlusMore change-icon"></i>
 			</a>
 			<ul class="subNav reset">
 				{% if noExerciseMessage == '' %}
