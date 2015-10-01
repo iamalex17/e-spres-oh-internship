@@ -75,11 +75,6 @@ button{
 }
 .message-align{
 	margin-left: 50%;
-	/*border: 1px solid #d2d9d6;
-	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
-	background-color: #ffffff;*/
 }
 .errorMessage{
 	color: #FA3E3E;
@@ -219,12 +214,10 @@ button{
 	padding-left: 20px;
 }
 .fa-lock{
-	/*color: #42a5f5;*/
 	margin-right: 5px;
 	margin-left: 5px;
 }
 .fa-credit-card{
-	/*color: #adb3ba;*/
 	margin-right: 5px;
 }
 .fa-align-justify{
@@ -310,9 +303,7 @@ nav a:hover .iconDashboard{
 nav a:hover .iconPlus{
 	background-position: -645px -10px;
 }
-/*nav a:hover .iconPlusMore{
-	background-position: -645px -10px;
-}*/
+
 /*Button*/
 .button-placement{
 	display:inline-block;
@@ -344,9 +335,6 @@ nav a:hover .iconPlus{
 .button-add-form{
 	border: 1px solid #efefef;
 	border-radius: 2px;
-	/*-webkit-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	-moz-box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);
-	box-shadow: 1px 1px 9px 0px rgba(94,94,94,0.33);*/
 	background-color: #ffffff;
 	color: #444444;
 	font-size: 12px;
@@ -532,18 +520,9 @@ nav ul .active-sidebar > a {
 	.side-navigation{
 		width: 150px;
 	}
-	/*.courseList, .footer, .topAccount{
-		width: 800px;
-	}*/
-	/*.topAccountSection{
-		width: 150px;
-	}*/
 	.create-menu{
 		200px;
 	}
-	/*a, li, h1, h2, h3, h4, nav{
-		width: 150px;
-	}*/
 	.iconProfileUser{
 		width:100px;
 	}
@@ -561,9 +540,7 @@ nav ul .active-sidebar > a {
 	.create-menu{
 		50px;
 	}
-	/*a, li, h1, h2, h3, h4 nav{
-		width: 100px;*/
-	}
+
 }
 @media screen and (max-width: 524px) {
 	.side-navigation{
@@ -572,9 +549,6 @@ nav ul .active-sidebar > a {
 	.courseList, .footer, .topAccount{
 		width: 600px;
 	}
-	/*.topAccountSection{
-		width: 150px;
-	}*/
 	.create-menu{
 		200px;
 	}
@@ -642,12 +616,7 @@ nav ul .active-sidebar > a {
 	color: #42a5f5;
 	padding: 10px;
 }
-/*.decoration{
-	color: #42a5f5;
-}*/
-/*.decoration-inactive{
-	color: #adb3ba;
-}*/
+
 .category{
 	color: #2e2e2e;
 }

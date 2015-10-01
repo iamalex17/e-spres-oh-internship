@@ -68,9 +68,7 @@
 	border: 1px solid #d2d9d6;
 	border-bottom: transparent;
 }
-/*.exercise-details{
-	border-bottom: 1px solid #d2d9d6;
-}*/
+
 .exercise-responses{
 	margin-left: 4%;
 	width:95%;
@@ -131,9 +129,7 @@
 .courseDetail.solution-content {
 	padding: 15px;
 }
-/*.courseDetail.alignment > p {
-	font-size: 14px;
-}*/
+
 .alignment{
 	display: inline-block;
 }
