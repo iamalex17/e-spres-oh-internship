@@ -31,7 +31,7 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<button value = "{{ user.id }}" class="buttonDelete"><i class="fa fa-times"></i></button>
+					<button value = "{{ user.id }}" class="buttonDelete button-small"><i class="fa fa-times"></i></button>
 				</div>
 			</div>
 			{% endif %}
@@ -67,7 +67,7 @@
 
 				<div class="buttonAlignment">
 					<form data-remodal-target="modal" action="dashboard.php" method="POST" class="test">
-						<button name="delete_button" value="{{ user.id }}" class="buttonDelete" >
+						<button name="delete_button" value="{{ user.id }}" class="buttonDelete button-small" >
 						<i class="fa fa-times"></i></button>
 					</form>
 				</div>
