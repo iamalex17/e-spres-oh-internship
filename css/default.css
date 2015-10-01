@@ -195,13 +195,7 @@ button{
 	vertical-align: -webkit-baseline-middle;
 	vertical-align: -moz-middle-with-baseline;
 }
-.iconPlusButton{
-	width: 14px;
-	height: 14px;
-	background-position: -611px -10px;
-	display: inline-block;
-	margin-right: 10px;
-}
+
 .fa-plus{
 	margin-right: 5px;
 }
