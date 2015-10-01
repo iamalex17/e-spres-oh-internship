@@ -4,6 +4,11 @@ body{
 	margin: 0 auto;
 	margin-bottom: 3%;
 }
+.container-box-shadow {
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
+}
 .spacing > p{
 	margin:5px;
 }
