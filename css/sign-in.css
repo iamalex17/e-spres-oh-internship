@@ -21,6 +21,7 @@
 	line-height: 1.4;
 	cursor:pointer;
 	font-family: 'Roboto';
+	font-size: 15px;
 }
 .buttonSignIn:hover{
 	background-color: #0d89ed;
