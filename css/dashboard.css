@@ -247,16 +247,6 @@
 .remodal-cancel.remodal-button {
 	background-color: tomato;
 }
-.show-more-info{
-	float: right;
-	font-size: 14px;
-	text-decoration: none;
-	color: #42a5f5;
-}
-.show-more-info:hover{
-	color: #0c80df;
-	text-decoration: underline;
-}
 .courseUserName{
 	display: inline-block;
 	margin:0;

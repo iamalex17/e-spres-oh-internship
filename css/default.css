@@ -23,6 +23,16 @@ body{
 	font-family: 'Roboto';
 	font-size: 14px;
 }
+.link{
+	color: #42a5f5;
+	font-size: 13px;
+	text-decoration: none;
+	font-weight: 700;
+}
+.link:hover {
+	color: #0c80df;
+	text-decoration: underline;
+}
 .spacing > p{
 	margin:5px;
 }
