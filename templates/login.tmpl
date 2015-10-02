@@ -27,14 +27,14 @@
 
 	<!--SingIn-->
 	{% if successMessage != ''%}
-		<div class="successMessageLogin">
+		<div class="successMessageLogin message">
 			{{ successMessage }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
 
 	{% if errorMessage != ''%}
-		<div class="errorMessageLogin">
+		<div class="errorMessageLogin message">
 			{{ errorMessage|nl2br }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>

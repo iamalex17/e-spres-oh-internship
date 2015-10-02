@@ -38,14 +38,14 @@
 	</div>
 
 	{% if errorMessage != ''%}
-		<div class="errorMessageContainer message-align">
+		<div class="errorMessageContainer message message-align">
 			{{ errorMessage|nl2br }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
 
 	{% if successMessage != ''%}
-	<div class="successMessage message-align">
+	<div class="successMessage message message-align">
 		{{ successMessage }}
 		<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 	</div>
