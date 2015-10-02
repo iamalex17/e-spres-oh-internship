@@ -241,12 +241,10 @@ button{
 }
 .iconPlusMore{
 	background-position: -611px -10px;
-	float: right;
 	margin-top: 4px;
 }
 .iconMinus{
 	background-position: -543px -10px;
-	float: right;
 }
 .iconGraduation{
 	background-position: -373px -10px;
@@ -258,7 +256,6 @@ button{
 }
 .iconMinusMore {
 	background-position: -543px -10px;
-	float: right;
 	margin-top: 4px;
 }
 nav ul:hover .iconText{
