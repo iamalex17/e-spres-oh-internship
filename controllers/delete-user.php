@@ -2,7 +2,7 @@
 require_once '../config.php';
 require_once '../classes/class.user.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if(($request != 'dashboard.php') || ($_SESSION['user_role'] != 1)) {
@@ -28,5 +28,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 	exit();
 }
-
 ?>

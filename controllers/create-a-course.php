@@ -4,6 +4,11 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.course.php';
 require_once '../classes/class.user.php';
 
+$errorMessage = '';
+$successMessage = '';
+$status = 1;
+$_SESSION['course'] = $_POST;
+
 if(!User::verifySessionID()) {
 	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
@@ -13,9 +18,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 }
 
-$errorMessage = '';
-$successMessage = '';
-$status = 1;
 
 if(!isset($_POST['title'])) {
 	$_POST['title'] = trim($_POST['title']);
@@ -52,12 +54,14 @@ if($_POST['textareas'] == '') {
 $sql = 'SELECT title FROM `courses` WHERE title = :title';
 $valuesToBind = array('title' => $_POST['title']);
 $result = ConnectToDB::interogateDB($sql, $valuesToBind);
+
 if(count($result)) {
 	if(strtolower($_POST['title']) == strtolower($result[0][0])) {
 		$errorMessage .= "A course with this name already exists\n";
 		$status = 0;
 	}
 }
+
 if($status == 0) {
 	$titleToAdd = $_POST['title'];
 	$descriptionToAdd = $_POST['textareas'];
@@ -67,7 +71,6 @@ if(!empty($_POST['label'])) {
 	$label = implode(', ', $_POST['label']);
 }
 
-$_SESSION['course'] = $_POST;
 if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $label, 'textareas' => $_POST['textareas']);

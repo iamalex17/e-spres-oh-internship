@@ -1,10 +1,9 @@
 <?php
-
 require_once '../config.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
-	
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if($request != 'edit-profile.php') {
@@ -22,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$status = 0;
 	}
 
-	if ($status) {
+	if($status) {
 		$user = new User($_SESSION);
 		$user->last_name = trim($_POST['last_name']);
 		$user->first_name = trim($_POST['first_name']);

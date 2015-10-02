@@ -8,6 +8,7 @@ if(!User::verifySessionID()) {
 	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
 }
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
 	$errorMessage = '';
@@ -17,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$id = $_SESSION['course_id'];
 		unset($_SESSION['course_id']);
 	}
+
 	if(isset($_POST['title'])) {
 		$title = trim($_POST['title']);
 	} else if(isset($_SESSION['title'])) {
@@ -28,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errorMessage .= "Select a label: backend or frontend.\n";
 		$status = 0;
 	}
+
 	if(empty($_POST['mentor'])) {
 		$errorMessage .= "Choose at least one mentor.\n";
 		$status = 0;
@@ -54,6 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if($result[0][0]) {
 		$status = 0;
 	}
+
 	if($status == 1) {
 		$label = implode(', ', $_POST['label']);
 		$presentors = $_POST['mentor'];

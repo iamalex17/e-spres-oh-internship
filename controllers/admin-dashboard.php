@@ -1,10 +1,11 @@
 <?php
+$internMessage = '';
+$mentorMessage = '';
+
 if(isset($_SESSION['userToAdd'])) {
 	unset($_SESSION['userToAdd']);
 }
 
-$internMessage = '';
-$mentorMessage = '';
 $sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $mentor = ConnectToDB::interogateDB($sql);
 

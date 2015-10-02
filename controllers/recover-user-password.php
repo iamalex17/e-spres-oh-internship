@@ -1,38 +1,34 @@
 <?php
-	require_once '../config.php';
-	require_once '../classes/class.user.php';
-	require_once '../classes/class.connect-to-db.php';
+require_once '../config.php';
+require_once '../classes/class.user.php';
+require_once '../classes/class.connect-to-db.php';
 
 session_start();
 
-	$errorMessage = '';
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-		if($request != 'recover-password.php') {
-			exit();
-		}
-		if(isset($_POST['email'])) {
-			$email = trim($_POST['email']);
-			if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				$sql = 'SELECT * FROM `users` WHERE email = :email';
-				$valuesToBind = array('email' => $email);
-				$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-				if(count($result)) {
-					$link = generateRandomString($email);
-					$successMessage = 'An e-mail with recover details was sent to ' .$email ;
-					$_SESSION['successMessage'] = $successMessage;
-					header('Location: ' . $GLOBALS['path'] . 'login.php');
-					exit();
-				} else {
-					$successMessage = 'An e-mail with recover details was sent to ' .$email ;
-					$_SESSION['successMessage'] = $successMessage;
-					header('Location: ' . $GLOBALS['path'] . 'login.php');
-					exit();
-				}
+$errorMessage = '';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
+	if($request != 'recover-password.php') {
+		exit();
+	}
+
+	if(isset($_POST['email'])) {
+		$email = trim($_POST['email']);
+		if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$sql = 'SELECT * FROM `users` WHERE email = :email';
+			$valuesToBind = array('email' => $email);
+			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+			if(count($result)) {
+				$link = generateRandomString($email);
+				$successMessage = 'An e-mail with recover details was sent to ' .$email ;
+				$_SESSION['successMessage'] = $successMessage;
+				header('Location: ' . $GLOBALS['path'] . 'login.php');
+				exit();
 			} else {
-				$errorMessage = 'E-mail address is not valid.';
-				$_SESSION['errorMessage'] = $errorMessage;
-				header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
+				$successMessage = 'An e-mail with recover details was sent to ' .$email ;
+				$_SESSION['successMessage'] = $successMessage;
+				header('Location: ' . $GLOBALS['path'] . 'login.php');
 				exit();
 			}
 		} else {
@@ -41,7 +37,13 @@ session_start();
 			header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
 			exit();
 		}
+	} else {
+		$errorMessage = 'E-mail address is not valid.';
+		$_SESSION['errorMessage'] = $errorMessage;
+		header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
+		exit();
 	}
+}
 
 function generateRandomString($email) {
 	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -114,5 +116,4 @@ function get_current_url($strip = true) {
 	}
 	return 'http'. (($_SERVER['SERVER_PORT'] == '443') ? 's' : '').'://'. $_SERVER['SERVER_NAME'] . '/e-spres-oh-internship';
 }
-
 ?>

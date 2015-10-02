@@ -3,6 +3,13 @@ require_once '../config.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
+$errorMessage = '';
+$successMessage = '';
+$status = 1;
+$newPassword = $_POST['newPassword'];
+$retypePassword = $_POST['retypePassword'];
+$password = $_POST['oldPassword'];
+
 if(!User::verifySessionID()) {
 	header('Location: ' . $GLOBALS['path'] . 'login.php');
 	exit();
@@ -11,13 +18,6 @@ if(!User::verifySessionID()) {
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 }
-
-$errorMessage = '';
-$successMessage = '';
-$status = 1;
-$newPassword = $_POST['newPassword'];
-$retypePassword = $_POST['retypePassword'];
-$password = $_POST['oldPassword'];
 
 if(!isset($password)) {
 	$_POST['oldPassword'] = trim($_POST['oldPassword']);

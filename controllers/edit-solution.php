@@ -24,5 +24,6 @@ if((isset($_POST['exerciseContent'])) && !empty($_POST['exerciseContent'])) {
 	$errorMessage = "Please insert your solution.\n";
 	$_SESSION['errorMessage'] = $errorMessage;
 }
-	header('Location: ' . $GLOBALS['path'] . 'users/view-course.php?course_id=' . $_POST['course_id']);
+
+header('Location: ' . $GLOBALS['path'] . 'users/view-course.php?course_id=' . $_POST['course_id']);
 ?>

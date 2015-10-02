@@ -4,16 +4,21 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
 $step = 0;
 $course = '';
 $exercises = '';
 $successMessage = '';
 $exerciseStatus = '';
 $courseMentors = array();
+$noExerciseMessage = '';
+$errorMessage = '';
+$successMessage = '';
+
+if(!User::verifySessionID()) {
+	header('Location: ' . $GLOBALS['path'] . 'login.php');
+	exit();
+}
+
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
 	$course['description'] = $_SESSION['course']['textareas'];
@@ -29,13 +34,11 @@ if(isset($_SESSION['course'])) {
 	}
 }
 
-$noExerciseMessage = '';
-$errorMessage = '';
-$successMessage = '';
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
 	unset($_SESSION['errorMessage']);
 }
+
 if(isset($_SESSION['successMessage'])) {
 	$successMessage = $_SESSION['successMessage'];
 	unset($_SESSION['successMessage']);

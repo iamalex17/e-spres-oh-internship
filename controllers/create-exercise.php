@@ -55,5 +55,4 @@ if(isset($_POST['exerciseContent'])) {
 		header('Location:' . $path . 'users/create-course.php?course_id=' . $courseID);
 	}
 }
-
 ?>
