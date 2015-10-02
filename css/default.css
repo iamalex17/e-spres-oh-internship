@@ -140,7 +140,8 @@ button{
 	background-color: tomato;
 	border-radius: 2px;
 }
-.successMessage > a > .success-error-icon, .successMessageLogin > a > .success-error-icon, .errorMessageContainer > a > .success-error-icon, .errorMessageLogin > a > .success-error-icon{
+.successMessage > a > .success-error-icon, .successMessageLogin > a > .success-error-icon, 
+.errorMessageContainer > a > .success-error-icon, .errorMessageLogin > a > .success-error-icon{
 	margin-top: 1px;
 	margin-left: 15px;
 	display: inline-block;
@@ -186,8 +187,6 @@ button{
 	vertical-align: middle;
 }
 .iconDownArrow{
-	width: 14px;
-	height: 14px;
 	background-position: -311px -10px;
 	display: inline-block;
 	margin-right: 10px;
