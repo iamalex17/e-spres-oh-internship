@@ -63,6 +63,8 @@
 				<h5 class="courseUserName">
 				{% if haveMentors == 1 %}
 					Presented by {{ course.mentors }}
+				{% else %}
+					No mentors assigned to thie course
 				{% endif %}
 				</h5>
 
