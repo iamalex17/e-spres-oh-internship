@@ -9,6 +9,20 @@ body{
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+.button-blue {
+	width: auto;
+	height: auto;
+	background-color: #42a5f5;
+	padding: 8px 12px;
+	color: #ffffff;
+	border-radius: 2px;
+	text-transform: uppercase;
+	display: block;
+	line-height: 1.4;
+	cursor:pointer;
+	font-family: 'Roboto';
+	font-size: 14px;
+}
 .spacing > p{
 	margin:5px;
 }
@@ -280,21 +294,9 @@ nav a:hover .iconPlus{
 	float: right;
 	margin-top:30px;
 }
-.button-save {
-	width: auto;
-	height: auto;
-	background-color: #42a5f5;
-	padding: 8px 12px;
-	line-height: 1.4;
-	font-size: 13px;
-	color: #ffffff;
-	border-radius: 2px;
-	text-transform: uppercase;
-	cursor:pointer;
-}
+
 .button-save-course{
 	margin-top: 10px;
-	display: block;
 }
 .button-save-exit-course{
 	margin-top: 10px;
@@ -302,7 +304,7 @@ nav a:hover .iconPlus{
 	display: block;
 }
 
-.button-add-form{
+.button-gray {
 	border: 1px solid #efefef;
 	border-radius: 2px;
 	background-color: #ffffff;
@@ -316,33 +318,17 @@ nav a:hover .iconPlus{
 	display: inline-block;
 }
 .buttonSubmitUser{
-	height: auto;
-	background-color: #42a5f5;
 	margin-top: 10px;
-	padding: 8px 12px;
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	color: #ffffff;
-	border-radius: 2px;
-	text-transform: uppercase;
-	font-size: 13px;
-	line-height: 1.5;
-	display: block;
-	cursor:pointer;
 }
 
 .button-cancel{
-	padding: 7px 12px;
-	line-height: 1.5;
-	border-radius: 3px;
 	border: 1px solid #e7e7e7;
-	font-size: 13px;
 	color: #444444;
-	display: inline-block;
 	margin-right: 10px;
 	margin-top:9px;
-	cursor:pointer;
 	background-color: #efefef;
 }
 .button-small {
@@ -389,7 +375,7 @@ nav a:hover .iconPlus{
 	background-color: #d5d5d5;
 	border: 1px solid #c8c8c8;
 }
-.button-add-form:hover{
+.button-gray:hover{
 	background-color: #efefef;
 }
 .buttonSubmitUser:hover{

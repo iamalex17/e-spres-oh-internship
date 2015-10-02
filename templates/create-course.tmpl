@@ -114,8 +114,8 @@
 					<b class="label-name">Description</b><br>
 					<textarea name="textareas" class="mceEditor">{{ course.description }}</textarea>
 				</div>
-				<button type="submit" id="buttonSaveCourse" class="button-save button-save-course float-right" > Save </button>
-				<a href="{{ path }}dashboard.php" class="float-right button-cancel links-a uppercase">Cancel</a>
+				<button type="submit" id="buttonSaveCourse" class="button-blue button-save-course float-right" > Save </button>
+				<a href="{{ path }}dashboard.php" class="float-right button-cancel button-blue links-a">Cancel</a>
 				<div class="clearfix"></div>
 			</div>
 		</form>
@@ -128,7 +128,7 @@
 		{% endif %}
 			<div class="append-exercise">
 				<h4 class="exercise-number reset"><span class="exerciseNumberContainer"></span> Exercises</h4>
-				<a id="buttonAddExercise" class="button-save float-right" > Add exercise </a>
+				<a id="buttonAddExercise" class="button-blue float-right" > Add exercise </a>
 				<div class="clearfix"></div>
 				{% if exerciseStatus == 1 %}
 					{% for exercise in exercises %}
@@ -153,8 +153,8 @@
 						<div class="clearfix"></div>
 					</div>
 				{% endif %}
-				<button type="submit" id="buttonSaveExercise" class="button-save-course button-save float-left" > Save </button>
-				<button type="submit" id="buttonSaveExit" name="exit" class="button-save button-save-exit-course float-left" > Save &#38; Exit </button>
+				<button type="submit" id="buttonSaveExercise" class="button-save-course button-blue float-left" > Save </button>
+				<button type="submit" id="buttonSaveExit" name="exit" class="button-blue button-save-exit-course float-left" > Save &#38; Exit </button>
 				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
