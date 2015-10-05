@@ -110,7 +110,7 @@
 							{% if ok == 1 %}
 								<div class="alignment">
 									<h3 class="newUserName inline reset">{{ exercise.solution.description | raw}}</h3>
-									<a href="" class="buttonEdit edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
+									<a href="" class="buttonEdit button-small edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
 								</div>
 									<form action="{{ path }}controllers/edit-solution.php" method="POST">
 									<input type="hidden" name="course_id" value="{{ course.id }}">
