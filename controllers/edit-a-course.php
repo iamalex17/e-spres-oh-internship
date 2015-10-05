@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		foreach ($presentors as $presentor) {
 			$sql = 'INSERT INTO `presentors` (course_id, presentor_id) VALUES (:course_id, :presentor_id)';
-			$valuesToBind = array('course_id' => $id, 'presentor_id' => $presentor[0]);
+			$valuesToBind = array('course_id' => $id, 'presentor_id' => $presentor);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
 		}
 
