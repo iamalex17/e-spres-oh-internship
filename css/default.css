@@ -9,19 +9,30 @@ body{
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
-.button-blue {
+.button {
 	width: auto;
 	height: auto;
-	background-color: #42a5f5;
 	padding: 8px 12px;
-	color: #ffffff;
 	border-radius: 2px;
 	text-transform: uppercase;
+	text-align: center;
 	display: block;
 	line-height: 1.4;
 	cursor:pointer;
 	font-family: 'Roboto';
 	font-size: 14px;
+}
+
+.button-gray {
+	border: 1px solid #efefef;
+	background-color: #ffffff;
+	text-decoration: none;
+	color: #444444;
+	font-size: 12px;
+}
+.button-blue {
+	background-color: #42a5f5;
+	color: #ffffff;
 }
 .link{
 	color: #42a5f5;
@@ -63,10 +74,6 @@ body{
 form{
 	margin:0;
 	padding:0;
-}
-.links-a {
-	text-decoration: none;
-	color: inherit;
 }
 li {
 	margin-left: 18px;
@@ -314,19 +321,6 @@ nav a:hover .iconPlus{
 	display: block;
 }
 
-.button-gray {
-	border: 1px solid #efefef;
-	border-radius: 2px;
-	background-color: #ffffff;
-	color: #444444;
-	font-size: 12px;
-	text-align: center;
-	text-transform: uppercase;
-	cursor:pointer;
-	font-weight: 500;
-	padding: 8px 12px;
-	display: inline-block;
-}
 .buttonSubmitUser{
 	margin-top: 10px;
 	margin-bottom: 10px;
