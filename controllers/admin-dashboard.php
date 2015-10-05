@@ -9,10 +9,10 @@ if(isset($_SESSION['userToAdd'])) {
 $sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $mentor = ConnectToDB::interogateDB($sql);
 
-$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 0';
+$sql = 'SELECT * FROM `users` WHERE user_role = 2';
 $result = ConnectToDB::interogateDB($sql);
 
-if(count($result) != 0) {
+if(count($result) == 0) {
 	if(count($result) == count($mentor)) {
 		$mentor = NULL;
 		$mentorMessage .= 'No mentor to display yet.';
@@ -22,10 +22,10 @@ if(count($result) != 0) {
 $sql = 'SELECT * FROM `users` WHERE user_role = 3';
 $intern = ConnectToDB::interogateDB($sql);
 
-$sql = 'SELECT * FROM `users` WHERE user_role = 3 AND status = 0';
+$sql = 'SELECT * FROM `users` WHERE user_role = 3';
 $result = ConnectToDB::interogateDB($sql);
 
-if(count($result) != 0) {
+if(count($result) == 0) {
 	if(count($result) == count($intern)) {
 		$intern = NULL;
 		$internMessage .= 'No intern to display yet.';
