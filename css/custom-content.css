@@ -3,3 +3,6 @@ td, pre, p, ol, ul, li {
 	font-size:14px;
 	margin:5px;
 }
+a:visited {
+	color: #42a5f5;
+}
