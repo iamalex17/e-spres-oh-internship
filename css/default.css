@@ -40,6 +40,10 @@ body{
 	text-decoration: none;
 	font-weight: 700;
 }
+.links-a {
+	text-decoration: none;
+	color: inherit;
+}
 .link:hover {
 	color: #0c80df;
 	text-decoration: underline;
