@@ -26,7 +26,7 @@ if(!isset($_POST['title'])) {
 }
 
 if(empty($_POST['label'])) {
-	$errorMessage .= "Select a label: backend or frontend.\n";
+	$errorMessage .= "Select a label: Frontend, PHP or Java.\n";
 	$status = 0;
 }
 

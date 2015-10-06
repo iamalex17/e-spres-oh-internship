@@ -81,17 +81,23 @@
 					<b class="label-name">Labels</b><br>
 					<div class="course-label-container">
 						<input type="checkbox" name="label[]" value="Frontend" id="frontend" 
-						{% if course.label == 'Frontend' or (course.label == 'Frontend, Backend') %}
+						{% if course.label == 'Frontend' or (course.label == 'Frontend, PHP, Java' or (course.label == 'Frontend, PHP') or (course.label == 'Frontend, Java')) %}
 							checked 
 						{% endif %}
 						>
 						<label for="frontend">Frontend</label>
-						<input type="checkbox" name="label[]" value="Backend" id="backend" 
-						{% if (course.label == 'Backend') or (course.label == 'Frontend, Backend') %}
+						<input type="checkbox" name="label[]" value="PHP" id="php" 
+						{% if (course.label == 'PHP') or (course.label == 'Frontend, PHP, Java' or (course.label == 'Frontend, PHP') or (course.label == 'PHP, Java')) %}
 							checked 
 						{% endif %}
 						>
-						<label for="backend">Backend</label>
+						<label for="php">PHP</label>
+						<input type="checkbox" name="label[]" value="Java" id="java" 
+						{% if course.label == 'Java' or (course.label == 'Frontend, PHP, Java' or (course.label == 'PHP, Java') or (course.label == 'Frontend, Java')) %}
+							checked 
+						{% endif %}
+						>
+						<label for="java">Java</label>
 					</div>
 				</div>
 				<div class="description-create-course ">

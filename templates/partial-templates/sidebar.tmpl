@@ -73,12 +73,20 @@
 					<a href="{{ path }}dashboard.php?show=Frontend">Frontend</a>
 				</li>
 
-				{% if currentPage == 'dashboard.php?show=Backend' %}
+				{% if currentPage == 'dashboard.php?show=PHP' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
 				{% endif %}
-					<a href="{{ path }}dashboard.php?show=Backend">Backend</a>
+					<a href="{{ path }}dashboard.php?show=PHP">PHP</a>
+				</li>
+
+				{% if currentPage == 'dashboard.php?show=Java' %}
+				<li class="sub-nav-list active-sidebar-sublist">
+				{% else %}
+				<li class="sub-nav-list">
+				{% endif %}
+					<a href="{{ path }}dashboard.php?show=Java">Java</a>
 				</li>
 			</ul>
 		</li>
