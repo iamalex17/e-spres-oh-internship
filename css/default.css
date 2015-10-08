@@ -210,6 +210,9 @@ button{
 	vertical-align: -webkit-baseline-middle;
 	vertical-align: -moz-middle-with-baseline;
 }
+.fa-bell-o {
+	margin-right: 9px;
+}
 
 .fa-plus{
 	margin-right: 5px;

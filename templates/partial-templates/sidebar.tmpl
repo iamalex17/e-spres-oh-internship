@@ -46,6 +46,17 @@
 				</a>
 			</li>
 		</ul>
+		<ul class="reset">
+			{% if currentPage == 'pending-requests.php' %}
+			<li class="list-editor active-sidebar">
+			{% else %}
+			<li class="list-editor">
+			{% endif %}
+				<a href='#'>
+					<i class="fa fa-bell-o"></i> Pending Requests
+				</a>
+			</li>
+		</ul>
 		{% endif %}
 
 		{% if user_role != 1 %}
