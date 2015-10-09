@@ -105,14 +105,16 @@
 
 					<div class="course-label-container">
 						{% for user in mentor %}
-						<input type="checkbox" name="mentor[]" value="{{ user.id }}" id="{{ user.id }}"
-						{% for courseMentor in courseMentors %}
-							{% if user.id == courseMentor.id %}
-								checked
-							{% endif %}
-						{% endfor %}
-						>
-						<label for="{{ user.id }}">{{ user.last_name }} {{ user.first_name}}</label>
+						<span class="inline">
+							<input type="checkbox" name="mentor[]" value="{{ user.id }}" id="{{ user.id }}"
+							{% for courseMentor in courseMentors %}
+								{% if user.id == courseMentor.id %}
+									checked
+								{% endif %}
+							{% endfor %}
+							>
+							<label for="{{ user.id }}">{{ user.last_name }} {{ user.first_name}}</label>
+						</span>
 						{% endfor %}
 					</div>
 				</div>

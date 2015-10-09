@@ -860,7 +860,7 @@ input:-webkit-autofill {
 input[type="checkbox"] {
 	vertical-align: middle;
 }
-.course-label-container > label {
+.course-label-container label {
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
