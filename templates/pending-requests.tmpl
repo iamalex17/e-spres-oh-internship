@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+	<!--Styles-->
+	<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
+	<link rel="stylesheet" href="{{ path }}css/default.css" />
+	<!--Scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ path }}js/app.js"></script>
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!--Favicon-->
+	<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
+	<!--Font Awesome-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!--Templates-->
+	<meta charset="UTF-8">
+	<title>Create Mentor</title>
+</head>
+
+<body>
+
+	<!--pagina curenta-->
+	<div class="current-page">
+		{{ currentPage }}
+	</div>
+
+	<!--Sidebar-->
+	<div class="side-navigation">
+		{% include 'partial-templates/sidebar.tmpl' %}
+	</div>
+
+</body>
+</html>
