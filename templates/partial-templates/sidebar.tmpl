@@ -25,6 +25,17 @@
 			</li>
 		</ul>
 		<ul class="reset">
+			{% if currentPage == 'pending-requests.php' %}
+			<li class="list-editor active-sidebar">
+			{% else %}
+			<li class="list-editor">
+			{% endif %}
+				<a href='#'>
+					<i class="fa fa-bell-o"></i> Pending Requests
+				</a>
+			</li>
+		</ul>
+		<ul class="reset">
 			{% if currentPage == 'create-mentor.php' %}
 			<li class="list-editor active-sidebar">
 			{% else %}
@@ -43,17 +54,6 @@
 			{% endif %}
 				<a href='{{ path }}admin/create-intern.php'>
 					<i class=" iconParent icon-small iconPlus"></i> Create Intern
-				</a>
-			</li>
-		</ul>
-		<ul class="reset">
-			{% if currentPage == 'pending-requests.php' %}
-			<li class="list-editor active-sidebar">
-			{% else %}
-			<li class="list-editor">
-			{% endif %}
-				<a href='#'>
-					<i class="fa fa-bell-o"></i> Pending Requests
 				</a>
 			</li>
 		</ul>
