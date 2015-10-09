@@ -4,7 +4,7 @@ body{
 	margin: 0 auto;
 	margin-bottom: 3%;
 }
-.courseDetail a:visited, .course-exercise-content a:visited {
+.courseDetail a:visited, .course-exercise-content a:visited, .exercise-container a:visited {
 	color: #42a5f5;
 }
 .container-box-shadow {
