@@ -58,10 +58,13 @@
 				<span class="formBar"></span>
 				<label for="password">Password</label>
 			</div>
-			<button type="submit" id="buttonSignin" class="buttonSignIn button button-blue" > Login <i class="iconParent icon-small iconLock"></i> </button>
-			<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="link">Recover Password</a>
+			<button type="submit" id="buttonSignin" class="buttonSignIn button button-blue float-left" > Login <i class="iconParent icon-small iconLock"></i> </button>
 		</form>
-
+		<a href="" class="google-login button button-blue float-right">
+			Sign in
+			<i class="fa fa-google-plus-square fa-lg"></i>
+		</a>
+		<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="link clearfix">Recover Password</a>
 	</div>
 
 		<!--Footer-->

@@ -2,14 +2,12 @@
 .iconLock {
 	background-position: -509px -10px;
 	display: inline-block;
+	margin-left: 5px;
 }
 /*Button*/
 
 .buttonSignIn {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 10px 0 15px 30px;
 }
 .buttonSignIn:hover{
 	background-color: #0d89ed;
@@ -22,5 +20,21 @@
 	border: 1px solid #d2d9d6;
 	text-align: center;
 	padding: 20px 10px 10px 10px;
+}
+.signIn .google-login{
+	margin-right: 30px;
+	margin-top: 10px;
+	text-decoration: none;
+	background-color: #de4a33;
+
+}
+.google-login:hover {
+	background-color: #cf3c25;
+}
+.fa-google-plus-square {
+	margin-left: 5px;
+}
+.signIn .link {
+	display: block;
 }
 /*Input Design*/
