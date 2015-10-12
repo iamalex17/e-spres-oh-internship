@@ -12,6 +12,7 @@ body{
 	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.17);
 }
+
 .button {
 	width: auto;
 	height: auto;
@@ -269,7 +270,7 @@ button{
 .iconProfileUser{
 	background-color: transparent;
 	margin: 0;
-}
+} 
 
 .icon-small {
 	width: 14px;
@@ -933,3 +934,39 @@ input {
 .mce-primary:hover, .mce-primary:focus {
 	border-color: #CCC!important;
 }
+
+/*Pending Request page*/
+h1.reset {
+	font-size: 28px;
+	margin: 5% 0 0 34%;
+}
+
+.pending-container {
+	margin: 2% 0 0 34%;
+	background-color: #ffffff;
+	border: 1px solid #d2d9d6;
+	width: 51%
+}
+.pending-user {
+	background-color: inherit;
+	border-bottom: 1px solid #d2d9d6;
+	padding: 10px;
+}
+.pending-user > h2 {
+	color: #2b2b2b;
+	font-size: 20px;
+}
+
+.pending-user > h3 {
+	color: #a2a2a2;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
+

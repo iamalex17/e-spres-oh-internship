@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!--Templates-->
 	<meta charset="UTF-8">
-	<title>Create Mentor</title>
+	<title>Pending Requests</title>
 </head>
 
 <body>
@@ -34,6 +34,19 @@
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
+	<h1 class="reset">Pending Requests</h1>
+	<section class="pending-container container-box-shadow">
+		<div class="pending-user reset">
+			<h2 class="reset">Nume</h2>
+			<h3 class="reset">nume@gmail.com</h3>
+			<form method="POST" action="#">
+				<input type="radio" name="pending-request" value="accept" id="accept">
+				<label for="accept">Accept Request</label>
+				<input type="radio" name="pending-request" value="decline" id="decline">
+				<label for="decline">Decline Request</label>
+			</form>
+		</div>
+	</section>
 
 	<!--Footer-->
 	<div class="footer">
