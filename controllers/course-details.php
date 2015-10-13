@@ -46,5 +46,16 @@ if(count($exercises)) {
 }
 
 $template = loadTemplate('../templates','details-course.tmpl');
-echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
+
+if(isset($_SESSION['google_id'])) {
+	$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+	$valuesToBind = array('google_id' => $_SESSION['google_id']);
+	$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
+	$firstName = $userGoogle[0]['google_first_name'];
+	$profileImage = $userGoogle[0]['image'];
+	$role = $userGoogle[0]['user_role'];
+	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
+} else {
+	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
+}
 ?>
