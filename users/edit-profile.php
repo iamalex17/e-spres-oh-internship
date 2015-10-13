@@ -4,13 +4,10 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
+session_start();
+
 $errorMessage = '';
 $noExerciseMessage = '';
-
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
 
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
@@ -25,11 +22,22 @@ if(count($coursesWithExercises) == 0) {
 	$noExerciseMessage = 'No exercises to display';
 }
 
-try {
+if(isset($_SESSION['google_id'])) {
+	$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+	$valuesToBind = array('google_id' => $_SESSION['google_id']);
+	$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
+	$lastName = $userGoogle[0]['google_last_name'];
+	$firstName = $userGoogle[0]['google_first_name'];
+	$profileImage = $userGoogle[0]['image'];
+	$role = $userGoogle[0]['user_role'];
+}
+
+if(isset($_SESSION['google_id'])) {
+	$template = loadTemplate('../templates','edit-profile.tmpl');
+	echo $template->render(array('last_name' => $lastName, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'noExerciseMessage' => $noExerciseMessage));
+} else {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','edit-profile.tmpl');
 	echo $template->render(array('last_name' => $user->last_name, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'noExerciseMessage' => $noExerciseMessage));
-} catch (Exception $e) {
-	die('ERROR: ' . $e->getMessage());
 }
 ?>

@@ -22,20 +22,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	if($status) {
-		$user = new User($_SESSION);
-		$user->last_name = trim($_POST['last_name']);
-		$user->first_name = trim($_POST['first_name']);
-		$sql = 'UPDATE `users` SET first_name = :first_name, last_name = :last_name WHERE id = :id';
-		$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'id' => $user->id);
-		ConnectToDB::interogateDB($sql, $valuesToBind);
-		$successMessage = 'Your data has been successfully modified.';
-		if($_FILES['profile_image']['name'] != '') {
-			$errorMessage .= $user->addProfileImage();
+		if(isset($_SESSION['google_id'])) {
+			$lastName = trim($_POST['last_name']);
+			$firstName = trim($_POST['first_name']);
+			$sql = 'UPDATE `google_users` SET google_first_name = :first_name, google_last_name = :last_name WHERE google_id = :google_id';
+			$valuesToBind = array('last_name' => $lastName, 'first_name' => $firstName, 'google_id' => $_SESSION['google_id']);
+			ConnectToDB::interogateDB($sql, $valuesToBind);
+			$successMessage = 'Your data has been successfully modified.';
+			$_SESSION['successMessage'] = $successMessage;
+			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+			exit();
+		} else {
+			$user = new User($_SESSION);
+			$user->last_name = trim($_POST['last_name']);
+			$user->first_name = trim($_POST['first_name']);
+			$sql = 'UPDATE `users` SET first_name = :first_name, last_name = :last_name WHERE id = :id';
+			$valuesToBind = array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'id' => $user->id);
+			ConnectToDB::interogateDB($sql, $valuesToBind);
+			$successMessage = 'Your data has been successfully modified.';
+			if($_FILES['profile_image']['name'] != '') {
+				$errorMessage .= $user->addProfileImage();
+			}
+			$_SESSION = (array)$user;
+			$_SESSION['successMessage'] = $successMessage;
+			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+			exit();
 		}
-		$_SESSION = (array)$user;
-		$_SESSION['successMessage'] = $successMessage;
-		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
-		exit();
 	} else {
 		$errorMessage = "Please insert first name and/or last name.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
