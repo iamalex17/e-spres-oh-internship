@@ -936,7 +936,7 @@ input {
 }
 
 /*Pending Request page*/
-h1.reset {
+.pending-title {
 	font-size: 28px;
 	margin: 5% 0 0 34%;
 }

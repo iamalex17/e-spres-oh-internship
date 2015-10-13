@@ -21,6 +21,10 @@
 	text-align: center;
 	padding: 20px 10px 10px 10px;
 }
+.signIn span {
+	display: inline-block;
+	margin-top: 17px;
+}
 .signIn .google-login{
 	margin-right: 30px;
 	margin-top: 10px;
