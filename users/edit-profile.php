@@ -30,11 +30,12 @@ if(isset($_SESSION['google_id'])) {
 	$firstName = $userGoogle[0]['google_first_name'];
 	$profileImage = $userGoogle[0]['image'];
 	$role = $userGoogle[0]['user_role'];
+	$googleId = $userGoogle[0]['google_id'];
 }
 
 if(isset($_SESSION['google_id'])) {
 	$template = loadTemplate('../templates','edit-profile.tmpl');
-	echo $template->render(array('last_name' => $lastName, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'noExerciseMessage' => $noExerciseMessage));
+	echo $template->render(array('google_id' => $googleId, 'last_name' => $lastName, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'errorMessage' => $errorMessage, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'noExerciseMessage' => $noExerciseMessage));
 } else {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','edit-profile.tmpl');

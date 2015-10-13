@@ -34,8 +34,8 @@ if(isset($_SESSION['access_token'])) {
 	$lastName = $userGoogle[0]['google_last_name'];
 	$profileImage = $userGoogle[0]['image'];
 	$role = $userGoogle[0]['user_role'];
+	$googleId = $userGoogle[0]['google_id'];
 	$user = NULL;
-//	var_dump($_SESSION['google_id']);
 } else {
 	$sql = 'SELECT * FROM `users` WHERE session_id = :session_id';
 	$valuesToBind = array('session_id' => $_SESSION['session_id']);
