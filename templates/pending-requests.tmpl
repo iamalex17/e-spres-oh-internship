@@ -37,13 +37,18 @@
 	<h1 class="reset pending-title">Pending Requests</h1>
 	<section class="pending-container container-box-shadow">
 		<div class="pending-user reset">
-			<h2 class="reset">Nume</h2>
-			<h3 class="reset">nume@gmail.com</h3>
+			<div class="float-left">
+				<h2 class="reset">Nume</h2>
+				<h3 class="reset">nume@gmail.com</h3>
+			</div>
 			<form method="POST" action="#">
-				<input type="radio" name="pending-request" value="accept" id="accept">
-				<label for="accept">Accept Request</label>
-				<input type="radio" name="pending-request" value="decline" id="decline">
-				<label for="decline">Decline Request</label>
+				<div class="float-right">
+					<input type="radio" name="pending-request" value="accept" id="accept">
+					<label for="accept">Accept Request</label>
+					<input type="radio" name="pending-request" value="decline" id="decline">
+					<label for="decline">Decline Request</label>
+				</div>
+				<div class="clearfix"></div>
 			</form>
 		</div>
 	</section>
