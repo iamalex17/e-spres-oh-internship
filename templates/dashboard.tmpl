@@ -56,7 +56,7 @@
 		{% include 'partial-templates/admin-content.tmpl' %}
 	{% endif %}
 
-	{% if (user_role != 1) or (role != 1) %}
+	{% if user_role != 1 %}
 		{% include 'partial-templates/users-content.tmpl' %}
 	{% endif %}
 
