@@ -26,14 +26,14 @@
 	</div>
 
 	<!--SingIn-->
-	{% if successMessage != ''%}
+	{% if successMessage != '' %}
 		<div class="successMessageLogin message">
 			{{ successMessage }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
 
-	{% if errorMessage != ''%}
+	{% if errorMessage != '' %}
 		<div class="errorMessageLogin message">
 			{{ errorMessage|nl2br }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
@@ -60,12 +60,11 @@
 			</div>
 			<button type="submit" id="buttonSignin" class="buttonSignIn button button-blue float-left" > Login <i class="iconParent icon-small iconLock"></i> </button>
 		</form>
-		<form>
-			<button class="google-login button button-blue float-right">
-				Sign in
-				<i class="fa fa-google-plus-square fa-lg"></i>
-			</button>
-		</form>
+		<span>OR</span>
+		<a href="{{ login }}" class="google-login button button-blue float-right">
+			Sign in
+			<i class="fa fa-google-plus-square fa-lg"></i>
+		</a>
 		<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="link clearfix">Recover Password</a>
 	</div>
 

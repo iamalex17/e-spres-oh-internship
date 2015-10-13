@@ -1,5 +1,6 @@
 {
     "require": {
-        "sendgrid/sendgrid": "~3.2."
+        "sendgrid/sendgrid": "~3.2.",
+		"google/apiclient": "1.0.*@beta"
     }
 }
