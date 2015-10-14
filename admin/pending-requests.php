@@ -24,6 +24,7 @@ if(isset($_SESSION['errorMessage'])) {
 
 $sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role IS NULL';
 $pendingUsers = ConnectToDB::interogateDB($sql);
+$requests = count($pendingUsers);
 
 if(count($pendingUsers) == 0) {
 	$noRequests = "No users at the moment.\n";
@@ -32,7 +33,7 @@ if(count($pendingUsers) == 0) {
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates', 'pending-requests.tmpl');
-	echo $template->render(array('id' => $user->id, 'first_name' => $user->first_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'path' => $path, 'currentPage' => $currentPage, 'pendingUsers' => $pendingUsers, 'noRequests' => $noRequests));
+	echo $template->render(array('id' => $user->id, 'first_name' => $user->first_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'path' => $path, 'currentPage' => $currentPage, 'pendingUsers' => $pendingUsers, 'noRequests' => $noRequests, 'requests' => $requests));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }

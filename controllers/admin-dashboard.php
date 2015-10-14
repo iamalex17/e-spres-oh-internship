@@ -32,7 +32,6 @@ if(count($result) == 0) {
 	}
 }
 
-
 $sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role IS NULL';
 $pendingUsers = ConnectToDB::interogateDB($sql);
 $requests = count($pendingUsers);
