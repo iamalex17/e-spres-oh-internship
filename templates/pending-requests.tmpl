@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 	<!--Styles-->
 	<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
@@ -36,10 +36,14 @@
 
 	<h1 class="reset pending-title">Pending Requests</h1>
 	<section class="pending-container container-box-shadow">
+			<div class="noUserMessage">
+				{{ noRequests }}
+			</div>
+		{% for users in pendingUsers %}
 		<div class="pending-user reset">
 			<div class="float-left">
-				<h2 class="reset">Nume</h2>
-				<h3 class="reset">nume@gmail.com</h3>
+				<h2 class="reset">{{ users.google_first_name }} {{ users.google_last_name }}</h2>
+				<h3 class="reset">{{ users.google_email }}</h3>
 			</div>
 			<form method="POST" action="#">
 				<div class="float-right">
@@ -51,6 +55,7 @@
 				<div class="clearfix"></div>
 			</form>
 		</div>
+		{% endfor %}
 	</section>
 
 	<!--Footer-->
