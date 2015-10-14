@@ -445,6 +445,7 @@ nav a:hover .iconPlus{
 nav ul .active-sidebar > a {
 	background-color: #243342;
 	color: #ffffff;
+	position: relative;
 }
 .active-sidebar a .iconPlus{
 	background-position: -645px -10px;
@@ -969,6 +970,18 @@ input {
 	color: #a2a2a2;
 	font-size: 15px;
 	margin-top: 5px;
+}
+
+.request-number-wrapper {
+	position: absolute;
+	top: 6px;
+	left: 20px;
+	font-size: 14px;
+	background-color: tomato;
+	width: 16px;
+	padding: 1px;
+	text-align: center;
+	border-radius: 50%;
 }
 
 
