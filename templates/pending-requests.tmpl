@@ -53,6 +53,13 @@
 					<label for="decline">Decline Request</label>
 				</div>
 				<div class="clearfix"></div>
+				<section>
+					<p>Select a role for this user:</p>
+					<input type="radio" name="role" value="2" id="mentor">
+					<label for="mentor">Mentor</label>
+					<input type="radio" name="role" value="3" id="intern">
+					<label for="intern">Intern</label>
+				</section>
 			</form>
 		</div>
 		{% endfor %}
@@ -62,5 +69,6 @@
 	<div class="footer">
 		{% include 'partial-templates/footer.tmpl' %}
 	</div>
+
 </body>
 </html>
