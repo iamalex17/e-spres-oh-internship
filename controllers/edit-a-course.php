@@ -4,10 +4,7 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
@@ -27,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	if(empty($_POST['label'])) {
-		$errorMessage .= "Select a label: backend or frontend.\n";
+		$errorMessage .= "Select a label.\n";
 		$status = 0;
 	}
 
@@ -43,12 +40,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	if($title == '') {
-		$errorMessage = "Add a title to the course.\n";
+		$errorMessage .= "Add a title to the course.\n";
 		$status = 0;
 	}
 
 	if($_POST['textareas'] == '') {
-		$errorMessage = "Add a description to the course.\n";
+		$errorMessage .= "Add a description to the course.\n";
 		$status = 0;
 	}
 	$sql = 'SELECT count(*) FROM `courses` WHERE id != :id AND title = :title';

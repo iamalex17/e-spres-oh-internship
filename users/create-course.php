@@ -4,6 +4,8 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
+session_start();
+
 $step = 0;
 $course = '';
 $exercises = '';
@@ -13,11 +15,6 @@ $courseMentors = array();
 $noExerciseMessage = '';
 $errorMessage = '';
 $successMessage = '';
-
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
 
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
@@ -56,11 +53,6 @@ try {
 	$page = '';
 	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {
 		$page = 'edit';
-		$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-		if($request != 'dashboard.php' && $request != 'create-course.php') {
-			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
-			exit();
-		}
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
 		unset($_SESSION['course_id']);
 		$sql = 'SELECT * FROM `courses` WHERE id = :id';
@@ -90,11 +82,25 @@ try {
 		}
 	}
 
-	$user = new User($_SESSION);
-	$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
-	$mentor = ConnectToDB::interogateDB($sql);
 	$template = loadTemplate('../templates','create-course.tmpl');
-	echo $template->render(array('noExerciseMessage' => $noExerciseMessage, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage));
+
+	if(isset($_SESSION['google_id'])) {
+		$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
+		$mentor = ConnectToDB::interogateDB($sql);
+		$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+		$valuesToBind = array('google_id' => $_SESSION['google_id']);
+		$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
+		$firstName = $userGoogle[0]['google_first_name'];
+		$profileImage = $userGoogle[0]['image'];
+		$role = $userGoogle[0]['user_role'];
+		$googleId = $userGoogle[0]['google_id'];
+		echo $template->render(array('mentor' => $mentor, 'google_id' => $googleId, 'noExerciseMessage' => $noExerciseMessage, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage));
+	} else {
+		$user = new User($_SESSION);
+		$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
+		$mentor = ConnectToDB::interogateDB($sql);
+		echo $template->render(array('noExerciseMessage' => $noExerciseMessage, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage));
+	}
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
 }

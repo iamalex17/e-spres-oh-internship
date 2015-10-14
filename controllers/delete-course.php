@@ -2,11 +2,9 @@
 require_once '../config.php';
 require_once '../classes/class.user.php';
 
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if(!User::verifySessionID()) {
-		header('Location: ' . $GLOBALS['path'] . 'login.php');
-		exit();
-	}
 	$deleteCourse = $_POST['delete_course'];
 	$sql = 'UPDATE `courses` SET status = 0 WHERE id = :deletedCourseID';
 	$valuesToBind = array('deletedCourseID' => $deleteCourse);

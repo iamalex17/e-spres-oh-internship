@@ -4,15 +4,12 @@ require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.course.php';
 require_once '../classes/class.user.php';
 
+session_start();
+
 $errorMessage = '';
 $successMessage = '';
 $status = 1;
 $_SESSION['course'] = $_POST;
-
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
@@ -26,7 +23,7 @@ if(!isset($_POST['title'])) {
 }
 
 if(empty($_POST['label'])) {
-	$errorMessage .= "Select a label: Frontend, PHP or Java.\n";
+	$errorMessage .= "Select a label.\n";
 	$status = 0;
 }
 
