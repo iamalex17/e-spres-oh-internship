@@ -119,6 +119,11 @@ var APP = (function() {
 			$('.remodal-confirm').on('click', function() {
 				$(this).submit();
 			});
+
+			$('.pending-user').on('click', 'a', function(e) {
+				e.preventDefault();
+				$(this).closest('.pending-user').find('.select-role-wrapper').slideToggle();
+			}); 
 		}
 
 	}

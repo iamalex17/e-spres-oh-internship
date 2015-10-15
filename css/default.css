@@ -19,6 +19,7 @@ body{
 	padding: 8px 12px;
 	border-radius: 2px;
 	text-transform: uppercase;
+	text-decoration: none;
 	text-align: center;
 	display: block;
 	line-height: 1.4;
@@ -941,6 +942,9 @@ input {
 	font-size: 28px;
 	margin: 5% 0 0 34%;
 }
+.select-role-wrapper {
+	display: none;
+}
 
 .pending-container {
 	margin: 2% 0 0 34%;
@@ -953,8 +957,11 @@ input {
 	color: #2b2b2b;
 	margin-right: 25px;
 }
-.pending-container form div {
+.pending-container form section {
 	margin-top: 12px;
+}
+.pending-user .wrapper {
+	margin-bottom: 10px;
 }
 .pending-user {
 	background-color: inherit;
@@ -971,7 +978,9 @@ input {
 	font-size: 15px;
 	margin-top: 5px;
 }
-
+.pending-user .button-cancel {
+	margin-top: 5px;
+}
 .request-number-wrapper {
 	position: absolute;
 	top: 6px;
@@ -983,6 +992,11 @@ input {
 	padding: 1px;
 	text-align: center;
 	border-radius: 50%;
+}
+.pending-user section {
+	width: 50%;
+	margin: auto;
+	text-align: center;
 }
 
 
