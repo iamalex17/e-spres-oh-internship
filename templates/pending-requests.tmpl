@@ -37,11 +37,26 @@
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
+
+	{% if errorMessage != ''%}
+		<div class="errorMessage">
+			{{ errorMessage|nl2br }}
+		</div>
+	{% endif %}
+
+	{% if successMessage != ''%}
+	<div class="successMessage message">
+		{{ successMessage }}
+	</div>
+	{% endif %}
+
 	<h1 class="reset pending-title">Pending Requests</h1>
 	<section class="pending-container container-box-shadow">
+			{% if noRequests != '' %}
 			<div class="noUserMessage">
 				{{ noRequests }}
 			</div>
+			{% endif %}
 		{% for users in pendingUsers %}
 		<div class="pending-user reset">
 			<div class="float-left">
@@ -56,15 +71,15 @@
 			</section>
 			<div class="clearfix"></div>
 			<section class="select-role-wrapper">
-				<form action ="" method="POST">
+				<form action="{{ path }}controllers/accept-request.php" method="POST">
 					<div class="wrapper">
 						<p>Select a role for this user:</p>
-						<input type="radio" name="role" value="2" id="mentor">
+						<input type="radio" name="role" value="mentor" id="mentor">
 						<label for="mentor">Mentor</label>
-						<input type="radio" name="role" value="3" id="intern">
+						<input type="radio" name="role" value="intern" id="intern">
 						<label for="intern">Intern</label>
 					</div>
-					<button class="button button-blue center">Submit</button>
+					<button class="button button-blue center" name="accept_button" value="{{ users.google_id }}">Submit</button>
 				</form>
 			</section>
 		</div>
