@@ -22,7 +22,7 @@ if(isset($_SESSION['userToAdd'])) {
 	unset($_SESSION['userToAdd']);
 }
 
-$sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role IS NULL';
+$sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role = 0';
 $pendingUsers = ConnectToDB::interogateDB($sql);
 $requests = count($pendingUsers);
 

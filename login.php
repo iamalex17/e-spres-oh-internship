@@ -68,7 +68,7 @@ if(isset($authUrl)) {
 		exit();
 	} else {
 		$image = MD5($userGoogle->givenName) . '.jpg';
-		$statement = $mysqli->prepare("INSERT INTO `google_users` (`google_id`, `google_first_name`, `google_last_name`, `google_email`, `google_link`, `google_picture_link`, `image`, `status`, `user_role`) VALUES (?,?,?,?,?,?,?,0,NULL)");
+		$statement = $mysqli->prepare("INSERT INTO `google_users` (`google_id`, `google_first_name`, `google_last_name`, `google_email`, `google_link`, `google_picture_link`, `image`, `status`, `user_role`) VALUES (?,?,?,?,?,?,?,0,0)");
 		$statement->bind_param('issssss', $userGoogle->id, $userGoogle->givenName, $userGoogle->familyName, $userGoogle->email, $userGoogle->link, $userGoogle->picture, $image);
 		$statement->execute();
 		$content = file_get_contents($userGoogle->picture);
