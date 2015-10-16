@@ -28,8 +28,10 @@
 .signIn .google-login{
 	margin-right: 30px;
 	margin-top: 10px;
+	color: #ffffff;
 	text-decoration: none;
 	background-color: #de4a33;
+	border: 1px solid #de4a33;
 
 }
 .google-login:hover {
