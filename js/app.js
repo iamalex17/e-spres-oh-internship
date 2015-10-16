@@ -120,7 +120,7 @@ var APP = (function() {
 				$(this).submit();
 			});
 
-			$('.pending-user').on('click', 'a', function(e) {
+			$('.pending-user').on('click', '.accept', function(e) {
 				e.preventDefault();
 				$(this).closest('.pending-user').find('.select-role-wrapper').slideToggle();
 			}); 
