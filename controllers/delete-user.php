@@ -9,6 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 		exit();
 	}
+
 	$deleteUser = $_POST['delete_button'];
 
 	$sql = 'DELETE FROM presentors WHERE presentor_id = :deletedUserID';

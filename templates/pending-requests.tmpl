@@ -64,9 +64,7 @@
 				<h3 class="reset">{{ users.google_email }}</h3>
 			</div>
 			<section class="float-right">
-				<form method="POST" action="" class="inline">
-					<button class="button button-cancel links-a buttonDelete inline">Delete Request</button>
-				</form>
+				<a href="#" class="button button-cancel links-a buttonDelete inline" name="delete_button" value="{{ users.google_id }}">Delete Request</a>
 				<a href="#" class="button button-blue inline accept">Accept Request</a>
 			</section>
 			<div class="clearfix"></div>
@@ -98,7 +96,7 @@
 					Are you sure you want to delete this request?
 				</p>
 				<br>
-				<form action="controllers/delete-user.php" method="POST">
+				<form action="{{ path }}controllers/delete-request.php" method="POST">
 					<button class="remodal-confirm remodal-button" name="delete_button">Yes</button>
 					<button type="reset" class="remodal-cancel remodal-button">Cancel</button>
 				</form>
