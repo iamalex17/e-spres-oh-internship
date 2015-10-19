@@ -23,18 +23,16 @@
 				{{ mentorMessage }}
 			</div>
 			{% for user in mentor %}
-			{% if user.status == 1 %}
 			<div class="existingUser">
 				<div class="alignment">
-						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
-						<h5 class="emailAddress reset">{{ user.email }}</h5>
+						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }} {{ user.google_first_name }} {{ user.google_last_name }}</h3>
+						<h5 class="emailAddress reset">{{ user.email }} {{ user.google_email }}</h5>
 				</div>
 
 				<div class="buttonAlignment">
 					<button value = "{{ user.id }}" class="buttonDelete button-small"><i class="fa fa-times"></i></button>
 				</div>
 			</div>
-			{% endif %}
 			{% endfor %}
 		</div>
 
@@ -58,7 +56,6 @@
 				{{ internMessage }}
 			</div>
 			{% for user in intern %}
-			{% if user.status == 1 %}
 			<div class="existingUser">
 				<div class="alignment">
 						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
@@ -72,7 +69,6 @@
 					</form>
 				</div>
 			</div>
-			{% endif %}
 			{% endfor %}
 		</div>
 
