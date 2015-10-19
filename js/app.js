@@ -63,6 +63,19 @@ var APP = (function() {
 	return {
 		init: function() {
 
+			function updatePendingUsersId() {
+				var index = 0;
+				$('.pending-container').find('input').each(function() {
+					$(this).attr('id', index);
+					$(this).next('label').each(function() {
+						$(this).attr('for', index);
+					});
+					index+=1;
+				});
+			}
+
+			iteratePendingUsers();
+
 
 			$('form').find('input').each( keepInputFocusStyle );
 
@@ -106,6 +119,7 @@ var APP = (function() {
 				$(this).closest('.errorMessageLogin').fadeOut();
 			});
 
+			// delete button modal
 			$('.buttonDelete').bind('click', function(e) {
 				e.preventDefault();
 				$idTest = $(this).attr('value');
@@ -120,6 +134,7 @@ var APP = (function() {
 				$(this).submit();
 			});
 
+			//Show form to select role for user pending
 			$('.pending-user').on('click', '.accept', function(e) {
 				e.preventDefault();
 				$(this).closest('.pending-user').find('.select-role-wrapper').slideToggle();
