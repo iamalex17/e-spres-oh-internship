@@ -38,16 +38,18 @@
 	</div>
 
 
-	{% if errorMessage != ''%}
-		<div class="errorMessage">
-			{{ errorMessage|nl2br }}
+	{% if errorMessage != '' %}
+		<div class="errorMessageContainer message message-align">
+			{{ errorMessage }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
 	{% endif %}
 
-	{% if successMessage != ''%}
-	<div class="successMessage message">
-		{{ successMessage }}
-	</div>
+	{% if successMessage != '' %}
+		<div class="successMessage message message-align">
+			{{ successMessage }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
 	{% endif %}
 
 	<h1 class="reset pending-title">Pending Requests</h1>

@@ -19,7 +19,7 @@ if(isset($_SESSION['noRequests'])) {
 }
 
 if(isset($_SESSION['successMessage'])) {
-	$errorMessage = $_SESSION['successMessage'];
+	$successMessage = $_SESSION['successMessage'];
 	unset($_SESSION['successMessage']);
 }
 
@@ -39,7 +39,7 @@ if(count($pendingUsers) == 0) {
 try {
 	$user = new User($_SESSION);
 	$template = loadTemplate('../templates', 'pending-requests.tmpl');
-	echo $template->render(array('id' => $user->id, 'first_name' => $user->first_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'errorMessage' => $errorMessage, 'path' => $path, 'currentPage' => $currentPage, 'pendingUsers' => $pendingUsers, 'noRequests' => $noRequests, 'requests' => $requests, 'successMessage' => $successMessage));
+	echo $template->render(array('id' => $user->id, 'first_name' => $user->first_name, 'user_role' => $user->user_role, 'profile_image' => $user->profile_image, 'path' => $path, 'currentPage' => $currentPage, 'pendingUsers' => $pendingUsers, 'noRequests' => $noRequests, 'requests' => $requests, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
 } catch (Exception $e) {
 	die ('ERROR: ' . $e->getMessage());
 }

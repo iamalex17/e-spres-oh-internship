@@ -2,6 +2,8 @@
 require_once '../config.php';
 require_once '../classes/class.user.php';
 
+$successMessage = '';
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
