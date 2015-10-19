@@ -74,7 +74,7 @@ var APP = (function() {
 				});
 			}
 
-			iteratePendingUsers();
+			updatePendingUsersId();
 
 
 			$('form').find('input').each( keepInputFocusStyle );
