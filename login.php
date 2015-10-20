@@ -67,21 +67,34 @@ if(isset($authUrl)) {
 		header('Location: ' . $GLOBALS['path'] . 'login.php');
 		exit();
 	} else {
-		$image = MD5($userGoogle->givenName) . '.jpg';
-		$statement = $mysqli->prepare("INSERT INTO `google_users` (`google_id`, `google_first_name`, `google_last_name`, `google_email`, `google_link`, `google_picture_link`, `image`, `status`, `user_role`) VALUES (?,?,?,?,?,?,?,0,0)");
-		$statement->bind_param('issssss', $userGoogle->id, $userGoogle->givenName, $userGoogle->familyName, $userGoogle->email, $userGoogle->link, $userGoogle->picture, $image);
-		$statement->execute();
-		$content = file_get_contents($userGoogle->picture);
-		$fp = fopen("images/user-profile-images/" . MD5($userGoogle->givenName) . ".jpg", "w");
-		fwrite($fp, $content);
-		fclose($fp);
-		session_destroy();
-		session_unset();
-		session_start();
-		$GLOBALS['successMessage'] = "Thank you. Your account will be soon aproved by the admin!";
-		$_SESSION['successMessage'] = $GLOBALS['successMessage'];
-		header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-		exit();
+		$sql = 'SELECT email FROM `users` WHERE email = :email';
+		$valuesToBind = array('email' => $userGoogle->email);
+		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+		if(count($result)) {
+			session_destroy();
+			session_unset();
+			session_start();
+			$GLOBALS['errorMessage'] = "You already have an account with this email. Contact the admin for details, thank you!\n";
+			$_SESSION['errorMessage'] = $GLOBALS['errorMessage'];
+			header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+			exit();
+		} else {
+			$image = MD5($userGoogle->givenName) . '.jpg';
+			$statement = $mysqli->prepare("INSERT INTO `google_users` (`google_id`, `google_first_name`, `google_last_name`, `google_email`, `google_link`, `google_picture_link`, `image`, `status`, `user_role`) VALUES (?,?,?,?,?,?,?,0,0)");
+			$statement->bind_param('issssss', $userGoogle->id, $userGoogle->givenName, $userGoogle->familyName, $userGoogle->email, $userGoogle->link, $userGoogle->picture, $image);
+			$statement->execute();
+			$content = file_get_contents($userGoogle->picture);
+			$fp = fopen("images/user-profile-images/" . MD5($userGoogle->givenName) . ".jpg", "w");
+			fwrite($fp, $content);
+			fclose($fp);
+			session_destroy();
+			session_unset();
+			session_start();
+			$GLOBALS['successMessage'] = "Thank you. Your account will be soon aproved by the admin!";
+			$_SESSION['successMessage'] = $GLOBALS['successMessage'];
+			header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+			exit();
+		}
 	}
 }
 
