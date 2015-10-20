@@ -28,7 +28,7 @@ $(document).ready(function() {
 		$('#tab1').hide();
 	});
 
-
+	//initialize tinyMCE
 	initTinyMCE();
 
 	function initTinyMCE() {
@@ -54,11 +54,11 @@ $(document).ready(function() {
 		}
 	}
 
+	//add new exercise
 	$('#tab2').on('click', '#buttonAddExercise', function() {
 		var ta_count = $("textarea").length;
 		var elem = "<div class='description-create-course create-exercise exercise-container'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
 		$(elem).attr("id", ta_count.toString());
-		//$(elem).appendTo(".append-exercise");
 		$(elem).insertBefore("#buttonSaveExercise");
 
 		initTinyMCE();
