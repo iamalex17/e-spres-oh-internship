@@ -33,7 +33,7 @@ $pendingUsers = ConnectToDB::interogateDB($sql);
 $requests = count($pendingUsers);
 
 if(count($pendingUsers) == 0) {
-	$noRequests = "No users at the moment.";
+	$noRequests = "No requests at the moment.";
 }
 
 try {
