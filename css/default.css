@@ -228,6 +228,14 @@ button{
 	position: absolute;
 	top: 17px;
 }
+.fa.fa-check {
+	position: absolute;
+	top:20px;
+}
+.fa.fa-times.exercise{
+	position: absolute;
+	top:19px;
+}
 .submitted > .course-exercise-name > .user-margin {
 	position: relative;
 }
