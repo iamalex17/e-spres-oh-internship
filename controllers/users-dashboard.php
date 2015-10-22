@@ -16,7 +16,6 @@ $deletedCourses = ConnectToDB::interogateDB($sql);
 $sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
 
-
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
 	$course['description'] = $_SESSION['course']['textareas'];
@@ -33,11 +32,11 @@ if(isset($_SESSION['course_id'])) {
 
 if(isset($_GET['show'])) {
 	$label = $_GET['show'];
-	$sql = 'SELECT DISTINCT `courses`.* FROM `courses` LEFT JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 AND `label` LIKE :show';
+	$sql = 'SELECT DISTINCT `courses`.* FROM `courses` LEFT JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 AND `label` LIKE :show ORDER BY `id` DESC';
 	$valuesToBind = array('show' => '%'.$label.'%');
 	$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
 } else {
-	$sql = 'SELECT DISTINCT `courses`.* FROM `courses` LEFT JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1';
+	$sql = 'SELECT DISTINCT `courses`.* FROM `courses` LEFT JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 ORDER BY `id` DESC';
 	$courses = ConnectToDB::interogateDB($sql);
 }
 
