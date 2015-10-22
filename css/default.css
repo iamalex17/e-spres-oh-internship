@@ -224,9 +224,9 @@ button{
 .fa-plus{
 	margin-right: 5px;
 }
-.fa.fa-check {
+.fa.fa-hourglass-half {
 	position: absolute;
-	top: 20px;
+	top: 17px;
 }
 .submitted > .course-exercise-name > .user-margin {
 	position: relative;
