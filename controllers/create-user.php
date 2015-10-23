@@ -111,13 +111,6 @@ if(filter_var($user->email, FILTER_VALIDATE_EMAIL)) {
 		$errorMessage .= "Email already exists.\n";
 		$status = 0;
 	}
-	$sql = 'SELECT google_email FROM `google_users` WHERE google_email = :google_email';
-	$valuesToBind = array('google_email' => $user->email);
-	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-	if(count($result)){
-		$errorMessage .= "Email already exists.\n";
-		$status = 0;
-	}
 } else {
 	$errorMessage .= "Email is not valid.\n";
 	$status = 0;

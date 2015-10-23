@@ -24,10 +24,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$valuesToBind = array('deletedUserID' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 
-	$sql = 'DELETE FROM `google_users` WHERE google_id = :deletedUserID';
-	$valuesToBind = array('deletedUserID' => $deleteUser);
-	ConnectToDB::interogateDB($sql, $valuesToBind);
-
 	$successMessage = 'User succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
 	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
