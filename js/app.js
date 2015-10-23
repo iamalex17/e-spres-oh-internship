@@ -12,14 +12,12 @@ var APP = (function() {
 		} else if (emailAddress === "") {
 			$(".validEmail").text("Please enter an email address");
 		} else {
-			console.log("200 OK");
 			$(".validEmail").text("");
 		}
 	}
 
 	function checkIfPasswordsMatch() {
 		if ($('#retypeNewPassword').val() == $('#newPassword').val()) {
-			console.log('200 OK');
 			$(".passwordsStatus").text("");
 		} else {
 			$(".passwordsStatus").text("Passwords do not match");
