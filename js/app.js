@@ -118,9 +118,7 @@ var APP = (function() {
 				$(this).closest('.pending-user').find('.select-role-wrapper').slideToggle();
 			}); 
 		}
-
 	}
-
 }());
 
 $(document).ready(function() {
