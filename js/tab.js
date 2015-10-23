@@ -1,35 +1,21 @@
-$(document).ready(function() {
+var INTERACTION = (function() {
 
 	function incrementExerciseNumber() {
-
 		var $exerciseNumber = $('.exercise-container').length;
 		$('.exerciseNumberContainer').html($exerciseNumber);
 	}
 
-	incrementExerciseNumber();
+	function addExercise() {
+		$('#tab2').on('click', '#buttonAddExercise', function() {
+			var ta_count = $("textarea").length;
+			var elem = "<div class='description-create-course create-exercise exercise-container'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
+			$(elem).attr("id", ta_count.toString());
+			$(elem).insertBefore("#buttonSaveExercise");
 
-
-	$('.create-menu .tab-links a').on('click', function(e)  {
-		// Change/remove current tab to active
-		$(this).parent('li').addClass('active').siblings().removeClass('active').addClass('inactive');
-		e.preventDefault();
-	});
-
-	if($('#step').attr('value') == 2) {
-		$('#tab2-click').hide();
+			initTinyMCE();
+			incrementExerciseNumber();
+		});
 	}
-	$('#tab1-click').on('click', function(){
-		$('#tab1').show();
-		$('#tab2').hide();
-	});
-
-	$('#tab2-click').on('click', function(){
-		$('#tab2').show();
-		$('#tab1').hide();
-	});
-
-	//initialize tinyMCE
-	initTinyMCE();
 
 	function initTinyMCE() {
 		tinymce.init({
@@ -54,59 +40,81 @@ $(document).ready(function() {
 		}
 	}
 
-	//add new exercise
-	$('#tab2').on('click', '#buttonAddExercise', function() {
-		var ta_count = $("textarea").length;
-		var elem = "<div class='description-create-course create-exercise exercise-container'><textarea name='exerciseContent[]' class='mceEditor'></textarea></div>";
-		$(elem).attr("id", ta_count.toString());
-		$(elem).insertBefore("#buttonSaveExercise");
 
-		initTinyMCE();
-		incrementExerciseNumber();
-	});
+	return {
+		init: function() {
 
-	// Open/Close container for exercises from Submitted Exercises
-	$('.solutions-container').hide();
-	$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
-		e.preventDefault();
-		$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, changeOpenButtonText);
-	});
+			incrementExerciseNumber();
+			initTinyMCE();
+			addExercise();
 
-	// Open/Close for user solution from Submitted Exercises
-	$('.course-solution-content').hide();
-	$('.exercise-responses').on('click', '.buttonOpen', function(e){
-		e.preventDefault();
-		$(this).closest('.exercise-responses').find('.course-solution-content').slideToggle(300, changeOpenButtonText);
-	});
+			$('.create-menu .tab-links a').on('click', function(e)  {
+				// Change/remove current tab to active
+				$(this).parent('li').addClass('active').siblings().removeClass('active').addClass('inactive');
+				e.preventDefault();
+			});
 
-	$('.edit-exercise-container').hide();
-	$('.exercise-details.submitted').on('click', '.edit-exercise', function(e) {
-		e.preventDefault();
-		$(this).closest('.existingCourse').find('.edit-exercise-container').slideToggle();
-	});
-
-	$('.edit-solution-container').hide();
-	$('.submitted-exercise-container').on('click', '.edit-solution', function(e) {
-		e.preventDefault();
-		$(this).closest('.exercise-details').find('.edit-solution-container').slideToggle();
-	});
-
-	$('.submitted-exercise-container').hide();
-
-	$('.exercise-details').on('click', '.open-solution-content', function(e) {
-		e.preventDefault();
-		$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle(300, function() {
-			if ($(this).is(":visible")) {
-				$(this).prev().prev().find('.open-solution-content').text('Close');
-			} else {
-				$(this).prev().prev().find('.open-solution-content').text('Open');
+			if($('#step').attr('value') == 2) {
+				$('#tab2-click').hide();
 			}
-		});
-	});
+			$('#tab1-click').on('click', function(){
+				$('#tab1').show();
+				$('#tab2').hide();
+			});
 
-	// Hide/Show mce editor for create exercise
-	$('.create-exercise').hide();
-	$('.exercise-container').on('click', '.buttonEdit', function() {
-		$(this).closest('.exercise-container').find('.create-exercise').slideToggle();
-	});
+			$('#tab2-click').on('click', function(){
+				$('#tab2').show();
+				$('#tab1').hide();
+			});
+
+			// Open/Close container for exercises from Submitted Exercises
+			$('.solutions-container').hide();
+			$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
+				e.preventDefault();
+				$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, changeOpenButtonText);
+			});
+
+			// Open/Close for user solution from Submitted Exercises
+			$('.course-solution-content').hide();
+			$('.exercise-responses').on('click', '.buttonOpen', function(e){
+				e.preventDefault();
+				$(this).closest('.exercise-responses').find('.course-solution-content').slideToggle(300, changeOpenButtonText);
+			});
+
+			$('.edit-exercise-container').hide();
+			$('.exercise-details.submitted').on('click', '.edit-exercise', function(e) {
+				e.preventDefault();
+				$(this).closest('.existingCourse').find('.edit-exercise-container').slideToggle();
+			});
+
+			$('.edit-solution-container').hide();
+			$('.submitted-exercise-container').on('click', '.edit-solution', function(e) {
+				e.preventDefault();
+				$(this).closest('.exercise-details').find('.edit-solution-container').slideToggle();
+			});
+
+			$('.submitted-exercise-container').hide();
+
+			$('.exercise-details').on('click', '.open-solution-content', function(e) {
+				e.preventDefault();
+				$(this).closest('.exercise-details').find('.submitted-exercise-container').slideToggle(300, function() {
+					if ($(this).is(":visible")) {
+						$(this).prev().prev().find('.open-solution-content').text('Close');
+					} else {
+						$(this).prev().prev().find('.open-solution-content').text('Open');
+					}
+				});
+			});
+
+			// Hide/Show mce editor for create exercise
+			$('.create-exercise').hide();
+			$('.exercise-container').on('click', '.buttonEdit', function() {
+				$(this).closest('.exercise-container').find('.create-exercise').slideToggle();
+			});
+		}
+	}
+}()); 
+
+$(document).ready(function() {
+	INTERACTION.init();
 });
