@@ -491,15 +491,12 @@ nav ul .active-sidebar > a {
 	.side-navigation{
 		width: 150px;
 	}
-	.create-menu{
-		200px;
-	}
 	.iconProfileUser{
 		width:100px;
 	}
 }
 @media screen and (max-width: 758px) {
-	.side-navigation,{
+	.side-navigation{
 		width: 100px;
 	}
 	.courseList, .footer, .topAccount{
@@ -508,10 +505,6 @@ nav ul .active-sidebar > a {
 	.topAccountSection{
 		width: 150px;
 	}
-	.create-menu{
-		50px;
-	}
-
 }
 @media screen and (max-width: 524px) {
 	.side-navigation{
@@ -519,9 +512,6 @@ nav ul .active-sidebar > a {
 	}
 	.courseList, .footer, .topAccount{
 		width: 600px;
-	}
-	.create-menu{
-		200px;
 	}
 	a, li, h1, h2, h3, h4 nav{
 		width: 50px;
@@ -539,9 +529,6 @@ nav ul .active-sidebar > a {
 	}
 	.topAccountSection{
 		width: 150px;
-	}
-	.create-menu{
-		200px;
 	}
 	a, li, h1, h2, h3, h4, nav{
 		width: 30px;
