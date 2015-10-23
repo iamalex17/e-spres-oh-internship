@@ -62,21 +62,7 @@ var APP = (function() {
 
 	return {
 		init: function() {
-
-			function updatePendingUsersId() {
-				var index = 0;
-				$('.pending-container').find('input').each(function() {
-					$(this).attr('id', index);
-					$(this).next('label').each(function() {
-						$(this).attr('for', index);
-					});
-					index+=1;
-				});
-			}
-
-			updatePendingUsersId();
-
-
+			
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
