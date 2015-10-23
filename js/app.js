@@ -35,14 +35,8 @@ var APP = (function() {
 
 
 	function keepInputFocusStyle() {
-
 		var $this = $(this);
-
-		if( $this.val() ) {
-			$this.closest('.formInput').addClass('input-focus');
-		} else {
-			$this.closest('.formInput').removeClass('input-focus');
-		}
+		$(this).closest('.formInput').toggleClass('input-focus', $this.val() != "");
 	}
 
 	function showDropdownMenu() {
@@ -62,7 +56,7 @@ var APP = (function() {
 
 	return {
 		init: function() {
-			
+
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
