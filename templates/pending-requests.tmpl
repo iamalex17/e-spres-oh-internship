@@ -62,8 +62,8 @@
 		{% for users in pendingUsers %}
 		<div class="pending-user reset">
 			<div class="float-left">
-				<h2 class="reset">{{ users.google_first_name }} {{ users.google_last_name }}</h2>
-				<h3 class="reset">{{ users.google_email }}</h3>
+				<h2 class="reset">{{ users.first_name }} {{ users.last_name }}</h2>
+				<h3 class="reset">{{ users.email }}</h3>
 			</div>
 			<section class="float-right">
 				<a href="#" class="button button-cancel links-a buttonDelete inline" name="delete_button" value="{{ users.google_id }}">Delete Request</a>
