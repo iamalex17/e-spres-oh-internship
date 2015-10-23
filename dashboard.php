@@ -27,12 +27,14 @@ if(isset($_SESSION['course'])) {
 }
 
 if(isset($_SESSION['access_token'])) {
-	$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+	$sql = 'SELECT * FROM `users` WHERE google_id = :google_id';
 	$valuesToBind = array('google_id' => $_SESSION['google_id']);
 	$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
-	$firstName = $userGoogle[0]['google_first_name'];
-	$lastName = $userGoogle[0]['google_last_name'];
-	$profileImage = $userGoogle[0]['image'];
+	$id = $userGoogle[0]['id'];
+	$_SESSION['id'] = $id;
+	$firstName = $userGoogle[0]['first_name'];
+	$lastName = $userGoogle[0]['last_name'];
+	$profileImage = $userGoogle[0]['profile_image'];
 	$role = $userGoogle[0]['user_role'];
 	$googleId = $userGoogle[0]['google_id'];
 	$user = NULL;

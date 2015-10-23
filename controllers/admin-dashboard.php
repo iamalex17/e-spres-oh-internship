@@ -8,10 +8,6 @@ if(isset($_SESSION['userToAdd'])) {
 
 $sql = 'SELECT id,first_name,last_name,email
         FROM users
-        WHERE email NOT IN(SELECT google_email FROM google_users) AND status = 1 AND user_role = 2
-        UNION
-        SELECT google_id AS id,google_first_name as first_name,google_last_name AS last_name,google_email AS email
-        FROM google_users
         WHERE status = 1 AND user_role = 2';
 
 $mentor = ConnectToDB::interogateDB($sql);
@@ -23,10 +19,6 @@ if(count($mentor) == 0) {
 
 $sql = 'SELECT id,first_name,last_name,email
         FROM users
-        WHERE email NOT IN(SELECT google_email FROM google_users) AND status = 1 AND user_role = 3
-        UNION
-        SELECT google_id AS id,google_first_name as first_name,google_last_name AS last_name,google_email AS email
-        FROM google_users
         WHERE status = 1 AND user_role = 3';
 
 $intern = ConnectToDB::interogateDB($sql);
@@ -37,7 +29,7 @@ if(count($intern) == 0) {
 }
 
 
-$sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role = 0';
+$sql = 'SELECT * FROM `users` WHERE status = 0 AND user_role = 4';
 $pendingUsers = ConnectToDB::interogateDB($sql);
 $requests = count($pendingUsers);
 

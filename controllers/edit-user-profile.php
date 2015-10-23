@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if(isset($_SESSION['google_id'])) {
 			$lastName = trim($_POST['last_name']);
 			$firstName = trim($_POST['first_name']);
-			$sql = 'UPDATE `google_users` SET google_first_name = :first_name, google_last_name = :last_name WHERE google_id = :google_id';
+			$sql = 'UPDATE `users` SET first_name = :first_name, last_name = :last_name WHERE google_id = :google_id';
 			$valuesToBind = array('last_name' => $lastName, 'first_name' => $firstName, 'google_id' => $_SESSION['google_id']);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
 			$successMessage = 'Your data has been successfully modified.';

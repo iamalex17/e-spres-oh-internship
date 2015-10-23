@@ -28,7 +28,7 @@ if(isset($_SESSION['errorMessage'])) {
 	unset($_SESSION['errorMessage']);
 }
 
-$sql = 'SELECT * FROM `google_users` WHERE status = 0 AND user_role = 0';
+$sql = 'SELECT * FROM `users` WHERE status = 0 AND user_role = 4';
 $pendingUsers = ConnectToDB::interogateDB($sql);
 $requests = count($pendingUsers);
 

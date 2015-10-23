@@ -48,11 +48,11 @@ if(count($exercises)) {
 $template = loadTemplate('../templates','details-course.tmpl');
 
 if(isset($_SESSION['google_id'])) {
-	$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+	$sql = 'SELECT * FROM `users` WHERE google_id = :google_id';
 	$valuesToBind = array('google_id' => $_SESSION['google_id']);
 	$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
-	$firstName = $userGoogle[0]['google_first_name'];
-	$profileImage = $userGoogle[0]['image'];
+	$firstName = $userGoogle[0]['first_name'];
+	$profileImage = $userGoogle[0]['profile_image'];
 	$role = $userGoogle[0]['user_role'];
 	$googleId = $userGoogle[0]['google_id'];
 	echo $template->render(array('google_id' => $googleId, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
