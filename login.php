@@ -6,6 +6,7 @@ require_once 'vendors/Google/autoload.php';
 
 ini_set("allow_url_fopen", true);
 session_start();
+//session_unset();
 
 $errorMessage = '';
 $successMessage = '';
@@ -31,9 +32,17 @@ $service = new Google_Service_Oauth2($client);
 if(isset($_GET['code'])) {
 	$client->authenticate($_GET['code']);
 	$_SESSION['access_token'] = $client->getAccessToken();
+//	$tokens_decoded = json_decode($access_token);
+//	$refreshToken = $tokens_decoded->refresh_token;
+//	var_dump($refreshR)
 	header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 	exit();
 }
+
+//if($client->isAccessTokenExpired()) {
+//	echo 'Access Token Expired'; // Debug
+//	$client->refreshToken($_SESSION['access_token']);
+//}
 
 if(isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 	$client->setAccessToken($_SESSION['access_token']);
@@ -50,9 +59,9 @@ if(isset($authUrl)) {
 	if($mysqli->connect_error) {
 		die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
 	}
-	$result = $mysqli->query("SELECT COUNT(google_id) as usercount FROM google_users WHERE google_id=$userGoogle->id AND status = 1");
+	$result = $mysqli->query("SELECT COUNT(google_id) as usercount FROM users WHERE google_id=$userGoogle->id AND status = 1");
 	$user_count = $result->fetch_object()->usercount;
-	$result = $mysqli->query("SELECT COUNT(google_id) as notapproved FROM google_users WHERE google_id=$userGoogle->id AND status = 0");
+	$result = $mysqli->query("SELECT COUNT(google_id) as notapproved FROM users WHERE google_id=$userGoogle->id AND status = 0");
 	$not_approved = $result->fetch_object()->notapproved;
 	if($user_count) {
 //		redirect
@@ -80,9 +89,9 @@ if(isset($authUrl)) {
 			exit();
 		} else {
 			$image = MD5($userGoogle->givenName) . '.jpg';
-			$statement = $mysqli->prepare("INSERT INTO `google_users` (`google_id`, `google_first_name`, `google_last_name`, `google_email`, `google_link`, `google_picture_link`, `image`, `status`, `user_role`) VALUES (?,?,?,?,?,?,?,0,0)");
-			$statement->bind_param('issssss', $userGoogle->id, $userGoogle->givenName, $userGoogle->familyName, $userGoogle->email, $userGoogle->link, $userGoogle->picture, $image);
-			$statement->execute();
+			$sql = 'INSERT INTO `users` (`google_id`, `first_name`, `last_name`, `email`, `user_role`, `profile_image`, `google_picture_link`, `status`, `google_link`) VALUES (:google_id, :first_name, :last_name, :email, 4, :profile_image, :google_picture_link, 0, :google_link)';
+			$valuesToBind = array('google_id' => $userGoogle->id, 'first_name' => $userGoogle->givenName, 'last_name' => $userGoogle->familyName, 'email' => $userGoogle->email, 'profile_image' => $image, 'google_picture_link' => $userGoogle->picture, 'google_link' => $userGoogle->link);
+			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 			$content = file_get_contents($userGoogle->picture);
 			$fp = fopen("images/user-profile-images/" . MD5($userGoogle->givenName) . ".jpg", "w");
 			fwrite($fp, $content);
