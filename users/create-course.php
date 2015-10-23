@@ -85,19 +85,23 @@ try {
 	$template = loadTemplate('../templates','create-course.tmpl');
 
 	if(isset($_SESSION['google_id'])) {
-		$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
+		$sql = 'SELECT id,first_name,last_name,email
+                FROM users
+                WHERE status = 1 AND user_role = 2';
 		$mentor = ConnectToDB::interogateDB($sql);
-		$sql = 'SELECT * FROM `google_users` WHERE google_id = :google_id';
+		$sql = 'SELECT * FROM `users` WHERE google_id = :google_id';
 		$valuesToBind = array('google_id' => $_SESSION['google_id']);
 		$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
-		$firstName = $userGoogle[0]['google_first_name'];
-		$profileImage = $userGoogle[0]['image'];
+		$firstName = $userGoogle[0]['first_name'];
+		$profileImage = $userGoogle[0]['profile_image'];
 		$role = $userGoogle[0]['user_role'];
 		$googleId = $userGoogle[0]['google_id'];
 		echo $template->render(array('mentor' => $mentor, 'google_id' => $googleId, 'noExerciseMessage' => $noExerciseMessage, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage));
 	} else {
 		$user = new User($_SESSION);
-		$sql = 'SELECT * FROM `users` WHERE user_role = 2 AND status = 1';
+		$sql = 'SELECT id,first_name,last_name,email
+                FROM users
+                WHERE status = 1 AND user_role = 2';
 		$mentor = ConnectToDB::interogateDB($sql);
 		echo $template->render(array('noExerciseMessage' => $noExerciseMessage, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage));
 	}
