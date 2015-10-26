@@ -993,6 +993,12 @@ input {
 	margin-right: 10px;
 }
 
+.feedback-container {
+	padding: 15px;
+	border-bottom: 1px solid #e2e9e6;
+	color: #2b2b2b;
+}
+
 
 
 

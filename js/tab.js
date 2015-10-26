@@ -66,6 +66,13 @@ var INTERACTION = (function() {
 				$('#tab2').show();
 				$('#tab1').hide();
 			});
+			// Toggle Give feedback container
+			$('.feedback-container').hide();
+			$('.exercise-details').on('click', '.feedback-button', function(e) {
+				e.preventDefault();
+				$(this).closest('.exercise-responses').find('.feedback-container').slideToggle();
+
+			});
 
 			// Open/Close container for exercises from Submitted Exercises
 			$('.solutions-container').hide();
