@@ -228,7 +228,7 @@ button{
 	position: absolute;
 	top: 17px;
 }
-.fa.fa-check {
+.exercise-details .fa.fa-check {
 	position: absolute;
 	top:20px;
 }
@@ -988,15 +988,49 @@ input {
 	margin: auto;
 	text-align: center;
 }
-
 .fa.fa-street-view {
 	margin-right: 10px;
 }
-
+/* Feedback Section */
 .feedback-container {
 	padding: 15px;
-	border-bottom: 1px solid #e2e9e6;
+	border-top: 1px solid #e2e9e6;
 	color: #2b2b2b;
+}
+.feedback-container input[type="radio"] {
+	display: none;
+}
+.feedback-container label {
+	background-color: #ffffff;
+	color: #42a5f5;
+	margin-right: 20px;
+	margin-top: 15px;
+}
+.feedback-container button[type="submit"] {
+	margin-top: 15px;
+}
+.feedback-container input:checked + label {
+	background-color: #42a5f5;
+	color: #ffffff;
+}
+.feedback-container label:hover {
+	background-color: #ffffff;
+	color: #42a5f5;
+}
+.feedback-container .fa-check {
+	margin-right: 10px;
+}
+.feedback-container .fa-times{
+	display: inline-block;
+	margin-right: 10px;
+}
+.feedback-container .mce-tinymce.mce-panel {
+	width: 600px;
+}
+.feedback-container h4 {
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0;
 }
 
 

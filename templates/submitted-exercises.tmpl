@@ -84,18 +84,27 @@
 								<h3 class="newUserName reset">Solution from {{ solution.userName }}</h3>
 							</div>
 							<div class="buttonAlignment">
-								<a href="" class="buttonOpen button-solution links-a">Open</a>
-							</div>
-							<div class="buttonAlignment">
 								<a href="" class="button-solution feedback-button links-a">Give Feedback</a>
 							</div>
-						</div>
-						<div class="feedback-container">
-							<span>Lorem ipsum</span>
+							<div class="buttonAlignment">
+								<a href="" class="buttonOpen button-solution links-a">Open</a>
+							</div>
 						</div>
 						<div class="course-solution-content">
 							<span class="courseDetail alignment solution-content">{{ solution.description | raw }}</span>
 						</div>
+						<section class="feedback-container">
+							<form method="POST" action="">
+								<h4>Observations/Remarks</h4>
+								<textarea></textarea>
+								<input type="radio" name="solution-feedback" id="correct" value="">
+								<label for="correct" class="button button-blue float-left"><i class="fa fa-check"></i>Correct</label>
+								<input type="radio" name="solution-feedback" value="" id="incorrect">
+								<label for="incorrect" class="button button-blue float-left"><i class="fa fa-times"></i>Incorrect</label>
+								<button type="submit" class="button button-blue" >Submit</button>
+							</form>
+							<div class="clearfix"></div>
+						</section>
 
 					</div>
 					{% endfor %}
