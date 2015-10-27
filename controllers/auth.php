@@ -1,6 +1,7 @@
 <?php
 require_once '../config.php';
 
+
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
 	if($_GET['action'] == 'logout') {
 		logout();
@@ -22,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 function login() {
 	if(isset($_POST['username'])) {
 		session_start();
+		$errorMessage = '';
 		$_SESSION['username'] = $_POST['username'];
 		if(isset($_POST['password'])) {
 			$user = new User($_POST);
@@ -39,15 +41,15 @@ function login() {
 				header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 				exit();
 			} else {
-				$GLOBALS['errorMessage'] .= 'Username or password incorrect. Please, try again.';
-				$_SESSION['errorMessage'] = $GLOBALS['errorMessage'];
+				$errorMessage .= 'Username or password incorrect. Please, try again.';
+				$_SESSION['errorMessage'] = $errorMessage;
 				header('Location: ' . $GLOBALS['path'] . 'login.php');
 			}
 		} else {
-			$GLOBALS['errorMessage'] .= 'Please insert password.';
+			$errorMessage .= 'Please insert password.';
 		}
 	} else {
-		$GLOBALS['errorMessage'] .= 'Please insert username.';
+		$errorMessage .= 'Please insert username.';
 	}
 }
 
