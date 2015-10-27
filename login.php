@@ -24,6 +24,8 @@ $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
 $client->setRedirectUri($redirect_uri);
+$client->setAccessType("offline");
+$client->setApprovalPrompt("auto");
 $client->addScope("email");
 $client->addScope("profile");
 
@@ -32,17 +34,9 @@ $service = new Google_Service_Oauth2($client);
 if(isset($_GET['code'])) {
 	$client->authenticate($_GET['code']);
 	$_SESSION['access_token'] = $client->getAccessToken();
-//	$tokens_decoded = json_decode($access_token);
-//	$refreshToken = $tokens_decoded->refresh_token;
-//	var_dump($refreshR)
 	header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 	exit();
 }
-
-//if($client->isAccessTokenExpired()) {
-//	echo 'Access Token Expired'; // Debug
-//	$client->refreshToken($_SESSION['access_token']);
-//}
 
 if(isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 	$client->setAccessToken($_SESSION['access_token']);
@@ -64,7 +58,6 @@ if(isset($authUrl)) {
 	$result = $mysqli->query("SELECT COUNT(google_id) as notapproved FROM users WHERE google_id=$userGoogle->id AND status = 0");
 	$not_approved = $result->fetch_object()->notapproved;
 	if($user_count) {
-//		redirect
 		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
 		exit();
 	} elseif($not_approved) {
