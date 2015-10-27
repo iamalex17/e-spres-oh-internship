@@ -4,12 +4,9 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
-$solutionsMessage = '';
+session_start();
 
-if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
-	exit();
-}
+$solutionsMessage = '';
 
 $sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
@@ -44,9 +41,20 @@ if(isset($_GET['course_id'])) {
 		$exercise['solutions'] = $solutions;
 		$exercise['solutionsMessage'] = $solutionsMessage;
 	}
-	$user = new User($_SESSION);
 	$template = loadTemplate('../templates','submitted-exercises.tmpl');
-	echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+	if(isset($_SESSION['google_id'])) {
+		$sql = 'SELECT * FROM `users` WHERE google_id = :google_id';
+		$valuesToBind = array('google_id' => $_SESSION['google_id']);
+		$userGoogle = ConnectToDB::interogateDB($sql, $valuesToBind);
+		$firstName = $userGoogle[0]['first_name'];
+		$profileImage = $userGoogle[0]['profile_image'];
+		$role = $userGoogle[0]['user_role'];
+		$googleId = $userGoogle[0]['google_id'];
+		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+	} else {
+		$user = new User($_SESSION);
+		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+	}
 } else {
 	header('Location: ../dashboard.php');
 }
