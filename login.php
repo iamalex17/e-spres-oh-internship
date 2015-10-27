@@ -44,6 +44,10 @@ if(isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 	$authUrl = $client->createAuthUrl();
 }
 
+if($client->isAccessTokenExpired()) {
+	$authUrl = $client->createAuthUrl();
+}
+
 if(isset($authUrl)) {
 	$login = $authUrl;
 } else {
