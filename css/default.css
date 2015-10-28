@@ -1046,7 +1046,7 @@ input {
 	font-size: 18px;
 	margin: 10px 0;
 }
-.feedback-form {
+.feedback-container > div {
 	width: 60%;
 }
 
