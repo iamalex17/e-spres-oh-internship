@@ -96,7 +96,7 @@
 							{% elseif solutionStatus == 2 %}
 							<!--iconita daca e corect-->
 							<i class="fa fa-check"></i>
-							{% else %}
+							{% elseif solutionStatus == 3 %}
 							<!--iconita daca e incorect-->
 							<i class="fa fa-times"></i>
 							{% endif %}
@@ -107,7 +107,9 @@
 								<a href="" class="buttonOpen button-solution open-solution-content links-a">Open</a>
 							</div>
 							<div class="buttonAlignment">
+							{% if feedback != NULL and user_role == 3 %}
 								<a href="" class="button-solution feedback-button links-a">See Feedback</a>
+							{% endif %}
 							</div>
 							{% endif %}
 						</div>
