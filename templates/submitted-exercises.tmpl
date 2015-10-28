@@ -98,7 +98,11 @@
 								<h3 class="newUserName reset">Solution from {{ solution.userName }}</h3>
 							</div>
 							<div class="buttonAlignment">
+								{% if solution.feedback != '' %}
+								<a href="" class="button-solution feedback-button links-a">Edit Feedback</a>
+								{% else %}
 								<a href="" class="button-solution feedback-button links-a">Give Feedback</a>
+								{% endif %}
 							</div>
 							<div class="buttonAlignment">
 								<a href="" class="buttonOpen button-solution links-a">Open</a>
