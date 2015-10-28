@@ -1002,20 +1002,34 @@ input {
 }
 .feedback-container label {
 	background-color: #ffffff;
-	color: #42a5f5;
 	margin-right: 20px;
 	margin-top: 15px;
 }
+.feedback-container .correct, .feedback-container .correct:hover {
+	border: 1px solid #4DAF7C;
+	color: #4DAF7C;
+}
+.feedback-container .incorrect, .feedback-container .incorrect:hover {
+	color: tomato;
+	border: 1px solid tomato;
+}
+
+.feedback-container input:checked + .correct {
+	background-color: #4DAF7C;
+	color: #ffffff;
+}
+.feedback-container input:checked + .incorrect {
+	background-color: tomato;
+	color: #ffffff;
+}
 .feedback-container button[type="submit"] {
 	margin-top: 15px;
-}
-.feedback-container input:checked + label {
-	background-color: #42a5f5;
-	color: #ffffff;
+	margin-right: 10px;
+	float: right;
 }
 .feedback-container label:hover {
 	background-color: #ffffff;
-	color: #42a5f5;
+	color: initial;
 }
 .feedback-container .fa-check {
 	margin-right: 10px;
@@ -1031,6 +1045,9 @@ input {
 	font-weight: normal;
 	font-size: 18px;
 	margin: 10px 0;
+}
+.feedback-form {
+	width: 60%;
 }
 
 

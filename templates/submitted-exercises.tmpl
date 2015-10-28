@@ -94,18 +94,19 @@
 							<span class="courseDetail alignment solution-content">{{ solution.description | raw }}</span>
 						</div>
 						<section class="feedback-container">
-							<form method="POST" action="">
-								<h4>Observations/Remarks</h4>
-								<textarea></textarea>
-								<input type="radio" name="solution-feedback" id="correct" value="">
-								<label for="correct" class="button button-blue float-left"><i class="fa fa-check"></i>Correct</label>
-								<input type="radio" name="solution-feedback" value="" id="incorrect">
-								<label for="incorrect" class="button button-blue float-left"><i class="fa fa-times"></i>Incorrect</label>
-								<button type="submit" class="button button-blue" >Submit</button>
-							</form>
-							<div class="clearfix"></div>
+							<div class="feedback-form">
+								<form method="POST" action=""> 
+									<h4>Observations/Remarks</h4>
+									<textarea></textarea>
+									<input type="radio" name="solution-feedback" id="correct" value="">
+									<label for="correct" class="button button-blue correct float-left"><i class="fa fa-check"></i>Correct</label>
+									<input type="radio" name="solution-feedback" value="" id="incorrect">
+									<label for="incorrect" class="button button-blue incorrect float-left"><i class="fa fa-times"></i>Incorrect</label>
+									<button type="submit" class="button button-blue" >Submit</button>
+								</form>
+								<div class="clearfix"></div>
+							</div>
 						</section>
-
 					</div>
 					{% endfor %}
 					</div>
