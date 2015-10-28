@@ -52,9 +52,21 @@ var APP = (function() {
 			reader.readAsDataURL(event.target.files[0]);
 	}
 
+	function incrementInputId() {
+		var index = 0;
+		$('.feedback-container').find('input').each(function() {
+			$(this).attr('id', index);
+			$(this).next('label').each(function() {
+				$(this).attr('for', index);
+			});
+			index+=1;
+		});
+	}
+
 	return {
 		init: function() {
 
+			incrementInputId()
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
