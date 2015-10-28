@@ -7,12 +7,25 @@ require_once '../classes/class.user.php';
 session_start();
 
 $solutionsMessage = '';
+$errorMessage = '';
+$successMessage = '';
+
+if(isset($_SESSION['errorMessage'])) {
+	$errorMessage = $_SESSION['errorMessage'];
+	unset($_SESSION['errorMessage']);
+}
+
+if(isset($_SESSION['successMessage'])) {
+	$successMessage = $_SESSION['successMessage'];
+	unset($_SESSION['successMessage']);
+}
 
 $sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND `c`.status = 1';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
 
 if(isset($_GET['course_id'])) {
 	$courseID = $_GET['course_id'];
+	$_SESSION['course_id'] = $courseID;
 	$sql = 'SELECT * FROM `exercises` `e` WHERE `e`.course_id = :courseID';
 	$valuesToBind = array('courseID' => $courseID);
 	$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -50,10 +63,22 @@ if(isset($_GET['course_id'])) {
 		$profileImage = $userGoogle[0]['profile_image'];
 		$role = $userGoogle[0]['user_role'];
 		$googleId = $userGoogle[0]['google_id'];
-		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+		if(isset($_SESSION['successMessage'])) {
+			$successMessage = $_SESSION['successMessage'];
+		}
+		if(isset($_SESSION['errorMessage'])) {
+			$errorMessage = $_SESSION['errorMessage'];
+		}
+		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
 	} else {
 		$user = new User($_SESSION);
-		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage));
+		if(isset($_SESSION['successMessage'])) {
+			$successMessage = $_SESSION['successMessage'];
+		}
+		if(isset($_SESSION['errorMessage'])) {
+			$errorMessage = $_SESSION['errorMessage'];
+		}
+		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
 	}
 } else {
 	header('Location: ../dashboard.php');
