@@ -36,6 +36,20 @@
 		{% include 'partial-templates/top-account-section.tmpl' %}
 	</div>
 
+	{% if errorMessage != ''%}
+		<div class="errorMessageContainer message message-align">
+			{{ errorMessage|nl2br }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
+
+	{% if successMessage != '' %}
+		<div class="successMessage message message-align">
+			{{ successMessage|nl2br }}
+			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		</div>
+	{% endif %}
+
 	<!--Container-->
 
 	<div class="courseList">
@@ -94,12 +108,13 @@
 							<span class="courseDetail alignment solution-content">{{ solution.description | raw }}</span>
 						</div>
 						<section class="feedback-container">
-							<form method="POST" action="">
+							<form method="POST" action="{{ path }}controllers/verify-solution.php">
+								<input type="hidden" name="solution_id" value="{{ solution.id }}">
 								<h4>Observations/Remarks</h4>
-								<textarea></textarea>
-								<input type="radio" name="solution-feedback" id="correct" value="">
+								<textarea name="feedback"></textarea>
+								<input type="radio" name="solution-feedback" id="correct" value="2">
 								<label for="correct" class="button button-blue float-left"><i class="fa fa-check"></i>Correct</label>
-								<input type="radio" name="solution-feedback" value="" id="incorrect">
+								<input type="radio" name="solution-feedback" value="3" id="incorrect">
 								<label for="incorrect" class="button button-blue float-left"><i class="fa fa-times"></i>Incorrect</label>
 								<button type="submit" class="button button-blue" >Submit</button>
 							</form>
