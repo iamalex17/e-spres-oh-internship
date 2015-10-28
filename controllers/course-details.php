@@ -2,6 +2,8 @@
 $exercisesMessage = '';
 $successMessage = '';
 $errorMessage = '';
+$solutionStatus = '';
+$feedback = '';
 $course_id = $_GET['course_id'];
 
 if(isset($_SESSION['errorMessage'])) {
@@ -36,13 +38,13 @@ if(count($exercises)) {
 		if(count($solution)) {
 			$solution[0]['description'] = html_entity_decode($solution[0]['description']);
 			$exercise['solution'] = $solution[0];
+			$solutionStatus = $exercise['solution']['status'];
+			$feedback = $exercise['solution']['feedback'];
 		} else {
 			$solution = '';
 		}
 	}
 	$course['exercises'] = $exercises;
-	$solution = $exercise['solution']['status'];
-	$feedback = $exercise['solution']['feedback'];
 } else {
 	$exercisesMessage = 'No exercise at the moment.';
 }
@@ -57,8 +59,8 @@ if(isset($_SESSION['google_id'])) {
 	$profileImage = $userGoogle[0]['profile_image'];
 	$role = $userGoogle[0]['user_role'];
 	$googleId = $userGoogle[0]['google_id'];
-	echo $template->render(array('google_id' => $googleId, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'solution' => $solution, 'feedback' => $feedback));
+	echo $template->render(array('google_id' => $googleId, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'solutionStatus' => $solutionStatus, 'feedback' => $feedback));
 } else {
-	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'solution' => $solution, 'feedback' => $feedback));
+	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'solutionStatus' => $solutionStatus, 'feedback' => $feedback));
 }
 ?>

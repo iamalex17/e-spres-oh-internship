@@ -91,9 +91,9 @@
 					<div class="exercise-details submitted">
 						<div class="course-exercise-name">
 						<div class="alignment user-margin">
-							{% if user_role == 3 and ok == 1 and solution == 1 %}
+							{% if user_role == 3 and ok == 1 and solutionStatus == 1 %}
 							<i class="fa fa-hourglass-half"></i>
-							{% elseif solution == 2 %}
+							{% elseif solutionStatus == 2 %}
 							<!--iconita daca e corect-->
 							<i class="fa fa-check"></i>
 							{% else %}
@@ -117,7 +117,6 @@
 						</div>
 						<div class="submitted-exercise-container">
 							{% if ok == 1 %}
-								<!--FEEDBACK-ul!-->
 								<div class="alignment">
 									<h3 class="newUserName inline reset">{{ exercise.solution.description | raw}}</h3>
 									<a href="" class="buttonEdit button-small edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
@@ -144,7 +143,7 @@
 									</form>
 							{% endif %}
 						</div>
-						{% if user_role == 3 %}
+						{% if feedback != NULL and user_role == 3 %}
 						<section class="feedback-container">
 							<p>{{ feedback | raw }}</p>
 						</section>

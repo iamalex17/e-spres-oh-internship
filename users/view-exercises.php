@@ -54,7 +54,9 @@ if(isset($_GET['course_id'])) {
 		$exercise['solutions'] = $solutions;
 		$exercise['solutionsMessage'] = $solutionsMessage;
 	}
+
 	$template = loadTemplate('../templates','submitted-exercises.tmpl');
+
 	if(isset($_SESSION['google_id'])) {
 		$sql = 'SELECT * FROM `users` WHERE google_id = :google_id';
 		$valuesToBind = array('google_id' => $_SESSION['google_id']);
