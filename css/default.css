@@ -230,10 +230,12 @@ button{
 }
 .exercise-details .fa.fa-check {
 	position: absolute;
+	color: #4DAF7C;
 	top:20px;
 }
 .fa.fa-times.exercise{
 	position: absolute;
+	color: tomato;
 	top:19px;
 }
 .submitted > .course-exercise-name > .user-margin {

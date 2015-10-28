@@ -73,6 +73,10 @@ var INTERACTION = (function() {
 				$(this).closest('.exercise-responses').find('.feedback-container').slideToggle();
 
 			});
+			$('.exercise-details').on('click', '.feedback-button', function(e) {
+				e.preventDefault();
+				$(this).closest('.exercise-details').find('.feedback-container').slideToggle();
+			});
 
 			// Open/Close container for exercises from Submitted Exercises
 			$('.solutions-container').hide();

@@ -95,14 +95,19 @@
 							<i class="fa fa-hourglass-half"></i>
 							{% elseif solution == 2 %}
 							<!--iconita daca e corect-->
+							<i class="fa fa-check"></i>
 							{% else %}
 							<!--iconita daca e incorect-->
+							<i class="fa fa-times"></i>
 							{% endif %}
 							<h3 class="newUserName display reset"><a href="" class="links-a">Exercise {{ number }}</a></h3>
 						</div>
 							{% if user_role == 3 %}
 							<div class="buttonAlignment">
 								<a href="" class="buttonOpen button-solution open-solution-content links-a">Open</a>
+							</div>
+							<div class="buttonAlignment">
+								<a href="" class="button-solution feedback-button links-a">See Feedback</a>
 							</div>
 							{% endif %}
 						</div>
@@ -113,7 +118,6 @@
 						<div class="submitted-exercise-container">
 							{% if ok == 1 %}
 								<!--FEEDBACK-ul!-->
-								<p>{{ feedback | raw }}</p>
 								<div class="alignment">
 									<h3 class="newUserName inline reset">{{ exercise.solution.description | raw}}</h3>
 									<a href="" class="buttonEdit button-small edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
@@ -140,6 +144,11 @@
 									</form>
 							{% endif %}
 						</div>
+						{% if user_role == 3 %}
+						<section class="feedback-container">
+							<p>{{ feedback | raw }}</p>
+						</section>
+						{% endif %}
 					</div>
 					<div class="clearfix"></div>
 				</div>
