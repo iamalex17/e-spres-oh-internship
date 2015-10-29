@@ -38,12 +38,12 @@ function login() {
 				$valuesToBind = array('session_id' => session_id(), 'username' => $user->username);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
 				$_SESSION = (array)$user;
-				header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+				header('Location: ' . $GLOBALS['path'] . 'dashboard');
 				exit();
 			} else {
 				$errorMessage .= 'Username or password incorrect. Please, try again.';
 				$_SESSION['errorMessage'] = $errorMessage;
-				header('Location: ' . $GLOBALS['path'] . 'login.php');
+				header('Location: ' . $GLOBALS['path'] . 'login');
 			}
 		} else {
 			$errorMessage .= 'Please insert password.';
@@ -63,7 +63,7 @@ function logout() {
 	}
 	session_unset();
 	session_destroy();
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login');
 	exit();
 }
 ?>

@@ -11,7 +11,7 @@ $successMessage = '';
 $status = 1;
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if($status == 1) {
@@ -23,7 +23,7 @@ if($status == 1) {
 	$email = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$sendgrid_username = "internship-espresoh";
 	$sendgrid_password = "internship-project1";
-	$emailContent = "<h3>Hello there (:</h3> <p> Welcome! Looks like your account have been aproved by the admin. Excited? Well I hope so, you can enjoy all the mythy powers you have been granted as a intern. Your journey now begins.</p> <p>You can access the application now at http://esohintern.bucatzel.ro/login.php.</p> <h4>Enjoy and have a nice day!</h4> <h4>Ohh and...use your powers wisely! (:</h4>";
+	$emailContent = "<h3>Hello there (:</h3> <p> Welcome! Looks like your account have been aproved by the admin. Excited? Well I hope so, you can enjoy all the mythy powers you have been granted as a intern. Your journey now begins.</p> <p>You can access the application now at http://esohintern.bucatzel.ro/login.</p> <h4>Enjoy and have a nice day!</h4> <h4>Ohh and...use your powers wisely! (:</h4>";
 	$to = $email[0]['email'];
 	$from = 'lex.greenapple@gmail.com';
 	$sendgrid = new SendGrid($sendgrid_username, $sendgrid_password, array("turn_off_ssl_verification" => true));
@@ -38,11 +38,11 @@ if($status == 1) {
 	$response = $sendgrid->send($email);
 	$successMessage = "Role assigned!";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'admin/pending-requests.php');
+	header('Location: ' . $GLOBALS['path'] . 'admin/pending-requests');
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $GLOBALS['path'] . 'admin/pending-requests.php');
+	header('Location: ' . $GLOBALS['path'] . 'admin/pending-requests');
 	exit();
 }
 ?>

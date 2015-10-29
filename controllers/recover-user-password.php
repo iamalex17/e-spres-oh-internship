@@ -9,7 +9,7 @@ $errorMessage = '';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-	if($request != 'recover-password.php') {
+	if($request != 'recover-password') {
 		exit();
 	}
 
@@ -23,24 +23,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$link = generateRandomString($email);
 				$successMessage = 'An e-mail with recover details was sent to ' .$email ;
 				$_SESSION['successMessage'] = $successMessage;
-				header('Location: ' . $GLOBALS['path'] . 'login.php');
+				header('Location: ' . $GLOBALS['path'] . 'login');
 				exit();
 			} else {
 				$successMessage = 'An e-mail with recover details was sent to ' .$email ;
 				$_SESSION['successMessage'] = $successMessage;
-				header('Location: ' . $GLOBALS['path'] . 'login.php');
+				header('Location: ' . $GLOBALS['path'] . 'login');
 				exit();
 			}
 		} else {
 			$errorMessage = 'E-mail address is not valid.';
 			$_SESSION['errorMessage'] = $errorMessage;
-			header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
+			header('Location: ' . $GLOBALS['path'] . 'users/recover-password');
 			exit();
 		}
 	} else {
 		$errorMessage = 'E-mail address is not valid.';
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ' . $GLOBALS['path'] . 'users/recover-password.php');
+		header('Location: ' . $GLOBALS['path'] . 'users/recover-password');
 		exit();
 	}
 }
@@ -82,7 +82,7 @@ function send_link($string, $email){
 	$sendgrid_username = "internship-espresoh";
 	$sendgrid_password = "internship-project1";
 	$url = get_current_url();
-	$string = $GLOBALS['path'] . 'users/reset-password.php?link=' . $string;
+	$string = $GLOBALS['path'] . 'users/reset-password?link=' . $string;
 	$emailContent = "<h3>Hello there :(</h3> <p>Looks like your forgot your password, but no worries! We will help you!</p> <p>To recover your sign in creditentials access the following link: <a href=\"" . $string . "\">" . $string. "</a></p> <h4>Have an awesome day! :)</h4>";
 	$to = $email;
 	$from = 'andrei.g.csiki@gmail.com';

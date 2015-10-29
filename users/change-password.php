@@ -8,7 +8,7 @@ $errorMessage = '';
 $noExerciseMessage = '';
 
 if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login');
 	exit();
 }
 

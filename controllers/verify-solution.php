@@ -7,7 +7,7 @@ require_once '../classes/class.user.php';
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if(isset($_POST['solution-feedback'])) {
@@ -21,12 +21,12 @@ if(isset($_POST['solution-feedback'])) {
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Feedback has been sent successfully!";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises.php?course_id=' . $_SESSION['course_id']);
+	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
 	exit();
 } else {
 	$errorMessage = "Please, choose if the solution is correct or not.\n";
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises.php?course_id=' . $_SESSION['course_id']);
+	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
 	exit();
 }
 ?>

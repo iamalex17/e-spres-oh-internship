@@ -9,18 +9,18 @@
 	<ul class="reset">
 		{% if user_role != 1 %}
 		<li class="list-editor">
-			<a href="{{ path }}users/edit-profile.php" class="links-a">Edit Profile</a>
+			<a href="{{ path }}users/edit-profile" class="links-a">Edit Profile</a>
 		</li>
 		{% if google_id != NULL %}
 		<!--don't display the change password feature-->
 		{% else %}
 		<li class="list-editor">
-			<a href="{{ path }}users/change-password.php" class="links-a">Change Password</a>
+			<a href="{{ path }}users/change-password" class="links-a">Change Password</a>
 		</li>
 		{% endif %}
 		{% endif %}
 		<li class="list-editor">
-			<a href="{{ path }}controllers/auth.php?action=logout" class="links-a">Logout</a>
+			<a href="{{ path }}controllers/auth?action=logout" class="links-a">Logout</a>
 		</li>
 	</ul>
 </div>

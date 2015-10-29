@@ -19,7 +19,7 @@
 			{% else %}
 				<li class="list-editor">
 			{% endif%}
-				<a href='{{ path }}dashboard.php'>
+				<a href='{{ path }}dashboard'>
 					<i class=" iconParent icon-small iconDashboard"></i> Dashboard
 				</a>
 			</li>
@@ -30,7 +30,7 @@
 			{% else %}
 			<li class="list-editor">
 			{% endif %}
-				<a href='{{ path }}admin/pending-requests.php'>
+				<a href='{{ path }}admin/pending-requests'>
 					{% if requests == 0 %}
 					<!--hide counter-->
 					{% else %}
@@ -46,7 +46,7 @@
 			{% else %}
 			<li class="list-editor">
 			{% endif%}
-				<a href='{{ path }}admin/create-mentor.php'>
+				<a href='{{ path }}admin/create-mentor'>
 					<i class=" iconParent icon-small iconPlus"></i> Create Mentor
 				</a>
 			</li>
@@ -57,7 +57,7 @@
 			{% else %}
 			<li class="list-editor">
 			{% endif %}
-				<a href='{{ path }}admin/create-intern.php'>
+				<a href='{{ path }}admin/create-intern'>
 					<i class=" iconParent icon-small iconPlus"></i> Create Intern
 				</a>
 			</li>
@@ -78,7 +78,7 @@
 				{% else %}
 				<li class="sub-nav-list">
 				{% endif %}
-					<a href="{{ path }}dashboard.php">All</a>
+					<a href="{{ path }}dashboard">All</a>
 				</li>
 
 				{% if currentPage == 'dashboard.php?show=Frontend' %}
@@ -86,7 +86,7 @@
 				{% else %}
 				<li class="sub-nav-list">
 				{% endif %}
-					<a href="{{ path }}dashboard.php?show=Frontend">Frontend</a>
+					<a href="{{ path }}dashboard?show=Frontend">Frontend</a>
 				</li>
 
 				{% if currentPage == 'dashboard.php?show=PHP' %}
@@ -94,7 +94,7 @@
 				{% else %}
 				<li class="sub-nav-list">
 				{% endif %}
-					<a href="{{ path }}dashboard.php?show=PHP">PHP</a>
+					<a href="{{ path }}dashboard?show=PHP">PHP</a>
 				</li>
 
 				{% if currentPage == 'dashboard.php?show=Java' %}
@@ -102,7 +102,7 @@
 				{% else %}
 				<li class="sub-nav-list">
 				{% endif %}
-					<a href="{{ path }}dashboard.php?show=Java">Java</a>
+					<a href="{{ path }}dashboard?show=Java">Java</a>
 				</li>
 			</ul>
 		</li>
@@ -116,7 +116,7 @@
 			{% else %}
 				<li class="list-editor">
 			{% endif%}
-				<a href='{{ path }}users/create-course.php'>
+				<a href='{{ path }}users/create-course'>
 					<i class=" iconParent icon-small iconPlus"></i> Create Course
 				</a>
 			</li>
@@ -134,10 +134,10 @@
 			<ul class="subNav reset">
 				{% if noExerciseMessage == '' %}
 					{% for course in coursesWithExercises %}
-						<li class="sub-nav-list {% if currentPage == 'view-exercises.php?course_id=' ~ course.id %}
+						<li class="sub-nav-list {% if currentPage == 'view-exercises?course_id=' ~ course.id %}
 							active-sidebar-sublist
 						{% endif %}">
-							<a href="{{path}}users/view-exercises.php?course_id={{ course.id }}">
+							<a href="{{path}}users/view-exercises?course_id={{ course.id }}">
 								{{ course.title }}
 							</a>
 						</li>

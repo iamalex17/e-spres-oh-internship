@@ -11,12 +11,12 @@ $retypePassword = $_POST['retypePassword'];
 $password = $_POST['oldPassword'];
 
 if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login');
 	exit();
 }
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if(!isset($password)) {
@@ -66,11 +66,11 @@ if($status == 1) {
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Password changed succesfully!\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/change-password.php');
+	header('Location: ' . $GLOBALS['path'] . 'users/change-password');
 	exit();
 }
 ?>

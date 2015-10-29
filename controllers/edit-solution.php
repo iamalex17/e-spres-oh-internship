@@ -7,7 +7,7 @@ require_once '../classes/class.user.php';
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if((isset($_POST['exerciseContent'])) && !empty($_POST['exerciseContent'])) {
@@ -22,5 +22,5 @@ if((isset($_POST['exerciseContent'])) && !empty($_POST['exerciseContent'])) {
 	$_SESSION['errorMessage'] = $errorMessage;
 }
 
-header('Location: ' . $GLOBALS['path'] . 'users/view-course.php?course_id=' . $_POST['course_id']);
+header('Location: ' . $GLOBALS['path'] . 'users/view-course?course_id=' . $_POST['course_id']);
 ?>

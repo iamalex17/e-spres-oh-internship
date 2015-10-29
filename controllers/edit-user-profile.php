@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 			$successMessage = 'Your data has been successfully modified.';
 			$_SESSION['successMessage'] = $successMessage;
-			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+			header('Location: ' . $GLOBALS['path'] . 'dashboard');
 			exit();
 		} else {
 			$user = new User($_SESSION);
@@ -61,13 +61,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 			$_SESSION = (array)$user;
 			$_SESSION['successMessage'] = $successMessage;
-			header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+			header('Location: ' . $GLOBALS['path'] . 'dashboard');
 			exit();
 		}
 	} else {
 		$errorMessage = "Please insert first name and/or last name.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location: ' . $GLOBALS['path'] . 'users/edit-profile.php');
+		header('Location: ' . $GLOBALS['path'] . 'users/edit-profile');
 		exit();
 	}
 }
