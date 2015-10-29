@@ -107,9 +107,7 @@
 								<a href="" class="buttonOpen button-solution open-solution-content links-a">Open</a>
 							</div>
 							<div class="buttonAlignment">
-							{% if feedback != NULL and user_role == 3 %}
 								<a href="" class="button-solution feedback-button links-a">See Feedback</a>
-							{% endif %}
 							</div>
 							{% endif %}
 						</div>
@@ -144,9 +142,13 @@
 									</form>
 							{% endif %}
 						</div>
-						{% if feedback != NULL and user_role == 3 %}
+						{% if user_role == 3 %}
 						<section class="feedback-container">
+							{% if feedback != NULL %}
 							<p>{{ feedback | raw }}</p>
+							{% else %}
+							No feedback was given by the mentor
+							{% endif %}
 						</section>
 						{% endif %}
 					</div>
