@@ -26,7 +26,7 @@ $coursesWithExercises = ConnectToDB::interogateDB($sql);
 if(isset($_GET['course_id'])) {
 	$courseID = $_GET['course_id'];
 	$_SESSION['course_id'] = $courseID;
-	$sql = 'SELECT * FROM `exercises` `e` WHERE `e`.course_id = :courseID';
+	$sql = 'SELECT * FROM `exercises` `e` WHERE `e`.course_id = :courseID AND status = 1';
 	$valuesToBind = array('courseID' => $courseID);
 	$exercises = ConnectToDB::interogateDB($sql, $valuesToBind);
 	foreach ($exercises as &$exercise) {
