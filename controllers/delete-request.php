@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$deleteUser = $_POST['delete_button'];
 
-	$sql = 'DELETE FROM `google_users` WHERE google_id = :google_id';
+	$sql = 'DELETE FROM `users` WHERE google_id = :google_id';
 	$valuesToBind = array('google_id' => $deleteUser);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 
