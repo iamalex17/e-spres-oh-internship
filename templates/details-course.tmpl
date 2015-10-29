@@ -95,10 +95,10 @@
 							<i class="fa fa-hourglass-half"></i>
 							{% elseif solutionStatus == 2 %}
 							<!--iconita daca e corect-->
-							<i class="fa fa-check"></i>
+							<i class="fa fa-check fa-lg"></i>
 							{% elseif solutionStatus == 3 %}
 							<!--iconita daca e incorect-->
-							<i class="fa fa-times"></i>
+							<i class="fa fa-times fa-lg"></i>
 							{% endif %}
 							<h3 class="newUserName display reset"><a href="" class="links-a">Exercise {{ number }}</a></h3>
 						</div>
@@ -140,9 +140,7 @@
 										<textarea name="exerciseContent" class="mceEditor"></textarea>
 										<div class="clearfix"></div>
 									</div>
-									<button type="submit" id="buttonSaveExercise" class="button button-blue button-save-course float-left" > Submit </button>
-									<div class="clearfix"></div>
-									</form>
+									<button type="submit" id="buttonSaveExercise" class="button button-blue button-save-course float-left" > Submit </bu 		</form>
 							{% endif %}
 						</div>
 						{% if feedback != NULL and user_role == 3 %}
