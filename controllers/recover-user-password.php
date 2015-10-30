@@ -83,7 +83,7 @@ function send_link($string, $email){
 	$sendgrid_password = "internship-project1";
 	$url = get_current_url();
 	$string = $GLOBALS['path'] . 'users/reset-password.php?link=' . $string;
-	$emailContent = "<h3>Hello there :(</h3> <p>Looks like your forgot your password, but no worries! We will help you!</p> <p>To recover your sign in creditentials access the following link: <a href=\"" . $string . "\">" . $string. "</a></p> <h4>Have an awesome day! :)</h4>";
+	$emailContent = "<h3>Hello there</h3> <p>Looks like your forgot your password, but no worries! We will help you!</p> <p>To recover your sign in creditentials access the following link: <a href=\"" . $string . "\">" . $string. "</a></p> <h4>Have an awesome day! :)</h4>";
 	$to = $email;
 	$from = 'andrei.g.csiki@gmail.com';
 	$sendgrid = new SendGrid($sendgrid_username, $sendgrid_password, array("turn_off_ssl_verification" => true));
