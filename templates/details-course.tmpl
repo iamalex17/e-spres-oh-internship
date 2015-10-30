@@ -88,10 +88,16 @@
 				<div class="existingCourse-answer container-box-shadow">
 				{% endif %}
 
+					{% if exercise.solution.status == 2 %}
+					<div class="exercise-details submitted correct">
+					{% elseif exercise.solution.status == 3 %}
+					<div class="exercise-details submitted incorrect">
+					{% else %}
 					<div class="exercise-details submitted">
+					{% endif %}
 						<div class="course-exercise-name">
 						<div class="alignment user-margin">
-							{% if user_role == 3 and ok == 1 and solutionStatus == 1 %}
+							{% if user_role == 3 and ok == 1 and exercise.solution.status == 1 %}
 							<i class="fa fa-hourglass-half"></i>
 							{% elseif exercise.solution.status == 2 and ok == 1 and user_role == 3 %}
 							<i class="fa fa-check fa-lg"></i>
@@ -144,8 +150,12 @@
 						<section class="feedback-container">
 							{% if exercise.solution.feedback != NULL and ok == 1 %}
 							<p>{{ exercise.solution.feedback | raw }}</p>
+							{% elseif ok == 1 and exercise.solution.status == 2 %}
+								Your answer is correct
+							{% elseif ok == 1 and exercise.solution.status == 3 %}
+								Your answer is wrong
 							{% else %}
-								No feedback was given by the mentor
+								No feedback was given
 							{% endif %}
 						</section>
 						{% endif %}
