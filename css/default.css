@@ -694,7 +694,6 @@ nav ul li:hover > a{
 .formInput .formControl {
 	font-size: 1.23rem;
 	border: none;
-	line-height: 16px;
 	background-color: transparent;
 	box-shadow: none;
 	border-radius: 0;
