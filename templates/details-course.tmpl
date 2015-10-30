@@ -80,7 +80,7 @@
 			{% for exercise in course.exercises %}
 				{% set number = number +1 %}
 				
-				{% if exercise.solution == ''%}
+				{% if exercise.solution == '' %}
 					{% set ok = 0 %}
 				<div class="existingCourse container-box-shadow">
 				{% else %}
@@ -93,11 +93,9 @@
 						<div class="alignment user-margin">
 							{% if user_role == 3 and ok == 1 and solutionStatus == 1 %}
 							<i class="fa fa-hourglass-half"></i>
-							{% elseif solutionStatus == 2 %}
-							<!--iconita daca e corect-->
+							{% elseif exercise.solution.status == 2 and ok == 1 and user_role == 3 %}
 							<i class="fa fa-check fa-lg"></i>
-							{% elseif solutionStatus == 3 %}
-							<!--iconita daca e incorect-->
+							{% elseif exercise.solution.status == 3 and ok == 1 and user_role == 3 %}
 							<i class="fa fa-times fa-lg"></i>
 							{% endif %}
 							<h3 class="newUserName display reset"><a href="" class="links-a">Exercise {{ number }}</a></h3>
@@ -144,10 +142,10 @@
 						</div>
 						{% if user_role == 3 %}
 						<section class="feedback-container">
-							{% if feedback != NULL %}
-							<p>{{ feedback | raw }}</p>
+							{% if exercise.solution.feedback != NULL and ok == 1 %}
+							<p>{{ exercise.solution.feedback | raw }}</p>
 							{% else %}
-							No feedback was given by the mentor
+								No feedback was given by the mentor
 							{% endif %}
 						</section>
 						{% endif %}
