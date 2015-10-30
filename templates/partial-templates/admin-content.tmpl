@@ -12,7 +12,6 @@
 			<h2 class="category reset">Mentors</h2>
 			<h4 class="list reset">List of mentors</h4>
 		</div>
-
 		<div class="buttonAlignment">
 			<a href="admin/create-mentor" id="buttonNewMentor" class="button button-gray">
 				<i class="fa fa-plus"></i >New Mentor
@@ -28,29 +27,23 @@
 						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
 						<h5 class="emailAddress reset">{{ user.email }}</h5>
 				</div>
-
 				<div class="buttonAlignment">
 					<button value = "{{ user.id }}" class="buttonDelete button-small"><i class="fa fa-times"></i></button>
 				</div>
 			</div>
 			{% endfor %}
 		</div>
-
 	</div>
-
 	<div class="internList userList">
 		<div class="alignment">
 			<h2 class="category reset">Interns</h2>
 			<h4 class="list reset">List of interns</h4>
 		</div>
-
 		<div class="buttonAlignment">
 			<a href="admin/create-intern" id="buttonNewIntern" class="button button-gray">
 				<i class="fa fa-plus"></i>New Intern
 			</a>
 		</div>
-
-
 		<div class="existing-user-container container-box-shadow">
 			<div class="noUserMessage">
 				{{ internMessage }}
@@ -61,7 +54,6 @@
 						<h3 class="newUserName reset">{{ user.first_name }} {{ user.last_name }}</h3>
 						<h5 class="emailAddress reset">{{ user.email }}</h5>
 				</div>
-
 				<div class="buttonAlignment">
 					<form data-remodal-target="modal" action="dashboard" method="POST" class="test">
 						<button name="delete_button" value="{{ user.id }}" class="buttonDelete button-small" >
@@ -71,7 +63,6 @@
 			</div>
 			{% endfor %}
 		</div>
-
 		<div class="modal-container">
 			<div class="remodal">
 				<button type="reset" class="remodal-cancel button-x float-right">X</button>
