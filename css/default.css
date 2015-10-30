@@ -542,6 +542,7 @@ nav ul .active-sidebar > a {
 }
 .solutions-container{
 	padding-bottom:10px;
+	border-top: 1px solid #e2e9e6;
 }
 .topProfile{
 	background-color: #42a5f5;
@@ -911,8 +912,9 @@ input {
 	display: block;
 }
 .submitted-exercise-container{
-	padding: 10px;
+	padding: 10px 30px;
 	overflow: scroll;
+	border-top: 1px solid #e2e9e6;
 }
 .submitted-exercise-container > .alignment {
 	width: 100%;
@@ -996,7 +998,8 @@ input {
 }
 /* Feedback Section */
 .feedback-container {
-	padding: 15px;
+	padding: 15px 30px;
+	font-size: 14px;
 	border-top: 1px solid #e2e9e6;
 	color: #2b2b2b;
 }
