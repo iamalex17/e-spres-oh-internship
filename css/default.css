@@ -919,7 +919,8 @@ input {
 	width: 100%;
 }
 .submitted-exercise-container > .alignment > .edit-solution {
-	margin-top: 10px;
+	margin-top: 6px;
+	margin-right: 0; 
 }
 .mce-primary button, .mce-primary button i {
 	color: black!important;
