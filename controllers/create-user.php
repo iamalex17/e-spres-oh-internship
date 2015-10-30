@@ -10,20 +10,20 @@ $_SESSION['userToAdd'] = $_POST;
 $user = new User($_POST);
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if(!User::verifySessionID()) {
-	header('Location: login.php');
+	header('Location: login');
 	exit();
 }
 
-if($request == 'create-intern.php') {
+if($request == 'create-intern') {
 	$role = 3;
-} else if($request == 'create-mentor.php') {
+} else if($request == 'create-mentor') {
 	$role = 2;
 } else {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 if(!isset($_POST['first_name'])) {
@@ -65,7 +65,7 @@ if(!isset($_POST['retypePassword'])) {
 
 if($status == 0) {
 	$_SESSION['errorMessage'] = $errorMessage;
-	$role == 2 ? header('Location: ../admin/create-mentor.php') : header('Location: ../admin/create-intern.php');
+	$role == 2 ? header('Location: ../admin/create-mentor') : header('Location: ../admin/create-intern');
 	exit();
 }
 
@@ -130,8 +130,8 @@ if($status == 1) {
 	}
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	$role == 2 ? header('Location:../admin/create-mentor.php') : header('Location:../admin/create-intern.php');
+	$role == 2 ? header('Location:../admin/create-mentor') : header('Location:../admin/create-intern');
 	exit();
 }
-header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+header('Location: ' . $GLOBALS['path'] . 'dashboard');
 ?>

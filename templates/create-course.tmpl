@@ -63,11 +63,11 @@
 		<div class="tab-content">
 
 		{% if page == 'edit' %}
-		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/edit-a-course.php">
+		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/edit-a-course">
 		<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% else %}
 		
-		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/create-a-course.php">
+		<form id="tab1" class="tab active" method="POST" action ="{{ path }}controllers/create-a-course">
 		{% set step = 2 %}
 		{% endif %}
 			<input type="hidden" value="{{ step }}" id="step">
@@ -123,15 +123,15 @@
 					<textarea name="textareas" class="mceEditor">{{ course.description }}</textarea>
 				</div>
 				<button type="submit" id="buttonSaveCourse" class="button button-blue button-save-course float-right" > Save </button>
-				<a href="{{ path }}dashboard.php" class="float-right button button-cancel links-a">Cancel</a>
+				<a href="{{ path }}dashboard" class="float-right button button-cancel links-a">Cancel</a>
 				<div class="clearfix"></div>
 			</div>
 		</form>
 		{% if page == 'edit' %}
-			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/create-exercise.php">
+			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/create-exercise">
 			<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% else %}
-			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise.php">
+			<form id="tab2" class="tab" method="POST" action ="{{ path }}controllers/edit-exercise">
 			<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% endif %}
 			<div class="append-exercise">
@@ -185,7 +185,7 @@
 				Are you sure you want to delete this exercise?
 			</p>
 			<br>
-			<form action="{{ path }}controllers/delete-exercise.php" method="POST">
+			<form action="{{ path }}controllers/delete-exercise" method="POST">
 				<button class="remodal-confirm remodal-button" name="delete_course">Yes</button>
 				<button type="reset" class="remodal-cancel remodal-button">Cancel</button>
 			</form>

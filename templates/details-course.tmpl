@@ -53,7 +53,7 @@
 				<h3 class="newUserName reset">{{ course.title }}</h3>
 			</div>
 			<div class="message-info-align">
-				<a class="link float-right" href="{{ path }}dashboard.php"><i class="fa fa-angle-double-left"></i> Go Back </a>
+				<a class="link float-right" href="{{ path }}dashboard"><i class="fa fa-angle-double-left"></i> Go Back </a>
 			</div>
 			</div>
 			<div class="course-details-name">
@@ -121,7 +121,7 @@
 									<h3 class="newUserName inline reset">{{ exercise.solution.description | raw}}</h3>
 									<a href="" class="buttonEdit button-small edit-solution float-right links-a"><i class="fa fa-pencil"></i></a>
 								</div>
-									<form action="{{ path }}controllers/edit-solution.php" method="POST">
+									<form action="{{ path }}controllers/edit-solution" method="POST">
 									<input type="hidden" name="course_id" value="{{ course.id }}">
 									<input type="hidden" name="solution.id" value="{{ exercise.solution.id }}">
 										<div class="edit-solution-container">
@@ -131,7 +131,7 @@
 										</div>
 									</form>
 							{% else %}
-									<form action="{{ path }}controllers/create-solution.php" method="POST">
+									<form action="{{ path }}controllers/create-solution" method="POST">
 									<input type="hidden" name="course_id" value="{{ course.id }}">
 									<input type="hidden" name="exercise.id" value="{{ exercise.id }}">
 									<div class="description-create-course">

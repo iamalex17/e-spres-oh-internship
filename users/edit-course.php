@@ -7,7 +7,7 @@ require_once '../classes/class.user.php';
 $errorMessage = '';
 
 if(!User::verifySessionID()) {
-	header('Location: ' . $GLOBALS['path'] . 'login.php');
+	header('Location: ' . $GLOBALS['path'] . 'login');
 	exit();
 }
 
@@ -20,12 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 	session_start();
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if($request != 'dashboard.php') {
-		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+		header('Location: ' . $GLOBALS['path'] . 'dashboard');
 		exit();
 	}
 	require_once '../controllers/edit-a-course.php';
 } else {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 	exit();
 }
 ?>

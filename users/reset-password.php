@@ -14,7 +14,7 @@ try {
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	if(!count($result)) {
 		$_SESSION['errorMessage'] = 'Requested link not found.';
-		header('Location:' . $path . 'login.php');
+		header('Location:' . $path . 'login');
 		exit();
 	} else {
 		$createDate = strtotime( $result[0]['deletion_link_time'] );
@@ -22,7 +22,7 @@ try {
 		$currentdate = strtotime(date('Y/m/d h:i:s', time()));
 		if ($expireDate - $currentdate < 0) {
 			$_SESSION['errorMessage'] = "This link expired.\nPlease re-enter your email.";
-			header('Location:' . $path . 'users/recover-password.php');
+			header('Location:' . $path . 'users/recover-password');
 			exit();
 		}
 	}

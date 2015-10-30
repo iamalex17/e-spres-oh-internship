@@ -83,6 +83,6 @@ if(isset($_GET['course_id'])) {
 		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
 	}
 } else {
-	header('Location: ../dashboard.php');
+	header('Location: ../dashboard');
 }
 ?>

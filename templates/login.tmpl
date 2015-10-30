@@ -44,7 +44,7 @@
 
 		<h1 class="mainHeader reset">Sign In</h1>
 
-		<form method="POST" action="controllers/auth.php?action=login" id="signInForm">
+		<form method="POST" action="controllers/auth?action=login" id="signInForm">
 			<div class="formInput">
 				<input style="display:none" type="text" name="fakeusernameremembered"/>
 				<input class="formControl" id="username" name="username" type="text" placeholder="Username" autocomplete="off">
@@ -65,7 +65,7 @@
 			Sign in
 			<i class="fa fa-google-plus-square fa-lg"></i>
 		</a>
-		<a href="{{ path }}users/recover-password.php"  id="recoverPassword" class="link clearfix">Recover Password</a>
+		<a href="{{ path }}users/recover-password"  id="recoverPassword" class="link clearfix">Recover Password</a>
 	</div>
 
 		<!--Footer-->

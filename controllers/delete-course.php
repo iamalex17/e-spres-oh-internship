@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$successMessage = 'Course succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 	exit();
 }
 ?>

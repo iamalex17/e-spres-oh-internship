@@ -73,10 +73,10 @@
 			<section class="select-role-wrapper">
 				<div class="wrapper">
 					<p>Select a role for this user:</p>
-					<form action="{{ path }}controllers/accept-request-mentor.php" method="POST" class="inline">
+					<form action="{{ path }}controllers/accept-request-mentor" method="POST" class="inline">
 						<button class="button button-blue inline" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>Mentor</button>
 					</form>
-					<form action="{{ path }}controllers/accept-request-intern.php" method="POST" class="inline">
+					<form action="{{ path }}controllers/accept-request-intern" method="POST" class="inline">
 						<button class="button button-blue inline" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>Intern</button>
 					</form>
 				</div>
@@ -96,7 +96,7 @@
 					Are you sure you want to delete this request?
 				</p>
 				<br>
-				<form action="{{ path }}controllers/delete-request.php" method="POST">
+				<form action="{{ path }}controllers/delete-request" method="POST">
 					<button class="remodal-confirm remodal-button" name="delete_button">Yes</button>
 					<button type="reset" class="remodal-cancel remodal-button">Cancel</button>
 				</form>

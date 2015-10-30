@@ -12,7 +12,7 @@ $status = 1;
 $_SESSION['course'] = $_POST;
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {
-	header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
 
@@ -84,11 +84,11 @@ if($status == 1) {
 	$successMessage = "Course created!\n";
 	$successMessage .= "Now you can add exercises.\n";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?course_id=' . $courseId );
+	header('Location: ' . $GLOBALS['path'] . 'users/create-course?course_id=' . $courseId );
 	exit();
 } else {
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/create-course.php');
+	header('Location: ' . $GLOBALS['path'] . 'users/create-course');
 	exit();
 }
 ?>

@@ -113,7 +113,7 @@
 						</div>
 						<section class="feedback-container">
 							<div>
-								<form method="POST" action="{{ path }}controllers/verify-solution.php">
+								<form method="POST" action="{{ path }}controllers/verify-solution">
 									<input type="hidden" name="solution_id" value="{{ solution.id }}">
 									<h4>Observations/Remarks</h4>
 									<textarea name="feedback">{{ solution.feedback }}</textarea>

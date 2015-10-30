@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<a href="admin/create-mentor.php" id="buttonNewMentor" class="button button-gray">
+			<a href="admin/create-mentor" id="buttonNewMentor" class="button button-gray">
 				<i class="fa fa-plus"></i >New Mentor
 			</a>
 		</div>
@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="buttonAlignment">
-			<a href="admin/create-intern.php" id="buttonNewIntern" class="button button-gray">
+			<a href="admin/create-intern" id="buttonNewIntern" class="button button-gray">
 				<i class="fa fa-plus"></i>New Intern
 			</a>
 		</div>
@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="buttonAlignment">
-					<form data-remodal-target="modal" action="dashboard.php" method="POST" class="test">
+					<form data-remodal-target="modal" action="dashboard" method="POST" class="test">
 						<button name="delete_button" value="{{ user.id }}" class="buttonDelete button-small" >
 						<i class="fa fa-times"></i></button>
 					</form>
@@ -80,7 +80,7 @@
 					Are you sure you want to delete this user?
 				</p>
 				<br>
-				<form action="controllers/delete-user.php" method="POST">
+				<form action="controllers/delete-user" method="POST">
 					<button class="remodal-confirm remodal-button" name="delete_button">Yes</button>
 					<button type="reset" class="remodal-cancel remodal-button">Cancel</button>
 				</form>

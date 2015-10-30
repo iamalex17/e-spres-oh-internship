@@ -13,7 +13,7 @@ $successMessage = '';
 
 $client_id = '349074393075-ht8af6613q4bfmc185i3pngl08davutl.apps.googleusercontent.com';
 $client_secret = 'NPkhzmka3ZEfTYcJtkCgvOts';
-$redirect_uri = 'http://localhost/e-spres-oh-internship/login.php';
+$redirect_uri = 'http://localhost/e-spres-oh-internship/login';
 
 $db_username = "root";
 $db_password = "root";
@@ -62,7 +62,7 @@ if(isset($authUrl)) {
 	$result = $mysqli->query("SELECT COUNT(google_id) as notapproved FROM users WHERE google_id=$userGoogle->id AND status = 0");
 	$not_approved = $result->fetch_object()->notapproved;
 	if($user_count) {
-		header('Location: ' . $GLOBALS['path'] . 'dashboard.php');
+		header('Location: ' . $GLOBALS['path'] . 'dashboard');
 		exit();
 	} elseif($not_approved) {
 		session_destroy();
@@ -70,7 +70,7 @@ if(isset($authUrl)) {
 		session_start();
 		$GLOBALS['errorMessage'] .= "Your account was not approved yet!";
 		$_SESSION['errorMessage'] = $GLOBALS['errorMessage'];
-		header('Location: ' . $GLOBALS['path'] . 'login.php');
+		header('Location: ' . $GLOBALS['path'] . 'login');
 		exit();
 	} else {
 		$sql = 'SELECT email FROM `users` WHERE email = :email';

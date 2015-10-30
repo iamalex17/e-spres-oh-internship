@@ -53,7 +53,7 @@
 		</div>
 		{% endif %}
 
-		<form method="POST" action="{{ path }}controllers/create-user.php" class="createUserForm" enctype="multipart/form-data">
+		<form method="POST" action="{{ path }}controllers/create-user" class="createUserForm" enctype="multipart/form-data">
 			<div class="formInput">
 				<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name" value= "{{ userToAdd.first_name }}">
 				<span class="formBar"></span>

@@ -10,7 +10,7 @@ $deleteExercise = $_POST['delete_course'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if(!User::verifySessionID()) {
-		header('Location: ' . $GLOBALS['path'] . 'login.php');
+		header('Location: ' . $GLOBALS['path'] . 'login');
 		exit();
 	}
 }
@@ -24,5 +24,5 @@ $valuesToBind = array('exerciseID' => $deleteExercise);
 ConnectToDB::interogateDB($sql, $valuesToBind);
 
 $_SESSION['successMessage'] = 'Exercise was succesfully deleted.';
-header('Location: ' . $GLOBALS['path'] . 'users/create-course.php?course_id=' . $request);
+header('Location: ' . $GLOBALS['path'] . 'users/create-course?course_id=' . $request);
 ?>
