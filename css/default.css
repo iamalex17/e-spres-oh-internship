@@ -937,7 +937,7 @@ input {
 	font-size: 28px;
 	margin: 7% 0 0 34%;
 }
-.select-role-wrapper {
+.wrapper {
 	display: none;
 }
 
@@ -952,16 +952,24 @@ input {
 	color: #2b2b2b;
 	margin-right: 25px;
 }
-.pending-container form section {
-	margin-top: 12px;
-}
-.pending-user .wrapper {
-	margin-bottom: 10px;
-}
 .pending-user {
 	background-color: inherit;
 	border-bottom: 1px solid #d2d9d6;
 	padding: 10px;
+	position: relative;
+}
+.pending-user .wrapper {
+	position: absolute;
+	right: 42px;
+	top: 52px;
+	z-index: 1;
+}
+.pending-user .wrapper button {
+	width: 141px;
+	text-align: left;
+	position: relative;
+	top: -2px;
+	border-radius: 0;
 }
 .pending-user h2 {
 	color: #2b2b2b;

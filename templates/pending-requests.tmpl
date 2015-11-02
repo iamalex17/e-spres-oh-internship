@@ -70,17 +70,14 @@
 				<a href="#" class="button button-blue inline accept">Accept Request</a>
 			</section>
 			<div class="clearfix"></div>
-			<section class="select-role-wrapper">
 				<div class="wrapper">
-					<p>Select a role for this user:</p>
-					<form action="{{ path }}controllers/accept-request-mentor" method="POST" class="inline">
-						<button class="button button-blue inline" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>Mentor</button>
+					<form action="{{ path }}controllers/accept-request-mentor" method="POST">
+						<button class="button button-blue" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Mentor</button>
 					</form>
-					<form action="{{ path }}controllers/accept-request-intern" method="POST" class="inline">
-						<button class="button button-blue inline" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>Intern</button>
+					<form action="{{ path }}controllers/accept-request-intern" method="POST">
+						<button class="button button-blue" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Intern</button>
 					</form>
 				</div>
-			</section>
 		</div>
 		{% endfor %}
 	</section>
