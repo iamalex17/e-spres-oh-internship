@@ -18,9 +18,11 @@
 			</a>
 		</div>
 		<div class="existing-user-container container-box-shadow">
+			{% if mentorMessage != "" %}
 			<div class="noUserMessage">
 				{{ mentorMessage }}
 			</div>
+			{% endif %}
 			{% for user in mentor %}
 			<div class="existingUser">
 				<div class="alignment">
@@ -45,9 +47,11 @@
 			</a>
 		</div>
 		<div class="existing-user-container container-box-shadow">
+			{% if internMessage != "" %}
 			<div class="noUserMessage">
 				{{ internMessage }}
 			</div>
+			{% endif %}
 			{% for user in intern %}
 			<div class="existingUser">
 				<div class="alignment">

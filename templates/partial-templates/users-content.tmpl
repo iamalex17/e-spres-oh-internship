@@ -22,10 +22,11 @@
 			</a>
 		</div>
 		{% endif %}
-
+		{% if courseMessage != "" %}
 		<div class="noUserMessage user-message-align">
 			{{ courseMessage }}
 		</div>
+		{% endif %}
 
 		{% for course in courses %}
 		{% if course.mentors|length == 0 %}

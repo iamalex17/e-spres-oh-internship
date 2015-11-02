@@ -23,7 +23,8 @@
 	margin-top: 10%;
 }
 .noUserMessage {
-	text-align: center;
+	text-align: left;
+	padding: 15px 5px;
 	background-color: #ffffff;
 }
 .existingUser {
