@@ -71,7 +71,7 @@
 			</div>
 		{% endif %}
 	<!--Add exercise-->
-		{% if exercisesMessage != ""%}
+		{% if exercisesMessage != "" %}
 			<div class="otherMessage">
 				{{ exercisesMessage }}
 			</div>
@@ -154,6 +154,8 @@
 								Your answer is correct
 							{% elseif ok == 1 and exercise.solution.status == 3 %}
 								Your answer is wrong
+							{% elseif ok == 1 and exercise.solution.status == 1 %}
+								A mentor will verify your solution soon
 							{% else %}
 								No feedback was given
 							{% endif %}
