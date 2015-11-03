@@ -127,7 +127,10 @@ var APP = (function() {
 			//Show form to select role for user pending
 			$('.pending-user').on('click', '.accept', function(e) {
 				e.preventDefault();
-				$(this).closest('.pending-user').find('.wrapper').slideToggle();
+				$(this).closest('.pending-user').find('.wrapper').slideToggle(300, function() {
+					$(this).closest('.pending-user').find('.accept').toggleClass('no-radius');
+					$(this).find('.last-button').toggleClass('button-radius');
+				});
 			}); 
 		}
 	}
