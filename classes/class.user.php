@@ -83,7 +83,7 @@ class User{
 			$sql = 'SELECT id FROM `users` WHERE email = :email';
 			$valuesToBind = array('email' => $this->email);
 			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-			var_dump($result);
+//			var_dump($result);
 			if(count($result)) {
 				$id = $result[0]['id'];
 				$completeFileName = $id . '_' . $completeFileName;

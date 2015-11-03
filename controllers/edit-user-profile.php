@@ -33,12 +33,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$fileTmp = $_FILES["profile_image"]["tmp_name"];
 				$ext = pathinfo($fileName,PATHINFO_EXTENSION);
 				$fileEncrypted = MD5($fileName) . '.' . $ext;
-				if(!file_exists("../images/user-profile-images/".$fileName)) {
-				move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$fileEncrypted);
+				if($_FILES["profile_image"]['size'] > 2097152) {
+					$errorMessage = "Sorry, your file is too large!";
 				} else {
-					$fileName = basename($fileName,$ext);
-					$newFileName = MD5($fileName.time()).".".$ext;
-					move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$newFileName);
+					if(!file_exists("../images/user-profile-images/".$fileName)) {
+						move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$fileEncrypted);
+					} else {
+						$fileName = basename($fileName,$ext);
+						$newFileName = MD5($fileName.time()).".".$ext;
+						move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$newFileName);
+					}
 				}
 				$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE google_id = :google_id';
 				$valuesToBind = array('profile_image' => $fileEncrypted, 'google_id' => $_SESSION['google_id']);
