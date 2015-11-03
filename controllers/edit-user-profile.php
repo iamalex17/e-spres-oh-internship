@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$sql = 'UPDATE `users` SET first_name = :first_name, last_name = :last_name WHERE google_id = :google_id';
 			$valuesToBind = array('last_name' => $lastName, 'first_name' => $firstName, 'google_id' => $_SESSION['google_id']);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
-			if($_FILES['profile_image']['name'] != '') {
+			if(($_FILES['profile_image']['name'] != '') && ($_FILES["profile_image"]["size"] < 2097152)) {
 				$sql = 'SELECT profile_image FROM `users` WHERE google_id = :google_id';
 				$valuesToBind = array('google_id' => $_SESSION['google_id']);
 				$result = ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -33,20 +33,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$fileTmp = $_FILES["profile_image"]["tmp_name"];
 				$ext = pathinfo($fileName,PATHINFO_EXTENSION);
 				$fileEncrypted = MD5($fileName) . '.' . $ext;
-				if($_FILES["profile_image"]['size'] > 2097152) {
-					$errorMessage = "Sorry, your file is too large!";
-				} else {
-					if(!file_exists("../images/user-profile-images/".$fileName)) {
+				if(!file_exists("../images/user-profile-images/".$fileName)) {
 						move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$fileEncrypted);
-					} else {
-						$fileName = basename($fileName,$ext);
-						$newFileName = MD5($fileName.time()).".".$ext;
-						move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$newFileName);
-					}
+				} else {
+					$fileName = basename($fileName,$ext);
+					$newFileName = MD5($fileName.time()).".".$ext;
+					move_uploaded_file($fileTmp=$_FILES["profile_image"]["tmp_name"],"../images/user-profile-images/".$newFileName);
 				}
 				$sql = 'UPDATE `users` SET profile_image = :profile_image WHERE google_id = :google_id';
 				$valuesToBind = array('profile_image' => $fileEncrypted, 'google_id' => $_SESSION['google_id']);
 				ConnectToDB::interogateDB($sql, $valuesToBind);
+			} else {
+				$errorMessage = "Sorry, your file is too large!";
+				$_SESSION['errorMessage'] = $errorMessage;
+				header('Location: ' . $GLOBALS['path'] . 'users/edit-profile');
+				exit();
 			}
 			$successMessage = 'Your data has been successfully modified.';
 			$_SESSION['successMessage'] = $successMessage;
