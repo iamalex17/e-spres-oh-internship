@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$valuesToBind = array('last_name' => $lastName, 'first_name' => $firstName, 'google_id' => $_SESSION['google_id']);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
 			if($_FILES['profile_image']['name'] != '') {
-				if($_FILES['profile_image']['size'] < 2097152) {
+				if($_SERVER['CONTENT_LENGTH'] < 2097152) {
 					$sql = 'SELECT profile_image FROM `users` WHERE google_id = :google_id';
 					$valuesToBind = array('google_id' => $_SESSION['google_id']);
 					$result = ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$valuesToBind = array('profile_image' => $fileEncrypted, 'google_id' => $_SESSION['google_id']);
 					ConnectToDB::interogateDB($sql, $valuesToBind);
 				} else {
-					$errorMessage = "Sorry, your file is too large!";
+					$errorMessage = "Your image should not be larger than 2MB!";
 					$_SESSION['errorMessage'] = $errorMessage;
 					header('Location: ' . $GLOBALS['path'] . 'users/edit-profile');
 					exit();
