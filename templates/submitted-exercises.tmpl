@@ -115,7 +115,7 @@
 							<div>
 								<form method="POST" action="{{ path }}controllers/verify-solution">
 									<input type="hidden" name="solution_id" value="{{ solution.id }}">
-									<h4>Observations/Remarks</h4>
+									<h4>Observations/Remarks (Optional)</h4>
 									<textarea name="feedback">{{ solution.feedback }}</textarea>
 									<input type="radio" name="solution-feedback" id="correct" value="2"
 										{% if solution.status == 2%}
