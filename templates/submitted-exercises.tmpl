@@ -1,71 +1,65 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<!--Styles-->
-	<link rel="stylesheet" href="{{ path }}/css/dashboard.css" />
-	<link rel="stylesheet" href="{{ path }}/css/default.css" />
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src ="{{ path }}/js/app.js"></script>
-	<script src="https://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-	<script type="text/javascript" src ="{{ path }}/js/tab.js"></script>
-	<!--Fonts-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<!--Favicon-->
-	<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
-	<!--Templates-->
-	<meta charset="UTF-8">
-	<title>Submitted Exercises</title>
-</head>
-
-<body>
-	<!--pagina curenta-->
-	<div class="current-page">
-		{{ currentPage }}
-	</div>
-
-		<!--Sidebar-->
-	<div class="side-navigation">
-		{% include 'partial-templates/sidebar.tmpl' %}
-	</div>
-
-	<!--Content-->
-	<div class="topAccount">
-		{% include 'partial-templates/top-account-section.tmpl' %}
-	</div>
-
-	{% if errorMessage != ''%}
-		<div class="errorMessageContainer message message-align">
-			{{ errorMessage|nl2br }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
-		</div>
-	{% endif %}
-
-	{% if successMessage != '' %}
-		<div class="successMessage message message-align">
-			{{ successMessage|nl2br }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
-		</div>
-	{% endif %}
-
-	<!--Container-->
-
-	<div class="courseList">
-
-		<div class="alignment">
-			<h2 class="category reset">Submitted Exercises for {{ course.label }} - {{ course.title }}</h2>
+	<head>
+		<!--Styles-->
+		<link rel="stylesheet" href="{{ path }}/css/dashboard.css" />
+		<link rel="stylesheet" href="{{ path }}/css/default.css" />
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src ="{{ path }}/js/app.js"></script>
+		<script src="https://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+		<script type="text/javascript" src ="{{ path }}/js/tab.js"></script>
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--Favicon-->
+		<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
+		<!--Templates-->
+		<meta charset="UTF-8">
+		<title>Submitted Exercises</title>
+	</head>
+	<body>
+		<!--pagina curenta-->
+		<div class="current-page">
+			{{ currentPage }}
 		</div>
 
-		{% set number = 0 %}
-		{% for exercise in exercises %}
-			{% set number = number +1 %}
+			<!--Sidebar-->
+		<div class="side-navigation">
+			{% include 'partial-templates/sidebar.tmpl' %}
+		</div>
 
-		<div class="existingExercise container-box-shadow">
+		<!--Content-->
+		<div class="topAccount">
+			{% include 'partial-templates/top-account-section.tmpl' %}
+		</div>
 
+		{% if errorMessage != ''%}
+			<div class="errorMessageContainer message message-align">
+				{{ errorMessage|nl2br }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		{% if successMessage != '' %}
+			<div class="successMessage message message-align">
+				{{ successMessage|nl2br }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		<!--Container-->
+		<div class="courseList">
+			<div class="alignment">
+				<h2 class="category reset">Submitted Exercises for {{ course.label }} - {{ course.title }}</h2>
+			</div>
+
+			{% set number = 0 %}
+			{% for exercise in exercises %}
+				{% set number = number +1 %}
+
+			<div class="existingExercise container-box-shadow">
 				<div class="exercise-details submitted  exercise-details">
-
 					<div class="course-exercise-name">
 						<div class="alignment">
 							<h3 class="newUserName reset">Exercise {{ number }}</h3>
@@ -74,25 +68,21 @@
 						<div class="buttonAlignment">
 							<a href="" class="buttonOpen button-solution links-a">Open</a>
 						</div>
-
 					</div>
-
 					<div class="course-exercise-content">
 						<span class="courseDetail alignment">{{ exercise.description | raw}}</span>
 					</div>
-
 				</div>
 				{% if exercise.solutionsMessage != ""%}
-					<div class="solutions-container">
-						<div class="otherMessage">
-							{{ exercise.solutionsMessage }}
-						</div>
+				<div class="solutions-container">
+					<div class="otherMessage">
+						{{ exercise.solutionsMessage }}
 					</div>
+				</div>
 				{% else %}
 				<div class="solutions-container">
 					{% for solution in exercise.solutions %}
 					<div class="exercise-responses container-box-shadow center">
-
 						<div class="exercise-details header">
 							<div class="alignment">
 								<h3 class="newUserName reset">Solution from {{ solution.userName }}</h3>
@@ -136,17 +126,15 @@
 						</section>
 					</div>
 					{% endfor %}
-					</div>
+				</div>
 				{% endif %}
+			</div>
+		{% endfor %}
 		</div>
 
-	{% endfor %}
-	</div>
-
-		<!--Footer-->
-	<div class="footer">
-		{% include 'partial-templates/footer.tmpl' %}
-	</div>
-
+			<!--Footer-->
+		<div class="footer">
+			{% include 'partial-templates/footer.tmpl' %}
+		</div>
 	</body>
 </html>
