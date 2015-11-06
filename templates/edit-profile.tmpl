@@ -1,83 +1,69 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<!--Styles-->
+		<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
+		<link rel="stylesheet" href="{{ path }}css/default.css" />
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src ="{{ path }}js/app.js"></script>
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<!--Favicon-->
+		<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
+		<!--Templates-->
+		<meta charset="UTF-8">
+		<title>Edit Profile</title>
+	</head>
+	<body>
+		<!--pagina curenta-->
+		<div class="current-page">
+			{{ currentPage }}
+		</div>
 
-<head>
-	<!--Styles-->
-	<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
-	<link rel="stylesheet" href="{{ path }}css/default.css" />
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src ="{{ path }}js/app.js"></script>
-	<!--Fonts-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<!--Favicon-->
-	<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
-	<!--Templates-->
-	<meta charset="UTF-8">
-	<title>Edit Profile</title>
-</head>
+		<!--Sidebar-->
+		<div class="side-navigation">
+			{% include 'partial-templates/sidebar.tmpl' %}
+		</div>
 
-<body>
+		<!--Content-->
+		<div class="topAccount">
+			{% include 'partial-templates/top-account-section.tmpl' %}
+		</div>
+		<div class="containerForm container-box-shadow">
+			<h1 class="mainHeaderDashboard">Edit profile</h1>
 
-	<!--pagina curenta-->
-	<div class="current-page">
-		{{ currentPage }}
-	</div>
+			{% if errorMessage != ''%}
+				<div class="errorMessage">
+					{{ errorMessage|nl2br }}
+				</div>
+			{% endif %}
 
-	<!--Sidebar-->
-	<div class="side-navigation">
-		{% include 'partial-templates/sidebar.tmpl' %}
-	</div>
+			<form method="POST" action="{{ path }}controllers/edit-user-profile" class="createUserForm" enctype="multipart/form-data">
+				<div class="formInput">
+					<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name" value="{{first_name}}">
+					<span class="formBar"></span>
+					<label for="firstName">First Name</label>
+				</div>
+				<div class="check-input check-input-hidden">Please enter your first name</div>
 
-	<!--Content-->
-	<div class="topAccount">
-		{% include 'partial-templates/top-account-section.tmpl' %}
-	</div>
+				<div class="formInput">
+					<input class="formControl" id="lastName" type="text" name="last_name" placeholder="Last Name" value="{{last_name}}">
+					<span class="formBar"></span>
+					<label for="lastName">Last Name</label>
+				</div>
+				<div class="check-input check-input-hidden">Please enter your last name</div>
 
-
-	<div class="containerForm container-box-shadow">
-
-		<h1 class="mainHeaderDashboard">Edit profile</h1>
-
-		{% if errorMessage != ''%}
-			<div class="errorMessage">
-				{{ errorMessage|nl2br }}
-			</div>
-		{% endif %}
-
-		<form method="POST" action="{{ path }}controllers/edit-user-profile" class="createUserForm" enctype="multipart/form-data">
-
-			<div class="formInput">
-				<input class="formControl" id="firstName" name="first_name" type="text" placeholder="First Name" value="{{first_name}}">
-				<span class="formBar"></span>
-				<label for="firstName">First Name</label>
-			</div>
-			<div class="check-input check-input-hidden">Please enter your first name</div>
-
-			<div class="formInput">
-				<input class="formControl" id="lastName" type="text" name="last_name" placeholder="Last Name" value="{{last_name}}">
-				<span class="formBar"></span>
-				<label for="lastName">Last Name</label>
-			</div>
-			<div class="check-input check-input-hidden">Please enter your last name</div>
-
-
-			<div class="imageAlignment">
-				<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
-			</div>
-			<div class="buttonAlign">
-				<input type="file" accept="image/*" name="profile_image" id="buttonAddImage">
-			</div>
-
-			<button type="submit" id="buttonSubmitUser" class="buttonSubmitUser button button-blue" >Submit </button>
-
-		</form>
-
-	</div>
-
-
-	<!--Footer-->
-	{% include 'partial-templates/footer.tmpl' %}
-</body>
-
+				<div class="imageAlignment">
+					<img class="profile-image" src="http://placehold.it/100x100" alt="Mentor avatar" id="output">
+				</div>
+				<div class="buttonAlign">
+					<input type="file" accept="image/*" name="profile_image" id="buttonAddImage">
+				</div>
+				<button type="submit" id="buttonSubmitUser" class="buttonSubmitUser button button-blue" >Submit </button>
+			</form>
+		</div>
+		<!--Footer-->
+		{% include 'partial-templates/footer.tmpl' %}
+	</body>
 </html>
