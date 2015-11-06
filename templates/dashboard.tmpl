@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<!--Styles-->
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/dashboard.css" />
+		<link rel="stylesheet" href="css/default.css" />
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/popup.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--Favicon-->
+		<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+		<!--Templates-->
+		<meta charset="UTF-8">
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<!--pagina curenta-->
+		<div class="current-page">
+			{{ currentPage }}
+		</div>
 
-<head>
-	<!--Styles-->
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/dashboard.css" />
-	<link rel="stylesheet" href="css/default.css" />
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="js/popup.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<!--Fonts-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<!--Favicon-->
-	<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
-	<!--Templates-->
-	<meta charset="UTF-8">
-	<title>Dashboard</title>
-</head>
+		<!--Sidebar-->
+		<div class="side-navigation">
+			{% include 'partial-templates/sidebar.tmpl' %}
+		</div>
 
-<body>
+		<!--Content-->
+		<div class="topAccount">
+			{% include 'partial-templates/top-account-section.tmpl' %}
+		</div>
 
-	<!--pagina curenta-->
-	<div class="current-page">
-		{{ currentPage }}
-	</div>
+		{% if errorMessage != ''%}
+			<div class="errorMessageContainer message message-align">
+				{{ errorMessage|nl2br }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
 
-	<!--Sidebar-->
-	<div class="side-navigation">
-		{% include 'partial-templates/sidebar.tmpl' %}
-	</div>
-
-	<!--Content-->
-	<div class="topAccount">
-		{% include 'partial-templates/top-account-section.tmpl' %}
-	</div>
-
-	{% if errorMessage != ''%}
-		<div class="errorMessageContainer message message-align">
-			{{ errorMessage|nl2br }}
+		{% if successMessage != ''%}
+		<div class="successMessage message message-align">
+			{{ successMessage }}
 			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
 		</div>
-	{% endif %}
+		{% endif %}
 
-	{% if successMessage != ''%}
-	<div class="successMessage message message-align">
-		{{ successMessage }}
-		<a href="#"><i class="fa fa-times success-error-icon"></i></a>
-	</div>
-	{% endif %}
+		<!--Mentor and Intern List-->
+		{% if user_role == 1 %}
+			{% include 'partial-templates/admin-content.tmpl' %}
+		{% endif %}
 
-	<!--Mentor and Intern List-->
-	{% if user_role == 1 %}
-		{% include 'partial-templates/admin-content.tmpl' %}
-	{% endif %}
+		{% if user_role != 1 %}
+			{% include 'partial-templates/users-content.tmpl' %}
+		{% endif %}
 
-	{% if user_role != 1 %}
-		{% include 'partial-templates/users-content.tmpl' %}
-	{% endif %}
-
-	<!--Footer-->
-	{% include 'partial-templates/footer.tmpl' %}
-
-
-</body>
-
+		<!--Footer-->
+		{% include 'partial-templates/footer.tmpl' %}
+	</body>
 </html>
