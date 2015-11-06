@@ -1,76 +1,69 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<!--Styles-->
-	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet"  href="css/default.css" />
-	<link rel="stylesheet"  href="css/sign-in.css" />
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<!--Fonts-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<!--Favicon-->
-	<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
-	<!--Templates-->
-	<meta charset="UTF-8">
-	<title>Login</title>
-</head>
-
-<body>
-	<!--pagina curenta-->
-	<div class="current-page">
-		{{ currentPage }}
-	</div>
-
-	<!--SingIn-->
-	{% if successMessage != '' %}
-		<div class="successMessageLogin message">
-			{{ successMessage }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+	<head>
+		<!--Styles-->
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet"  href="css/default.css" />
+		<link rel="stylesheet"  href="css/sign-in.css" />
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--Favicon-->
+		<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+		<!--Templates-->
+		<meta charset="UTF-8">
+		<title>Login</title>
+	</head>
+	<body>
+		<!--pagina curenta-->
+		<div class="current-page">
+			{{ currentPage }}
 		</div>
-	{% endif %}
 
-	{% if errorMessage != '' %}
-		<div class="errorMessageLogin message">
-			{{ errorMessage|nl2br }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		<!--SingIn-->
+		{% if successMessage != '' %}
+			<div class="successMessageLogin message">
+				{{ successMessage }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		{% if errorMessage != '' %}
+			<div class="errorMessageLogin message">
+				{{ errorMessage|nl2br }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		<div class="signIn container-box-shadow">
+			<h1 class="mainHeader reset">Sign In</h1>
+			<form method="POST" action="controllers/auth?action=login" id="signInForm">
+				<div class="formInput">
+					<input style="display:none" type="text" name="fakeusernameremembered"/>
+					<input class="formControl" id="username" name="username" type="text" placeholder="Username" autocomplete="off">
+					<span class="formBar"></span>
+					<label for="username">Username</label>
+				</div>
+				<div class="formInput">
+					<input style="display:none" type="password" name="fakeusernameremembered"/>
+					<input class="formControl" id="password" type="password" name="password" placeholder="Enter Password" autocomplete="off">
+					<span class="formBar"></span>
+					<label for="password">Password</label>
+				</div>
+				<button type="submit" id="buttonSignin" class="buttonSignIn button button-blue float-left" > Login <i class="iconParent icon-small iconLock"></i> </button>
+			</form>
+			<span>OR</span>
+			<a href="{{ login }}" class="google-login button float-right">
+				Sign in
+				<i class="fa fa-google-plus-square fa-lg"></i>
+			</a>
+			<a href="{{ path }}users/recover-password"  id="recoverPassword" class="link clearfix">Recover Password</a>
 		</div>
-	{% endif %}
-
-	<div class="signIn container-box-shadow">
-
-		<h1 class="mainHeader reset">Sign In</h1>
-
-		<form method="POST" action="controllers/auth?action=login" id="signInForm">
-			<div class="formInput">
-				<input style="display:none" type="text" name="fakeusernameremembered"/>
-				<input class="formControl" id="username" name="username" type="text" placeholder="Username" autocomplete="off">
-				<span class="formBar"></span>
-				<label for="username">Username</label>
-			</div>
-			<div class="formInput">
-
-				<input style="display:none" type="password" name="fakeusernameremembered"/>
-				<input class="formControl" id="password" type="password" name="password" placeholder="Enter Password" autocomplete="off">
-				<span class="formBar"></span>
-				<label for="password">Password</label>
-			</div>
-			<button type="submit" id="buttonSignin" class="buttonSignIn button button-blue float-left" > Login <i class="iconParent icon-small iconLock"></i> </button>
-		</form>
-		<span>OR</span>
-		<a href="{{ login }}" class="google-login button float-right">
-			Sign in
-			<i class="fa fa-google-plus-square fa-lg"></i>
-		</a>
-		<a href="{{ path }}users/recover-password"  id="recoverPassword" class="link clearfix">Recover Password</a>
-	</div>
 
 		<!--Footer-->
 		{% include 'partial-templates/footer.tmpl' %}
-
-</body>
-
+	</body>
 </html>
