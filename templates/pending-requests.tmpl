@@ -1,91 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!--Styles-->
-	<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
-	<link rel="stylesheet" href="{{ path }}css/default.css" />
-	<link rel="stylesheet" href="{{ path }}css/normalize.css" />
-
-	<!--Scripts-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ path }}js/popup.js"></script>
-	<script type="text/javascript" src="{{ path }}js/app.js"></script>
-	<!--Fonts-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<!--Favicon-->
-	<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
-	<!--Font Awesome-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<!--Templates-->
-	<meta charset="UTF-8">
-	<title>Pending Requests</title>
-</head>
-
-<body>
-
-	<!--pagina curenta-->
-	<div class="current-page">
-		{{ currentPage }}
-	</div>
-
-	<!--Sidebar-->
-	<div class="side-navigation">
-		{% include 'partial-templates/sidebar.tmpl' %}
-	</div>
-	<!--Content-->
-	<div class="topAccount">
-		{% include 'partial-templates/top-account-section.tmpl' %}
-	</div>
-
-
-	{% if errorMessage != '' %}
-		<div class="errorMessageContainer message message-align">
-			{{ errorMessage }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+	<head>
+		<!--Styles-->
+		<link rel="stylesheet" href="{{ path }}css/dashboard.css" />
+		<link rel="stylesheet" href="{{ path }}css/default.css" />
+		<link rel="stylesheet" href="{{ path }}css/normalize.css" />
+		<!--Scripts-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ path }}js/popup.js"></script>
+		<script type="text/javascript" src="{{ path }}js/app.js"></script>
+		<!--Fonts-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<!--Favicon-->
+		<link rel='shortcut icon' type='image/x-icon' href='{{ path }}/images/favicon.ico' />
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!--Templates-->
+		<meta charset="UTF-8">
+		<title>Pending Requests</title>
+	</head>
+	<body>
+		<!--pagina curenta-->
+		<div class="current-page">
+			{{ currentPage }}
 		</div>
-	{% endif %}
 
-	{% if successMessage != '' %}
-		<div class="successMessage message message-align">
-			{{ successMessage }}
-			<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+		<!--Sidebar-->
+		<div class="side-navigation">
+			{% include 'partial-templates/sidebar.tmpl' %}
 		</div>
-	{% endif %}
+		<!--Content-->
+		<div class="topAccount">
+			{% include 'partial-templates/top-account-section.tmpl' %}
+		</div>
 
-	<h1 class="reset pending-title">Pending Requests</h1>
-	<section class="pending-container container-box-shadow">
+		{% if errorMessage != '' %}
+			<div class="errorMessageContainer message message-align">
+				{{ errorMessage }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		{% if successMessage != '' %}
+			<div class="successMessage message message-align">
+				{{ successMessage }}
+				<a href="#"><i class="fa fa-times success-error-icon"></i></a>
+			</div>
+		{% endif %}
+
+		<h1 class="reset pending-title">Pending Requests</h1>
+		<section class="pending-container container-box-shadow">
 			{% if noRequests != '' %}
 			<div class="noUserMessage">
 				{{ noRequests }}
 			</div>
 			{% endif %}
-		{% for users in pendingUsers %}
-		<div class="pending-user reset">
-			<div class="float-left">
-				<h2 class="reset">{{ users.first_name }} {{ users.last_name }}</h2>
-				<h3 class="reset">{{ users.email }}</h3>
-			</div>
-			<section class="float-right">
-				<a href="#" class="button button-cancel links-a buttonDelete inline" name="delete_button" value="{{ users.google_id }}">Delete Request</a>
-				<a href="#" class="button button-blue inline accept">Accept Request</a>
-				<div class="wrapper">
-					<form action="{{ path }}controllers/accept-request-mentor" method="POST">
-						<button class="button button-blue" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Mentor</button>
-					</form>
-					<form action="{{ path }}controllers/accept-request-intern" method="POST">
-						<button class="button button-blue last-button" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Intern</button>
-					</form>
+			{% for users in pendingUsers %}
+			<div class="pending-user reset">
+				<div class="float-left">
+					<h2 class="reset">{{ users.first_name }} {{ users.last_name }}</h2>
+					<h3 class="reset">{{ users.email }}</h3>
 				</div>
-			</section>
-			<div class="clearfix"></div>
-		</div>
-		{% endfor %}
-	</section>
+				<section class="float-right">
+					<a href="#" class="button button-cancel links-a buttonDelete inline" name="delete_button" value="{{ users.google_id }}">Delete Request</a>
+					<a href="#" class="button button-blue inline accept">Accept Request</a>
+					<div class="wrapper">
+						<form action="{{ path }}controllers/accept-request-mentor" method="POST">
+							<button class="button button-blue" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Mentor</button>
+						</form>
+						<form action="{{ path }}controllers/accept-request-intern" method="POST">
+							<button class="button button-blue last-button" value="{{ users.google_id }}" name="accept_button"><i class="fa fa-street-view"></i>As Intern</button>
+						</form>
+					</div>
+				</section>
+				<div class="clearfix"></div>
+			</div>
+			{% endfor %}
+		</section>
 
-	<!--Footer-->
-	{% include 'partial-templates/footer.tmpl' %}
-	<!--Modal-->
-	<div class="modal-container">
+		<!--Footer-->
+		{% include 'partial-templates/footer.tmpl' %}
+
+		<!--Modal-->
+		<div class="modal-container">
 			<div class="remodal">
 				<button type="reset" class="remodal-cancel button-x float-right">X</button>
 				<h1 class="reset">Delete Request</h1>
@@ -99,5 +96,5 @@
 				</form>
 			</div>
 		</div>
-</body>
+	</body>
 </html>
