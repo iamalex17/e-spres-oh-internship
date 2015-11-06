@@ -3,6 +3,8 @@ require_once '../config.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 
+$imageFileType = pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION);
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	session_start();
 	$errorMessage = '';
@@ -24,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$valuesToBind = array('last_name' => $lastName, 'first_name' => $firstName, 'google_id' => $_SESSION['google_id']);
 			ConnectToDB::interogateDB($sql, $valuesToBind);
 			if($_FILES['profile_image']['name'] != '') {
-				if($_SERVER['CONTENT_LENGTH'] < 2097152) {
+				if($_SERVER['CONTENT_LENGTH'] < 2097152 && $imageFileType == 'png' || $imageFileType == 'jpeg' || $imageFileType == 'jpg') {
 					$sql = 'SELECT profile_image FROM `users` WHERE google_id = :google_id';
 					$valuesToBind = array('google_id' => $_SESSION['google_id']);
 					$result = ConnectToDB::interogateDB($sql, $valuesToBind);
@@ -45,7 +47,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$valuesToBind = array('profile_image' => $fileEncrypted, 'google_id' => $_SESSION['google_id']);
 					ConnectToDB::interogateDB($sql, $valuesToBind);
 				} else {
-					$errorMessage = "Your image should not be larger than 2MB!";
+					$errorMessage .= "Your image should not be larger than 2MB!\n";
+					$errorMessage .= "Upload only PNG, JPG or JPEG!\n";
 					$_SESSION['errorMessage'] = $errorMessage;
 					header('Location: ' . $GLOBALS['path'] . 'users/edit-profile');
 					exit();
