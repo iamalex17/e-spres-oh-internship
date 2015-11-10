@@ -8,6 +8,11 @@ $errorMessage = '';
 $successMessage = '';
 $role = '';
 
+if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
+	header('Location: ' . $GLOBALS['path'] . 'login');
+	exit();
+}
+
 if(isset($_SESSION['userToAdd'])) {
 	unset($_SESSION['userToAdd']);
 }

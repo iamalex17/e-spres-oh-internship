@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
 	if($request != 'login.php'){
-		header('Location: ' . $GLOBALS['path'] . 'login.php');
+		header('Location: ' . $GLOBALS['path'] . 'login');
 	}
 	if($_GET['action'] == 'login') {
 		login();

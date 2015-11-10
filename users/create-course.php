@@ -16,6 +16,11 @@ $noExerciseMessage = '';
 $errorMessage = '';
 $successMessage = '';
 
+if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
+	header('Location: ' . $GLOBALS['path'] . 'login');
+	exit();
+}
+
 if(isset($_SESSION['course'])) {
 	$course = $_SESSION['course'];
 	$course['description'] = $_SESSION['course']['textareas'];

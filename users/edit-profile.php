@@ -9,6 +9,11 @@ session_start();
 $errorMessage = '';
 $noExerciseMessage = '';
 
+if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
+	header('Location: ' . $GLOBALS['path'] . 'login');
+	exit();
+}
+
 if(isset($_SESSION['errorMessage'])) {
 	$errorMessage = $_SESSION['errorMessage'];
 	unset($_SESSION['errorMessage']);
