@@ -8,6 +8,7 @@
 
 .buttonSignIn {
 	margin: 10px 0 15px 30px;
+	width: 100px;
 }
 .buttonSignIn:hover{
 	background-color: #0d89ed;
@@ -43,4 +44,22 @@
 .signIn .link {
 	display: block;
 }
-/*Input Design*/
+
+@media all and (max-width: 1350px) {
+
+	.signIn .google-login {
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 0;
+		float: none;
+		display: inline-block;
+	}
+	.buttonSignIn {
+		width: 100px;
+		margin: 10px auto 10px auto;
+		float: none; 
+	}
+	.signIn .link {
+		margin-top: 10px;
+	}
+}
