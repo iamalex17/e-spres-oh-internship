@@ -516,9 +516,6 @@ nav ul .active-sidebar > a {
 	.courseList, .footer, .topAccount{
 		width: 600px;
 	}
-	a, li, h1, h2, h3, h4 nav{
-		width: 50px;
-	}
 	.iconProfileUser{
 		width:30px;
 	}
