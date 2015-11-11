@@ -55,6 +55,13 @@ $sql = 'SELECT `users`.first_name, `users`.last_name
 $valuesToBind = array('courseID' => $course['id']);
 $courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
 
+foreach($courseMentors as $key => &$mentor) {
+			unset($mentor[0]);
+			unset($mentor[1]);
+			$mentor = implode(' ', $mentor);
+		}
+$courseMentors = implode(', ', $courseMentors);
+
 $template = loadTemplate('../templates','details-course.tmpl');
 
 if(isset($_SESSION['google_id'])) {
