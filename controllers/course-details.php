@@ -47,6 +47,14 @@ if(count($exercises)) {
 	$exercisesMessage = 'No exercise at the moment.';
 }
 
+$sql = 'SELECT `users`.first_name, `users`.last_name
+		FROM `users`
+		INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
+		INNER JOIN `courses` ON `courses`.`id` = `presentors`.`course_id`
+		WHERE `courses`.`id` = :courseID';
+$valuesToBind = array('courseID' => $course['id']);
+$courseMentors = ConnectToDB::interogateDB($sql, $valuesToBind);
+
 $template = loadTemplate('../templates','details-course.tmpl');
 
 if(isset($_SESSION['google_id'])) {
@@ -57,8 +65,8 @@ if(isset($_SESSION['google_id'])) {
 	$profileImage = $userGoogle[0]['profile_image'];
 	$role = $userGoogle[0]['user_role'];
 	$googleId = $userGoogle[0]['google_id'];
-	echo $template->render(array('google_id' => $googleId, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
+	echo $template->render(array('google_id' => $googleId, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $role, 'first_name' => $firstName, 'profile_image' => $profileImage, 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'courseMentors' => $courseMentors));
 } else {
-	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage));
+	echo $template->render(array('successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'exercisesMessage'=> $exercisesMessage, 'user_role' => $_SESSION['user_role'], 'first_name' => $_SESSION['first_name'], 'profile_image' => $_SESSION['profile_image'], 'course' => $course, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises,  'currentPage' => $currentPage, 'courseMentors' => $courseMentors));
 }
 ?>

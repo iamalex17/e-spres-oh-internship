@@ -60,6 +60,11 @@
 				{% for label in course.label %}
 					<span class="labelGrey alignment">{{ label }}</span>
 				{% endfor %}
+				{% for mentors in courseMentors %}
+					<!--styling this-->
+					Presented by {{ mentors.first_name }} {{ mentors.last_name }}
+					<!--end styling-->
+				{% endfor %}
 			</div>
 			<div class="course-details-content">
 				<span class="courseDetail alignment spacing">{{ course.description |raw }}</span>
