@@ -53,7 +53,11 @@
 				<h3 class="newUserName reset">{{ course.title }}</h3>
 			</div>
 			<div class="message-info-align">
+				{% if currentFilter != '' %}
+				<a class="link float-right" href="{{ path }}dashboard?show={{ currentFilter }}"><i class="fa fa-angle-double-left"></i> Go Back </a>
+				{% else %}
 				<a class="link float-right" href="{{ path }}dashboard"><i class="fa fa-angle-double-left"></i> Go Back </a>
+				{% endif %}
 			</div>
 			</div>
 			<div class="course-details-name">
