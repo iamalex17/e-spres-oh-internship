@@ -4,15 +4,13 @@ require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
 require_once '../classes/class.exercise.php';
+require_once '../classes/class.utilities.php';
 
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$request = User::verifyRequestURL($_SERVER['HTTP_REFERER']);
-	if($request != 'create-course') {
-		header('Location: ' . $GLOBALS['path'] . 'dashboard');
-		exit();
-	}
+if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
+	header('Location: ' . $GLOBALS['path'] . 'login');
+	exit();
 }
 
 if(isset($_POST['exerciseContent'])) {
@@ -39,16 +37,19 @@ if(isset($_POST['exerciseContent'])) {
 			$_SESSION['successMessage'] = $successMessage;
 		}
 	}
+	$_SESSION['course_id'] = $courseID;
 	if(!$ok) {
 		$errorMessage = "Please add exercise description.\n";
 		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location:' . $path . 'users/create-course');
+		header('Location:' . $path . 'users/create-course?course_id=' . $courseID);
+		exit();
 	}
-	$_SESSION['course_id'] = $courseID;
 	if(isset($_POST['exit'])) {
-		header('Location:' . $path . 'dashboard');
+		$utility = new Utilities;
+		$utility->redirectWithFilter();
 	} else {
 		header('Location:' . $path . 'users/create-course?course_id=' . $courseID);
+		exit();
 	}
 }
 ?>
