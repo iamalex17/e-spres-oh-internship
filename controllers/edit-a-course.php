@@ -7,12 +7,6 @@ require_once '../classes/class.utilities.php';
 
 session_start();
 
-//$currentFilter = '';
-
-//if(isset($_SESSION['label'])) {
-//	$currentFilter = $_SESSION['label'];
-//}
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
 	$errorMessage = '';
