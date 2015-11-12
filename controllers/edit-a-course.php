@@ -6,6 +6,12 @@ require_once '../classes/class.user.php';
 
 session_start();
 
+$currentFilter = '';
+
+if(isset($_SESSION['label'])) {
+	$currentFilter = $_SESSION['label'];
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
 	$errorMessage = '';
@@ -74,8 +80,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$successMessage = "Course updated!\n";
 		$_SESSION['successMessage'] = $successMessage;
-		header('Location: ' . $GLOBALS['path'] . 'dashboard');
-		exit();
+		if(isset($_SESSION['label'])) {
+			header('Location: ' . $GLOBALS['path'] . 'dashboard?show=' . $currentFilter);
+			exit();
+		} else {
+			header('Location: ' . $GLOBALS['path'] . 'dashboard');
+			exit();
+		}
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
 		$_SESSION['course_id'] = $id;

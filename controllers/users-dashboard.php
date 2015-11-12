@@ -30,8 +30,13 @@ if(isset($_SESSION['course_id'])) {
 	unset($_SESSION['course_id']);
 }
 
+if(isset($_SESSION['label'])) {
+	unset($_SESSION['label']);
+}
+
 if(isset($_GET['show'])) {
 	$label = $_GET['show'];
+	$_SESSION['label'] = $label;
 	$sql = 'SELECT DISTINCT `courses`.* FROM `courses` LEFT JOIN `presentors` ON `courses`.id = `presentors`.course_id WHERE status = 1 AND `label` LIKE :show ORDER BY `id` DESC';
 	$valuesToBind = array('show' => '%'.$label.'%');
 	$courses = ConnectToDB::interogateDB($sql, $valuesToBind);
