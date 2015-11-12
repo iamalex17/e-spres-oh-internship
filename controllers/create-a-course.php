@@ -15,7 +15,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 	header('Location: ' . $GLOBALS['path'] . 'dashboard');
 }
 
-
 if(!isset($_POST['title'])) {
 	$_POST['title'] = trim($_POST['title']);
 	$errorMessage .= "Add a title to the course.\n";
@@ -48,7 +47,7 @@ if($_POST['textareas'] == '') {
 	$status = 0;
 }
 
-$sql = 'SELECT title FROM `courses` WHERE title = :title';
+$sql = 'SELECT title FROM `courses` WHERE title = :title and status = 1';
 $valuesToBind = array('title' => $_POST['title']);
 $result = ConnectToDB::interogateDB($sql, $valuesToBind);
 
@@ -72,7 +71,7 @@ if($status == 1) {
 	$sql = 'INSERT INTO `courses` (`id`, `title`, `label`, `description`, `status`) VALUES (NULL, :title, :label, :textareas, 1)';
 	$valuesToBind = array('title' => $_POST['title'], 'label' => $label, 'textareas' => $_POST['textareas']);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-	$sql = 'SELECT id FROM `courses` WHERE title = :title';
+	$sql = 'SELECT id FROM `courses` WHERE title = :title AND status = 1';
 	$valuesToBind = array('title' => $_POST['title']);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$courseId = $result[0][0];
