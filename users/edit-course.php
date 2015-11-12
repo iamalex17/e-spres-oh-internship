@@ -6,7 +6,7 @@ require_once '../classes/class.user.php';
 
 $errorMessage = '';
 
-if(!User::verifySessionID()) {
+if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
 	header('Location: ' . $GLOBALS['path'] . 'login');
 	exit();
 }
