@@ -3,14 +3,15 @@ require_once '../config.php';
 require_once '../controllers/load-template.php';
 require_once '../classes/class.connect-to-db.php';
 require_once '../classes/class.user.php';
+require_once '../classes/class.utilities.php';
 
 session_start();
 
-$currentFilter = '';
+//$currentFilter = '';
 
-if(isset($_SESSION['label'])) {
-	$currentFilter = $_SESSION['label'];
-}
+//if(isset($_SESSION['label'])) {
+//	$currentFilter = $_SESSION['label'];
+//}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$status = 1;
@@ -80,13 +81,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$successMessage = "Course updated!\n";
 		$_SESSION['successMessage'] = $successMessage;
-		if(isset($_SESSION['label'])) {
-			header('Location: ' . $GLOBALS['path'] . 'dashboard?show=' . $currentFilter);
-			exit();
-		} else {
-			header('Location: ' . $GLOBALS['path'] . 'dashboard');
-			exit();
-		}
+		$utility = new Utilities();
+		$utility->redirectWithFilter();
 	} else {
 		$_SESSION['errorMessage'] = $errorMessage;
 		$_SESSION['course_id'] = $id;

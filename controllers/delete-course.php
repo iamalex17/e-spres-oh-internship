@@ -1,6 +1,7 @@
 <?php
 require_once '../config.php';
 require_once '../classes/class.user.php';
+require_once '../classes/class.utilities.php';
 
 session_start();
 
@@ -18,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$successMessage = 'Course succesfully deleted!';
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'dashboard');
-	exit();
+	$utility = new Utilities();
+	$utility->redirectWithFilter();
 }
 ?>
