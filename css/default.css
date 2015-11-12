@@ -1072,9 +1072,7 @@ input {
 .exercise-details.incorrect {
 	background-color: #F2DEDE;
 }
-
-.append-exercise h2 {
-	font-size: 1.15rem;
+.create-menu .category {
 	margin-bottom: 15px;
 }
 
