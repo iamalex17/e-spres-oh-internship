@@ -3,8 +3,9 @@ require_once '../config.php';
 
 class Utilities {
 	public function redirectWithFilter() {
-		$currentFilter = $_SESSION['label'];
-		if(isset($currentFilter)) {
+		$currentFilter = '';
+		if(isset($_SESSION['label'])) {
+			$currentFilter = $_SESSION['label'];
 			header('Location: ' . $GLOBALS['path'] . 'dashboard?show=' . $currentFilter);
 			exit();
 		} else {
