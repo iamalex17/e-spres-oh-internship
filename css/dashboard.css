@@ -108,7 +108,7 @@
 .courseContent{
 	border-bottom: 2px solid #efefef;
 	margin-bottom: 10px;
-	height: 53px;
+	height: 37px;
 	overflow: hidden;
 }
 .courseDetail{
@@ -118,13 +118,16 @@
 	width: 98%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	word-break: break-all;
 	word-wrap: break-word;
 }
 .courseDetail.solution-content {
 	padding: 15px;
 }
-
+.courseContent .courseDetail p {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 .alignment{
 	display: inline-block;
 }
