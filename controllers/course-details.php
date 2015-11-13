@@ -6,6 +6,7 @@ $solutionStatus = '';
 $feedback = '';
 $course_id = $_GET['course_id'];
 $currentFilter = '';
+$feedbackMentor = '';
 
 if(isset($_SESSION['label'])) {
 	$currentFilter = $_SESSION['label'];
@@ -47,7 +48,9 @@ if(count($exercises)) {
 			$sql = 'SELECT first_name, last_name FROM `users` WHERE id = :id';
 			$valuesToBind = array('id' => $mentorID);
 			$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-			$feedbackMentor = $result[0];
+			if(count($result)) {
+				$feedbackMentor = $result[0];
+			}
 		} else {
 			$solution = '';
 		}
