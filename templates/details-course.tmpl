@@ -68,7 +68,11 @@
 				<h4 class="courseUserName"><span class="numberOfExercises"></span> Exercises</h4>
 					<span class="vertical-line black"></span>
 				<h4 class="courseUserName">
-					Presented by {{ courseMentors }}
+					{% if courseMentors != '' %}
+						Presented by {{ courseMentors }}
+					{% else %}
+						No mentors assigned to this course
+					{% endif %}
 				</h4>
 			</div>
 			<div class="course-details-content">
