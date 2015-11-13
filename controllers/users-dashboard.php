@@ -48,6 +48,7 @@ if(isset($_GET['show'])) {
 if(count($courses)) {
 	foreach($courses as &$course) {
 		$course['label'] = explode(', ', $course['label']);
+		$courseID = $course['id'];
 		$sql = 'SELECT CONCAT_WS(" ", `users`.`last_name`, `users`.`first_name`) AS mentor_name
 				FROM `users`
 				INNER JOIN `presentors` ON `presentors`.`presentor_id` = `users`.`id`
@@ -60,8 +61,13 @@ if(count($courses)) {
 			unset($mentor[1]);
 			$mentor = implode(' ', $mentor);
 		}
+		$sql = 'SELECT count(*) FROM `exercises` WHERE status = 1 AND course_id = :course_id';
+		$valuesToBind = array('course_id' => $courseID);
+		$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+		$exercises = $result[0][0];
 		$mentors = implode(', ', $mentors);
 		$course['mentors'] = $mentors;
+		$course['numberOfExercises'] = $exercises;
 		html_entity_decode($course['description']);
 	}
 	if(count($deletedCourses != 0)) {
