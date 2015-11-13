@@ -64,7 +64,12 @@
 				{% for label in course.label %}
 					<span class="labelGrey alignment">{{ label }}</span>
 				{% endfor %}
-				Presented by {{ courseMentors }}
+					<span class="vertical-line black"></span>
+				<h4 class="courseUserName"><span class="numberOfExercises"></span> Exercises</h4>
+					<span class="vertical-line black"></span>
+				<h4 class="courseUserName">
+					Presented by {{ courseMentors }}
+				</h4>
 			</div>
 			<div class="course-details-content">
 				<span class="courseDetail alignment spacing">{{ course.description |raw }}</span>

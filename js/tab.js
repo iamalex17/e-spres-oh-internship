@@ -5,6 +5,11 @@ var INTERACTION = (function() {
 		$('.exerciseNumberContainer').html($exerciseNumber);
 	}
 
+	function showNumberOfExercises() {
+		var $exerciseNumber = $('.exercise-details').length;
+		$('.numberOfExercises').html($exerciseNumber);
+	}
+
 	function addExercise() {
 		$('#tab2').on('click', '#buttonAddExercise', function() {
 			var ta_count = $("textarea").length;
@@ -45,6 +50,7 @@ var INTERACTION = (function() {
 		init: function() {
 
 			incrementExerciseNumber();
+			showNumberOfExercises();
 			initTinyMCE();
 			addExercise();
 

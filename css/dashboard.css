@@ -73,7 +73,9 @@
 	border: 1px solid #e2e9e6;
 	border-bottom: transparent;
 }
-
+.existingCourseDisplay > a {
+	margin-top: 5px;
+}
 .exercise-details.header {
 	border-bottom: 1px solid #e2e9e6;
 }
@@ -82,12 +84,19 @@
 	margin-top: 30px;
 }
 .courseName{
-	border-bottom: 1px dashed #2e2e2e;
+	border-bottom: 1px solid #efefef;
 	margin-bottom: 10px;
 }
 .course-details-name{
 	border-bottom: 1px dashed #000;
 	margin-bottom: 10px;
+}
+.course-details-name h3 {
+	padding: 0;
+}
+.courseList .course-details-name {
+	padding: 10px 0;
+	margin-bottom: 0;
 }
 .course-details-content{
 	margin-top: 40px;
@@ -106,7 +115,7 @@
 	margin-left: 1%;
 }
 .courseContent{
-	border-bottom: 2px solid #efefef;
+	border-bottom: 1px solid #efefef;
 	margin-bottom: 10px;
 	height: 37px;
 	overflow: hidden;
@@ -184,7 +193,6 @@
 	padding: 5px;
 	font-weight: bold;
 	border-radius: .25em;
-	margin-bottom: 9px;
 	margin-left: 10px;
 }
 /*Container*/

@@ -584,6 +584,9 @@ nav ul .active-sidebar > a {
 	color: #2b2b2b;
 	padding: 10px;
 }
+h4.courseUserName {
+	font-size: 0.83em;
+}
 .newUserName > a {
 	font-size: 20px;
 }
@@ -1075,6 +1078,18 @@ input {
 }
 .create-menu .category {
 	margin-bottom: 15px;
+}
+
+.vertical-line {
+	width: 1px;
+	height: 20px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 10px;
+	background-color: #efefef;
+}
+.vertical-line.black {
+	background-color: #000000;
 }
 
 
