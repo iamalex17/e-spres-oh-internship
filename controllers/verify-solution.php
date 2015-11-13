@@ -16,8 +16,9 @@ if(isset($_POST['solution-feedback'])) {
 		$valuesToBind = array('feedback' => $_POST['feedback'], 'id' => $_POST['solution_id']);
 		ConnectToDB::interogateDB($sql, $valuesToBind);
 	}
-	$sql = 'UPDATE `submitted_exercises` SET status = :status WHERE id = :id';
-	$valuesToBind = array('status' => $_POST['solution-feedback'], 'id' => $_POST['solution_id']);
+	$mentorID = $_SESSION['id'];
+	$sql = 'UPDATE `submitted_exercises` SET mentor_id = :mentor_id, status = :status WHERE id = :id';
+	$valuesToBind = array('status' => $_POST['solution-feedback'], 'id' => $_POST['solution_id'], 'mentor_id' => $mentorID);
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Feedback has been sent successfully!";
 	$_SESSION['successMessage'] = $successMessage;
