@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 29, 2015 at 12:09 PM
+-- Generation Time: Nov 13, 2015 at 10:45 AM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -129,6 +129,7 @@ INSERT INTO `presentors` (`id`, `course_id`, `presentor_id`) VALUES
 CREATE TABLE `submitted_exercises` (
   `id` int(3) NOT NULL,
   `exercise_id` int(3) NOT NULL,
+  `mentor_id` int(3) unsigned DEFAULT NULL,
   `user_id` int(3) unsigned NOT NULL,
   `description` blob NOT NULL,
   `feedback` blob,
@@ -139,10 +140,10 @@ CREATE TABLE `submitted_exercises` (
 -- Dumping data for table `submitted_exercises`
 --
 
-INSERT INTO `submitted_exercises` (`id`, `exercise_id`, `user_id`, `description`, `feedback`, `status`) VALUES
-(12, 1, 14, 0x266c743b702667743b636363266c743b2f702667743b, 0x3c703e64612064613c2f703e, 2),
-(13, 3, 14, 0x266c743b702667743b626262266c743b2f702667743b, NULL, 1),
-(14, 1, 39, 0x266c743b702667743b6161616161266c743b2f702667743b, NULL, 1);
+INSERT INTO `submitted_exercises` (`id`, `exercise_id`, `mentor_id`, `user_id`, `description`, `feedback`, `status`) VALUES
+(12, 1, NULL, 14, 0x266c743b702667743b636363266c743b2f702667743b, 0x3c703e64612064613c2f703e, 2),
+(13, 3, NULL, 14, 0x266c743b702667743b626262266c743b2f702667743b, NULL, 1),
+(14, 1, NULL, 39, 0x266c743b702667743b6161616161266c743b2f702667743b, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,7 @@ CREATE TABLE `users` (
   `reset_password` char(64) DEFAULT NULL,
   `google_link` varchar(60) DEFAULT NULL,
   `deletion_link_time` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -178,7 +179,7 @@ INSERT INTO `users` (`id`, `google_id`, `first_name`, `last_name`, `username`, `
 (15, NULL, 'Andreea', 'Cristescu', 'candreea', 'andreea_laura_cristescu@yahoo.com', '5f1c263ead9c8b960eefc0b5a9973f78', 3, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (16, NULL, 'Andrei', 'Csiki', 'candrei', 'andrei.g.csiki@gmail.com', '5f1c263ead9c8b960eefc0b5a9973f78', 3, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (17, NULL, 'Andrei', 'Pfeiffer', 'pandrei', 'andrei.pfeiffer@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
-(18, NULL, 'Cristi', 'Sitov', 'scristi', 'cristian.sitov@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
+(18, NULL, 'Cristi', 'Sitov', 'scristi', 'cristian.sitov@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, '39c93d13e95bcd9757b7b0ecb2e1f1a6', 1, NULL, NULL, NULL),
 (19, NULL, 'Razvan', 'Stan', 'srazvan', 'razvan.stan@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (20, NULL, 'Bogdan', 'Dinga', 'dbogdan', 'bogdan.dinga@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (21, NULL, 'Claudiu', 'Vintila', 'vclaudiu', 'claudiu.vintila@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
@@ -186,7 +187,8 @@ INSERT INTO `users` (`id`, `google_id`, `first_name`, `last_name`, `username`, `
 (24, NULL, 'Andrei', 'Laza', 'landrei', 'andrei.laza@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (25, NULL, 'Ciprian', 'Zaharie', 'zciprian', 'ciprian.zaharie@e-spres-oh.com', 'e478b124e04049149dbcc58c81ef3ec3', 2, '21232f297a57a5a743894a0e4a801fc3.png', NULL, NULL, 1, NULL, NULL, NULL),
 (38, '100555706241983029415', 'Alex', 'Ungureanu', NULL, 'alex.ungureanu@e-spres-oh.com', NULL, 4, 'a08372b70196c21a9229cf04db6b7ceb.jpg', 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', NULL, 0, NULL, NULL, NULL),
-(39, '113577540606622954980', 'Kristine', 'Varga', NULL, 'v.kristine.c@gmail.com', NULL, 3, '1ee4b3dc1b2ca4a0fee356ff0485d0dd.jpg', 'https://lh3.googleusercontent.com/-NZiUp_jXFh8/AAAAAAAAAAI/AAAAAAAAACY/gGtu1DKXYOY/photo.jpg', NULL, 1, NULL, 'https://plus.google.com/113577540606622954980', NULL);
+(39, '113577540606622954980', 'Kristine', 'Varga', NULL, 'v.kristine.c@gmail.com', NULL, 3, '1ee4b3dc1b2ca4a0fee356ff0485d0dd.jpg', 'https://lh3.googleusercontent.com/-NZiUp_jXFh8/AAAAAAAAAAI/AAAAAAAAACY/gGtu1DKXYOY/photo.jpg', NULL, 1, NULL, 'https://plus.google.com/113577540606622954980', NULL),
+(40, '105962305925837104799', 'Alex', 'Ungureanu', NULL, 'lex.greenapple@gmail.com', NULL, 4, 'a08372b70196c21a9229cf04db6b7ceb.jpg', 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg', NULL, 0, NULL, 'https://plus.google.com/105962305925837104799', NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +244,8 @@ ALTER TABLE `presentors`
 ALTER TABLE `submitted_exercises`
   ADD PRIMARY KEY (`id`),
   ADD KEY `exercise_id` (`exercise_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `mentor_id` (`mentor_id`);
 
 --
 -- Indexes for table `users`
@@ -289,7 +292,7 @@ ALTER TABLE `submitted_exercises`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `users_privileges`
 --
@@ -316,6 +319,7 @@ ALTER TABLE `presentors`
 -- Constraints for table `submitted_exercises`
 --
 ALTER TABLE `submitted_exercises`
+  ADD CONSTRAINT `mentor_id_FK` FOREIGN KEY (`mentor_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `exercise_id_FK` FOREIGN KEY (`exercise_id`) REFERENCES `exercises` (`id`),
   ADD CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
