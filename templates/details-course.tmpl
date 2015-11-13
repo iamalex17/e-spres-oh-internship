@@ -154,6 +154,7 @@
 						{% if user_role == 3 %}
 						<section class="feedback-container">
 							{% if exercise.solution.feedback != NULL and ok == 1 %}
+							Solution from {{ feedbackMentor.first_name }} {{ feedbackMentor.last_name }}
 							<p>{{ exercise.solution.feedback | raw }}</p>
 							{% elseif ok == 1 and exercise.solution.status == 2 %}
 								Your answer is correct
