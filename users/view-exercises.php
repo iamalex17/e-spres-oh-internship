@@ -76,7 +76,7 @@ if(isset($_GET['course_id'])) {
 		if(isset($_SESSION['errorMessage'])) {
 			$errorMessage = $_SESSION['errorMessage'];
 		}
-		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage));
+		echo $template->render(array('course' => $course, 'solutionsMessage' => $solutionsMessage, 'exercises' => $exercises, 'path' => $path, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'coursesWithExercises' => $coursesWithExercises, 'currentPage' => $currentPage, 'successMessage' => $successMessage, 'errorMessage' => $errorMessage, 'google_id' => $googleId));
 	} else {
 		$user = new User($_SESSION);
 		if(isset($_SESSION['successMessage'])) {
