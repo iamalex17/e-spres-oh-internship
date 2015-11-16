@@ -66,14 +66,14 @@
 
 		{% if user_role != 1 %}
 		<ul class="reset">
-		{% if currentPage == 'dashboard.php' or currentPage == 'dashboard.php?show=Frontend' or currentPage == 'dashboard.php?show=PHP' or currentPage == 'dashboard.php?show=Java' %}
+		{% if currentPage == 'dashboard.php' or currentPage == 'dashboard.php?show=Frontend' or currentPage == 'dashboard.php?show=PHP' or currentPage == 'dashboard.php?show=Java' or currentFilter == "All" or currentFilter == 'Frontend' or currentFilter == 'PHP' or currentFilter == 'Java' %}
 		<li class="list-editor dropDown active-sidebar">
 		{% else %}
 		<li class="dropDown list-editor">
 		{% endif %}
 			<a><i class=" iconParent  icon-small iconGraduation"></i> Courses <i class=" iconParent icon-small iconPlusMore change-icon float-right"></i></a>
 			<ul class="subNav reset">
-				{% if currentPage == 'dashboard.php' %}
+				{% if currentPage == 'dashboard.php' or currentFilter == "All" %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -81,7 +81,7 @@
 					<a href="{{ path }}dashboard">All</a>
 				</li>
 
-				{% if currentPage == 'dashboard.php?show=Frontend' %}
+				{% if currentPage == 'dashboard.php?show=Frontend' or currentFilter == 'Frontend' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -89,7 +89,7 @@
 					<a href="{{ path }}dashboard?show=Frontend">Frontend</a>
 				</li>
 
-				{% if currentPage == 'dashboard.php?show=PHP' %}
+				{% if currentPage == 'dashboard.php?show=PHP' or currentFilter == 'PHP' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
@@ -97,7 +97,7 @@
 					<a href="{{ path }}dashboard?show=PHP">PHP</a>
 				</li>
 
-				{% if currentPage == 'dashboard.php?show=Java' %}
+				{% if currentPage == 'dashboard.php?show=Java' or currentFilter == 'Java' %}
 				<li class="sub-nav-list active-sidebar-sublist">
 				{% else %}
 				<li class="sub-nav-list">
