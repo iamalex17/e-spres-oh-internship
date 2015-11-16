@@ -14,7 +14,6 @@ if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
 }
 
 if(isset($_POST['exerciseContent'])) {
-	$ok = 0;
 	$courseID = $_POST['course_id'];
 	$exercises = array();
 	$sql = 'SELECT id FROM `courses` WHERE id = :courseId';
@@ -38,12 +37,6 @@ if(isset($_POST['exerciseContent'])) {
 		}
 	}
 	$_SESSION['course_id'] = $courseID;
-	if(!$ok) {
-		$errorMessage = "Please add exercise description.\n";
-		$_SESSION['errorMessage'] = $errorMessage;
-		header('Location:' . $path . 'users/create-course?course_id=' . $courseID);
-		exit();
-	}
 	if(isset($_POST['exit'])) {
 		$utility = new Utilities;
 		$utility->redirectWithFilter();
