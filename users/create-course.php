@@ -15,6 +15,7 @@ $courseMentors = array();
 $noExerciseMessage = '';
 $errorMessage = '';
 $successMessage = '';
+$numberOfExercises = '';
 
 if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
 	header('Location: ' . $GLOBALS['path'] . 'login');
@@ -49,10 +50,12 @@ if(isset($_SESSION['successMessage'])) {
 $sql = 'SELECT `c`.`title`, `c`.`id`, `c`.`status` FROM `courses` `c` WHERE (SELECT count(*) FROM exercises WHERE course_id = `c`.`id` AND `exercises`.`status` = 1) > 0 AND status = 1';
 $coursesWithExercises = ConnectToDB::interogateDB($sql);
 
-$sql = 'SELECT count(*) FROM exercises WHERE course_id = :course_id AND status = 1';
-$valuesToBind = array('course_id' => $_GET['course_id']);
-$result = ConnectToDB::interogateDB($sql, $valuesToBind);
-$numberOfExercises = $result[0][0];
+if(isset($_GET['course_id'])) {
+	$sql = 'SELECT count(*) FROM exercises WHERE course_id = :course_id AND status = 1';
+	$valuesToBind = array('course_id' => $_GET['course_id']);
+	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
+	$numberOfExercises = $result[0][0];
+}
 
 if(count($coursesWithExercises) == 0) {
 		$coursesWithExercises = NULL;
