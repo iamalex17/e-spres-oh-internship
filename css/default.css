@@ -587,7 +587,7 @@ nav ul .active-sidebar > a {
 h4.courseUserName {
 	font-size: 0.83em;
 }
-.newUserName > a {
+h4.newUserName {
 	font-size: 20px;
 }
 .newUserName > p {
