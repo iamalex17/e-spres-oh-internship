@@ -63,7 +63,7 @@
 		</div>
 		<ul class="navigation-course tab-links reset">
 			<li class="active list-editor"><a id="tab1-click" class="half"><i class="fa fa-lock"></i><span class="decoration">Course</span></a></li>
-			<li class="inactive list-editor"><a id="tab2-click" class="half-inactive"><i class="fa fa-credit-card"></i><span class="decoration-inactive">Exercises (<span class="exerciseNumberContainer"></span></span>)</a></li>
+			<li class="inactive list-editor"><a id="tab2-click" class="half-inactive"><i class="fa fa-credit-card"></i><span class="decoration-inactive">Exercises ({{ numberOfExercises }} </span>)</a></li>
 			<br style="clear:both">
 		</ul>
 
@@ -142,7 +142,7 @@
 			<input type="hidden" name="course_id" value="{{ course.id }}">
 		{% endif %}
 			<div class="append-exercise">
-				<h4 class="exercise-number reset"><span class="exerciseNumberContainer"></span> Exercises</h4>
+				<h4 class="exercise-number reset">{{ numberOfExercises }} Exercises</h4>
 				<a id="buttonAddExercise" class=" button button-blue float-right" > Add exercise </a>
 				<div class="clearfix"></div>
 				{% if exerciseStatus == 1 %}
