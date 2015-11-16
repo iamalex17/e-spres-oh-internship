@@ -85,7 +85,6 @@
 }
 .courseName{
 	border-bottom: 1px solid #efefef;
-	margin-bottom: 10px;
 }
 .course-details-name{
 	border-bottom: 1px dashed #000;
@@ -115,7 +114,6 @@
 	margin-left: 1%;
 }
 .courseContent{
-	border-bottom: 1px solid #efefef;
 	margin-bottom: 10px;
 	height: 37px;
 	overflow: hidden;
@@ -274,4 +272,9 @@
 }
 .course-solution-content{
 	overflow: scroll;
+}
+.horizontal-line {
+	width: 100%;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #efefef;
 }
