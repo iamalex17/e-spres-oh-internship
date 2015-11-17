@@ -38,6 +38,21 @@ var INTERACTION = (function() {
 		});
 	}
 
+	function initTinyMCEBasic() {
+		tinymce.init({
+			selector: '.mceEditorBasic',
+			content_css : "../css/custom-content.css",
+			menubar: false,
+			statusbar: false,
+			plugins: [
+				" lists link  preview ",
+				"searchreplace visualblocks code",
+				"contextmenu paste"
+			],
+			toolbar: " undo redo | bold italic | bullist numlist | link image"
+		});
+	}
+
 	function changeOpenButtonText() {
 		if ($(this).is(":visible")) {
 			$(this).prev().find('.buttonOpen').text('Close');
@@ -53,8 +68,8 @@ var INTERACTION = (function() {
 			incrementExerciseNumber();
 			showNumberOfExercises();
 			initTinyMCE();
+			initTinyMCEBasic();
 			addExercise();
-
 			$('.create-menu .tab-links a').on('click', function(e)  {
 				// Change/remove current tab to active
 				$(this).parent('li').addClass('active').siblings().removeClass('active').addClass('inactive');

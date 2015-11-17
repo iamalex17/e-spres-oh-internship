@@ -103,7 +103,7 @@
 								<form method="POST" action="{{ path }}controllers/verify-solution">
 									<input type="hidden" name="solution_id" value="{{ solution.id }}">
 									<h4>Observations/Remarks (Optional)</h4>
-									<textarea name="feedback">{{ solution.feedback }}</textarea>
+									<div name="feedback" class="mceEditorBasic">{{ solution.feedback }}</div>
 									<input type="radio" name="solution-feedback" id="correct" value="2"
 										{% if solution.status == 2%}
 											checked
