@@ -109,13 +109,7 @@
 				<div class="existingCourse-answer container-box-shadow">
 				{% endif %}
 
-					{% if exercise.solution.status == 2 %}
 					<div class="exercise-details submitted">
-					{% elseif exercise.solution.status == 3 %}
-					<div class="exercise-details submitted">
-					{% else %}
-					<div class="exercise-details submitted">
-					{% endif %}
 						<div class="course-exercise-name">
 						<div class="alignment user-margin">
 							{% if user_role == 3 and ok == 1 and exercise.solution.status == 1 %}
