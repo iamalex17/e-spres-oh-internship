@@ -67,7 +67,9 @@ try {
 	$page = '';
 	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {
 		$page = 'edit';
-		$currentFilter = $_SESSION['label'];
+		if(isset($_SESSION['label'])) {
+			$currentFilter = $_SESSION['label'];
+		}
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
 		unset($_SESSION['course_id']);
 		$sql = 'SELECT * FROM `courses` WHERE id = :id';
