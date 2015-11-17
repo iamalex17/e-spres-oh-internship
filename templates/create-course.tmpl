@@ -28,6 +28,15 @@
 		{{ currentPage }}
 	</div>
 
+	{% if page == 'edit' %}
+	<div class="current-page">
+		{% if currentFilter == "" %}
+			{% set currentFilter = 'All' %}
+		{% endif %}
+		{{currentFilter}}
+	</div>
+	{% endif %}
+
 	<!--Sidebar-->
 	<div class="side-navigation">
 		{% include 'partial-templates/sidebar.tmpl' %}
