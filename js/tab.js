@@ -73,9 +73,11 @@ var INTERACTION = (function() {
 				$('#tab1').hide();
 			});
 			// Toggle Give feedback container
+			$('.give-feedback-container').hide();
 			$('.exercise-details').on('click', '.feedback-button', function(e) {
 				e.preventDefault();
-				$(this).closest('.exercise-details').find('.feedback-container').slideToggle();
+				$(this).closest('.exercise-responses').find('.give-feedback-container').slideToggle();
+
 			});
 
 			// Open/Close container for exercises from Submitted Exercises
@@ -83,13 +85,6 @@ var INTERACTION = (function() {
 			$('.exercise-details.submitted').on('click', '.buttonOpen', function(e) {
 				e.preventDefault();
 				$(this).closest('.existingExercise').find('.solutions-container').slideToggle(300, changeOpenButtonText);
-			});
-
-			// Open/Close for user solution from Submitted Exercises
-			$('.course-solution-content').hide();
-			$('.exercise-responses').on('click', '.buttonOpen', function(e){
-				e.preventDefault();
-				$(this).closest('.exercise-responses').find('.course-solution-content').slideToggle(300, changeOpenButtonText);
 			});
 
 			$('.edit-exercise-container').hide();

@@ -1012,62 +1012,62 @@ input {
 	margin-right: 10px;
 }
 /* Feedback Section */
-.feedback-container {
+.feedback-container, .give-feedback-container {
 	padding: 15px 30px;
 	font-size: 14px;
 	border-top: 1px solid #e2e9e6;
 	color: #2b2b2b;
 }
-.feedback-container input[type="radio"] {
+.give-feedback-container input[type="radio"] {
 	display: none;
 }
-.feedback-container label {
+.give-feedback-container label {
 	background-color: #ffffff;
 	margin-right: 20px;
 	margin-top: 15px;
 }
-.feedback-container .correct, .feedback-container .correct:hover {
+.give-feedback-container .correct, .give-feedback-container .correct:hover {
 	border: 1px solid #4DAF7C;
 	color: #4DAF7C;
 }
-.feedback-container .incorrect, .feedback-container .incorrect:hover {
+.give-feedback-container .incorrect, .give-feedback-container .incorrect:hover {
 	color: tomato;
 	border: 1px solid tomato;
 }
 
-.feedback-container input:checked + .correct {
+.give-feedback-container input:checked + .correct {
 	background-color: #4DAF7C;
 	color: #ffffff;
 }
-.feedback-container input:checked + .incorrect {
+.give-feedback-container input:checked + .incorrect {
 	background-color: tomato;
 	color: #ffffff;
 }
-.feedback-container button[type="submit"] {
+.give-feedback-container button[type="submit"] {
 	margin-top: 15px;
 	margin-right: 10px;
 	float: right;
 }
-.feedback-container label:hover {
+.give-feedback-container label:hover {
 	background-color: #ffffff;
 	color: initial;
 }
-.feedback-container .fa-check {
+.give-feedback-container .fa-check {
 	margin-right: 10px;
 }
-.feedback-container .fa-times{
+.give-feedback-container .fa-times{
 	display: inline-block;
 	margin-right: 10px;
 }
-.feedback-container .mce-tinymce.mce-panel {
+.give-feedback-container .mce-tinymce.mce-panel {
 	width: 600px;
 }
-.feedback-container h4 {
+.give-feedback-container h4 {
 	font-weight: normal;
 	font-size: 18px;
 	margin: 10px 0;
 }
-.feedback-container > div {
+.give-feedback-container > div {
 	width: 60%;
 }
 .create-menu .category {

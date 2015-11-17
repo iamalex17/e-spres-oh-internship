@@ -94,14 +94,11 @@
 								<a href="" class="button-solution feedback-button links-a">Give Feedback</a>
 								{% endif %}
 							</div>
-							<div class="buttonAlignment">
-								<a href="" class="buttonOpen button-solution links-a">Open</a>
-							</div>
 						</div>
 						<div class="course-solution-content">
 							<span class="courseDetail alignment solution-content">{{ solution.description | raw }}</span>
 						</div>
-						<section class="feedback-container">
+						<section class="give-feedback-container">
 							<div>
 								<form method="POST" action="{{ path }}controllers/verify-solution">
 									<input type="hidden" name="solution_id" value="{{ solution.id }}">
