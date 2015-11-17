@@ -1070,12 +1070,6 @@ input {
 .feedback-container > div {
 	width: 60%;
 }
-.exercise-details.correct {
-	background-color: #DFF0D8;
-}
-.exercise-details.incorrect {
-	background-color: #F2DEDE;
-}
 .create-menu .category {
 	margin-bottom: 15px;
 }
