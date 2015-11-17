@@ -16,6 +16,7 @@ $noExerciseMessage = '';
 $errorMessage = '';
 $successMessage = '';
 $numberOfExercises = '';
+$currentFilter = '';
 
 if(!isset($_SESSION['session_id']) && !isset($_SESSION['access_token'])) {
 	header('Location: ' . $GLOBALS['path'] . 'login');
@@ -66,6 +67,7 @@ try {
 	$page = '';
 	if((($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['course_id'])) || isset($_SESSION['course_id'])) {
 		$page = 'edit';
+		$currentFilter = $_SESSION['label'];
 		$id = isset($_GET['course_id']) ? $_GET['course_id'] : $_SESSION['course_id'];
 		unset($_SESSION['course_id']);
 		$sql = 'SELECT * FROM `courses` WHERE id = :id';
@@ -109,14 +111,14 @@ try {
 		$profileImage = $userGoogle[0]['profile_image'];
 		$role = $userGoogle[0]['user_role'];
 		$googleId = $userGoogle[0]['google_id'];
-		echo $template->render(array('mentor' => $mentor, 'google_id' => $googleId, 'noExerciseMessage' => $noExerciseMessage, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage, 'numberOfExercises' => $numberOfExercises));
+		echo $template->render(array('mentor' => $mentor, 'google_id' => $googleId, 'noExerciseMessage' => $noExerciseMessage, 'first_name' => $firstName, 'profile_image' => $profileImage, 'user_role' => $role, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage, 'numberOfExercises' => $numberOfExercises, 'currentFilter' => $currentFilter));
 	} else {
 		$user = new User($_SESSION);
 		$sql = 'SELECT id,first_name,last_name,email
 				FROM users
 				WHERE status = 1 AND user_role = 2';
 		$mentor = ConnectToDB::interogateDB($sql);
-		echo $template->render(array('noExerciseMessage' => $noExerciseMessage, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage, 'numberOfExercises' => $numberOfExercises));
+		echo $template->render(array('noExerciseMessage' => $noExerciseMessage, 'first_name' => $user->first_name, 'profile_image' => $user->profile_image, 'user_role' => $user->user_role, 'mentor' => $mentor, 'course' => $course, 'courseMentors' => $courseMentors, 'page' => $page, 'errorMessage' => $errorMessage, 'successMessage' => $successMessage, 'step' => $step, 'path' => $path, 'coursesWithExercises' => $coursesWithExercises, 'exercises' => $exercises, 'exerciseStatus' => $exerciseStatus, 'currentPage' => $currentPage, 'numberOfExercises' => $numberOfExercises, 'currentFilter' => $currentFilter));
 	}
 } catch (Exception $e) {
 	die('ERROR: ' . $e->getMessage());
