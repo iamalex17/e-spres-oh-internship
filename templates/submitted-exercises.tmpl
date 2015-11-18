@@ -101,7 +101,7 @@
 						<section class="give-feedback-container">
 							<div>
 								<form method="POST" action="{{ path }}controllers/verify-solution">
-									<!--<input type="hidden" name="solution_id" value="{{ solution.id }}">-->
+									<input type="hidden" name="solution_id" value="{{ solution.id }}">
 									<h4>Observations/Remarks (Optional)</h4>
 									<textarea name="feedback" class="mceEditorBasic">{{ solution.feedback }}</textarea>
 									<input type="radio" name="solution-feedback"  value="2"
