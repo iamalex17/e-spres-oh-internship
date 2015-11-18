@@ -101,21 +101,21 @@
 						<section class="give-feedback-container">
 							<div>
 								<form method="POST" action="{{ path }}controllers/verify-solution">
-									<input type="hidden" name="solution_id" value="{{ solution.id }}">
+									<!--<input type="hidden" name="solution_id" value="{{ solution.id }}">-->
 									<h4>Observations/Remarks (Optional)</h4>
 									<div name="feedback" class="mceEditorBasic">{{ solution.feedback }}</div>
-									<input type="radio" name="solution-feedback" id="correct" value="2"
+									<input type="radio" name="solution-feedback"  value="2"
 										{% if solution.status == 2%}
 											checked
 										{% endif %}
 									>
-									<label for="correct" class="button button-blue correct float-left"><i class="fa fa-check"></i>Correct</label>
-									<input type="radio" name="solution-feedback" value="3" id="incorrect"
+									<label class="button button-blue correct float-left"><i class="fa fa-check"></i>Correct</label>
+									<input type="radio" name="solution-feedback" value="3" 
 										{% if solution.status == 3 %}
 											checked
 										{% endif %}
 									>
-									<label for="incorrect" class="button button-blue incorrect float-left"><i class="fa fa-times"></i>Incorrect</label>
+									<label  class="button button-blue incorrect float-left"><i class="fa fa-times"></i>Incorrect</label>
 									<button type="submit" class="button button-blue" >Submit</button>
 								</form>
 								<div class="clearfix"></div>
