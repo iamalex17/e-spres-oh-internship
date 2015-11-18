@@ -6,10 +6,14 @@ require_once 'vendors/Google/autoload.php';
 
 ini_set("allow_url_fopen", true);
 session_start();
-//session_unset();
 
 $errorMessage = '';
 $successMessage = '';
+
+if(isset($_SESSION['session_id'])) {
+	header('Location: ' . $GLOBALS['path'] . 'dashboard');
+	exit();
+}
 
 $client_id = '349074393075-ht8af6613q4bfmc185i3pngl08davutl.apps.googleusercontent.com';
 $client_secret = 'NPkhzmka3ZEfTYcJtkCgvOts';
