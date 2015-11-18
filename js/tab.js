@@ -24,8 +24,7 @@ var INTERACTION = (function() {
 
 	function initTinyMCE() {
 		tinymce.init({
-			selector: "textarea",
-			mode: "textareas",
+			selector: ".mceEditor",
 			height: 300,
 			theme_advanced_path: true,
 			content_css : "../css/custom-content.css",
