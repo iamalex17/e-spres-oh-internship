@@ -54,7 +54,7 @@ var APP = (function() {
 
 	function incrementInputId() {
 		var index = 0;
-		$('.feedback-container').find('input').each(function() {
+		$('.give-feedback-container').find('input').each(function() {
 			$(this).attr('id', index);
 			$(this).next('label').each(function() {
 				$(this).attr('for', index);
@@ -66,7 +66,7 @@ var APP = (function() {
 	return {
 		init: function() {
 
-			incrementInputId()
+			incrementInputId();
 			$('form').find('input').each( keepInputFocusStyle );
 
 			$('form').on('blur keyup', '#email', ValidateEmailAddress);
