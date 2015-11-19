@@ -224,20 +224,23 @@ button{
 .fa-plus{
 	margin-right: 5px;
 }
-.fa.fa-hourglass-half {
-	position: absolute;
-	top: 17px;
-}
 .exercise-details .fa.fa-check {
-	position: absolute;
-	color: #4DAF7C;
-	top: 19px;
-	left: -3px;
+	position: relative;
+	color: #ffffff;
+	top: 12px;
+	left: 12px;
 }
 .exercise-details .fa.fa-times {
-	position: absolute;
-	color: tomato;
-	top:18px;
+	position: relative;
+	color: #ffffff;
+	top:15px;
+	left: 14px;
+}
+.exercise-details .fa.fa-hourglass-half {
+	position: relative;
+	color: #ffffff;
+	top: 11px;
+	left: 14px;
 }
 .submitted > .course-exercise-name > .user-margin {
 	position: relative;
@@ -1086,6 +1089,34 @@ input {
 	background-color: #000000;
 }
 
+/* 	INTERN RECEIVED FEEDBACK BULLETS */
+.bullet {
+	position: absolute;
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	top: -16px;
+	left: -32px;
+}
+.bullet.bullet-correct {
+	background-color: #4DAF7C;
+}
+.bullet.bullet-pending {
+	background-color: #f4b350;
+}
+.bullet.bullet-incorrect {
+	background-color: #ff5e4d;
+}
+.solution-correct {
+	color: #4DAF7C;
+}
+.solution-incorrect {
+	color: #ff5e4d;
+}
+.solution-pending {
+	color: #f4b350;
+}
 
 
 

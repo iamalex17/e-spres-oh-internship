@@ -113,13 +113,23 @@
 						<div class="course-exercise-name">
 						<div class="alignment user-margin">
 							{% if user_role == 3 and ok == 1 and exercise.solution.status == 1 %}
-							<i class="fa fa-hourglass-half"></i>
+							<span class="bullet bullet-pending">
+								<i class="fa fa-hourglass-half fa-lg"></i>
+							</span>
+							<h4 class="newUserName display reset solution-pending">Exercise {{ number }}  -  Pending</h4>
 							{% elseif exercise.solution.status == 2 and ok == 1 and user_role == 3 %}
-							<i class="fa fa-check fa-lg"></i>
+							<span class="bullet bullet-correct">
+								<i class="fa fa-check fa-lg"></i>
+							</span>
+							<h4 class="newUserName display reset solution-correct">Exercise {{ number }}  -  Correct</h4>
 							{% elseif exercise.solution.status == 3 and ok == 1 and user_role == 3 %}
-							<i class="fa fa-times fa-lg"></i>
-							{% endif %}
+							<span class="bullet bullet-incorrect">
+								<i class="fa fa-times fa-lg"></i>
+							</span>
+							<h4 class="newUserName display reset solution-incorrect">Exercise {{ number }}  -  Incorrect</h4>
+							{% else %}
 							<h4 class="newUserName display reset">Exercise {{ number }}</h4>
+							{% endif %}
 						</div>
 							{% if user_role == 3 %}
 							<div class="buttonAlignment">
