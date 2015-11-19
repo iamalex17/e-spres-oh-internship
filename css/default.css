@@ -961,12 +961,12 @@ input {
 }
 .pending-user .wrapper {
 	position: absolute;
-	right: 42px;
+	right: 40px;
 	top: 51px;
 	z-index: 1;
 }
 .pending-user button {
-	width: 141px;
+	width: 143px;
 	text-align: left;
 	border-radius: 0;
 }
