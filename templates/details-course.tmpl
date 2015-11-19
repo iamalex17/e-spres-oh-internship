@@ -171,16 +171,16 @@
 						{% if user_role == 3 %}
 						<section class="feedback-container">
 							{% if exercise.solution.feedback != NULL and ok == 1 %}
-							Feedback from {{ feedbackMentor.first_name }} {{ feedbackMentor.last_name }}
+							<h4 class="reset">Feedback from {{ feedbackMentor.first_name }} {{ feedbackMentor.last_name }}</h4>
 							<p>{{ exercise.solution.feedback | raw }}</p>
 							{% elseif ok == 1 and exercise.solution.status == 2 %}
-								Your answer is correct
+								<p class="reset">Your answer is correct</p>
 							{% elseif ok == 1 and exercise.solution.status == 3 %}
-								Your answer is wrong
+								<p class="reset">Your answer is wrong</p>
 							{% elseif ok == 1 and exercise.solution.status == 1 %}
-								A mentor will verify your solution soon
+								<p class="reset">A mentor will verify your solution soon</p>
 							{% else %}
-								You haven't posted any solution yet.
+								<p class="reset">You haven't posted any solution yet.</p>
 							{% endif %}
 						</section>
 						{% endif %}
