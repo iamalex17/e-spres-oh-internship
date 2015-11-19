@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 
 if((isset($_POST['exerciseContent'])) && !empty($_POST['exerciseContent'])) {
 	$description = htmlentities($_POST['exerciseContent']);
-	$sql = 'UPDATE `submitted_exercises` SET `description` = :description WHERE id = :solutionID';
+	$sql = 'UPDATE `submitted_exercises` SET `description` = :description, status = 1 WHERE id = :solutionID';
 	$valuesToBind = array('solutionID' => $_POST['solution_id'], 'description' => $description);
 	$result = ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = 'Solution updated succesfully.';
