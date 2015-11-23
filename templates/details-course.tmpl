@@ -171,7 +171,7 @@
 						{% if user_role == 3 %}
 						<section class="feedback-container">
 							{% if exercise.solution.feedback != NULL and ok == 1 %}
-							<h4 class="reset">Feedback from {{ feedbackMentor.first_name }} {{ feedbackMentor.last_name }}</h4>
+							<h4 class="reset">Feedback from - {{ feedbackMentor.first_name }} {{ feedbackMentor.last_name }}</h4>
 							<p>{{ exercise.solution.feedback | raw }}</p>
 							{% elseif ok == 1 and exercise.solution.status == 2 %}
 								<p class="reset">Your answer is correct</p>

@@ -1117,6 +1117,9 @@ input {
 .solution-pending {
 	color: #f4b350;
 }
+.feedback-container h4 {
+	font-size: 17px;
+}
 
 
 
