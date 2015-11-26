@@ -964,14 +964,23 @@ input {
 }
 .pending-user .wrapper {
 	position: absolute;
-	right: 40px;
-	top: 51px;
+	right: -1px;
+	top: 35px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 	z-index: 1;
+}
+ul.wrapper li {
+	margin: 0;
 }
 .pending-user button {
 	width: 143px;
 	text-align: left;
 	border-radius: 0;
+}
+.pending-user a {
+	position: relative;
 }
 .pending-user .no-radius {
 	border-bottom-right-radius: 0;
