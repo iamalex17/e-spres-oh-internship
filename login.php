@@ -1,5 +1,13 @@
 <?php
-require_once 'config.php';
+$config = __DIR__.'/config.php';
+
+if(!file_exists($config)) {
+	echo "The app is not configured! Check if config file exists!";
+	exit();
+} else {
+	require_once 'config.php';
+}
+
 require_once 'controllers/load-template.php';
 require_once 'classes/class.connect-to-db.php';
 require_once 'vendors/Google/autoload.php';
