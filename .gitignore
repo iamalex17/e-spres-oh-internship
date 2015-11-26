@@ -1,4 +1,5 @@
 images/user-profile-images
+config.php
 
 # Object files
 *.o
