@@ -22,12 +22,12 @@ if(isset($_POST['solution-feedback'])) {
 	ConnectToDB::interogateDB($sql, $valuesToBind);
 	$successMessage = "Feedback has been sent successfully!";
 	$_SESSION['successMessage'] = $successMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
+	header('Location: ' . $path . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
 	exit();
 } else {
 	$errorMessage = "Please, choose if the solution is correct or not.\n";
 	$_SESSION['errorMessage'] = $errorMessage;
-	header('Location: ' . $GLOBALS['path'] . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
+	header('Location: ' . $path . 'users/view-exercises?course_id=' . $_SESSION['course_id']);
 	exit();
 }
 ?>
